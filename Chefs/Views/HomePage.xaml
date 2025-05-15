@@ -4,6 +4,7 @@
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	  xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+	  xmlns:ctrl="using:Chefs.Views.Controls"
 	  xmlns:uer="using:Uno.Extensions.Reactive.UI"
 	  xmlns:utu="using:Uno.Toolkit.UI"
 	  xmlns:uen="using:Uno.Extensions.Navigation.UI"
@@ -23,12 +24,27 @@
 								CornerRadius="4"
 								PrimaryAxisAlignment="Center"
 								HorizontalAlignment="Stretch">
-					<Border Height="144">
-						<Image HorizontalAlignment="Center"
-							   VerticalAlignment="Center"
-							   Source="{Binding ImageUrl}"
-							   Stretch="UniformToFill" />
-					</Border>
+						<Grid Margin="{utu:Responsive Normal=16, Wide=40}"
+										  Padding="{utu:Responsive Normal=16, Wide=24}"
+										  Background="{ThemeResource SurfaceBrush}"
+										  CornerRadius="24"
+										  RowSpacing="{utu:Responsive Normal=5, Wide=24}">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBlock TextAlignment="Center"
+									   Text="Intake per serving"
+									   Foreground="{ThemeResource OnBackgroundBrush}"
+									   Style="{StaticResource TitleLarge}" />
+							<ctrl:ChartControl DataContext="{Binding}"
+											   CarbBrush="{ThemeResource NutritionCarbsValBrush}"
+											   ProteinBrush="{ThemeResource NutritionProteinValBrush}"
+											   FatBrush="{ThemeResource NutritionFatValBrush}"
+											   DataLabelBrush="{ThemeResource NutritionDataLabelBrush}"
+											   TrackBackgroundBrush="{ThemeResource NutritionTrackBackgroundBrush}"
+											   Grid.Row="1" />
+						</Grid>
 					<utu:AutoLayout Spacing="16"
 									Padding="16"
 									Justify="SpaceBetween"
@@ -62,6 +78,7 @@
 			</utu:CardContentControl>
 		</DataTemplate>
 	</Page.Resources>
+
 	<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
 		<utu:NavigationBar x:Name="NavBar"
 						   Style="{StaticResource ChefsNavigationBarStyle}">
