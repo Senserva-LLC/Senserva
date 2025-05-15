@@ -24,9 +24,7 @@
 								CornerRadius="4"
 								PrimaryAxisAlignment="Center"
 								HorizontalAlignment="Stretch">
-					<Border Height="144">
-						<Grid Margin="{utu:Responsive Normal=16,
-													  Wide=40}"
+						<Grid Margin="{utu:Responsive Normal=16, Wide=40}"
 										  Padding="{utu:Responsive Normal=16, Wide=24}"
 										  Background="{ThemeResource SurfaceBrush}"
 										  CornerRadius="24"
@@ -47,7 +45,6 @@
 											   TrackBackgroundBrush="{ThemeResource NutritionTrackBackgroundBrush}"
 											   Grid.Row="1" />
 						</Grid>
-					</Border>
 					<utu:AutoLayout Spacing="16"
 									Padding="16"
 									Justify="SpaceBetween"
@@ -81,6 +78,7 @@
 			</utu:CardContentControl>
 		</DataTemplate>
 	</Page.Resources>
+
 	<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
 		<utu:NavigationBar x:Name="NavBar"
 						   Style="{StaticResource ChefsNavigationBarStyle}">
