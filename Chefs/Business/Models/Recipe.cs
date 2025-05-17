@@ -1,6 +1,9 @@
 
 namespace Chefs.Business.Models;
 
+/// <summary>
+/// TODO rename this as Solution
+/// </summary>
 public partial record Recipe : ISenservaEntity
 {
 	public Guid Id { get; init; }

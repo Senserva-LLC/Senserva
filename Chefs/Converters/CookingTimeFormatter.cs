@@ -7,9 +7,9 @@ public class CookingTimeFormatter : IValueConverter
 {
 	public object? Convert(object value, Type targetType, object parameter, string language)
 	{
-		if (value is Time time)
+		if (value is FixTime time)
 		{
-			string timeString = (time.ToString() ?? Time.Under15min.ToString()).Replace("Under", "");
+			string timeString = (time.ToString() ?? FixTime.Under15min.ToString()).Replace("Under", "");
 
 			return timeString.Insert(2, " ");
 		}

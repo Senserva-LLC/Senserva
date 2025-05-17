@@ -3,7 +3,7 @@ namespace Chefs.Business.Models;
 
 public record SearchFilter(
 	FilterGroup? FilterGroup = null,
-	Time? Time = null,
+	FixTime? Time = null,
 	Difficulty? Difficulty = null,
 	int? ItemsEffected = null,
 	Category? Category = null)
@@ -15,9 +15,10 @@ public record SearchFilter(
 	{
 		var maxTime = Time switch
 		{
-			Models.Time.Under15min => TimeSpan.FromMinutes(15),
-			Models.Time.Under30min => TimeSpan.FromMinutes(30),
-			Models.Time.Under60min => TimeSpan.FromMinutes(60),
+			FixTime.Under15min => TimeSpan.FromMinutes(15),
+			FixTime.Under30min => TimeSpan.FromMinutes(30),
+			FixTime.Under60min => TimeSpan.FromMinutes(60),
+			FixTime.Under120min => TimeSpan.FromMinutes(120),
 			_ => TimeSpan.MaxValue,
 		};
 
