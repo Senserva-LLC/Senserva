@@ -48,7 +48,7 @@
 			<utu:NavigationBar.PrimaryCommands>
 				<AppBarButton Command="{Binding Share}">
 					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Share}" />
+						<PathIcon Foreground ="Lime" Data="{StaticResource Icon_Export}" />
 					</AppBarButton.Icon>
 				</AppBarButton>
 				<AppBarButton Command="{Binding Favorite}">

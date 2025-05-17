@@ -1,6 +1,4 @@
 
-using Chefs.Services.Sharing;
-
 namespace Chefs.Presentation;
 
 public partial record RecipeDetailsModel
@@ -9,21 +7,18 @@ public partial record RecipeDetailsModel
 	private readonly IRecipeService _recipeService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
-	private readonly IShareService _shareService;
 
 	public RecipeDetailsModel(
 		Recipe recipe,
 		INavigator navigator,
 		IRecipeService recipeService,
 		IUserService userService,
-		IMessenger messenger,
-		IShareService shareService)
+		IMessenger messenger)
 	{
 		_navigator = navigator;
 		_recipeService = recipeService;
 		_userService = userService;
 		_messenger = messenger;
-		_shareService = shareService;
 
 		Recipe = recipe;
 	}
@@ -67,6 +62,6 @@ public partial record RecipeDetailsModel
 	/// <returns></returns>
 	public async Task Share(CancellationToken ct)
 	{
-		await _shareService.ShareRecipe(Recipe, await Steps, ct);
+
 	}
 }

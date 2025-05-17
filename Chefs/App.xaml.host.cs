@@ -1,9 +1,6 @@
-using Chefs.Services;
 using Chefs.Services.Settings;
-using Chefs.Services.Sharing;
 using Chefs.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
-using Uno.Extensions.Http.Kiota;
 
 namespace Chefs;
 
@@ -53,7 +50,6 @@ public partial class App : Application
 						.AddSingleton<IMessenger, WeakReferenceMessenger>()
 						.AddSingleton<INotificationService, NotificationService>()
 						.AddSingleton<IRecipeService, RecipeService>()
-						.AddSingleton<IShareService, ShareService>()
 						.AddSingleton<ISettingsService, SettingsService>()
 						.AddSingleton<IUserService, UserService>();
 				})
