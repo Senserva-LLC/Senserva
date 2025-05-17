@@ -7,7 +7,7 @@ public partial record Recipe : IChefEntity
 	public string? ImageUrl { get; init; }
 	public string? Name { get; init; }
 	public int Serves { get; init; }
-	public TimeSpan CookTime { get; init; }
+	public TimeSpan EstimateTime { get; init; }
 	public Difficulty Difficulty { get; init; }
 	public string? Calories { get; init; }
 	public string? Details { get; init; }
@@ -25,7 +25,7 @@ public partial record Recipe : IChefEntity
 		Nutrition = new Nutrition();
 		Category = new Category();
 		Difficulty = Difficulty.Beginner;
-		CookTime = TimeSpan.FromMinutes(30);
+		EstimateTime = TimeSpan.FromMinutes(30);
 	}
 
 
@@ -35,9 +35,9 @@ public partial record Recipe : IChefEntity
 	{
 		get
 		{
-			return CookTime > TimeSpan.FromHours(1)
-				? $"{CookTime:%h} hour {CookTime:%m} mins • {Calories}"
-				: $"{CookTime:%m} mins • {Calories}";
+			return EstimateTime > TimeSpan.FromHours(1)
+				? $"{EstimateTime:%h} hour {EstimateTime:%m} mins • {Calories}"
+				: $"{EstimateTime:%m} mins • {Calories}";
 		}
 	}
 

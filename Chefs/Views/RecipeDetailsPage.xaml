@@ -130,7 +130,7 @@
 											  Foreground="{ThemeResource OnSurfaceBrush}" />
 									<TextBlock TextAlignment="Center"
 											   TextWrapping="Wrap"
-											   Text="{Binding Recipe.CookTime, Converter={StaticResource TimeSpanToStringConverter}}"
+											   Text="{Binding Recipe.EstimateTime, Converter={StaticResource TimeSpanToStringConverter}}"
 											   Foreground="{ThemeResource OnSurfaceMediumBrush}"
 											   Style="{StaticResource BodySmall}" />
 								</utu:AutoLayout>

@@ -21,10 +21,10 @@ public record SearchFilter(
 			_ => TimeSpan.MaxValue,
 		};
 
-		var cookTimeSpan = recipe.CookTime;
+		var timespan = recipe.EstimateTime;
 
 		return (Difficulty == null || recipe.Difficulty == Difficulty) &&
-			   (Time == null || cookTimeSpan < maxTime) &&
+			   (Time == null || timespan < maxTime) &&
 			   (Category == null || recipe.Category.Id == Category.Id || recipe.Category.Name == Category.Name) &&
 			   (Serves == null || Serves == recipe.Serves);
 	}

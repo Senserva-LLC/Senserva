@@ -7,12 +7,12 @@ public record Step
 	{
 		Cookware = ImmutableList<string>.Empty;
 		Ingredients = ImmutableList<string>.Empty;
-		CookTime = TimeSpan.Zero;
+		EstimatedTime = TimeSpan.Zero;
 	}
 
 	public int Number { get; init; }
 	public string? Name { get; init; }
-	public TimeSpan CookTime { get; init; }
+	public TimeSpan EstimatedTime { get; init; }
 	public IImmutableList<string>? Cookware { get; init; }
 	public IImmutableList<string>? Ingredients { get; init; }
 	public string? Description { get; init; }
