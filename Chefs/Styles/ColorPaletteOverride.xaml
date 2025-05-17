@@ -45,9 +45,9 @@
 			<Color x:Key="OnTertiaryContainerColor">#FFFFFF</Color>
 
 			<Color x:Key="NutritionTrackBackgroundColor">#1C1B1F14</Color>
-			<Color x:Key="NutritionProteinValColor">#C12138</Color>
+			<Color x:Key="DataRiskValColor">#C12138</Color>
 			<Color x:Key="UserRiskValColor">#EB7726</Color>
-			<Color x:Key="NutritionFatValColor">#E8C41E</Color>
+			<Color x:Key="DeviceRiskValColor">#E8C41E</Color>
 			<x:String x:Key="ChefsLogoWithIcon">ms-appx:///Assets/Icons/chefslogosignature.png</x:String>
 		</ResourceDictionary>
 		<ResourceDictionary x:Key="Dark">
@@ -85,8 +85,8 @@
 			<Color x:Key="StatusBarForegroundColor">#46C2CB</Color>
 
 			<Color x:Key="NutritionTrackBackgroundColor">#242629</Color>
-			<Color x:Key="NutritionProteinValColor">#C12138</Color>
-			<Color x:Key="NutritionCarbsValColor">#EB7726</Color>
+			<Color x:Key="DataRiskValColor">#C12138</Color>
+			<Color x:Key="UserRiskValColor">#EB7726</Color>
 			<Color x:Key="DeviceRiskValColor">#E8C41E</Color>
 			<x:String x:Key="ChefsLogoWithIcon">ms-appx:///Assets/Icons/chefslogosignature_dark.png</x:String>
 		</ResourceDictionary>

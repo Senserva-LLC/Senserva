@@ -11,9 +11,6 @@ public partial record Risks
 	public double? DataRisk { get; }
 	public double? DataRiskBase { get; }
 
-	//public double? Carbs { get; }
-	//public double? CarbsBase { get; }
-
 	public double? UserRisk { get; }
 	public double? UserRiskBase { get; }
 

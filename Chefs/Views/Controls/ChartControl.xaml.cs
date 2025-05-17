@@ -12,23 +12,23 @@ public sealed partial class ChartControl : UserControl
 	private Recipe? _recipe;
 
 
-	public SolidColorBrush CarbBrush
+	public SolidColorBrush UserRiskBrush
 	{
-		get { return (SolidColorBrush)GetValue(CarbBrushProperty); }
-		set { SetValue(CarbBrushProperty, value); }
+		get { return (SolidColorBrush)GetValue(UserRiskBrushProperty); }
+		set { SetValue(UserRiskBrushProperty, value); }
 	}
 
-	public static readonly DependencyProperty CarbBrushProperty =
-		DependencyProperty.Register("CarbBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
+	public static readonly DependencyProperty UserRiskBrushProperty =
+		DependencyProperty.Register("UserRiskBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
 
-	public SolidColorBrush ProteinBrush
+	public SolidColorBrush DataRiskBrush
 	{
-		get { return (SolidColorBrush)GetValue(ProteinBrushProperty); }
-		set { SetValue(ProteinBrushProperty, value); }
+		get { return (SolidColorBrush)GetValue(DataRiskBrushProperty); }
+		set { SetValue(DataRiskBrushProperty, value); }
 	}
 
-	public static readonly DependencyProperty ProteinBrushProperty =
-		DependencyProperty.Register("ProteinBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
+	public static readonly DependencyProperty DataRiskBrushProperty =
+		DependencyProperty.Register("DataRiskBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
 
 	public SolidColorBrush DeviceRiskBrush
 	{
@@ -180,8 +180,8 @@ public sealed partial class ChartControl : UserControl
 	{
 		return name switch
 		{
-			nameof(Risks.DataRisk) => new SolidColorPaint(GetSKColorFromResource(CarbBrush)),
-			nameof(Risks.UserRisk) => new SolidColorPaint(GetSKColorFromResource(ProteinBrush)),
+			nameof(Risks.UserRisk) => new SolidColorPaint(GetSKColorFromResource(UserRiskBrush)),
+			nameof(Risks.DataRisk) => new SolidColorPaint(GetSKColorFromResource(DataRiskBrush)),
 			nameof(Risks.DeviceRisk) => new SolidColorPaint(GetSKColorFromResource(DeviceRiskBrush)),
 			_ => new SolidColorPaint(SKColors.Yellow),
 		};

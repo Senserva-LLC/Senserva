@@ -4,14 +4,14 @@
         <ResourceDictionary x:Key="Light">
             <SolidColorBrush x:Key="NutritionTrackBackgroundBrush">#1C1B1F14</SolidColorBrush>
 			<SolidColorBrush x:Key="NutritionProteinValBrush">#C12138</SolidColorBrush>
-			<SolidColorBrush x:Key="NutritionCarbsValBrush">#EB7726</SolidColorBrush>
-			<SolidColorBrush x:Key="NutritionFatValBrush">#E8C41E</SolidColorBrush>
+			<SolidColorBrush x:Key="UserRiskValBrush">#EB7726</SolidColorBrush>
+			<SolidColorBrush x:Key="DeviceRiskValBrush">#E8C41E</SolidColorBrush>
             <StaticResource x:Key="NutritionDataLabelBrush" ResourceKey="OnSurfaceBrush" />
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
             <SolidColorBrush x:Key="NutritionTrackBackgroundBrush">#242629</SolidColorBrush>
 			<SolidColorBrush x:Key="NutritionProteinValBrush">#C12138</SolidColorBrush>
-			<SolidColorBrush x:Key="NutritionCarbsValBrush">#EB7726</SolidColorBrush>
+			<SolidColorBrush x:Key="UserRiskValBrush">#EB7726</SolidColorBrush>
 			<SolidColorBrush x:Key="DeviceRiskValBrush">#E8C41E</SolidColorBrush>
             <StaticResource x:Key="NutritionDataLabelBrush" ResourceKey="OnSurfaceBrush" />
         </ResourceDictionary>
