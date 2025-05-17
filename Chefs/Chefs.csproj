@@ -238,4 +238,16 @@
 	  <Folder Include="Services\Serialization\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Views\PoliciesPage.xaml.cs">
+	    <DependentUpon>PoliciesPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\PoliciesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
 </Project>

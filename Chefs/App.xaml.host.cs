@@ -116,6 +116,7 @@ public partial class App : Application
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
 			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
 			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
+			new ViewMap<PoliciesPage, PoliciesModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, LiveCookingModel>(Data: new DataMap<LiveCookingParameter>()),
@@ -137,6 +138,7 @@ public partial class App : Application
 						#region Main Tabs
 						new RouteMap("Home", View: views.FindByViewModel<HomeModel>(), IsDefault: true),
 						new RouteMap("Search", View: views.FindByViewModel<SearchModel>()),
+						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
 						new RouteMap("FavoriteRecipes", View: views.FindByViewModel<FavoriteRecipesModel>()),
 						#endregion
 
