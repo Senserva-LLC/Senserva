@@ -1,3 +1,4 @@
+using Microsoft.UI.Xaml.Controls.Primitives;
 using ReviewData = Chefs.Services.Clients.Models.ReviewData;
 
 namespace Chefs.Services.Recipes;
@@ -10,7 +11,14 @@ public class RecipeService(
 {
 	private int _lastTextLength;
 
-	public async Task<IImmutableList<Recipe>> GetRecipesAsync() => new List<Recipe>().ToImmutableList();
+	public async Task<IImmutableList<Recipe>> GetRecipesAsync()
+	{
+		var list = new List<Recipe>();
+
+		list.Add(new Recipe());
+
+		return list.ToImmutableList();
+	}
 
 	public async Task<IImmutableList<Review>> GetReviewsAsync() => new List<Review>().ToImmutableList();
 

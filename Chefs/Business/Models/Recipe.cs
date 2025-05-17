@@ -1,10 +1,11 @@
 using Chefs.Services.Clients.Models;
-using RecipeData = Chefs.Services.Clients.Models.RecipeData;
 
 namespace Chefs.Business.Models;
 
 public partial record Recipe : IChefEntity
 {
+	public Recipe() { }
+
 	public Recipe(RecipeData recipeData)
 	{
 		Id = recipeData.Id ?? Guid.Empty;
@@ -24,7 +25,7 @@ public partial record Recipe : IChefEntity
 	public Guid Id { get; init; }
 	public Guid UserId { get; init; }
 	public string? ImageUrl { get; init; }
-	public string? Name { get; init; }
+	public string? Name { get; init; } = "test";
 	public int Serves { get; init; }
 	public TimeSpanObject CookTime { get; init; }
 	public Difficulty Difficulty { get; init; }
