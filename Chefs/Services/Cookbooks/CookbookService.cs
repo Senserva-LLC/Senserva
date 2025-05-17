@@ -9,30 +9,24 @@ public class CookbookService(IMessenger messenger, IUserService userService)
 		var currentUser = await userService.GetCurrent(ct);
 		var cookbookData = Cookbook.CreateData(currentUser.Id, name, recipes);
 
-
-		return new Cookbook(cookbookData);
+		return cookbookData;
 	}
 
 	public async ValueTask<Cookbook> Update(Cookbook cookbook, IImmutableList<Recipe> recipes, CancellationToken ct)
 	{
-		var updatedCookbookData = cookbook.ToData(recipes);
-
-		var newCookbook = new Cookbook(updatedCookbookData);
+		var newCookbook = new Cookbook(recipes);
 		messenger.Send(new EntityMessage<Cookbook>(EntityChange.Updated, newCookbook));
 		return newCookbook;
 	}
 
 	public async ValueTask Update(Cookbook cookbook, CancellationToken ct)
 	{
-		var cookbookData = cookbook.ToData();
-
 		messenger.Send(new EntityMessage<Cookbook>(EntityChange.Updated, cookbook));
 	}
 
 	public async ValueTask Save(Cookbook cookbook, CancellationToken ct)
 	{
 		var currentUser = await userService.GetCurrent(ct);
-		var cookbookData = cookbook.ToData();
 
 		messenger.Send(new EntityMessage<Cookbook>(EntityChange.Created, cookbook));
 	}

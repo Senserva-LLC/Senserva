@@ -1,4 +1,3 @@
-using Chefs.Services.Clients.Models;
 using Microsoft.UI.Xaml.Data;
 
 namespace Chefs.Converters;
@@ -7,9 +6,9 @@ public class TimeSpanToStringConverter : IValueConverter
 {
 	public object Convert(object value, Type targetType, object parameter, string language)
 	{
-		if (value is TimeSpanObject tso)
+		if (value is TimeSpan tso)
 		{
-			var ts = new TimeSpan(tso.Ticks ?? 0);
+			var ts = new TimeSpan(tso.Ticks);
 
 			var ftm = string.Format("{0} {1}",
 				ts.Hours > 0 ? ts.ToString(@"%h' hour.'") : string.Empty,

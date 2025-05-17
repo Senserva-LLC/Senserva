@@ -1,19 +1,13 @@
-using Chefs.Services.Clients.Models;
-using StepData = Chefs.Services.Clients.Models.StepData;
 
 namespace Chefs.Business.Models;
 
 public record Step
 {
-	public Step(StepData stepData)
+	public Step()
 	{
-		Number = stepData.Number ?? 0;
-		Name = stepData.Name;
-		CookTime = ToTimeSpan(stepData.CookTime);
-		Cookware = stepData.Cookware?.ToImmutableList() ?? ImmutableList<string>.Empty;
-		Ingredients = stepData.Ingredients?.ToImmutableList() ?? ImmutableList<string>.Empty;
-		Description = stepData.Description;
-		UrlVideo = stepData.UrlVideo;
+		Cookware = ImmutableList<string>.Empty;
+		Ingredients = ImmutableList<string>.Empty;
+		CookTime = TimeSpan.Zero;
 	}
 
 	public int Number { get; init; }
@@ -24,19 +18,4 @@ public record Step
 	public string? Description { get; init; }
 	public string? UrlVideo { get; init; }
 
-	internal StepData ToData() => new()
-	{
-		Number = Number,
-		Name = Name,
-		CookTime = new TimeSpanObject(),
-		Cookware = Cookware?.ToList(),
-		Ingredients = Ingredients?.ToList(),
-		Description = Description,
-		UrlVideo = UrlVideo
-	};
-
-	private static TimeSpan ToTimeSpan(TimeSpanObject? timeSpanObject)
-	{
-		return new TimeSpan(timeSpanObject?.Ticks ?? 0);
-	}
 }

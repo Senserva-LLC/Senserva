@@ -1,10 +1,8 @@
-using RecipeData = Chefs.Services.Clients.Models.RecipeData;
-
 namespace Chefs.Business.Models;
 
 public class CookbookImages
 {
-	public CookbookImages(ImmutableList<RecipeData> recipesData)
+	public CookbookImages(ImmutableList<Recipe> recipesData)
 	{
 		FirstImage = recipesData.Count > 0
 			? recipesData[0].ImageUrl

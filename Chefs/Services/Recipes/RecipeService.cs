@@ -1,5 +1,3 @@
-using Microsoft.UI.Xaml.Controls.Primitives;
-using ReviewData = Chefs.Services.Clients.Models.ReviewData;
 
 namespace Chefs.Services.Recipes;
 

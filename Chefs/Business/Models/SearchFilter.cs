@@ -1,4 +1,3 @@
-using Chefs.Services.Clients.Models;
 
 namespace Chefs.Business.Models;
 
@@ -22,15 +21,12 @@ public record SearchFilter(
 			_ => TimeSpan.MaxValue,
 		};
 
-		var cookTimeSpan = ToTimeSpan(recipe.CookTime);
+		var cookTimeSpan = recipe.CookTime;
 
 		return (Difficulty == null || recipe.Difficulty == Difficulty) &&
 			   (Time == null || cookTimeSpan < maxTime) &&
 			   (Category == null || recipe.Category.Id == Category.Id || recipe.Category.Name == Category.Name) &&
 			   (Serves == null || Serves == recipe.Serves);
 	}
-	private static TimeSpan ToTimeSpan(TimeSpanObject timeSpanObject)
-	{
-		return new TimeSpan(timeSpanObject?.Ticks ?? 0);
-	}
+
 }

@@ -234,4 +234,8 @@
 	  <EmbeddedResource Include="..\AppData\*.json" LinkBase="AppData" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Services\Serialization\" />
+	</ItemGroup>
+
 </Project>

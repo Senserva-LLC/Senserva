@@ -21,7 +21,7 @@ public partial record GroupedNotification
 
 	public IImmutableList<Notification> GetAll() => _all;
 
-	private static bool IsSameDate(DateTime date1, DateTime date2)
+	private static bool IsSameDate(DateTimeOffset date1, DateTimeOffset date2)
 	{
 		// Accessing Date property makes sure we are ignoring the time component of DateTime
 		return date1.Date.Equals(date2.Date);

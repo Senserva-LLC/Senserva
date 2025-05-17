@@ -1,5 +1,4 @@
 using Chefs.Services;
-using Chefs.Services.Clients;
 using Chefs.Services.Settings;
 using Chefs.Services.Sharing;
 using Chefs.Views.Flyouts;
@@ -95,29 +94,10 @@ public partial class App : Application
 
 	private void ConfigureSerialization(HostBuilderContext context, IServiceCollection services)
 	{
-#if USE_MOCKS
-		services
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListCookbookData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.CookbookData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.RecipeData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListNotificationData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListRecipeData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListCategoryData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListIngredientData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListUserData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListStepData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListReviewData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.UserData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.Guid)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ReviewData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.IEnumerableRecipeData);
-#endif
-
 		services
 			.AddJsonTypeInfo(AppConfigContext.Default.AppConfig)
 			.AddJsonTypeInfo(AppConfigContext.Default.DictionaryStringAppConfig)
-			.AddJsonTypeInfo(AppConfigContext.Default.String)
-			.AddJsonTypeInfo(MockEndpointContext.Default.LoginRequest);
+			.AddJsonTypeInfo(AppConfigContext.Default.String);
 	}
 
 	private void ConfigureNavServices(HostBuilderContext context, IServiceCollection services)

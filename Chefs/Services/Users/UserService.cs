@@ -1,4 +1,3 @@
-using Chefs.Services.Clients;
 
 namespace Chefs.Services.Users;
 
