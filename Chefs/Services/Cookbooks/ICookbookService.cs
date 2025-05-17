@@ -39,7 +39,7 @@ public interface ICookbookService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// Get each cookbook from api that was saved
+	/// GetRecipesAsync each cookbook from api that was saved
 	/// </returns>
 	ValueTask<IImmutableList<Cookbook>> GetSaved(CancellationToken ct);
 
@@ -48,7 +48,7 @@ public interface ICookbookService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// User's cookbooks
+	/// SenservaUser's cookbooks
 	/// </returns>
 	ValueTask<IImmutableList<Cookbook>> GetByUser(Guid userId, CancellationToken ct);
 }

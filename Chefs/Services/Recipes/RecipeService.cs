@@ -1,10 +1,8 @@
-using Chefs.Services.Clients;
 using ReviewData = Chefs.Services.Clients.Models.ReviewData;
 
 namespace Chefs.Services.Recipes;
 
 public class RecipeService(
-	ChefsApiClient api,
 	IUserService userService,
 	IWritableOptions<SearchHistory> searchOptions,
 	IMessenger messenger)
@@ -12,31 +10,40 @@ public class RecipeService(
 {
 	private int _lastTextLength;
 
-	public async ValueTask<IImmutableList<Recipe>> GetAll(CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetRecipesAsync() => new List<Recipe>().ToImmutableList();
+
+	public async Task<IImmutableList<Review>> GetReviewsAsync() => new List<Review>().ToImmutableList();
+
+	public async Task<IImmutableList<Step>> GetStepsAsync() => new List<Step>().ToImmutableList();
+
+	public async Task<IImmutableList<Ingredient>> GetIngredientsAsync() => new List<Ingredient>().ToImmutableList();
+
+	public async Task<IImmutableList<Category>> GetCategoriesAsync() => new List<Category>().ToImmutableList();
+
+	public async Task<IImmutableList<Recipe>> GetAll(CancellationToken ct)
 	{
-		var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
-		return recipesData?.Select(r => new Recipe(r)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
 	}
 
 	public async ValueTask<int> GetCount(Guid userId, CancellationToken ct)
 	{
-		var countData = await api.Api.Recipe.Count.GetAsync(q => q.QueryParameters.UserId = userId, cancellationToken: ct);
-		return (int)countData;
+		//var countData = await api.Api.Recipe.Count.GetAsync(q => q.QueryParameters.UserId = userId, cancellationToken: ct);
+		return (await GetRecipesAsync()).Count;
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> GetByCategory(int categoryId, CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetByCategory(int categoryId, CancellationToken ct)
 	{
-		var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
-		return recipesData?.Where(r => r.Category?.Id == categoryId).Select(r => new Recipe(r)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		//var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
+		//return recipesData?.Where(r => r.Category?.Id == categoryId).Select(r => new Recipe(r)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
 	}
 
-	public async ValueTask<IImmutableList<Category>> GetCategories(CancellationToken ct)
+	public async Task<IImmutableList<Category>> GetCategories(CancellationToken ct)
 	{
-		var categoriesData = await api.Api.Recipe.Categories.GetAsync(cancellationToken: ct);
-		return categoriesData?.Select(c => new Category(c)).ToImmutableList() ?? ImmutableList<Category>.Empty;
+		return await GetCategoriesAsync();
 	}
 
-	public async ValueTask<IImmutableList<CategoryWithCount>> GetCategoriesWithCount(CancellationToken ct)
+	public async Task<IImmutableList<CategoryWithCount>> GetCategoriesWithCount(CancellationToken ct)
 	{
 		var categories = await GetCategories(ct);
 		var tasks = categories.Select(async category =>
@@ -49,25 +56,23 @@ public class RecipeService(
 		return categoriesWithCount.ToImmutableList();
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> GetRecent(CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetRecent(CancellationToken ct)
 	{
-		var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
-		return recipesData?.Select(r => new Recipe(r)).OrderByDescending(x => x.Date).Take(7).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
+	//	return recipesData?.Select(r => new Recipe(r)).OrderByDescending(x => x.Date).Take(7).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> GetTrending(CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetTrending(CancellationToken ct)
 	{
-		var trendingRecipesData = await api.Api.Recipe.Trending.GetAsync(cancellationToken: ct);
-		return trendingRecipesData?.Select(r => new Recipe(r)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> GetPopular(CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetPopular(CancellationToken ct)
 	{
-		var popularRecipesData = await api.Api.Recipe.Popular.GetAsync(cancellationToken: ct);
-		return popularRecipesData?.Select(r => new Recipe(r)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> Search(string term, SearchFilter filter, CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> Search(string term, SearchFilter filter, CancellationToken ct)
 	{
 		var recipesToSearch = filter.FilterGroup switch
 		{
@@ -92,40 +97,39 @@ public class RecipeService(
 	public IImmutableList<string> GetSearchHistory()
 		=> searchOptions.Value.Searches.Take(3).ToImmutableList();
 
-	public async ValueTask<IImmutableList<Review>> GetReviews(Guid recipeId, CancellationToken ct)
+	public async Task<IImmutableList<Review>> GetReviews(Guid recipeId, CancellationToken ct)
 	{
-		var reviewsData = await api.Api.Recipe[recipeId].Reviews.GetAsync(cancellationToken: ct);
-		return reviewsData?.Select(x => new Review(x)).ToImmutableList() ?? ImmutableList<Review>.Empty;
+		return await GetReviewsAsync();
 	}
 
-	public async ValueTask<IImmutableList<Step>> GetSteps(Guid recipeId, CancellationToken ct)
+	public async Task<IImmutableList<Step>> GetSteps(Guid recipeId, CancellationToken ct)
 	{
-		var stepsData = await api.Api.Recipe[recipeId].Steps.GetAsync(cancellationToken: ct);
-		return stepsData?.Select(x => new Step(x)).ToImmutableList() ?? ImmutableList<Step>.Empty;
+		return await GetStepsAsync();
+		//var stepsData = await api.Api.Recipe[recipeId].Steps.GetAsync(cancellationToken: ct);
 	}
 
-	public async ValueTask<IImmutableList<Ingredient>> GetIngredients(Guid recipeId, CancellationToken ct)
+	public async Task<IImmutableList<Ingredient>> GetIngredients(Guid recipeId, CancellationToken ct)
 	{
-		var ingredientsData = await api.Api.Recipe[recipeId].Ingredients.GetAsync(cancellationToken: ct);
-		return ingredientsData?.Select(x => new Ingredient(x)).ToImmutableList() ?? ImmutableList<Ingredient>.Empty;
+		//var ingredientsData = await api.Api.Recipe[recipeId].Ingredients.GetAsync(cancellationToken:
+		//ct);
+		return await GetIngredientsAsync();
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> GetByUser(Guid userId, CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetByUser(Guid userId, CancellationToken ct)
 	{
-		var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
-		return recipesData?.Where(r => r.UserId == userId).Select(x => new Recipe(x)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
+		//return recipesData?.Where(r => r.UserId == userId).Select(x => new Recipe(x)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
 	}
 
 	public async ValueTask<Review> CreateReview(Guid recipeId, string review, CancellationToken ct)
 	{
-		var reviewData = new ReviewData { RecipeId = recipeId, Description = review };
-		var createdReviewData = await api.Api.Recipe.Review.PostAsync(reviewData, cancellationToken: ct);
-		return new Review(createdReviewData);
+		var reviewData = new Review { RecipeId = recipeId, Description = review };
+		return reviewData;
 	}
 
 	public IListState<Recipe> FavoritedRecipes => ListState<Recipe>.Async(this, GetFavorited);
 
-	public async ValueTask<IImmutableList<Recipe>> GetFavoritedWithPagination(uint pageSize, uint firstItemIndex, CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetFavoritedWithPagination(uint pageSize, uint firstItemIndex, CancellationToken ct)
 	{
 		var favoritedRecipes = await GetFavorited(ct);
 		return favoritedRecipes
@@ -138,11 +142,6 @@ public class RecipeService(
 	{
 		var currentUser = await userService.GetCurrent(ct);
 		var updatedRecipe = recipe with { IsFavorite = !recipe.IsFavorite };
-		await api.Api.Recipe.Favorited.PostAsync(q =>
-		{
-			q.QueryParameters.RecipeId = updatedRecipe.Id;
-			q.QueryParameters.UserId = currentUser.Id;
-		}, cancellationToken: ct);
 
 		if (updatedRecipe.IsFavorite)
 		{
@@ -158,37 +157,29 @@ public class RecipeService(
 
 	public async ValueTask LikeReview(Review review, CancellationToken ct)
 	{
-		var reviewData = review.ToData();
-		var updatedReviewData = await api.Api.Recipe.Review.Like.PostAsync(reviewData, cancellationToken: ct);
-		var updatedReview = new Review(updatedReviewData);
+		var updatedReview = new Review();
 		messenger.Send(new EntityMessage<Review>(EntityChange.Updated, updatedReview));
 	}
 
 	public async ValueTask DislikeReview(Review review, CancellationToken ct)
 	{
-		var reviewData = review.ToData();
-		var updatedReviewData = await api.Api.Recipe.Review.Dislike.PostAsync(reviewData, cancellationToken: ct);
-		var updatedReview = new Review(updatedReviewData);
+		var updatedReview = new Review();
 		messenger.Send(new EntityMessage<Review>(EntityChange.Updated, updatedReview));
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> GetRecommended(CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetRecommended(CancellationToken ct)
 	{
-		var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
-		return recipesData?.Select(r => new Recipe(r)).OrderBy(_ => Guid.NewGuid()).Take(4).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
 	}
 
-	public async ValueTask<IImmutableList<Recipe>> GetFromChefs(CancellationToken ct)
+	public async Task<IImmutableList<Recipe>> GetFromChefs(CancellationToken ct)
 	{
-		var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
-		return recipesData?.Select(r => new Recipe(r)).OrderBy(_ => Guid.NewGuid()).Take(4).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
 	}
 
 	private async ValueTask<IImmutableList<Recipe>> GetFavorited(CancellationToken ct)
 	{
-		var currentUser = await userService.GetCurrent(ct);
-		var favoritedRecipesData = await api.Api.Recipe.Favorited.GetAsync(config => config.QueryParameters.UserId = currentUser.Id, cancellationToken: ct);
-		return favoritedRecipesData?.Select(r => new Recipe(r)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
+		return await GetRecipesAsync();
 	}
 
 	private async Task SaveSearchHistory(string text)

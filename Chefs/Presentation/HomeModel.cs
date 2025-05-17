@@ -16,16 +16,16 @@ public partial record HomeModel
 	}
 
 	public IListState<Recipe> TrendingNow => ListState
-		.Async(this, _recipeService.GetTrending)
+		.Async(this, async ct => await _recipeService.GetTrending(ct))
 		.Observe(_messenger, r => r.Id);
 
-	public IListFeed<CategoryWithCount> Categories => ListFeed.Async(_recipeService.GetCategoriesWithCount);
+	public IListFeed<CategoryWithCount> Categories => ListFeed.Async(async ct => await _recipeService.GetCategoriesWithCount(ct));
 
-	public IListFeed<Recipe> RecentlyAdded => ListFeed.Async(_recipeService.GetRecent);
+	public IListFeed<Recipe> RecentlyAdded => ListFeed.Async(async ct => await _recipeService.GetRecent(ct));
 
-	public IListFeed<User> PopularCreators => ListFeed.Async(_userService.GetPopularCreators);
+	public IListFeed<SenservaUser> PopularCreators => ListFeed.Async(async ct => await _userService.GetPopularCreators(ct));
 
-	public IFeed<User> UserProfile => _userService.User;
+	public IFeed<SenservaUser> UserProfile => _userService.User;
 
 	public async ValueTask ShowAll(CancellationToken ct) =>
 		await _navigator.NavigateRouteAsync(this, route: "/Main/-/Search", data: new SearchFilter(FilterGroup: FilterGroup.Popular), cancellation: ct);

@@ -5,7 +5,7 @@ namespace Chefs.Business.Models;
 
 public partial record Recipe : IChefEntity
 {
-	internal Recipe(RecipeData recipeData)
+	public Recipe(RecipeData recipeData)
 	{
 		Id = recipeData.Id ?? Guid.Empty;
 		UserId = recipeData.UserId ?? Guid.Empty;

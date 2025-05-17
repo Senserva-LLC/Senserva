@@ -17,13 +17,13 @@ public class MockUserEndpoints(string basePath, ISerializer serializer) : BaseMo
 			}
 			return "Unauthorized";
 		}
-		//Get popular creators
+		//GetRecipesAsync popular creators
 		if (request.RequestUri.AbsolutePath.Contains("/api/User/popular-creators"))
 		{
 			var popularCreators = users?.Where(u => u.Id != Guid.Parse("3c896419-e280-40e7-8552-240635566fed")).ToList();
 			return serializer.ToString(popularCreators);
 		}
-		//Get current user
+		//GetRecipesAsync current user
 		if (request.RequestUri.AbsolutePath.Contains("/api/User/current"))
 		{
 			var currentUser = users?.FirstOrDefault(u => u.Id == Guid.Parse("3c896419-e280-40e7-8552-240635566fed"));

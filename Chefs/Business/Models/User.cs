@@ -1,9 +1,9 @@
 using UserData = Chefs.Services.Clients.Models.UserData;
 namespace Chefs.Business.Models;
 
-public partial record User
+public partial record SenservaUser
 {
-	internal User(UserData user)
+	internal SenservaUser(UserData user)
 	{
 		Id = (Guid)user.Id;
 		UrlProfileImage = user.UrlProfileImage;
@@ -15,6 +15,11 @@ public partial record User
 		Following = user.Following;
 		Recipes = user.Recipes;
 		IsCurrent = user.IsCurrent ?? false;
+	}
+
+	public SenservaUser()
+	{
+		Id = Guid.NewGuid();
 	}
 
 	public Guid Id { get; init; }

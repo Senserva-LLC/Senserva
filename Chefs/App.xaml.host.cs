@@ -23,17 +23,6 @@ public partial class App : Application
 							.Login(async (sp, dispatcher, credentials, cancellationToken) => await ProcessCredentials(credentials));
 					}, name: "CustomAuth")
 				)
-				.UseHttp((context, services) =>
-				{
-					services.AddTransient<MockHttpMessageHandler>();
-					services.AddKiotaClient<ChefsApiClient>(
-						context,
-						options: new EndpointOptions { Url = "http://localhost:5116" }
-#if USE_MOCKS
-						, configure: (builder, endpoint) => builder.ConfigurePrimaryAndInnerHttpMessageHandler<MockHttpMessageHandler>()
-#endif
-					);
-				})
 #if DEBUG
 				// Switch to Development environment when running in DEBUG
 				.UseEnvironment(Environments.Development)
@@ -148,11 +137,11 @@ public partial class App : Application
 			new ViewMap<LoginPage, LoginModel>(ResultData: typeof(Credentials)),
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationsModel>(),
-			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<User>(), ResultData: typeof(IChefEntity)),
+			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(IChefEntity)),
 			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
 			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
-			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<User>()),
+			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, LiveCookingModel>(Data: new DataMap<LiveCookingParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
 			new ViewMap<CompletedDialog>(),

@@ -18,6 +18,11 @@ public partial record Review
 		UserLike = reviewData.UserLike ?? false;
 	}
 
+	public Review()
+	{
+	}
+
+
 	public Review(Guid recipeId, string text)
 	{
 		Id = Guid.NewGuid();

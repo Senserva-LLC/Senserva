@@ -29,7 +29,7 @@ public interface ISettingsService
 	/// <param name="ct"></param>
 	/// <param name="title">App title</param>
 	/// <param name="isDark">App theme flag</param>
-	/// <param name="notification">User notifications flag</param>
+	/// <param name="notification">SenservaUser notifications flag</param>
 	/// <param name="accentColor">Accent color</param>
 	/// <returns>
 	/// </returns>
