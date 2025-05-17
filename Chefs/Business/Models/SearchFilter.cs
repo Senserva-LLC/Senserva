@@ -5,11 +5,11 @@ public record SearchFilter(
 	FilterGroup? FilterGroup = null,
 	Time? Time = null,
 	Difficulty? Difficulty = null,
-	int? Serves = null,
+	int? ItemsEffected = null,
 	Category? Category = null)
 {
 	public bool HasFilter => FilterGroup != null || Time != null ||
-							 Difficulty != null || Category != null || Serves != null;
+							 Difficulty != null || Category != null || ItemsEffected != null;
 
 	public bool Match(Recipe recipe)
 	{
@@ -26,7 +26,7 @@ public record SearchFilter(
 		return (Difficulty == null || recipe.Difficulty == Difficulty) &&
 			   (Time == null || timespan < maxTime) &&
 			   (Category == null || recipe.Category.Id == Category.Id || recipe.Category.Name == Category.Name) &&
-			   (Serves == null || Serves == recipe.Serves);
+			   (ItemsEffected == null || ItemsEffected == recipe.ItemsEffected);
 	}
 
 }

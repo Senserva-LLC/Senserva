@@ -1,13 +1,22 @@
 namespace Chefs.Business.Models;
 
 /// <summary>
-/// was Risks
+/// risk rating
+/// </summary>
+public enum OverallRisk
+{
+	NoneKnown,
+	Low,
+	Medium,
+	High,
+	Critical
+}
+
+/// <summary>
+/// areas of risk by type
 /// </summary>
 public partial record Risks
 {
-//	public double? Protein { get; }
-	//public double? ProteinBase { get; }
-
 	public double? DataRisk { get; }
 	public double? DataRiskBase { get; }
 

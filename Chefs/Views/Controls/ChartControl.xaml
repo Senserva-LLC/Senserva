@@ -23,10 +23,10 @@
 					VerticalAlignment="Center">
 			<TextBlock HorizontalAlignment="Center"
 					   FontSize="22"
-					   Text="{Binding CaloriesAmount}" />
+					   Text="{Binding RiskAmount}" />
 			<TextBlock HorizontalAlignment="Center"
 					   FontSize="14"
-					   Text="Calories" />
+					   Text="Risk" />
 		</StackPanel>
 
 		<lvc:CartesianChart x:Name="cartesianChart"

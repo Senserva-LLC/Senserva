@@ -37,7 +37,7 @@ public class ShareService() : IShareService
 	private async void DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
 	{
 		args.Request.Data.Properties.Title = $"Sharing {_recipe?.Name}";
-		args.Request.Data.Properties.Description = _recipe?.Details ?? "Chefs Recipe";
+		args.Request.Data.Properties.Description = _recipe?.Risk.ToString() ?? "Hurry!";
 		args.Request.Data.SetText(await CreateShareText());
 	}
 

@@ -40,7 +40,7 @@
                     <utu:AutoLayout Spacing="16">
                         <TextBlock
                             Style="{StaticResource TitleSmall}"
-                            Text="Recipe Categories"
+                            Text="Management Categories"
                             TextWrapping="Wrap" />
                         <!--  It's important to put the ItemsSource above the SelectedItems, because, it will otherwise fail on WASM, see this issue: https://github.com/unoplatform/uno.toolkit.ui/issues/918  -->
                         <muxc:ItemsRepeater
@@ -63,7 +63,7 @@
                     <utu:AutoLayout Spacing="16">
                         <TextBlock
                             Style="{StaticResource TitleSmall}"
-                            Text="Cooking Time"
+                            Text="Modification Time"
                             TextWrapping="Wrap" />
                         <muxc:ItemsRepeater
                             utu:ItemsRepeaterExtensions.SelectedItem="{Binding Filter.Time, Mode=TwoWay}"

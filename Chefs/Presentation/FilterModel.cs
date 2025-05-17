@@ -15,7 +15,7 @@ public partial record FilterModel
 	public IEnumerable<FilterGroup> FilterGroups => Enum.GetValues(typeof(FilterGroup)).Cast<FilterGroup>();
 	public IEnumerable<Time> Times => Enum.GetValues(typeof(Time)).Cast<Time>();
 	public IEnumerable<Difficulty> Difficulties => Enum.GetValues(typeof(Difficulty)).Cast<Difficulty>();
-	public IEnumerable<int> Serves => new int[] { 1, 2, 3, 4, 5 };
+	public IEnumerable<int> ItemsEffected => new int[] { 1, 2, 3, 4, 5 };
 	public IListFeed<Category> Categories => ListFeed.Async(async ct => await _recipeService.GetCategories(ct));
 
 	public async ValueTask ApplySearchFilter(SearchFilter filter) =>
