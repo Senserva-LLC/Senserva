@@ -35,7 +35,7 @@ public partial record RecipeDetailsModel
 		.Observe(_messenger, u => u.Id);
 
 	public IFeed<SenservaUser> CurrentUser => Feed.Async(async ct => await _userService.GetCurrent(ct));
-	public IListFeed<Ingredient> Ingredients => ListFeed.Async(async ct => await _recipeService.GetIngredients(Recipe.Id, ct));
+
 	public IListFeed<Step> Steps => ListFeed.Async(async ct => await _recipeService.GetSteps(Recipe.Id, ct));
 
 	public IListState<Review> Reviews => ListState

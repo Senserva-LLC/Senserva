@@ -1,4 +1,7 @@
 
+using BruTile.Wms;
+using Microsoft.Kiota.Abstractions.Extensions;
+
 namespace Chefs.Services.Recipes;
 
 public class RecipeService(
@@ -114,12 +117,10 @@ public class RecipeService(
 		//var stepsData = await api.Api.Recipe[recipeId].Steps.GetAsync(cancellationToken: ct);
 	}
 
-	public async Task<IImmutableList<Ingredient>> GetIngredients(Guid recipeId, CancellationToken ct)
+	public static IImmutableList<Ingredient> GetIngredients(Recipe recipe)
 	{
-		//var ingredientsData = await api.Api.Recipe[recipeId].Ingredients.GetAsync(cancellationToken:
-		//ct);
-		return await GetIngredientsAsync();
-	}
+		public IListFeed<string> Names => ListFeed.Async(recipe);
+}
 
 	public async Task<IImmutableList<Recipe>> GetByUser(Guid userId, CancellationToken ct)
 	{

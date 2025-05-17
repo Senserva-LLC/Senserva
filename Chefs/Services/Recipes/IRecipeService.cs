@@ -129,7 +129,7 @@ public interface IRecipeService
 	/// <returns>
 	/// Recipe's ingredients
 	/// </returns>
-	public Task<IImmutableList<Ingredient>> GetIngredients(Guid recipeId, CancellationToken ct);
+	public IImmutableList<Ingredient> GetIngredients(Guid recipeId);
 
 	/// <summary>
 	/// Save recipe

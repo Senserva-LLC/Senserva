@@ -1,3 +1,4 @@
+
 namespace Chefs.Business.Models;
 
 public partial record Recipe : ISenservaEntity
@@ -15,6 +16,9 @@ public partial record Recipe : ISenservaEntity
 	public DateTimeOffset Date { get; init; }
 	public bool IsFavorite { get; init; }
 	public Nutrition Nutrition { get; init; }
+	public List<Step>? Steps { get; set; }
+	public List<Ingredient>? Ingredients { get; set; }
+	public List<Review>? Reviews { get; set; }
 
 	public Recipe()
 	{
@@ -27,7 +31,6 @@ public partial record Recipe : ISenservaEntity
 		Difficulty = Difficulty.Beginner;
 		EstimateTime = TimeSpan.FromMinutes(30);
 	}
-
 
 	//remove "kcal" unit from Calories property
 	public string? CaloriesAmount => Calories?.Length > 4 ? Calories.Remove(Calories.Length - 4) : Calories;
