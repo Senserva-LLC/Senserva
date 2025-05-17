@@ -29,7 +29,9 @@ public partial record RecipeDetailsModel
 	}
 
 	public Recipe Recipe { get; }
+
 	public IImmutableList<Ingredient> Ingredients => Recipe.Ingredients?.ToImmutableList() ?? [];
+
 	public IState<bool> IsFavorited => State.Value(this, () => Recipe.IsFavorite);
 
 	public IState<SenservaUser> User => State.Async(this, async ct => await _userService.GetById(Recipe.UserId, ct))
@@ -58,6 +60,11 @@ public partial record RecipeDetailsModel
 		await IsFavorited.UpdateAsync(s => !s);
 	}
 
+	/// <summary>
+	/// TODO easist way to share?
+	/// </summary>
+	/// <param name="ct"></param>
+	/// <returns></returns>
 	public async Task Share(CancellationToken ct)
 	{
 		await _shareService.ShareRecipe(Recipe, await Steps, ct);

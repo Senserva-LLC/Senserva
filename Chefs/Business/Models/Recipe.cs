@@ -26,6 +26,7 @@ public partial record Recipe : ISenservaEntity
 		UserId = Guid.NewGuid();
 		Name = "test";
 		Date = DateTimeOffset.UtcNow;
+		Calories = 340 + " kcal";
 		Nutrition = new Nutrition();
 		Category = new Category();
 		Difficulty = Difficulty.Beginner;

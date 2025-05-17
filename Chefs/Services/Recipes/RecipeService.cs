@@ -21,7 +21,7 @@ public class RecipeService(
 		return list.ToImmutableList();
 	}
 
-	public async Task<IImmutableList<Review>> GetReviewsAsync() => new List<Review>().ToImmutableList();
+	public async Task<IImmutableList<Review>> GetReviewsAsync() => new List<Review>() { new Review() {  PublisherName="Microsoft"} }.ToImmutableList();
 
 	public async Task<IImmutableList<Step>> GetStepsAsync() => new List<Step>().ToImmutableList();
 

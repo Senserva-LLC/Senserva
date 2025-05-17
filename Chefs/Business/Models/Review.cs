@@ -1,6 +1,11 @@
 
 namespace Chefs.Business.Models;
 
+public enum ReviewType
+{
+	CVE, // CVE ID
+}
+
 public partial record Review
 {
 	public Review()
@@ -9,8 +14,6 @@ public partial record Review
 		RecipeId = Guid.Empty;
 		CreatedBy = Guid.Empty;
 		Date = DateTimeOffset.MinValue;
-		Likes =ImmutableList<Guid>.Empty;
-		Dislikes = ImmutableList<Guid>.Empty;
 	}
 
 	public Review(Guid recipeId, string text)
@@ -30,5 +33,6 @@ public partial record Review
 	public ImmutableList<Guid>? Likes { get; init; }
 	public ImmutableList<Guid>? Dislikes { get; init; }
 	public bool UserLike { get; init; }
+	public ReviewType Type { get; init; } = ReviewType.CVE;
 
 }
