@@ -17,7 +17,7 @@ public partial record Recipe : ISenservaEntity
 	public bool IsFavorite { get; init; }
 	public Nutrition Nutrition { get; init; }
 	public List<Step>? Steps { get; set; }
-	public List<Ingredient>? Ingredients { get; set; }
+	public List<Content>? Contents { get; set; }
 	public List<Review>? Reviews { get; set; }
 
 	public Recipe()
@@ -31,7 +31,7 @@ public partial record Recipe : ISenservaEntity
 		Category = new Category();
 		Difficulty = Difficulty.Beginner;
 		EstimateTime = TimeSpan.FromMinutes(30);
-		Ingredients = new List<Ingredient>() { new Ingredient { Name = "bob" } };
+		Contents = new List<Content>() { new Content { Name = "bob" } };
 	}
 
 	//remove "kcal" unit from Calories property

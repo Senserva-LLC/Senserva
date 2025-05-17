@@ -25,7 +25,7 @@ public class RecipeService(
 
 	public async Task<IImmutableList<Step>> GetStepsAsync() => new List<Step>().ToImmutableList();
 
-	public async Task<IImmutableList<Ingredient>> GetIngredientsAsync() => new List<Ingredient>().ToImmutableList();
+	public async Task<IImmutableList<Content>> GetContentsAsync() => new List<Content>().ToImmutableList();
 
 	public async Task<IImmutableList<Category>> GetCategoriesAsync() => new List<Category>().ToImmutableList();
 

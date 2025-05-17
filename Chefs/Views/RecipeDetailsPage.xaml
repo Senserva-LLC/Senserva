@@ -172,8 +172,8 @@
 															Wide='40,0'}"
 									Background="{ThemeResource BackgroundBrush}"
 									Style="{StaticResource TopTabBarStyle}">
-							<utu:TabBarItem uen:Region.Name="IngredientsTab"
-											Content="Ingredients"
+							<utu:TabBarItem uen:Region.Name="ContentsTab"
+											Content="Contents"
 											IsSelected="True" />
 							<utu:TabBarItem uen:Region.Name="StepsTab"
 											Content="Steps"
@@ -195,15 +195,15 @@
 																		 Wide=16}"
 												Padding="{utu:Responsive Normal='16,24,16,16',
 																		 Wide=40}"
-												uen:Region.Name="IngredientsTab">
+												uen:Region.Name="ContentsTab">
 									<TextBlock Style="{StaticResource BodyLarge}"
 											   Foreground="{ThemeResource OnSurfaceBrush}"
-											   Text="{Binding Ingredients.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} items'}"
+											   Text="{Binding Contents.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} items'}"
 											   TextWrapping="Wrap" />
 									<utu:AutoLayout Spacing="{utu:Responsive Normal=2, Wide=0}">
 												<muxc:ItemsRepeater utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Stretch,
 																													 Wide=Auto}"
-																	ItemsSource="{Binding Ingredients}">
+																	ItemsSource="{Binding Contents}">
 													<muxc:ItemsRepeater.Layout>
 														<muxc:StackLayout Orientation="Vertical"
 																		  Spacing="2" />

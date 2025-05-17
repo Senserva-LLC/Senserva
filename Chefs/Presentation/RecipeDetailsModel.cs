@@ -30,7 +30,7 @@ public partial record RecipeDetailsModel
 
 	public Recipe Recipe { get; }
 
-	public IImmutableList<Ingredient> Ingredients => Recipe.Ingredients?.ToImmutableList() ?? [];
+	public IImmutableList<Content> Contents => Recipe.Contents?.ToImmutableList() ?? [];
 
 	public IState<bool> IsFavorited => State.Value(this, () => Recipe.IsFavorite);
 
