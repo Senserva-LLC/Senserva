@@ -252,10 +252,7 @@
 											   Foreground="{ThemeResource OnSurfaceBrush}"
 											   Text="{Binding Steps.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} steps'}"
 											   TextWrapping="Wrap" />
-									<uer:FeedView x:Name="StepsFeed"
-												  Source="{Binding Steps}">
-										<DataTemplate>
-											<muxc:ItemsRepeater ItemsSource="{Binding Data}">
+											<muxc:ItemsRepeater ItemsSource="{Binding Steps}">
 												<muxc:ItemsRepeater.Layout>
 													<muxc:StackLayout Orientation="Vertical"
 																	  Spacing="2" />
@@ -279,8 +276,6 @@
 													</DataTemplate>
 												</muxc:ItemsRepeater.ItemTemplate>
 											</muxc:ItemsRepeater>
-										</DataTemplate>
-									</uer:FeedView>
 								</utu:AutoLayout>
 
 								<utu:AutoLayout Spacing="{utu:Responsive Normal=8,
@@ -294,12 +289,7 @@
 											   Text="{Binding Reviews.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} comments'}"
 											   TextWrapping="Wrap"
 											   Visibility="{Binding Reviews.Count, Converter={StaticResource GreaterThanZeroToVisibleConverter}}" />
-									<uer:FeedView x:Name="ReviewsFeed"
-												  VerticalContentAlignment="Center"
-												  NoneTemplate="{StaticResource EmptyTemplate}"
-												  Source="{Binding Reviews}">
-										<DataTemplate>
-											<muxc:ItemsRepeater ItemsSource="{Binding Data}">
+											<muxc:ItemsRepeater ItemsSource="{Binding Reviews}">
 												<muxc:ItemsRepeater.Layout>
 													<muxc:StackLayout Orientation="Vertical"
 																	  Spacing="2" />
@@ -396,8 +386,6 @@
 													</DataTemplate>
 												</muxc:ItemsRepeater.ItemTemplate>
 											</muxc:ItemsRepeater>
-										</DataTemplate>
-									</uer:FeedView>
 								</utu:AutoLayout>
 
 								<Grid uen:Region.Name="NutritionTab"
