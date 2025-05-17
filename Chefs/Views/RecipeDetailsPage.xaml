@@ -181,8 +181,8 @@
 							<utu:TabBarItem uen:Region.Name="ReviewsTab"
 											Content="Reviews"
 											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
-							<utu:TabBarItem uen:Region.Name="NutritionTab"
-											Content="Nutrition"
+							<utu:TabBarItem uen:Region.Name="RisksTab"
+											Content="Risks"
 											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
 						</utu:TabBar>
 						<ScrollViewer utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
@@ -388,7 +388,7 @@
 											</muxc:ItemsRepeater>
 								</utu:AutoLayout>
 
-								<Grid uen:Region.Name="NutritionTab"
+								<Grid uen:Region.Name="RisksTab"
 									  Visibility="Collapsed">
 									<Grid Margin="{utu:Responsive Normal=16,
 																  Wide=40}"
@@ -409,7 +409,7 @@
 										<ctrl:ChartControl DataContext="{Binding Recipe}"
 														   CarbBrush="{ThemeResource NutritionCarbsValBrush}"
 														   ProteinBrush="{ThemeResource NutritionProteinValBrush}"
-														   FatBrush="{ThemeResource NutritionFatValBrush}"
+														   DeviceRiskBrush="{ThemeResource DeviceRiskValBrush}"
 														   DataLabelBrush="{ThemeResource NutritionDataLabelBrush}"
 														   TrackBackgroundBrush="{ThemeResource NutritionTrackBackgroundBrush}"
 														   Grid.Row="1" />

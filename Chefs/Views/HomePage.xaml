@@ -40,7 +40,7 @@
 							<ctrl:ChartControl DataContext="{Binding}"
 											   CarbBrush="{ThemeResource NutritionCarbsValBrush}"
 											   ProteinBrush="{ThemeResource NutritionProteinValBrush}"
-											   FatBrush="{ThemeResource NutritionFatValBrush}"
+											   DeviceRiskBrush="{ThemeResource NutritionFatValBrush}"
 											   DataLabelBrush="{ThemeResource NutritionDataLabelBrush}"
 											   TrackBackgroundBrush="{ThemeResource NutritionTrackBackgroundBrush}"
 											   Grid.Row="1" />

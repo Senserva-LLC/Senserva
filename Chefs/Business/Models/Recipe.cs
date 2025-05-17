@@ -15,7 +15,7 @@ public partial record Recipe : ISenservaEntity
 	public Category Category { get; init; }
 	public DateTimeOffset Date { get; init; }
 	public bool IsFavorite { get; init; }
-	public Nutrition Nutrition { get; init; }
+	public Risks Risks { get; init; }
 	public List<Step>? Steps { get; set; }
 	public List<Content>? Contents { get; set; }
 	public List<Review>? Reviews { get; set; }
@@ -27,7 +27,7 @@ public partial record Recipe : ISenservaEntity
 		Name = "test";
 		Date = DateTimeOffset.UtcNow;
 		Calories = 340 + " kcal";
-		Nutrition = new Nutrition();
+		Risks = new Risks();
 		Category = new Category();
 		Difficulty = Difficulty.Beginner;
 		EstimateTime = TimeSpan.FromMinutes(30);
