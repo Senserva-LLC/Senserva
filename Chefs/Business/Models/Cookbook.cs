@@ -1,6 +1,6 @@
 namespace Chefs.Business.Models;
 
-public partial record Cookbook : IChefEntity
+public partial record Cookbook : ISenservaEntity
 {
 	internal Cookbook() { Recipes = ImmutableList<Recipe>.Empty; }
 	public Cookbook(IImmutableList<Recipe> recipes)

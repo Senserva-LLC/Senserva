@@ -1,6 +1,6 @@
 namespace Chefs.Business.Models;
 
-public partial record Recipe : IChefEntity
+public partial record Recipe : ISenservaEntity
 {
 	public Guid Id { get; init; }
 	public Guid UserId { get; init; }
@@ -16,8 +16,8 @@ public partial record Recipe : IChefEntity
 	public bool IsFavorite { get; init; }
 	public Nutrition Nutrition { get; init; }
 
-	public Recipe() 
-	{ 
+	public Recipe()
+	{
 		Id = Guid.NewGuid();
 		UserId = Guid.NewGuid();
 		Name = "test";

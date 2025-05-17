@@ -1,9 +1,5 @@
-using System.Runtime.InteropServices;
-using System.Text;
+
 using Chefs.Services.Sharing;
-using Windows.ApplicationModel.DataTransfer;
-using WinRT;
-using WinRT.Interop;
 
 namespace Chefs.Presentation;
 

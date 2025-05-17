@@ -117,7 +117,7 @@ public partial class App : Application
 			new ViewMap<LoginPage, LoginModel>(ResultData: typeof(Credentials)),
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationsModel>(),
-			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(IChefEntity)),
+			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
 			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
 			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
