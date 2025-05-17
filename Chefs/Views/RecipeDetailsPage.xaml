@@ -201,12 +201,9 @@
 											   Text="{Binding Ingredients.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} items'}"
 											   TextWrapping="Wrap" />
 									<utu:AutoLayout Spacing="{utu:Responsive Normal=2, Wide=0}">
-										<uer:FeedView x:Name="IngredientsFeed"
-													  Source="{Binding Ingredients}">
-											<DataTemplate>
 												<muxc:ItemsRepeater utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Stretch,
 																													 Wide=Auto}"
-																	ItemsSource="{Binding Data}">
+																	ItemsSource="{Binding Ingredients}">
 													<muxc:ItemsRepeater.Layout>
 														<muxc:StackLayout Orientation="Vertical"
 																		  Spacing="2" />
@@ -242,8 +239,6 @@
 														</DataTemplate>
 													</muxc:ItemsRepeater.ItemTemplate>
 												</muxc:ItemsRepeater>
-											</DataTemplate>
-										</uer:FeedView>
 									</utu:AutoLayout>
 								</utu:AutoLayout>
 

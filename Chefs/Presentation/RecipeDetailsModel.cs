@@ -29,6 +29,7 @@ public partial record RecipeDetailsModel
 	}
 
 	public Recipe Recipe { get; }
+	public IImmutableList<Ingredient> Ingredients => Recipe.Ingredients?.ToImmutableList() ?? [];
 	public IState<bool> IsFavorited => State.Value(this, () => Recipe.IsFavorite);
 
 	public IState<SenservaUser> User => State.Async(this, async ct => await _userService.GetById(Recipe.UserId, ct))

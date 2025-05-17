@@ -122,16 +122,6 @@ public interface IRecipeService
 	public Task<IImmutableList<Review>> GetReviews(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
-	/// GetRecipesAsync recipe's ingredients
-	/// </summary>
-	/// <param name="recipeId">id from the recipe</param>
-	/// <param name="ct">Recipe Guid</param>
-	/// <returns>
-	/// Recipe's ingredients
-	/// </returns>
-	public IImmutableList<Ingredient> GetIngredients(Guid recipeId);
-
-	/// <summary>
 	/// Save recipe
 	/// </summary>
 	/// <param name="recipe"> recipe to save </param>

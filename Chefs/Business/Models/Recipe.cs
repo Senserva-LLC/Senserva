@@ -30,6 +30,7 @@ public partial record Recipe : ISenservaEntity
 		Category = new Category();
 		Difficulty = Difficulty.Beginner;
 		EstimateTime = TimeSpan.FromMinutes(30);
+		Ingredients = new List<Ingredient>() { new Ingredient { Name = "bob" } };
 	}
 
 	//remove "kcal" unit from Calories property

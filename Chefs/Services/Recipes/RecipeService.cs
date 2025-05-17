@@ -117,11 +117,6 @@ public class RecipeService(
 		//var stepsData = await api.Api.Recipe[recipeId].Steps.GetAsync(cancellationToken: ct);
 	}
 
-	public static IImmutableList<Ingredient> GetIngredients(Recipe recipe)
-	{
-		public IListFeed<string> Names => ListFeed.Async(recipe);
-}
-
 	public async Task<IImmutableList<Recipe>> GetByUser(Guid userId, CancellationToken ct)
 	{
 		return await GetRecipesAsync();
