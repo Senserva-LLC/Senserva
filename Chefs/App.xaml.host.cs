@@ -1,10 +1,6 @@
-using Chefs.Services;
-using Chefs.Services.Clients;
 using Chefs.Services.Settings;
-using Chefs.Services.Sharing;
 using Chefs.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
-using Uno.Extensions.Http.Kiota;
 
 namespace Chefs;
 
@@ -23,17 +19,6 @@ public partial class App : Application
 							.Login(async (sp, dispatcher, credentials, cancellationToken) => await ProcessCredentials(credentials));
 					}, name: "CustomAuth")
 				)
-				.UseHttp((context, services) =>
-				{
-					services.AddTransient<MockHttpMessageHandler>();
-					services.AddKiotaClient<ChefsApiClient>(
-						context,
-						options: new EndpointOptions { Url = "http://localhost:5116" }
-#if USE_MOCKS
-						, configure: (builder, endpoint) => builder.ConfigurePrimaryAndInnerHttpMessageHandler<MockHttpMessageHandler>()
-#endif
-					);
-				})
 #if DEBUG
 				// Switch to Development environment when running in DEBUG
 				.UseEnvironment(Environments.Development)
@@ -65,7 +50,6 @@ public partial class App : Application
 						.AddSingleton<IMessenger, WeakReferenceMessenger>()
 						.AddSingleton<INotificationService, NotificationService>()
 						.AddSingleton<IRecipeService, RecipeService>()
-						.AddSingleton<IShareService, ShareService>()
 						.AddSingleton<ISettingsService, SettingsService>()
 						.AddSingleton<IUserService, UserService>();
 				})
@@ -106,29 +90,10 @@ public partial class App : Application
 
 	private void ConfigureSerialization(HostBuilderContext context, IServiceCollection services)
 	{
-#if USE_MOCKS
-		services
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListCookbookData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.CookbookData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.RecipeData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListNotificationData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListRecipeData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListCategoryData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListIngredientData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListUserData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListStepData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ListReviewData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.UserData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.Guid)
-			.AddJsonTypeInfo(MockEndpointContext.Default.ReviewData)
-			.AddJsonTypeInfo(MockEndpointContext.Default.IEnumerableRecipeData);
-#endif
-
 		services
 			.AddJsonTypeInfo(AppConfigContext.Default.AppConfig)
 			.AddJsonTypeInfo(AppConfigContext.Default.DictionaryStringAppConfig)
-			.AddJsonTypeInfo(AppConfigContext.Default.String)
-			.AddJsonTypeInfo(MockEndpointContext.Default.LoginRequest);
+			.AddJsonTypeInfo(AppConfigContext.Default.String);
 	}
 
 	private void ConfigureNavServices(HostBuilderContext context, IServiceCollection services)
@@ -148,11 +113,12 @@ public partial class App : Application
 			new ViewMap<LoginPage, LoginModel>(ResultData: typeof(Credentials)),
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationsModel>(),
-			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<User>(), ResultData: typeof(IChefEntity)),
+			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
 			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
 			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
+			new ViewMap<PoliciesPage, PoliciesModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
-			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<User>()),
+			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, LiveCookingModel>(Data: new DataMap<LiveCookingParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
 			new ViewMap<CompletedDialog>(),
@@ -172,6 +138,7 @@ public partial class App : Application
 						#region Main Tabs
 						new RouteMap("Home", View: views.FindByViewModel<HomeModel>(), IsDefault: true),
 						new RouteMap("Search", View: views.FindByViewModel<SearchModel>()),
+						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
 						new RouteMap("FavoriteRecipes", View: views.FindByViewModel<FavoriteRecipesModel>()),
 						#endregion
 

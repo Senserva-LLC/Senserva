@@ -9,13 +9,13 @@ public partial record SettingsModel
 	private readonly IUserService _userService;
 	private readonly IThemeService _themeService;
 	private readonly ISettingsService _settingsService;
-	private readonly User _user;
+	private readonly SenservaUser _user;
 
 	public SettingsModel(
 		IThemeService themeService,
 		IUserService userService,
 		ISettingsService settingsService,
-		User user)
+		SenservaUser user)
 	{
 		_userService = userService;
 		_themeService = themeService;
@@ -36,7 +36,7 @@ public partial record SettingsModel
 				WeakReferenceMessenger.Default.Send(new ThemeChangedMessage(isDark));
 			}
 		});
-	public IState<User> Profile => State
+	public IState<SenservaUser> Profile => State
 		.Value(this, () => _user)
 		.ForEach(async (profile, ct) =>
 		{

@@ -12,32 +12,32 @@ public sealed partial class ChartControl : UserControl
 	private Recipe? _recipe;
 
 
-	public SolidColorBrush CarbBrush
+	public SolidColorBrush UserRiskBrush
 	{
-		get { return (SolidColorBrush)GetValue(CarbBrushProperty); }
-		set { SetValue(CarbBrushProperty, value); }
+		get { return (SolidColorBrush)GetValue(UserRiskBrushProperty); }
+		set { SetValue(UserRiskBrushProperty, value); }
 	}
 
-	public static readonly DependencyProperty CarbBrushProperty =
-		DependencyProperty.Register("CarbBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
+	public static readonly DependencyProperty UserRiskBrushProperty =
+		DependencyProperty.Register("UserRiskBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
 
-	public SolidColorBrush ProteinBrush
+	public SolidColorBrush DataRiskBrush
 	{
-		get { return (SolidColorBrush)GetValue(ProteinBrushProperty); }
-		set { SetValue(ProteinBrushProperty, value); }
+		get { return (SolidColorBrush)GetValue(DataRiskBrushProperty); }
+		set { SetValue(DataRiskBrushProperty, value); }
 	}
 
-	public static readonly DependencyProperty ProteinBrushProperty =
-		DependencyProperty.Register("ProteinBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
+	public static readonly DependencyProperty DataRiskBrushProperty =
+		DependencyProperty.Register("DataRiskBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
 
-	public SolidColorBrush FatBrush
+	public SolidColorBrush DeviceRiskBrush
 	{
-		get { return (SolidColorBrush)GetValue(FatBrushProperty); }
-		set { SetValue(FatBrushProperty, value); }
+		get { return (SolidColorBrush)GetValue(DeviceRiskBrushProperty); }
+		set { SetValue(DeviceRiskBrushProperty, value); }
 	}
 
-	public static readonly DependencyProperty FatBrushProperty =
-		DependencyProperty.Register("FatBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
+	public static readonly DependencyProperty DeviceRiskBrushProperty =
+		DependencyProperty.Register("DeviceRiskBrush", typeof(SolidColorBrush), typeof(ChartControl), new PropertyMetadata(new SolidColorBrush(Colors.Black), OnBrushChanged));
 
 
 
@@ -100,14 +100,14 @@ public sealed partial class ChartControl : UserControl
 	private void BuildColumnChart()
 	{
 		//Build column chart
-		var _chartdata = new NutritionChartItem[]
+		var _chartdata = new RiskChartItem[]
 		 {
-			new(nameof(Nutrition.Fat),_recipe?.Nutrition.Fat,_recipe?.Nutrition.FatBase,GetNutritionColorPaint(nameof(Nutrition.Fat))),
-			new(nameof(Nutrition.Carbs),_recipe?.Nutrition.Carbs,_recipe?.Nutrition.CarbsBase,GetNutritionColorPaint(nameof(Nutrition.Carbs))),
-			new(nameof(Nutrition.Protein),_recipe?.Nutrition.Protein,_recipe?.Nutrition.ProteinBase, GetNutritionColorPaint(nameof(Nutrition.Protein)))
+			new(nameof(Risks.DataRisk),_recipe?.Risks.DataRisk,_recipe?.Risks.DataRiskBase,GetNutritionColorPaint(nameof(Risks.DataRisk))),
+			new(nameof(Risks.UserRisk),_recipe?.Risks.UserRisk,_recipe?.Risks.UserRiskBase,GetNutritionColorPaint(nameof(Risks.UserRisk))),
+			new(nameof(Risks.DeviceRisk),_recipe?.Risks.DeviceRisk,_recipe?.Risks.DeviceRiskBase, GetNutritionColorPaint(nameof(Risks.DeviceRisk)))
 		 };
 
-		var rowSeries = new RowSeries<NutritionChartItem>
+		var rowSeries = new RowSeries<RiskChartItem>
 		{
 			Values = _chartdata,
 			DataLabelsPaint = new SolidColorPaint(GetSKColorFromResource(DataLabelBrush)),
@@ -127,14 +127,14 @@ public sealed partial class ChartControl : UserControl
 		//End
 
 		//Build column background
-		var chartlimit = new NutritionChartItem[]
+		var chartlimit = new RiskChartItem[]
 		{
 			new(),
 			new(),
 			new()
 		};
 
-		var rowSeriesLimit = new RowSeries<NutritionChartItem>
+		var rowSeriesLimit = new RowSeries<RiskChartItem>
 		{
 			Values = chartlimit,
 			IgnoresBarPosition = true,
@@ -156,19 +156,19 @@ public sealed partial class ChartControl : UserControl
 			new PieSeries<int>
 			{
 				Values = new []{ 5 },
-				Fill = GetNutritionColorPaint(nameof(Nutrition.Fat)),
+				Fill = GetNutritionColorPaint(nameof(Risks.DeviceRisk)),
 				InnerRadius = 60,
 			},
 			new PieSeries<int>
 			{
 				Values = new []{ 5 },
-				Fill = GetNutritionColorPaint(nameof(Nutrition.Protein)),
+				Fill = GetNutritionColorPaint(nameof(Risks.UserRisk)),
 				InnerRadius = 60,
 			},
 			new PieSeries<int>
 			{
 				Values = new []{ 5 },
-				Fill = GetNutritionColorPaint(nameof(Nutrition.Carbs)),
+				Fill = GetNutritionColorPaint(nameof(Risks.DataRisk)),
 				InnerRadius = 60,
 			}
 		};
@@ -180,9 +180,9 @@ public sealed partial class ChartControl : UserControl
 	{
 		return name switch
 		{
-			nameof(Nutrition.Carbs) => new SolidColorPaint(GetSKColorFromResource(CarbBrush)),
-			nameof(Nutrition.Protein) => new SolidColorPaint(GetSKColorFromResource(ProteinBrush)),
-			nameof(Nutrition.Fat) => new SolidColorPaint(GetSKColorFromResource(FatBrush)),
+			nameof(Risks.UserRisk) => new SolidColorPaint(GetSKColorFromResource(UserRiskBrush)),
+			nameof(Risks.DataRisk) => new SolidColorPaint(GetSKColorFromResource(DataRiskBrush)),
+			nameof(Risks.DeviceRisk) => new SolidColorPaint(GetSKColorFromResource(DeviceRiskBrush)),
 			_ => new SolidColorPaint(SKColors.Yellow),
 		};
 	}

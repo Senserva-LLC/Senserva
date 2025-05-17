@@ -6,7 +6,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Fork", "Knife", "Skillet", "Spatula" ],
@@ -17,7 +17,7 @@
 			},
 			{
 				"Name": "Next step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Skillet", "Spatula" ],
@@ -28,7 +28,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Fork", "Knife", "Bowl", "Cutting Boards" ],
@@ -40,7 +40,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/avocado_toast.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 9600000000
 		},
 		"Difficulty": 1,
@@ -105,7 +105,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1800000000
 				},
 				"Cookware": [ "Knife", "Dish" ],
@@ -116,7 +116,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3600000000
 				},
 				"Cookware": [ "Jar", "Skillet", "Knife", "Cutting Boards" ],
@@ -133,7 +133,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 600000000
 				},
 				"Cookware": [ "Fork", "Knife", "Bowl" ],
@@ -145,7 +145,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/fresh_salad_thaid.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 6000000000
 		},
 		"Difficulty": 0,
@@ -234,7 +234,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 2400000000
 				},
 				"Cookware": [ "Knife", "Dish", "Skillet" ],
@@ -245,7 +245,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1200000000
 				},
 				"Cookware": [ "Knife", "Dish", "Skillet" ],
@@ -256,7 +256,7 @@
 			},
 			{
 				"Name": "Third step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 2400000000
 				},
 				"Cookware": [ "Spoon", "Dish", "Knife" ],
@@ -267,7 +267,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 600000000
 				},
 				"Cookware": [ "Wooden spoon" ],
@@ -279,7 +279,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/salmon_tomato_sauce.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 6600000000
 		},
 		"Difficulty": 0,
@@ -373,7 +373,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 7200000000
 				},
 				"Cookware": [ "Pot" ],
@@ -384,7 +384,7 @@
 			},
 			{
 				"Name": "Next step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1200000000
 				},
 				"Cookware": [ "Jar" ],
@@ -395,7 +395,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 600000000
 				},
 				"Cookware": [ "Salad bowl" ],
@@ -407,7 +407,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/fresh_salad_pasta.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 15000000000
 		},
 		"Difficulty": 0,
@@ -501,7 +501,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1200000000
 				},
 				"Cookware": [ "Bowl", "Spoon", "Rack", "Oven" ],
@@ -512,7 +512,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl", "Mixer" ],
@@ -523,7 +523,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 18000000000
 				},
 				"Cookware": [ "Toothpick", "Skillet", "Racks" ],
@@ -535,7 +535,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/circle_cake.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 22200000000
 		},
 		"Difficulty": 0,
@@ -624,7 +624,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6600000000
 				},
 				"Cookware": [ "Jar", "Bowl" ],
@@ -635,7 +635,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 600000000
 				},
 				"Cookware": [ "Jar", "Spatula" ],
@@ -646,7 +646,7 @@
 			},
 			{
 				"Name": "Third step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1200000000
 				},
 				"Cookware": [ "Spatula", "Bowl" ],
@@ -657,7 +657,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 51000000000
 				},
 				"Cookware": [ "Oven", "Rack", "Kife", "Springform pan" ],
@@ -669,7 +669,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/moms_cheesecake.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 58800000000
 		},
 		"Difficulty": 0,
@@ -745,7 +745,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl", "Spoon" ],
@@ -764,7 +764,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 13800000000
 				},
 				"Cookware": [ "Bowl", "Oiled griddle", "Frying pan" ],
@@ -775,7 +775,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Batches", "Griddle", "Skillet" ],
@@ -787,7 +787,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/fluffy_french_toast.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 22800000000
 		},
 		"Difficulty": 0,
@@ -858,7 +858,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -876,7 +876,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 600000000
 				},
 				"Cookware": [ "Pot", "Spoon" ],
@@ -894,7 +894,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 5400000000
 				},
 				"Cookware": [ "Pot" ],
@@ -906,7 +906,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/super_duper_oatmeal.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 9000000000
 		},
 		"Difficulty": 0,
@@ -987,7 +987,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1200000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -998,7 +998,7 @@
 			},
 			{
 				"Name": "Second Step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Knife", "Baking Sheet", "Pan" ],
@@ -1009,7 +1009,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "SaucePan", "Spoon", "Wire rack" ],
@@ -1021,7 +1021,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/walnut_and_nuts.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 19200000000
 		},
 		"Difficulty": 0,
@@ -1097,7 +1097,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Mixing bowl" ],
@@ -1114,7 +1114,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Mixing bowl" ],
@@ -1125,7 +1125,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -1137,7 +1137,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/avocado_salad.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 15000000000
 		},
 		"Difficulty": 0,
@@ -1243,7 +1243,7 @@
 		"Steps": [
 			{
 				"Name": "Getting started",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "Bowl", "Mixer", "Dough hook" ],
@@ -1254,7 +1254,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Mixer", "Dough hook", "Towel" ],
@@ -1265,7 +1265,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Dough hook", "Mixer", "Bowl" ],
@@ -1277,7 +1277,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/croissants.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 27000000000
 		},
 		"Difficulty": 0,
@@ -1373,7 +1373,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Bowl", "Cups" ],
@@ -1384,7 +1384,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "Pie dish", "Rolling pin" ],
@@ -1395,7 +1395,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 15000000000
 				},
 				"Cookware": [ "Medium saucepan", "Whisk" ],
@@ -1414,7 +1414,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/strawberry_cream_pie.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 33000000000
 		},
 		"Difficulty": 0,
@@ -1500,7 +1500,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -1511,7 +1511,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "Bowl", "Plastic wrap" ],
@@ -1522,7 +1522,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 15000000000
 				},
 				"Cookware": [ "Baking sheet", "Knife" ],
@@ -1534,7 +1534,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/teriyaki_salmon.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 30000000000
 		},
 		"Difficulty": 0,
@@ -1605,7 +1605,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Potato peeler" ],
@@ -1616,7 +1616,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Knife" ],
@@ -1627,7 +1627,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Bowl", "Air fryer" ],
@@ -1638,7 +1638,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl", "Air fryer" ],
@@ -1650,7 +1650,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/air_fryer_french_fries.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 15000000000
 		},
 		"Difficulty": 0,
@@ -1716,7 +1716,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Oven" ],
@@ -1727,7 +1727,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Chopstick", "Cutting board", "Knife" ],
@@ -1738,7 +1738,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Baking dish" ],
@@ -1749,7 +1749,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 18000000000
 				},
 				"Cookware": [ "Oven" ],
@@ -1761,7 +1761,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/hasselback_potatoes.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 33000000000
 		},
 		"Difficulty": 0,
@@ -1827,7 +1827,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Pan", "Tablespoon" ],
@@ -1838,7 +1838,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Pan", "Tablespoon" ],
@@ -1849,7 +1849,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Pan", "Tablespoon" ],
@@ -1860,7 +1860,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 4200000000
 				},
 				"Cookware": [ "Pan" ],
@@ -1872,7 +1872,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/stir_fry_chicken_salad.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 19200000000
 		},
 		"Difficulty": 0,
@@ -1953,7 +1953,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Broiler", "Tablespoon" ],
@@ -1972,7 +1972,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Bowl", "Cookie sheet", "Non-Stick Foil", "Broiler" ],
@@ -1983,7 +1983,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Pan", "Tablespoon" ],
@@ -1994,7 +1994,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl", "Plate" ],
@@ -2006,7 +2006,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/spicy_salmon_vegetables.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 21000000000
 		},
 		"Difficulty": 0,
@@ -2102,7 +2102,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Broiler", "Tablespoon" ],
@@ -2121,7 +2121,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Bowl", "Cookie sheet", "Non-Stick Foil", "Broiler" ],
@@ -2132,7 +2132,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Pan", "Tablespoon" ],
@@ -2143,7 +2143,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl", "Plate" ],
@@ -2155,7 +2155,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/tomato_garlic_pasta.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 21000000000
 		},
 		"Difficulty": 0,
@@ -2251,7 +2251,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 18000000000
 				},
 				"Cookware": [ "Pot", "Tablespoon" ],
@@ -2262,7 +2262,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "Skillet", "Tablespoon", "Spoon", "Bowl" ],
@@ -2273,7 +2273,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Pan", "Tablespoon" ],
@@ -2284,7 +2284,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 27000000000
 				},
 				"Cookware": [ "Pan", "Aluminum foil" ],
@@ -2296,7 +2296,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/homemade_lasagna.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 63000000000
 		},
 		"Difficulty": 1,
@@ -2387,7 +2387,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "Pot", "Tablespoon" ],
@@ -2398,7 +2398,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 36000000000
 				},
 				"Cookware": [ "Pot" ],
@@ -2409,7 +2409,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 24000000000
 				},
 				"Cookware": [ "Pot" ],
@@ -2421,7 +2421,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/pork_stew.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 72000000000
 		},
 		"Difficulty": 1,
@@ -2512,7 +2512,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -2523,7 +2523,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Grill", "Pan" ],
@@ -2534,7 +2534,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "Grill", "Pan" ],
@@ -2546,7 +2546,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/grill_chicken.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 24000000000
 		},
 		"Difficulty": 1,
@@ -2627,7 +2627,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Pot" ],
@@ -2638,7 +2638,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Pot" ],
@@ -2649,7 +2649,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 15000000000
 				},
 				"Cookware": [ "Skillet" ],
@@ -2667,7 +2667,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Plates", "Pot" ],
@@ -2679,7 +2679,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/tomato_pasta.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 27000000000
 		},
 		"Difficulty": 0,
@@ -2765,7 +2765,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Pan" ],
@@ -2786,7 +2786,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Pot", "Spoon" ],
@@ -2797,7 +2797,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1800000000
 				},
 				"Cookware": [ "Pot", "Colander" ],
@@ -2808,7 +2808,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 4200000000
 				},
 				"Cookware": [ "Bowls", "Spoon" ],
@@ -2820,7 +2820,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/chicken_ramen_bowl.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 18000000000
 		},
 		"Difficulty": 0,
@@ -2926,7 +2926,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Pot" ],
@@ -2937,7 +2937,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 7200000000
 				},
 				"Cookware": [ "Pot" ],
@@ -2948,7 +2948,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 7800000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -2966,7 +2966,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/pasta_salad_bowl.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 18000000000
 		},
 		"Difficulty": 0,
@@ -3052,7 +3052,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Sheet Pan", "Teaspoon" ],
@@ -3070,7 +3070,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 18000000000
 				},
 				"Cookware": [ "Meat thermometer", "Cutting board" ],
@@ -3081,7 +3081,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Cutting board", "Plate" ],
@@ -3093,7 +3093,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/roast_beef_tenderloin.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 30000000000
 		},
 		"Difficulty": 0,
@@ -3174,7 +3174,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 12000000000
 				},
 				"Cookware": [ "Bowl", "Teaspoon" ],
@@ -3192,7 +3192,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 24000000000
 				},
 				"Cookware": [ "Saucepan" ],
@@ -3211,7 +3211,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 48000000000
 				},
 				"Cookware": [ "Teaspoon", "Plate" ],
@@ -3223,7 +3223,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/italian_spaghetti_meatballs.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 84000000000
 		},
 		"Difficulty": 0,
@@ -3344,7 +3344,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 25800000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -3367,7 +3367,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 18000000000
 				},
 				"Cookware": [ "Tablespoon" ],
@@ -3378,7 +3378,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 4200000000
 				},
 				"Cookware": [ "Tablespoon", "Skillet", "Pan", "Cup" ],
@@ -3390,7 +3390,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/pork_dumplings.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 48000000000
 		},
 		"Difficulty": 0,
@@ -3481,7 +3481,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1200000000
 				},
 				"Cookware": [ "Saucepan" ],
@@ -3492,7 +3492,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Cup" ],
@@ -3503,7 +3503,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -3515,7 +3515,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/yogurt_parfait.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 10200000000
 		},
 		"Difficulty": 0,
@@ -3596,7 +3596,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Tablespoon", "Bowl", "Electric hand beaters", "Jug" ],
@@ -3615,7 +3615,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Non-stick frying pan" ],
@@ -3626,7 +3626,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Plate" ],
@@ -3638,7 +3638,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/american_hotcakes.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 18000000000
 		},
 		"Difficulty": 0,
@@ -3724,7 +3724,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 9000000000
 				},
 				"Cookware": [ "Plate" ],
@@ -3735,7 +3735,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Plate" ],
@@ -3746,7 +3746,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Plate" ],
@@ -3758,7 +3758,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/veggie_sandwich.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 6000000000
 		},
 		"Difficulty": 0,
@@ -3844,7 +3844,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 7200000000
 				},
 				"Cookware": [ "Sheep pan", "Aluminum foil", "Tablespoon", "Shrimp" ],
@@ -3855,7 +3855,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1800000000
 				},
 				"Cookware": [ "Mortar", "Tablespoon", "Cup" ],
@@ -3866,7 +3866,7 @@
 			},
 			{
 				"Name": "Second step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1800000000
 				},
 				"Cookware": [ "Bowl", "Fork" ],
@@ -3883,7 +3883,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Baking sheet" ],
@@ -3895,7 +3895,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/prawns_provencale.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 16800000000
 		},
 		"Difficulty": 0,
@@ -3986,7 +3986,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 3000000000
 				},
 				"Cookware": [ "Bowl" ],
@@ -4004,7 +4004,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 4200000000
 				},
 				"Cookware": [ "Skillet" ],
@@ -4015,7 +4015,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 1800000000
 				},
 				"Cookware": [ "Skillet" ],
@@ -4033,7 +4033,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/salmon_croquettes.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 9000000000
 		},
 		"Difficulty": 0,
@@ -4124,7 +4124,7 @@
 		"Steps": [
 			{
 				"Name": "Getting start",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 6000000000
 				},
 				"Cookware": [ "Muffin tin", "Bowl" ],
@@ -4135,7 +4135,7 @@
 			},
 			{
 				"Name": "First step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 15000000000
 				},
 				"Cookware": [ "Bowl", "Muffin cups" ],
@@ -4146,7 +4146,7 @@
 			},
 			{
 				"Name": "Final step",
-				"CookTime": {
+				"EstimatedTime": {
 					"ticks": 21000000000
 				},
 				"Cookware": [ "Muffin tin" ],
@@ -4158,7 +4158,7 @@
 		],
 		"ImageUrl": "ms-appx:///Assets/Recipes/banana_muffins.png",
 		"Serves": 1,
-		"CookTime": {
+		"EstimatedTime": {
 			"ticks": 42000000000
 		},
 		"Difficulty": 0,

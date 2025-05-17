@@ -1,19 +1,14 @@
-using NotificationData = Chefs.Services.Clients.Models.NotificationData;
-
 namespace Chefs.Business.Models;
 
 public record Notification
 {
-	internal Notification(NotificationData notificationData)
+	internal Notification()
 	{
-		Title = notificationData.Title;
-		Description = notificationData.Description;
-		Read = notificationData.IsRead ?? false;
-		Date = notificationData.Date?.DateTime ?? DateTime.MinValue;
+		Date = DateTimeOffset.MinValue;
 	}
 
 	public string? Title { get; init; }
 	public string? Description { get; init; }
 	public bool Read { get; init; }
-	public DateTime Date { get; init; }
+	public DateTimeOffset Date { get; init; }
 }

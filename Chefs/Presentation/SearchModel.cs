@@ -30,9 +30,9 @@ public partial record SearchModel
 
 	public IFeed<bool> HasFilter => Filter.Select(f => f.HasFilter);
 
-	public IListFeed<Recipe> Recommended => ListFeed.Async(_recipeService.GetRecommended);
+	public IListFeed<Recipe> Recommended => ListFeed.Async(async ct => await _recipeService.GetRecommended(ct));
 
-	public IListFeed<Recipe> FromChefs => ListFeed.Async(_recipeService.GetFromChefs);
+	public IListFeed<Recipe> FromChefs => ListFeed.Async(async ct => await _recipeService.GetFromChefs(ct));
 
 	public IListFeed<string> SearchHistory => ListFeed.Async(async ct => _recipeService.GetSearchHistory());
 

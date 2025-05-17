@@ -1,39 +1,33 @@
-using Chefs.Services.Clients;
 
 namespace Chefs.Services.Users;
 
 public class UserService(
-	ChefsApiClient client,
 	IWritableOptions<Credentials> credentialOptions)
 	: IUserService
 {
 	private readonly IWritableOptions<Credentials> _credentialOptions = credentialOptions;
 
-	private IState<User> _user => State.Async(this, GetCurrent);
+	private IState<SenservaUser> _user => State.Async(this, async ct => await GetCurrent(ct));
 
-	public IFeed<User> User => _user;
+	public IFeed<SenservaUser> User => _user;
 
-	public async ValueTask<IImmutableList<User>> GetPopularCreators(CancellationToken ct)
+	public async Task<IImmutableList<SenservaUser>> GetPopularCreators(CancellationToken ct)
 	{
-		var popularCreatorsData = await client.Api.User.PopularCreators.GetAsync(cancellationToken: ct);
-		return popularCreatorsData?.Select(data => new User(data)).ToImmutableList() ?? ImmutableList<User>.Empty;
+		return new List<SenservaUser>().ToImmutableList();
 	}
 
-	public async ValueTask<User> GetCurrent(CancellationToken ct)
+	public async Task<SenservaUser> GetCurrent(CancellationToken ct)
 	{
-		var currentUserData = await client.Api.User.Current.GetAsync(cancellationToken: ct);
-		return new User(currentUserData);
+		return new SenservaUser();
 	}
 
-	public async ValueTask<User> GetById(Guid userId, CancellationToken ct)
+	public async Task<SenservaUser> GetById(Guid userId, CancellationToken ct)
 	{
-		var userData = await client.Api.User[userId].GetAsync(cancellationToken: ct);
-		return new User(userData);
+		return new SenservaUser();
 	}
 
-	public async ValueTask Update(User user, CancellationToken ct)
+	public async ValueTask Update(SenservaUser user, CancellationToken ct)
 	{
-		await client.Api.User.PutAsync(user.ToData(), cancellationToken: ct);
 		await _user.UpdateAsync(_ => user, ct);
 	}
 

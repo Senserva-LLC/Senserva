@@ -1,69 +1,66 @@
-using Chefs.Services.Clients.Models;
-using RecipeData = Chefs.Services.Clients.Models.RecipeData;
 
 namespace Chefs.Business.Models;
 
-public partial record Recipe : IChefEntity
+/// <summary>
+/// TODO rename this as Solution
+/// TODO add a Rules table that maps to this data, and include it in the UI
+/// </summary>
+public partial record Recipe : ISenservaEntity
 {
-	internal Recipe(RecipeData recipeData)
-	{
-		Id = recipeData.Id ?? Guid.Empty;
-		UserId = recipeData.UserId ?? Guid.Empty;
-		ImageUrl = recipeData.ImageUrl;
-		Name = recipeData.Name;
-		Serves = recipeData.Serves ?? 0;
-		CookTime = recipeData.CookTime ?? new TimeSpanObject();
-		Difficulty = (Difficulty)(recipeData.Difficulty ?? 0);
-		Calories = recipeData.Calories;
-		Details = recipeData.Details;
-		Category = new Category(recipeData.Category);
-		Date = recipeData.Date ?? DateTime.MinValue;
-		IsFavorite = recipeData.IsFavorite ?? false;
-		Nutrition = new Nutrition(recipeData?.Nutrition);
-	}
 	public Guid Id { get; init; }
 	public Guid UserId { get; init; }
+
 	public string? ImageUrl { get; init; }
 	public string? Name { get; init; }
-	public int Serves { get; init; }
-	public TimeSpanObject CookTime { get; init; }
+
+	/// <summary>
+	/// TODO can we get this reliability?
+	/// </summary>
+	public int ItemsEffected { get; init; } = 99;
+
+	public TimeSpan EstimateTime { get; init; }
 	public Difficulty Difficulty { get; init; }
-	public string? Calories { get; init; }
-	public string? Details { get; init; }
+
+	/// <summary>
+	/// over all risks
+	/// </summary>
+	public OverallRisk Risk { get; init; }
+
 	public Category Category { get; init; }
 	public DateTimeOffset Date { get; init; }
 	public bool IsFavorite { get; init; }
-	public Nutrition Nutrition { get; init; }
+	public Risks Risks { get; init; }
+	public List<Step>? Steps { get; set; }
+	public List<Content>? Controls { get; set; }
+	public List<Compliance>? Compliance { get; set; }
 
-	//remove "kcal" unit from Calories property
-	public string? CaloriesAmount => Calories?.Length > 4 ? Calories.Remove(Calories.Length - 4) : Calories;
+	public Recipe()
+	{
+		Id = Guid.NewGuid();
+		UserId = Guid.NewGuid();
+		Name = "test";
+		Date = DateTimeOffset.UtcNow;
+		Risk = OverallRisk.High;
+		Risks = new Risks();
+		Category = new Category();
+		Difficulty = Difficulty.Basic;
+		EstimateTime = TimeSpan.FromMinutes(30);
+		Controls = [new Content { Name = "bob" }];
+	}
+
+	/// <summary>
+	/// TODO  use the better enum formatter
+	/// </summary>
+	public string RiskAmount => Risk.ToString();
+
 	public string TimeCal
 	{
 		get
 		{
-			var timeSpan = ToTimeSpan(CookTime);
-			return timeSpan > TimeSpan.FromHours(1)
-				? $"{timeSpan:%h} hour {timeSpan:%m} mins • {Calories}"
-				: $"{timeSpan:%m} mins • {Calories}";
+			return EstimateTime > TimeSpan.FromHours(1)
+				? $"{EstimateTime:%h} hour {EstimateTime:%m} mins • {Risk}"
+				: $"{EstimateTime:%m} mins • {Risk}";
 		}
 	}
 
-	internal RecipeData ToData() => new()
-	{
-		Id = Id,
-		UserId = UserId,
-		ImageUrl = ImageUrl,
-		Name = Name,
-		Serves = Serves,
-		CookTime = CookTime,
-		Difficulty = (int)Difficulty,
-		Calories = Calories,
-		Details = Details,
-		Category = Category.ToData(),
-		Date = Date
-	};
-	private static TimeSpan ToTimeSpan(TimeSpanObject timeSpanObject)
-	{
-		return new TimeSpan(timeSpanObject?.Ticks ?? 0);
-	}
 }

@@ -9,7 +9,7 @@ public partial record ProfileModel
 		INavigator navigator,
 		IRecipeService recipeService,
 		IUserService userService,
-		User? user)
+		SenservaUser? user)
 	{
 		_navigator = navigator;
 		_recipeService = recipeService;
@@ -17,9 +17,9 @@ public partial record ProfileModel
 		Profile = user != null ? State.Value(this, () => user) : userService.User;
 	}
 
-	public IFeed<User> Profile { get; }
+	public IFeed<SenservaUser> Profile { get; }
 
 	public IListFeed<Recipe> Recipes => Profile
-		.SelectAsync((user, ct) => _recipeService.GetByUser(user.Id, ct))
+		.SelectAsync(async (user, ct) => await _recipeService.GetByUser(user.Id, ct))
 		.AsListFeed();
 }

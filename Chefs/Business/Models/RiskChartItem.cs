@@ -2,14 +2,14 @@ using LiveChartsCore.SkiaSharpView.Painting;
 
 namespace Chefs.Business.Models;
 
-public partial record NutritionChartItem
+public partial record RiskChartItem
 {
-	public NutritionChartItem(int chartTrackVal = 1000)
+	public RiskChartItem(int chartTrackVal = 1000)
 	{
 		Value = chartTrackVal;
 	}
 
-	public NutritionChartItem(string? name, double? value, double? maxValueRef, SolidColorPaint? columnColor = default)
+	public RiskChartItem(string? name, double? value, double? maxValueRef, SolidColorPaint? columnColor = default)
 	{
 		Name = name;
 		ColumnColor = columnColor;

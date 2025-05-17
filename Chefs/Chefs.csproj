@@ -6,7 +6,6 @@
 		<!-- That way, we set TargetFrameworks property to only the needed TargetFramework -->
 		<TargetFrameworks Condition="'$(TargetFrameworkOverride)'!=''">$(TargetFrameworkOverride)</TargetFrameworks>
 		<TargetFrameworks Condition="'$(TargetFrameworkOverride)'==''">
-			net9.0-android;
 			net9.0-ios;
 			net9.0-maccatalyst;
 			net9.0-windows10.0.19041;
@@ -20,12 +19,10 @@
 
 		<!-- Comment to use native rendering -->
 		<UseSkiaRendering Condition="'$(UseSkiaRendering)'==''">true</UseSkiaRendering>
-		
+
 		<!-- App Identifier -->
 		<ApplicationId Condition="'$(UseSkiaRendering)' != 'true'">uno.platform.chefs</ApplicationId>
 		<ApplicationId Condition="'$(UseSkiaRendering)' == 'true'">uno.platform.chefs.skia</ApplicationId>
-
-		<ApplicationId Condition="'$(IsCanaryBranch)'=='true'">$(ApplicationId)-canary</ApplicationId>
 
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
@@ -127,21 +124,6 @@
 	<ItemGroup>
 		<Content Include="Assets\**\*.png" />
 	</ItemGroup>
-
-	<Choose>
-		<When Condition="'$(IsCanaryBranch)'=='true'">
-			<ItemGroup>
-				<UnoImage Include="Assets\Icons\chefslogo_canary.svg" Link="Assets\Icons\chefslogosignature.svg" />
-				<UnoImage Include="Assets\Icons\chefslogo_dark_canary.svg" Link="Assets\Icons\chefslogosignature_dark.svg" />
-			</ItemGroup>
-		</When>
-		<Otherwise>
-			<ItemGroup>
-				<UnoImage Include="Assets\Icons\chefslogo.svg" Link="Assets\Icons\chefslogosignature.svg" />
-				<UnoImage Include="Assets\Icons\chefslogo_dark.svg" Link="Assets\Icons\chefslogosignature_dark.svg" />
-			</ItemGroup>
-		</Otherwise>
-	</Choose>
 
 	<Choose>
 		<When Condition="$(IsAndroid) or $(IsIOSOrCatalyst)">
@@ -250,6 +232,22 @@
 
 	<ItemGroup>
 	  <EmbeddedResource Include="..\AppData\*.json" LinkBase="AppData" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Services\Serialization\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\PoliciesPage.xaml.cs">
+	    <DependentUpon>PoliciesPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\PoliciesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 
 </Project>

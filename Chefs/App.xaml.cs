@@ -1,7 +1,3 @@
-using System.Diagnostics;
-using System.Text.Json;
-using Chefs.Services;
-using Chefs.Services.Clients;
 using Chefs.Services.Settings;
 
 #if __IOS__

@@ -38,9 +38,9 @@
 									   Foreground="{ThemeResource OnBackgroundBrush}"
 									   Style="{StaticResource TitleLarge}" />
 							<ctrl:ChartControl DataContext="{Binding}"
-											   CarbBrush="{ThemeResource NutritionCarbsValBrush}"
-											   ProteinBrush="{ThemeResource NutritionProteinValBrush}"
-											   FatBrush="{ThemeResource NutritionFatValBrush}"
+											   UserRiskBrush="{ThemeResource UserRiskValBrush}"
+											   DataRiskBrush="{ThemeResource DataRiskValBrush}"
+											   DeviceRiskBrush="{ThemeResource DeviceRiskValBrush}"
 											   DataLabelBrush="{ThemeResource NutritionDataLabelBrush}"
 											   TrackBackgroundBrush="{ThemeResource NutritionTrackBackgroundBrush}"
 											   Grid.Row="1" />
@@ -239,7 +239,7 @@
 															   Foreground="{ThemeResource OnSurfaceBrush}"
 															   Style="{StaticResource TitleSmall}" />
 													<TextBlock TextWrapping="Wrap"
-															   Text="{Binding Calories}"
+															   Text="{Binding Risk}"
 															   Foreground="{ThemeResource OnSurfaceMediumBrush}"
 															   Style="{StaticResource CaptionMedium}" />
 												</utu:AutoLayout>

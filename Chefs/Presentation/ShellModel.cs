@@ -11,5 +11,11 @@ public partial record ShellModel
 		_ = Start();
 	}
 
-	public async Task Start() => await _navigator.NavigateViewModelAsync<WelcomeModel>(this);
+#if DEBUG
+	public async Task Start() => await _navigator.NavigateViewModelAsync<MainModel>(this);
+#else
+public async Task Start() => await _navigator.NavigateViewModelAsync<WelcomeModel>(this);
+#endif
+
+
 }

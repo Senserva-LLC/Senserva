@@ -48,7 +48,7 @@
 			<utu:NavigationBar.PrimaryCommands>
 				<AppBarButton Command="{Binding Share}">
 					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Share}" />
+						<PathIcon Foreground ="Lime" Data="{StaticResource Icon_Export}" />
 					</AppBarButton.Icon>
 				</AppBarButton>
 				<AppBarButton Command="{Binding Favorite}">
@@ -130,7 +130,7 @@
 											  Foreground="{ThemeResource OnSurfaceBrush}" />
 									<TextBlock TextAlignment="Center"
 											   TextWrapping="Wrap"
-											   Text="{Binding Recipe.CookTime, Converter={StaticResource TimeSpanToStringConverter}}"
+											   Text="{Binding Recipe.EstimateTime, Converter={StaticResource TimeSpanToStringConverter}}"
 											   Foreground="{ThemeResource OnSurfaceMediumBrush}"
 											   Style="{StaticResource BodySmall}" />
 								</utu:AutoLayout>
@@ -154,7 +154,7 @@
 											  Foreground="{ThemeResource OnSurfaceBrush}" />
 									<TextBlock Foreground="{ThemeResource OnSurfaceMediumBrush}"
 											   Style="{StaticResource BodySmall}"
-											   Text="{Binding Recipe.Calories}"
+											   Text="{Binding Recipe.Risk}"
 											   TextAlignment="Center"
 											   TextWrapping="Wrap" />
 								</utu:AutoLayout>
@@ -172,18 +172,18 @@
 															Wide='40,0'}"
 									Background="{ThemeResource BackgroundBrush}"
 									Style="{StaticResource TopTabBarStyle}">
-							<utu:TabBarItem uen:Region.Name="IngredientsTab"
-											Content="Ingredients"
-											IsSelected="True" />
+							<utu:TabBarItem uen:Region.Name="RisksTab"
+											Content="Risks"
+											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
 							<utu:TabBarItem uen:Region.Name="StepsTab"
 											Content="Steps"
 											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
-							<utu:TabBarItem uen:Region.Name="ReviewsTab"
-											Content="Reviews"
+							<utu:TabBarItem uen:Region.Name="ComplianceTab"
+											Content="Compliance"
 											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
-							<utu:TabBarItem uen:Region.Name="NutritionTab"
-											Content="Nutrition"
-											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
+							<utu:TabBarItem uen:Region.Name="ControlsTab"
+											Content="Controls"
+											IsSelected="True" />
 						</utu:TabBar>
 						<ScrollViewer utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
 																					   Wide=Stretch}"
@@ -195,18 +195,15 @@
 																		 Wide=16}"
 												Padding="{utu:Responsive Normal='16,24,16,16',
 																		 Wide=40}"
-												uen:Region.Name="IngredientsTab">
+												uen:Region.Name="DetailsTab">
 									<TextBlock Style="{StaticResource BodyLarge}"
 											   Foreground="{ThemeResource OnSurfaceBrush}"
-											   Text="{Binding Ingredients.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} items'}"
+											   Text="{Binding Details.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} items'}"
 											   TextWrapping="Wrap" />
 									<utu:AutoLayout Spacing="{utu:Responsive Normal=2, Wide=0}">
-										<uer:FeedView x:Name="IngredientsFeed"
-													  Source="{Binding Ingredients}">
-											<DataTemplate>
 												<muxc:ItemsRepeater utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Stretch,
 																													 Wide=Auto}"
-																	ItemsSource="{Binding Data}">
+																	ItemsSource="{Binding Details}">
 													<muxc:ItemsRepeater.Layout>
 														<muxc:StackLayout Orientation="Vertical"
 																		  Spacing="2" />
@@ -242,8 +239,6 @@
 														</DataTemplate>
 													</muxc:ItemsRepeater.ItemTemplate>
 												</muxc:ItemsRepeater>
-											</DataTemplate>
-										</uer:FeedView>
 									</utu:AutoLayout>
 								</utu:AutoLayout>
 
@@ -257,10 +252,7 @@
 											   Foreground="{ThemeResource OnSurfaceBrush}"
 											   Text="{Binding Steps.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} steps'}"
 											   TextWrapping="Wrap" />
-									<uer:FeedView x:Name="StepsFeed"
-												  Source="{Binding Steps}">
-										<DataTemplate>
-											<muxc:ItemsRepeater ItemsSource="{Binding Data}">
+											<muxc:ItemsRepeater ItemsSource="{Binding Steps}">
 												<muxc:ItemsRepeater.Layout>
 													<muxc:StackLayout Orientation="Vertical"
 																	  Spacing="2" />
@@ -284,8 +276,6 @@
 													</DataTemplate>
 												</muxc:ItemsRepeater.ItemTemplate>
 											</muxc:ItemsRepeater>
-										</DataTemplate>
-									</uer:FeedView>
 								</utu:AutoLayout>
 
 								<utu:AutoLayout Spacing="{utu:Responsive Normal=8,
@@ -299,12 +289,7 @@
 											   Text="{Binding Reviews.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} comments'}"
 											   TextWrapping="Wrap"
 											   Visibility="{Binding Reviews.Count, Converter={StaticResource GreaterThanZeroToVisibleConverter}}" />
-									<uer:FeedView x:Name="ReviewsFeed"
-												  VerticalContentAlignment="Center"
-												  NoneTemplate="{StaticResource EmptyTemplate}"
-												  Source="{Binding Reviews}">
-										<DataTemplate>
-											<muxc:ItemsRepeater ItemsSource="{Binding Data}">
+											<muxc:ItemsRepeater ItemsSource="{Binding Reviews}">
 												<muxc:ItemsRepeater.Layout>
 													<muxc:StackLayout Orientation="Vertical"
 																	  Spacing="2" />
@@ -401,11 +386,9 @@
 													</DataTemplate>
 												</muxc:ItemsRepeater.ItemTemplate>
 											</muxc:ItemsRepeater>
-										</DataTemplate>
-									</uer:FeedView>
 								</utu:AutoLayout>
 
-								<Grid uen:Region.Name="NutritionTab"
+								<Grid uen:Region.Name="RisksTab"
 									  Visibility="Collapsed">
 									<Grid Margin="{utu:Responsive Normal=16,
 																  Wide=40}"
@@ -424,9 +407,9 @@
 												   Foreground="{ThemeResource OnBackgroundBrush}"
 												   Style="{StaticResource TitleLarge}" />
 										<ctrl:ChartControl DataContext="{Binding Recipe}"
-														   CarbBrush="{ThemeResource NutritionCarbsValBrush}"
-														   ProteinBrush="{ThemeResource NutritionProteinValBrush}"
-														   FatBrush="{ThemeResource NutritionFatValBrush}"
+														   UserRiskBrush="{ThemeResource UserRiskValBrush}"
+														   DataRiskBrush="{ThemeResource DataRiskValBrush}"
+														   DeviceRiskBrush="{ThemeResource DeviceRiskValBrush}"
 														   DataLabelBrush="{ThemeResource NutritionDataLabelBrush}"
 														   TrackBackgroundBrush="{ThemeResource NutritionTrackBackgroundBrush}"
 														   Grid.Row="1" />
