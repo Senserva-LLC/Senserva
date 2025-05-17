@@ -1,12 +1,25 @@
 namespace Chefs.Business.Models;
 
 /// <summary>
-/// TODO I think its stuff like Intune but TBD for now
+/// TODO add a matching set of rules
+/// </summary>
+public enum ManagedCategory
+{
+	IntuneDrift,
+	IntunePatch,
+	SenservaPatch,
+	EntraUsers,
+	WindowsUsers,
+}
+
+/// <summary>
 /// </summary>
 public partial record Category
 {
+	/// <summary>
+	///  key
+	/// </summary>
 	public int? Id { get; init; }
-	public string? UrlIcon { get; init; }
-	public string? Name { get; init; }
+	public ManagedCategory? Name { get; init; } = ManagedCategory.IntunePatch;
 	public string? Color { get; init; }
 }

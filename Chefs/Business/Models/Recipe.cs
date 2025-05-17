@@ -3,6 +3,7 @@ namespace Chefs.Business.Models;
 
 /// <summary>
 /// TODO rename this as Solution
+/// TODO add a Rules table that maps to this data, and include it in the UI
 /// </summary>
 public partial record Recipe : ISenservaEntity
 {
@@ -30,8 +31,8 @@ public partial record Recipe : ISenservaEntity
 	public bool IsFavorite { get; init; }
 	public Risks Risks { get; init; }
 	public List<Step>? Steps { get; set; }
-	public List<Content>? Details { get; set; }
-	public List<Review>? Reviews { get; set; }
+	public List<Content>? Controls { get; set; }
+	public List<Compliance>? Compliance { get; set; }
 
 	public Recipe()
 	{
@@ -42,9 +43,9 @@ public partial record Recipe : ISenservaEntity
 		Risk = OverallRisk.High;
 		Risks = new Risks();
 		Category = new Category();
-		Difficulty = Difficulty.Beginner;
+		Difficulty = Difficulty.Basic;
 		EstimateTime = TimeSpan.FromMinutes(30);
-		Details = [new Content { Name = "bob" }];
+		Controls = [new Content { Name = "bob" }];
 	}
 
 	/// <summary>

@@ -30,7 +30,7 @@ public partial record RecipeDetailsModel
 
 	public Recipe Recipe { get; }
 
-	public IImmutableList<Content> Details => Recipe.Details?.ToImmutableList() ?? [];
+	public IImmutableList<Content> Controls => Recipe.Controls?.ToImmutableList() ?? [];
 
 	public IState<bool> IsFavorited => State.Value(this, () => Recipe.IsFavorite);
 
@@ -41,14 +41,14 @@ public partial record RecipeDetailsModel
 
 	public IListFeed<Step> Steps => ListFeed.Async(async ct => await _recipeService.GetSteps(Recipe.Id, ct));
 
-	public IListState<Review> Reviews => ListState
+	public IListState<Compliance> Compliance => ListState
 		.Async(this, async ct => await _recipeService.GetReviews(Recipe.Id, ct))
 		.Observe(_messenger, r => r.Id);
 
-	public async ValueTask Like(Review review, CancellationToken ct) =>
+	public async ValueTask Like(Compliance review, CancellationToken ct) =>
 		await _recipeService.LikeReview(review, ct);
 
-	public async ValueTask Dislike(Review review, CancellationToken ct) =>
+	public async ValueTask Dislike(Compliance review, CancellationToken ct) =>
 		await _recipeService.DislikeReview(review, ct);
 
 	public async ValueTask LiveCooking(IImmutableList<Step> steps) =>

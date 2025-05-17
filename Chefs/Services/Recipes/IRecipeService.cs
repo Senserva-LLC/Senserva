@@ -21,7 +21,7 @@ public interface IRecipeService
 	/// <param name="ct"></param>
 	/// <returns>
 	/// </returns>
-	ValueTask DislikeReview(Review review, CancellationToken ct);
+	ValueTask DislikeReview(Compliance review, CancellationToken ct);
 
 	/// <summary>
 	/// Add current user like recipe review
@@ -30,7 +30,7 @@ public interface IRecipeService
 	/// <param name="ct"></param>
 	/// <returns>
 	/// </returns>
-	ValueTask LikeReview(Review review, CancellationToken ct);
+	ValueTask LikeReview(Compliance review, CancellationToken ct);
 
 	/// <summary>
 	/// Recipes method
@@ -63,7 +63,7 @@ public interface IRecipeService
 	/// <returns>
 	/// GetRecipesAsync each category from api
 	/// </returns>
-	public Task<IImmutableList<Category>> GetCategories(CancellationToken ct);
+	public Task<IImmutableList<Category>> GetCategoriesAsync(CancellationToken ct);
 
 	/// <summary>
 	/// Categories from api with count
@@ -119,7 +119,7 @@ public interface IRecipeService
 	/// <returns>
 	/// Recipe's reviews
 	/// </returns>
-	public Task<IImmutableList<Review>> GetReviews(Guid recipeId, CancellationToken ct);
+	public Task<IImmutableList<Compliance>> GetReviews(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
 	/// Save recipe
@@ -137,7 +137,7 @@ public interface IRecipeService
 	/// <param name="ct"></param>
 	/// <returns>
 	/// </returns>
-	ValueTask<Review> CreateReview(Guid recipeId, string review, CancellationToken ct);
+	ValueTask<Compliance> CreateReview(Guid recipeId, string review, CancellationToken ct);
 
 	/// <summary>
 	/// GetRecipesAsync review's steps

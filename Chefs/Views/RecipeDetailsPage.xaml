@@ -172,18 +172,18 @@
 															Wide='40,0'}"
 									Background="{ThemeResource BackgroundBrush}"
 									Style="{StaticResource TopTabBarStyle}">
-							<utu:TabBarItem uen:Region.Name="DetailsTab"
-											Content="Details"
-											IsSelected="True" />
-							<utu:TabBarItem uen:Region.Name="StepsTab"
-											Content="Steps"
-											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
-							<utu:TabBarItem uen:Region.Name="ReviewsTab"
-											Content="Reviews"
-											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
 							<utu:TabBarItem uen:Region.Name="RisksTab"
 											Content="Risks"
 											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
+							<utu:TabBarItem uen:Region.Name="StepsTab"
+											Content="Steps"
+											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
+							<utu:TabBarItem uen:Region.Name="ComplianceTab"
+											Content="Compliance"
+											Foreground="{ThemeResource OnSurfaceMediumBrush}" />
+							<utu:TabBarItem uen:Region.Name="ControlsTab"
+											Content="Controls"
+											IsSelected="True" />
 						</utu:TabBar>
 						<ScrollViewer utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
 																					   Wide=Stretch}"

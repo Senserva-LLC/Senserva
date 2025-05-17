@@ -2,7 +2,7 @@ namespace Chefs.Business.Models;
 
 public enum Difficulty
 {
-	Beginner,
+	Basic,
 	Intermediate,
-	Difficult
+	Advanced
 }

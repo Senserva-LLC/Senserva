@@ -1,14 +1,14 @@
 
 namespace Chefs.Business.Models;
 
-public enum ReviewType
+public enum ComplianceType
 {
 	CVE, // CVE ID
 }
 
-public partial record Review
+public partial record Compliance
 {
-	public Review()
+	public Compliance()
 	{
 		Id = Guid.NewGuid();
 		RecipeId = Guid.Empty;
@@ -16,7 +16,7 @@ public partial record Review
 		Date = DateTimeOffset.MinValue;
 	}
 
-	public Review(Guid recipeId, string text)
+	public Compliance(Guid recipeId, string text)
 	{
 		Id = Guid.NewGuid();
 		RecipeId = recipeId;
@@ -33,6 +33,6 @@ public partial record Review
 	public ImmutableList<Guid>? Likes { get; init; }
 	public ImmutableList<Guid>? Dislikes { get; init; }
 	public bool UserLike { get; init; }
-	public ReviewType Type { get; init; } = ReviewType.CVE;
+	public ComplianceType Type { get; init; } = ComplianceType.CVE;
 
 }

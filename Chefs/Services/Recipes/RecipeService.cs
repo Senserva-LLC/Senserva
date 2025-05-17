@@ -1,7 +1,4 @@
 
-using BruTile.Wms;
-using Microsoft.Kiota.Abstractions.Extensions;
-
 namespace Chefs.Services.Recipes;
 
 public class RecipeService(
@@ -21,13 +18,13 @@ public class RecipeService(
 		return list.ToImmutableList();
 	}
 
-	public async Task<IImmutableList<Review>> GetReviewsAsync() => new List<Review>() { new Review() {  PublisherName="Microsoft"} }.ToImmutableList();
+	public async Task<IImmutableList<Compliance>> GetReviewsAsync() => new List<Compliance>() { new Compliance() {  PublisherName="Microsoft"} }.ToImmutableList();
 
 	public async Task<IImmutableList<Step>> GetStepsAsync() => new List<Step>().ToImmutableList();
 
 	public async Task<IImmutableList<Content>> GetContentsAsync() => new List<Content>().ToImmutableList();
 
-	public async Task<IImmutableList<Category>> GetCategoriesAsync() => new List<Category>().ToImmutableList();
+	public async Task<IImmutableList<Category>> GetCategoriesAsync(CancellationToken ct) => new List<Category>() { new Category() }.ToImmutableList();
 
 	public async Task<IImmutableList<Recipe>> GetAll(CancellationToken ct)
 	{
@@ -42,19 +39,13 @@ public class RecipeService(
 
 	public async Task<IImmutableList<Recipe>> GetByCategory(int categoryId, CancellationToken ct)
 	{
-		//var recipesData = await api.Api.Recipe.GetAsync(cancellationToken: ct);
-		//return recipesData?.Where(r => r.Category?.Id == categoryId).Select(r => new Recipe(r)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
-		return await GetRecipesAsync();
-	}
-
-	public async Task<IImmutableList<Category>> GetCategories(CancellationToken ct)
-	{
-		return await GetCategoriesAsync();
+		var recipesData = await GetRecipesAsync();
+		return recipesData.Where(r => r.Category?.Id == categoryId).Select(r => r).ToImmutableList() ?? [];
 	}
 
 	public async Task<IImmutableList<CategoryWithCount>> GetCategoriesWithCount(CancellationToken ct)
 	{
-		var categories = await GetCategories(ct);
+		var categories = await GetCategoriesAsync(ct);
 		var tasks = categories.Select(async category =>
 		{
 			var recipesByCategory = await GetByCategory(category.Id ?? 0, ct);
@@ -106,7 +97,7 @@ public class RecipeService(
 	public IImmutableList<string> GetSearchHistory()
 		=> searchOptions.Value.Searches.Take(3).ToImmutableList();
 
-	public async Task<IImmutableList<Review>> GetReviews(Guid recipeId, CancellationToken ct)
+	public async Task<IImmutableList<Compliance>> GetReviews(Guid recipeId, CancellationToken ct)
 	{
 		return await GetReviewsAsync();
 	}
@@ -123,9 +114,9 @@ public class RecipeService(
 		//return recipesData?.Where(r => r.UserId == userId).Select(x => new Recipe(x)).ToImmutableList() ?? ImmutableList<Recipe>.Empty;
 	}
 
-	public async ValueTask<Review> CreateReview(Guid recipeId, string review, CancellationToken ct)
+	public async ValueTask<Compliance> CreateReview(Guid recipeId, string review, CancellationToken ct)
 	{
-		var reviewData = new Review { RecipeId = recipeId, Description = review };
+		var reviewData = new Compliance { RecipeId = recipeId, Description = review };
 		return reviewData;
 	}
 
@@ -157,16 +148,16 @@ public class RecipeService(
 		messenger.Send(new EntityMessage<Recipe>(EntityChange.Updated, updatedRecipe));
 	}
 
-	public async ValueTask LikeReview(Review review, CancellationToken ct)
+	public async ValueTask LikeReview(Compliance review, CancellationToken ct)
 	{
-		var updatedReview = new Review();
-		messenger.Send(new EntityMessage<Review>(EntityChange.Updated, updatedReview));
+		var updatedReview = new Compliance();
+		messenger.Send(new EntityMessage<Compliance>(EntityChange.Updated, updatedReview));
 	}
 
-	public async ValueTask DislikeReview(Review review, CancellationToken ct)
+	public async ValueTask DislikeReview(Compliance review, CancellationToken ct)
 	{
-		var updatedReview = new Review();
-		messenger.Send(new EntityMessage<Review>(EntityChange.Updated, updatedReview));
+		var updatedReview = new Compliance();
+		messenger.Send(new EntityMessage<Compliance>(EntityChange.Updated, updatedReview));
 	}
 
 	public async Task<IImmutableList<Recipe>> GetRecommended(CancellationToken ct)
@@ -210,6 +201,6 @@ public class RecipeService(
 	private IImmutableList<Recipe> GetRecipesByText(IEnumerable<Recipe> recipes, string text)
 		=> recipes
 			.Where(r => r.Name?.Contains(text, StringComparison.OrdinalIgnoreCase) == true
-						|| r.Category?.Name?.Contains(text, StringComparison.OrdinalIgnoreCase) == true)
+						|| r.Category?.Name.ToString()?.Contains(text, StringComparison.OrdinalIgnoreCase) == true)
 			.ToImmutableList();
 }
