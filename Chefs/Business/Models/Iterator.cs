@@ -2,12 +2,12 @@ namespace Chefs.Business.Models;
 
 // WORKAROUND
 // This is a workaround until the following issue is resolved: https://github.com/unoplatform/uno.extensions/issues/2383
-// Once the issue is resolved, we should be able to use a single Iterator<T> class for both Step and int types.
+// Once the issue is resolved, we should be able to use a single Iterator<T> class for both RemediationStep and int types.
 
-public record StepIterator(IImmutableList<Step> Items)
+public record StepIterator(IImmutableList<RemediationStep> Items)
 {
 	public int CurrentIndex { get; init; } = 0;
-	public Step? CurrentItem => CurrentIndex >= 0 && CurrentIndex < Items.Count
+	public RemediationStep? CurrentItem => CurrentIndex >= 0 && CurrentIndex < Items.Count
 		? Items[CurrentIndex]
 		: null;
 

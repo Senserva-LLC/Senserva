@@ -1,3 +1,5 @@
+using Chefs.Services.LiveData;
+
 namespace Chefs.Presentation;
 
 public partial record HomeModel
@@ -6,13 +8,15 @@ public partial record HomeModel
 	private readonly IRecipeService _recipeService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
+	private readonly ILiveDataService _liveDataService;
 
-	public HomeModel(INavigator navigator, IRecipeService recipe, IUserService userService, IMessenger messenger)
+	public HomeModel(INavigator navigator, IRecipeService recipe, IUserService userService, IMessenger messenger, ILiveDataService liveData)
 	{
 		_navigator = navigator;
 		_recipeService = recipe;
 		_userService = userService;
 		_messenger = messenger;
+		_liveDataService = liveData;
 	}
 
 	public IListState<Recipe> TrendingNow => ListState
@@ -23,7 +27,7 @@ public partial record HomeModel
 
 	public IListFeed<Recipe> RecentlyAdded => ListFeed.Async(async ct => await _recipeService.GetRecent(ct));
 
-	public IListFeed<SenservaUser> PopularCreators => ListFeed.Async(async ct => await _userService.GetPopularCreators(ct));
+	public IListFeed<LiveDataModel> LiveData => ListFeed.Async(async ct => await _liveDataService.GetAll(ct));
 
 	public IFeed<SenservaUser> UserProfile => _userService.User;
 

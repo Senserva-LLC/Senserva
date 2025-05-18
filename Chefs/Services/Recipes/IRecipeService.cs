@@ -147,7 +147,7 @@ public interface IRecipeService
 	/// <returns>
 	/// Recipe's steps
 	/// </returns>
-	public Task<IImmutableList<Step>> GetSteps(Guid recipeId, CancellationToken ct);
+	public Task<IImmutableList<RemediationStep>> GetSteps(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
 	/// Recipes by user

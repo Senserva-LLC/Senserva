@@ -4,10 +4,6 @@ using Chefs.Services.Settings;
 using Foundation;
 #endif
 using LiveChartsCore;
-using Microsoft.Kiota.Abstractions;
-using Microsoft.Kiota.Abstractions.Authentication;
-using Microsoft.Kiota.Http.HttpClientLibrary;
-using Uno.Extensions.Http.Kiota;
 
 namespace Chefs;
 

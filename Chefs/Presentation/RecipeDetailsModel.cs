@@ -34,7 +34,7 @@ public partial record RecipeDetailsModel
 
 	public IFeed<SenservaUser> CurrentUser => Feed.Async(async ct => await _userService.GetCurrent(ct));
 
-	public IListFeed<Step> Steps => ListFeed.Async(async ct => await _recipeService.GetSteps(Recipe.Id, ct));
+	public IListFeed<RemediationStep> Steps => ListFeed.Async(async ct => await _recipeService.GetSteps(Recipe.Id, ct));
 
 	public IListState<Compliance> Compliance => ListState
 		.Async(this, async ct => await _recipeService.GetReviews(Recipe.Id, ct))
@@ -46,7 +46,7 @@ public partial record RecipeDetailsModel
 	public async ValueTask Dislike(Compliance review, CancellationToken ct) =>
 		await _recipeService.DislikeReview(review, ct);
 
-	public async ValueTask LiveCooking(IImmutableList<Step> steps) =>
+	public async ValueTask LiveCooking(IImmutableList<RemediationStep> steps) =>
 		await _navigator.NavigateRouteAsync(this, "LiveCooking", data: new LiveCookingParameter(Recipe, steps));
 
 	public async ValueTask Favorite(CancellationToken ct)

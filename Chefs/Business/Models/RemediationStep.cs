@@ -1,9 +1,9 @@
 
 namespace Chefs.Business.Models;
 
-public record Step
+public record RemediationStep
 {
-	public Step()
+	public RemediationStep()
 	{
 		Cookware = ImmutableList<string>.Empty;
 		Ingredients = ImmutableList<string>.Empty;

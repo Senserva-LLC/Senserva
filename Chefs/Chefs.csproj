@@ -51,12 +51,10 @@
 
 		<UnoFeatures>
 			Material;
-			Hosting;
 			Toolkit;
 			Logging;
 			MVUX;
 			Configuration;
-			HttpKiota;
 			Serialization;
 			Localization;
 			Navigation;
@@ -239,6 +237,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\LiveDataPage.xaml.cs">
+	    <DependentUpon>LiveDataPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PoliciesPage.xaml.cs">
 	    <DependentUpon>PoliciesPage.xaml</DependentUpon>
 	  </Compile>
@@ -246,6 +247,12 @@
 
 	<ItemGroup>
 	  <Page Update="Views\PoliciesPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\LiveDataPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>

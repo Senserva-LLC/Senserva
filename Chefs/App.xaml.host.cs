@@ -1,3 +1,4 @@
+using Chefs.Services.LiveData;
 using Chefs.Services.Settings;
 using Chefs.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
@@ -51,7 +52,8 @@ public partial class App : Application
 						.AddSingleton<INotificationService, NotificationService>()
 						.AddSingleton<IRecipeService, RecipeService>()
 						.AddSingleton<ISettingsService, SettingsService>()
-						.AddSingleton<IUserService, UserService>();
+						.AddSingleton<IUserService, UserService>()
+						.AddSingleton<ILiveDataService, LiveDataService>();
 				})
 				.ConfigureAppConfiguration(config =>
 				{
@@ -117,12 +119,12 @@ public partial class App : Application
 			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
 			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
 			new ViewMap<PoliciesPage, PoliciesModel>(),
+			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, LiveCookingModel>(Data: new DataMap<LiveCookingParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
 			new ViewMap<CompletedDialog>(),
-			new ViewMap<MapPage, MapModel>(),
 			new ViewMap<GenericDialog, GenericDialogModel>(Data: new DataMap<DialogInfo>())
 		);
 
@@ -148,16 +150,12 @@ public partial class App : Application
 
 						new RouteMap("RecipeDetails", View: views.FindByViewModel<RecipeDetailsModel>()),
 						new RouteMap("LiveCooking", View: views.FindByViewModel<LiveCookingModel>()),
-#if !IS_WASM_SKIA
-						new RouteMap("Map", View: views.FindByViewModel<MapModel>()),
-#endif
 					]),
 					new RouteMap("Notifications", View: views.FindByViewModel<NotificationsModel>()),
 					new RouteMap("Filter", View: views.FindByViewModel<FilterModel>()),
 					new RouteMap("Profile", View: views.FindByViewModel<ProfileModel>()),
 					new RouteMap("Settings", View: views.FindByViewModel<SettingsModel>()),
 					new RouteMap("Completed", View: views.FindByView<CompletedDialog>()),
-					new RouteMap("Map", View: views.FindByViewModel<MapModel>()),
 					new RouteMap("Dialog", View: views.FindByView<GenericDialog>())
 				}
 			)
