@@ -51,12 +51,10 @@
 
 		<UnoFeatures>
 			Material;
-			Hosting;
 			Toolkit;
 			Logging;
 			MVUX;
 			Configuration;
-			HttpKiota;
 			Serialization;
 			Localization;
 			Navigation;
