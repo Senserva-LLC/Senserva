@@ -30,7 +30,7 @@ public partial record Recipe : ISenservaEntity
 	public DateTimeOffset Date { get; init; }
 	public bool IsFavorite { get; init; }
 	public Risks Risks { get; init; }
-	public List<Step>? Steps { get; set; }
+	public List<RemediationStep>? Steps { get; set; }
 	public List<Content>? Controls { get; set; }
 	public List<Compliance>? Compliance { get; set; }
 

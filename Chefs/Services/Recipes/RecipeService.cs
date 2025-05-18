@@ -20,7 +20,7 @@ public class RecipeService(
 
 	public async Task<IImmutableList<Compliance>> GetReviewsAsync() => new List<Compliance>() { new Compliance() {  PublisherName="Microsoft"} }.ToImmutableList();
 
-	public async Task<IImmutableList<Step>> GetStepsAsync() => new List<Step>().ToImmutableList();
+	public async Task<IImmutableList<RemediationStep>> GetStepsAsync() => new List<RemediationStep>().ToImmutableList();
 
 	public async Task<IImmutableList<Content>> GetContentsAsync() => new List<Content>().ToImmutableList();
 
@@ -102,7 +102,7 @@ public class RecipeService(
 		return await GetReviewsAsync();
 	}
 
-	public async Task<IImmutableList<Step>> GetSteps(Guid recipeId, CancellationToken ct)
+	public async Task<IImmutableList<RemediationStep>> GetSteps(Guid recipeId, CancellationToken ct)
 	{
 		return await GetStepsAsync();
 		//var stepsData = await api.Api.Recipe[recipeId].Steps.GetAsync(cancellationToken: ct);

@@ -1,3 +1,4 @@
+using Chefs.Services.LiveData;
 using Chefs.Services.Settings;
 using Chefs.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
@@ -51,7 +52,8 @@ public partial class App : Application
 						.AddSingleton<INotificationService, NotificationService>()
 						.AddSingleton<IRecipeService, RecipeService>()
 						.AddSingleton<ISettingsService, SettingsService>()
-						.AddSingleton<IUserService, UserService>();
+						.AddSingleton<IUserService, UserService>()
+						.AddSingleton<ILiveDataService, LiveDataService>();
 				})
 				.ConfigureAppConfiguration(config =>
 				{
@@ -117,6 +119,7 @@ public partial class App : Application
 			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
 			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
 			new ViewMap<PoliciesPage, PoliciesModel>(),
+			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, LiveCookingModel>(Data: new DataMap<LiveCookingParameter>()),
