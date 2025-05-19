@@ -36,6 +36,8 @@ public partial record TechniqueDetailsModel
 
 	public IListFeed<RemediationStep> Steps => ListFeed.Async(async ct => await _recipeService.GetSteps(Technique.Id, ct));
 
+	public IListFeed<string> KeyDetails => ListFeed.Async(async ct => await _recipeService.GetDetails(Technique.Id, ct));
+
 	public IListState<Compliance> Compliance => ListState
 		.Async(this, async ct => await _recipeService.GetReviews(Technique.Id, ct))
 		.Observe(_messenger, r => r.Id);

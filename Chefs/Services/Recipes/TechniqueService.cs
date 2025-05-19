@@ -18,6 +18,19 @@ public class TechniqueService(
 		return list.ToImmutableList();
 	}
 
+	/// <summary>
+	/// define the details structure as more is known
+	/// </summary>
+	/// <param name="recipeId"></param>
+	/// <param name="ct"></param>
+	/// <returns></returns>
+	public async Task<IImmutableList<string>> GetDetails(Guid recipeId, CancellationToken ct)
+	{
+		var list = new List<string>();
+		return list.ToImmutableList();
+	}
+
+
 	public async Task<IImmutableList<Compliance>> GetReviewsAsync() => new List<Compliance>() { new Compliance() {  PublisherName="Microsoft"} }.ToImmutableList();
 
 	public async Task<IImmutableList<RemediationStep>> GetStepsAsync() => new List<RemediationStep>().ToImmutableList();

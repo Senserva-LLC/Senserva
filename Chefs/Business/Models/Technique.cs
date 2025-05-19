@@ -30,6 +30,12 @@ public partial record Technique : ISenservaEntity
 	public DateTimeOffset Date { get; init; }
 	public bool IsFavorite { get; init; }
 	public Risks Risks { get; init; }
+
+	/// <summary>
+	/// user defined list of details displayed in the main part of the ui
+	/// </summary>
+	public List<string>? KeyDetails { get; set; }
+
 	public List<RemediationStep>? Steps { get; set; }
 	public List<Content>? Controls { get; set; }
 	public List<Compliance>? Compliance { get; set; }

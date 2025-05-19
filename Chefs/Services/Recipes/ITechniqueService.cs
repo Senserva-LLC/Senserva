@@ -150,6 +150,14 @@ public interface ITechniqueService
 	public Task<IImmutableList<RemediationStep>> GetSteps(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
+	/// define the details structure as more is known
+	/// </summary>
+	/// <param name="recipeId"></param>
+	/// <param name="ct"></param>
+	/// <returns></returns>
+	public Task<IImmutableList<string>> GetDetails(Guid recipeId, CancellationToken ct);
+
+	/// <summary>
 	/// Techniques by user
 	/// </summary>
 	/// <param name="ct"></param>

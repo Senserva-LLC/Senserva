@@ -243,6 +243,9 @@
 	  <Compile Update="Views\PoliciesPage.xaml.cs">
 	    <DependentUpon>PoliciesPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\TechniqueDetailsPage.xaml.cs">
+	    <DependentUpon>TechniqueDetailsPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>

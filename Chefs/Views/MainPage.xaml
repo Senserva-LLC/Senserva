@@ -64,7 +64,7 @@
                 utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                 Content="Policies">
                 <utu:TabBarItem.Icon>
-					<PathIcon Data="{StaticResource Icon_Rules}" />
+                    <PathIcon Data="{StaticResource Icon_Rules}" />
                 </utu:TabBarItem.Icon>
             </utu:TabBarItem>
 
@@ -110,16 +110,16 @@
                     </utu:TabBarItem.Icon>
                 </utu:TabBarItem>
 
-				<utu:TabBarItem
-                uen:Region.Name="Policies"
-                utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
-                Content="Policies">
-					<utu:TabBarItem.Icon>
-						<PathIcon Data="{StaticResource Icon_Rules}" />
-					</utu:TabBarItem.Icon>
-				</utu:TabBarItem>
+                <utu:TabBarItem
+                    uen:Region.Name="Policies"
+                    utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
+                    Content="Policies">
+                    <utu:TabBarItem.Icon>
+                        <PathIcon Data="{StaticResource Icon_Rules}" />
+                    </utu:TabBarItem.Icon>
+                </utu:TabBarItem>
 
-				<utu:TabBarItem
+                <utu:TabBarItem
                     uen:Region.Name="FavoriteTechniques"
                     utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                     utu:TabBarItemExtensions.OnClickBehaviorsTarget="{Binding ElementName=RootGrid}"
