@@ -4,7 +4,7 @@ namespace Chefs.Services.Cookbooks;
 public class CookbookService(IMessenger messenger, IUserService userService)
 	: ICookbookService
 {
-	public async ValueTask<Cookbook> Create(string name, IImmutableList<Recipe> recipes, CancellationToken ct)
+	public async ValueTask<Cookbook> Create(string name, IImmutableList<Technique> recipes, CancellationToken ct)
 	{
 		var currentUser = await userService.GetCurrent(ct);
 		var cookbookData = Cookbook.CreateData(currentUser.Id, name, recipes);
@@ -12,7 +12,7 @@ public class CookbookService(IMessenger messenger, IUserService userService)
 		return cookbookData;
 	}
 
-	public async ValueTask<Cookbook> Update(Cookbook cookbook, IImmutableList<Recipe> recipes, CancellationToken ct)
+	public async ValueTask<Cookbook> Update(Cookbook cookbook, IImmutableList<Technique> recipes, CancellationToken ct)
 	{
 		var newCookbook = new Cookbook(recipes);
 		messenger.Send(new EntityMessage<Cookbook>(EntityChange.Updated, newCookbook));

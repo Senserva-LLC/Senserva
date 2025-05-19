@@ -11,7 +11,7 @@ public record SearchFilter(
 	public bool HasFilter => FilterGroup != null || Time != null ||
 							 Difficulty != null || Category != null || ItemsEffected != null;
 
-	public bool Match(Recipe recipe)
+	public bool Match(Technique recipe)
 	{
 		var maxTime = Time switch
 		{

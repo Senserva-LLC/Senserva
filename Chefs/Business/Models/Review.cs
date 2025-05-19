@@ -11,7 +11,7 @@ public partial record Compliance
 	public Compliance()
 	{
 		Id = Guid.NewGuid();
-		RecipeId = Guid.Empty;
+		TechniqueId = Guid.Empty;
 		CreatedBy = Guid.Empty;
 		Date = DateTimeOffset.MinValue;
 	}
@@ -19,12 +19,12 @@ public partial record Compliance
 	public Compliance(Guid recipeId, string text)
 	{
 		Id = Guid.NewGuid();
-		RecipeId = recipeId;
+		TechniqueId = recipeId;
 		Description = text;
 	}
 
 	public Guid Id { get; init; }
-	public Guid RecipeId { get; init; }
+	public Guid TechniqueId { get; init; }
 	public string? UrlAuthorImage { get; init; }
 	public Guid CreatedBy { get; init; }
 	public string? PublisherName { get; init; }

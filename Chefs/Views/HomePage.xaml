@@ -62,7 +62,7 @@
 						<ToggleButton Style="{StaticResource IconToggleButtonStyle}"
 									  IsChecked="{Binding IsFavorite}"
 									  Command="{utu:AncestorBinding AncestorType=uer:FeedView,
-																	Path=DataContext.FavoriteRecipe}"
+																	Path=DataContext.FavoriteTechnique}"
 									  CommandParameter="{Binding}">
 							<ToggleButton.Content>
 								<PathIcon Data="{StaticResource Icon_Heart}"
@@ -130,7 +130,7 @@
 									  VerticalScrollBarVisibility="Disabled"
 									  utu:AutoLayout.PrimaryAlignment="Stretch">
 							<muxc:ItemsRepeater ItemsSource="{Binding Data}"
-												uen:Navigation.Request="RecipeDetails"
+												uen:Navigation.Request="TechniqueDetails"
 												uen:Navigation.Data="{Binding Data}"
 												ItemTemplate="{StaticResource HomeLargeItemTemplate}">
 								<muxc:ItemsRepeater.Layout>
@@ -211,7 +211,7 @@
 									  VerticalScrollBarVisibility="Disabled"
 									  utu:AutoLayout.PrimaryAlignment="Stretch">
 							<muxc:ItemsRepeater ItemsSource="{Binding Data}"
-												uen:Navigation.Request="RecipeDetails"
+												uen:Navigation.Request="TechniqueDetails"
 												uen:Navigation.Data="{Binding Data}">
 								<muxc:ItemsRepeater.Layout>
 									<muxc:StackLayout Orientation="Horizontal"

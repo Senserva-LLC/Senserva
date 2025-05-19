@@ -2,7 +2,7 @@ namespace Chefs.Business.Models;
 
 public class CookbookImages
 {
-	public CookbookImages(ImmutableList<Recipe> recipesData)
+	public CookbookImages(ImmutableList<Technique> recipesData)
 	{
 		FirstImage = recipesData.Count > 0
 			? recipesData[0].ImageUrl

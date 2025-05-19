@@ -92,7 +92,7 @@ public partial class App : Application
 						.AddSingleton<ICookbookService, CookbookService>()
 						.AddSingleton<IMessenger, WeakReferenceMessenger>()
 						.AddSingleton<INotificationService, NotificationService>()
-						.AddSingleton<IRecipeService, RecipeService>()
+						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<ISettingsService, SettingsService>()
 						.AddSingleton<IUserService, UserService>()
 						.AddSingleton<ILiveDataService, LiveDataService>();
@@ -158,8 +158,8 @@ public partial class App : Application
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationsModel>(),
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
-			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
-			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
+			new ViewMap<TechniqueDetailsPage, TechniqueDetailsModel>(Data: new DataMap<Technique>()),
+			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
 			new ViewMap<PoliciesPage, PoliciesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
@@ -183,14 +183,14 @@ public partial class App : Application
 						new RouteMap("Home", View: views.FindByViewModel<HomeModel>(), IsDefault: true),
 						new RouteMap("Search", View: views.FindByViewModel<SearchModel>()),
 						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
-						new RouteMap("FavoriteRecipes", View: views.FindByViewModel<FavoriteRecipesModel>()),
+						new RouteMap("FavoriteTechniques", View: views.FindByViewModel<FavoriteTechniquesModel>()),
 						#endregion
 
 						new RouteMap("CookbookDetails", View: views.FindByViewModel<CookbookDetailModel>()),
 						new RouteMap("UpdateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 						new RouteMap("CreateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 
-						new RouteMap("RecipeDetails", View: views.FindByViewModel<RecipeDetailsModel>()),
+						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueDetailsModel>()),
 						new RouteMap("LiveCooking", View: views.FindByViewModel<LiveCookingModel>()),
 					]),
 					new RouteMap("Notifications", View: views.FindByViewModel<NotificationsModel>()),

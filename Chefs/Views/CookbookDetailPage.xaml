@@ -38,7 +38,7 @@
 			<DataTemplate>
 				<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch"
 								Padding="16">
-					<ScrollViewer x:Name="RecipesScrollViewer"
+					<ScrollViewer x:Name="TechniquesScrollViewer"
 								  utu:AutoLayout.PrimaryAlignment="Stretch"
 								  HorizontalScrollMode="Disabled"
 								  VerticalScrollBarVisibility="Hidden">
@@ -47,12 +47,12 @@
 									   HorizontalAlignment="Stretch"
 									   utu:AutoLayout.CounterAlignment="Center"
 									   Style="{StaticResource BodyLarge}">
-								<Run Text="{Binding Data.Recipes.Count}" />
+								<Run Text="{Binding Data.Techniques.Count}" />
 								<Run Text="results" />
 							</TextBlock>
-							<muxc:ItemsRepeater uen:Navigation.Request="RecipeDetails"
-												ItemTemplate="{StaticResource RecipeTemplate}"
-												ItemsSource="{Binding Data.Recipes}"
+							<muxc:ItemsRepeater uen:Navigation.Request="TechniqueDetails"
+												ItemTemplate="{StaticResource TechniqueTemplate}"
+												ItemsSource="{Binding Data.Techniques}"
 												Layout="{StaticResource ResponsiveGridLayout}" />
 						</utu:AutoLayout>
 					</ScrollViewer>

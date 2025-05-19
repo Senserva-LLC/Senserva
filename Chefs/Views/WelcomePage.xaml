@@ -55,10 +55,10 @@
 									  Description="Embark on a delightful coding journey as you discover, create, and share awesome script tailored to your app and project preferences." />
 					<ctrl:WelcomeView ImageUrl="ms-appx:///Assets/Welcome/second_splash_screen.jpg"
 									  VerticalContentAlignment="Bottom"
-									  Title="Explore Thousands of Recipes"
+									  Title="Explore Thousands of Techniques"
 									  Description="Find your next culinary adventure or last minute lunch from our vast collection of diverse and mouth-watering recipes." />
 					<ctrl:WelcomeView ImageUrl="ms-appx:///Assets/Welcome/third_splash_screen.jpg"
-									  Title="Personalize Your Recipe Journey"
+									  Title="Personalize Your Technique Journey"
 									  VerticalContentAlignment="Bottom"
 									  Description="Create your own recipe collections, cookbooks, follow other foodies, and share your creations with the Chefs community." />
 				</FlipView.Items>

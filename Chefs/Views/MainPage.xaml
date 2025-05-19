@@ -69,7 +69,7 @@
             </utu:TabBarItem>
 
             <utu:TabBarItem
-                uen:Region.Name="FavoriteRecipes"
+                uen:Region.Name="FavoriteTechniques"
                 utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                 Content="Favorites">
                 <utu:TabBarItem.Icon>
@@ -120,7 +120,7 @@
 				</utu:TabBarItem>
 
 				<utu:TabBarItem
-                    uen:Region.Name="FavoriteRecipes"
+                    uen:Region.Name="FavoriteTechniques"
                     utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                     utu:TabBarItemExtensions.OnClickBehaviorsTarget="{Binding ElementName=RootGrid}"
                     Content="Favorites">

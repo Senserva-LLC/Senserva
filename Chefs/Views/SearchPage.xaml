@@ -164,8 +164,8 @@
 					<muxc:ItemsRepeater x:Name="SearchRepeater"
 										Margin="{utu:Responsive Normal='16,0,16,16',
 																Wide='40,0,40,40'}"
-										uen:Navigation.Request="RecipeDetails"
-										ItemTemplate="{StaticResource RecipeTemplate}"
+										uen:Navigation.Request="TechniqueDetails"
+										ItemTemplate="{StaticResource TechniqueTemplate}"
 										ItemsSource="{Binding Data}"
 										Layout="{StaticResource ResponsiveGridLayout}" />
 				</ScrollViewer>

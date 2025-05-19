@@ -59,9 +59,9 @@
         </utu:AutoLayout>
     </DataTemplate>
 
-    <DataTemplate x:Key="RecipeTemplate">
+    <DataTemplate x:Key="TechniqueTemplate">
         <utu:CardContentControl
-            x:Name="RecipeTemplateCard"
+            x:Name="TechniqueTemplateCard"
             HorizontalAlignment="Stretch"
             VerticalAlignment="Stretch"
             Background="{ThemeResource SurfaceBrush}"

@@ -1,4 +1,4 @@
-﻿<Page x:Class="Chefs.Views.RecipeDetailsPage"
+﻿<Page x:Class="Chefs.Views.TechniqueDetailsPage"
 	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -33,7 +33,7 @@
 				<BitmapIcon utu:AutoLayout.CounterAlignment="Center"
 							Width="72"
 							Height="72"
-							UriSource="{ThemeResource Empty_Recipe}" />
+							UriSource="{ThemeResource Empty_Technique}" />
 				<TextBlock Foreground="{ThemeResource OnSurfaceBrush}"
 						   Style="{StaticResource TitleLarge}"
 						   Text="No Reviews Yet"
@@ -44,7 +44,7 @@
 	</Page.Resources>
 
 	<utu:AutoLayout>
-		<utu:NavigationBar Content="{Binding Recipe.Name}">
+		<utu:NavigationBar Content="{Binding Technique.Name}">
 			<utu:NavigationBar.PrimaryCommands>
 				<AppBarButton Command="{Binding Share}">
 					<AppBarButton.Icon>
@@ -89,7 +89,7 @@
 															 Wide=0}">
 						<Image Visibility="{utu:Responsive Normal=Collapsed,
 														   Wide=Visible}"
-							   Source="{Binding Recipe.ImageUrl}"
+							   Source="{Binding Technique.ImageUrl}"
 							   Stretch="UniformToFill"
 							   HorizontalAlignment="Center"
 							   VerticalAlignment="Center"
@@ -99,7 +99,7 @@
 								Height="300">
 							<Image HorizontalAlignment="Center"
 								   VerticalAlignment="Center"
-								   Source="{Binding Recipe.ImageUrl}"
+								   Source="{Binding Technique.ImageUrl}"
 								   Stretch="UniformToFill" />
 						</Border>
 						<utu:AutoLayout utu:AutoLayout.IsIndependentLayout="True"
@@ -130,7 +130,7 @@
 											  Foreground="{ThemeResource OnSurfaceBrush}" />
 									<TextBlock TextAlignment="Center"
 											   TextWrapping="Wrap"
-											   Text="{Binding Recipe.EstimateTime, Converter={StaticResource TimeSpanToStringConverter}}"
+											   Text="{Binding Technique.EstimateTime, Converter={StaticResource TimeSpanToStringConverter}}"
 											   Foreground="{ThemeResource OnSurfaceMediumBrush}"
 											   Style="{StaticResource BodySmall}" />
 								</utu:AutoLayout>
@@ -142,7 +142,7 @@
 											  Foreground="{ThemeResource OnSurfaceBrush}" />
 									<TextBlock Foreground="{ThemeResource OnSurfaceMediumBrush}"
 											   Style="{StaticResource BodySmall}"
-											   Text="{Binding Recipe.Difficulty}"
+											   Text="{Binding Technique.Difficulty}"
 											   TextAlignment="Center"
 											   TextWrapping="Wrap" />
 								</utu:AutoLayout>
@@ -154,7 +154,7 @@
 											  Foreground="{ThemeResource OnSurfaceBrush}" />
 									<TextBlock Foreground="{ThemeResource OnSurfaceMediumBrush}"
 											   Style="{StaticResource BodySmall}"
-											   Text="{Binding Recipe.Risk}"
+											   Text="{Binding Technique.Risk}"
 											   TextAlignment="Center"
 											   TextWrapping="Wrap" />
 								</utu:AutoLayout>
@@ -406,7 +406,7 @@
 												   Text="Intake per serving"
 												   Foreground="{ThemeResource OnBackgroundBrush}"
 												   Style="{StaticResource TitleLarge}" />
-										<ctrl:ChartControl DataContext="{Binding Recipe}"
+										<ctrl:ChartControl DataContext="{Binding Technique}"
 														   UserRiskBrush="{ThemeResource UserRiskValBrush}"
 														   DataRiskBrush="{ThemeResource DataRiskValBrush}"
 														   DeviceRiskBrush="{ThemeResource DeviceRiskValBrush}"

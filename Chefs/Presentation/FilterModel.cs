@@ -3,9 +3,9 @@ namespace Chefs.Presentation;
 public partial record FilterModel
 {
 	private readonly INavigator _navigator;
-	private readonly IRecipeService _recipeService;
+	private readonly ITechniqueService _recipeService;
 
-	public FilterModel(SearchFilter filters, INavigator navigator, IRecipeService recipeService)
+	public FilterModel(SearchFilter filters, INavigator navigator, ITechniqueService recipeService)
 	{
 		_navigator = navigator;
 		_recipeService = recipeService;

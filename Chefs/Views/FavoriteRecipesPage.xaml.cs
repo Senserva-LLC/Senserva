@@ -1,8 +1,8 @@
 namespace Chefs.Views;
 
-public sealed partial class FavoriteRecipesPage : Page
+public sealed partial class FavoriteTechniquesPage : Page
 {
-	public FavoriteRecipesPage()
+	public FavoriteTechniquesPage()
 	{
 		this.InitializeComponent();
 	}

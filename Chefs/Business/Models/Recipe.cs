@@ -5,7 +5,7 @@ namespace Chefs.Business.Models;
 /// TODO rename this as Solution
 /// TODO add a Rules table that maps to this data, and include it in the UI
 /// </summary>
-public partial record Recipe : ISenservaEntity
+public partial record Technique : ISenservaEntity
 {
 	public Guid Id { get; init; }
 	public Guid UserId { get; init; }
@@ -34,7 +34,7 @@ public partial record Recipe : ISenservaEntity
 	public List<Content>? Controls { get; set; }
 	public List<Compliance>? Compliance { get; set; }
 
-	public Recipe()
+	public Technique()
 	{
 		Id = Guid.NewGuid();
 		UserId = Guid.NewGuid();

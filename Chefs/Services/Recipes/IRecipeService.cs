@@ -1,18 +1,18 @@
-namespace Chefs.Services.Recipes;
+namespace Chefs.Services.Techniques;
 
 /// <summary>
 /// Implements recipe related methods
 /// </summary>
-public interface IRecipeService
+public interface ITechniqueService
 {
 	/// <summary>
-	/// Recipes method
+	/// Techniques method
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync each recipe from api
+	/// GetTechniquesAsync each recipe from api
 	/// </returns>
-	public Task<IImmutableList<Recipe>> GetAll(CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetAll(CancellationToken ct);
 
 	/// <summary>
 	/// Add current user dislike recipe review
@@ -33,35 +33,35 @@ public interface IRecipeService
 	ValueTask LikeReview(Compliance review, CancellationToken ct);
 
 	/// <summary>
-	/// Recipes method
+	/// Techniques method
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync recipes count by user
+	/// GetTechniquesAsync recipes count by user
 	/// </returns>
 	ValueTask<int> GetCount(Guid userId, CancellationToken ct);
 
 	/// <summary>
 	/// Favorited recipes.
 	/// </summary>
-	IListState<Recipe> FavoritedRecipes { get; }
+	IListState<Technique> FavoritedTechniques { get; }
 
 	/// <summary>
-	/// Recipes with a specific category
+	/// Techniques with a specific category
 	/// </summary>
 	/// <param name="categoryId">The specific category to filter recipes</param>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync each recipe from api filter by a category
+	/// GetTechniquesAsync each recipe from api filter by a category
 	/// </returns>
-	public Task<IImmutableList<Recipe>> GetByCategory(int categoryId, CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetByCategory(int categoryId, CancellationToken ct);
 
 	/// <summary>
 	/// Categories from api
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync each category from api
+	/// GetTechniquesAsync each category from api
 	/// </returns>
 	public Task<IImmutableList<Category>> GetCategoriesAsync(CancellationToken ct);
 
@@ -70,36 +70,36 @@ public interface IRecipeService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync each category from api with their corresponding count
+	/// GetTechniquesAsync each category from api with their corresponding count
 	/// </returns>
 	public Task<IImmutableList<CategoryWithCount>> GetCategoriesWithCount(CancellationToken ct);
 
 	/// <summary>
-	/// Recipes in trending
+	/// Techniques in trending
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync recipes filter in trending now
+	/// GetTechniquesAsync recipes filter in trending now
 	/// </returns>
-	public Task<IImmutableList<Recipe>> GetTrending(CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetTrending(CancellationToken ct);
 
 	/// <summary>
-	/// Popular Recipes
+	/// Popular Techniques
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync popular recipes filter
+	/// GetTechniquesAsync popular recipes filter
 	/// </returns>
-	public Task<IImmutableList<Recipe>> GetPopular(CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetPopular(CancellationToken ct);
 
 	/// <summary>
-	/// Recipes recently added
+	/// Techniques recently added
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync recent recipes or new recipes
+	/// GetTechniquesAsync recent recipes or new recipes
 	/// </returns>
-	public Task<IImmutableList<Recipe>> GetRecent(CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetRecent(CancellationToken ct);
 
 	/// <summary>
 	/// Filter recipes from api
@@ -107,17 +107,17 @@ public interface IRecipeService
 	/// <param name="term">The search term</param>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetRecipesAsync recipes filter by different options selected by the user
+	/// GetTechniquesAsync recipes filter by different options selected by the user
 	/// </returns>
-	public Task<IImmutableList<Recipe>> Search(string term, SearchFilter filter, CancellationToken ct);
+	public Task<IImmutableList<Technique>> Search(string term, SearchFilter filter, CancellationToken ct);
 
 	/// <summary>
-	/// GetRecipesAsync recipe's reviews
+	/// GetTechniquesAsync recipe's reviews
 	/// </summary>
 	/// <param name="recipeId">id from the recipe</param>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// Recipe's reviews
+	/// Technique's reviews
 	/// </returns>
 	public Task<IImmutableList<Compliance>> GetReviews(Guid recipeId, CancellationToken ct);
 
@@ -128,7 +128,7 @@ public interface IRecipeService
 	/// <param name="ct"></param>
 	/// <returns>
 	/// </returns>
-	ValueTask Favorite(Recipe recipe, CancellationToken ct);
+	ValueTask Favorite(Technique recipe, CancellationToken ct);
 
 	/// <summary>
 	/// Create review for a recipe
@@ -140,26 +140,26 @@ public interface IRecipeService
 	ValueTask<Compliance> CreateReview(Guid recipeId, string review, CancellationToken ct);
 
 	/// <summary>
-	/// GetRecipesAsync review's steps
+	/// GetTechniquesAsync review's steps
 	/// </summary>
 	/// <param name="recipeId">id from the recipe</param>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// Recipe's steps
+	/// Technique's steps
 	/// </returns>
 	public Task<IImmutableList<RemediationStep>> GetSteps(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
-	/// Recipes by user
+	/// Techniques by user
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
 	/// SenservaUser's recipes
 	/// </returns>
-	public Task<IImmutableList<Recipe>> GetByUser(Guid userId, CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetByUser(Guid userId, CancellationToken ct);
 
 	/// <summary>
-	/// Recipes favorited by the current user, supports pagination
+	/// Techniques favorited by the current user, supports pagination
 	/// </summary>
 	/// <param name="pageSize">number of items to display per page</param>
 	/// <param name="firstItemIndex">index of the first item on the requested page</param>
@@ -167,11 +167,11 @@ public interface IRecipeService
 	/// <returns>
 	/// Current user's recipes within the requested page
 	/// </returns>
-	public Task<IImmutableList<Recipe>> GetFavoritedWithPagination(uint pageSize, uint firstItemIndex, CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetFavoritedWithPagination(uint pageSize, uint firstItemIndex, CancellationToken ct);
 
-	public Task<IImmutableList<Recipe>> GetRecommended(CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetRecommended(CancellationToken ct);
 
-	public Task<IImmutableList<Recipe>> GetFromChefs(CancellationToken ct);
+	public Task<IImmutableList<Technique>> GetFromChefs(CancellationToken ct);
 
 	IImmutableList<string> GetSearchHistory();
 }

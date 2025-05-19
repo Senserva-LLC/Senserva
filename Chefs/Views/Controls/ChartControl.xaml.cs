@@ -9,7 +9,7 @@ using SkiaSharp;
 namespace Chefs.Views.Controls;
 public sealed partial class ChartControl : UserControl
 {
-	private Recipe? _recipe;
+	private Technique? _recipe;
 
 
 	public SolidColorBrush UserRiskBrush
@@ -76,7 +76,7 @@ public sealed partial class ChartControl : UserControl
 	{
 		this.InitializeComponent();
 
-		_recipe = DataContext as Recipe;
+		_recipe = DataContext as Technique;
 		if (_recipe != null)
 		{
 			BuildColumnChart();
@@ -88,7 +88,7 @@ public sealed partial class ChartControl : UserControl
 
 	private void OnDataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
 	{
-		_recipe = args.NewValue as Recipe;
+		_recipe = args.NewValue as Technique;
 
 		if (_recipe != null)
 		{

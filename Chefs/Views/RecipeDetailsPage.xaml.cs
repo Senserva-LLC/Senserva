@@ -2,9 +2,9 @@ using LiveChartsCore;
 
 namespace Chefs.Views;
 
-public sealed partial class RecipeDetailsPage : Page
+public sealed partial class TechniqueDetailsPage : Page
 {
-	public RecipeDetailsPage()
+	public TechniqueDetailsPage()
 	{
 		this.InitializeComponent();
 
