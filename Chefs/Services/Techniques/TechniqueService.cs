@@ -33,7 +33,7 @@ public class TechniqueService(
 
 	public async Task<IImmutableList<Compliance>> GetReviewsAsync() => new List<Compliance>() { new Compliance() {  PublisherName="Microsoft"} }.ToImmutableList();
 
-	public async Task<IImmutableList<RemediationStep>> GetStepsAsync() => new List<RemediationStep>().ToImmutableList();
+	public async Task<IImmutableList<RemediationStep>> GetStepsAsync() => new List<RemediationStep>() { new RemediationStep() { Name="step1"}, new RemediationStep() { Name="step2"} }.ToImmutableList();
 
 	public async Task<IImmutableList<Content>> GetContentsAsync() => new List<Content>().ToImmutableList();
 
@@ -110,7 +110,13 @@ public class TechniqueService(
 	public IImmutableList<string> GetSearchHistory()
 		=> searchOptions.Value.Searches.Take(3).ToImmutableList();
 
-	public async Task<IImmutableList<Compliance>> GetReviews(Guid recipeId, CancellationToken ct)
+	///ITSecurityControl
+	public async Task<IImmutableList<ITSecurityControl>> GetControls(Guid recipeId, CancellationToken ct)
+	{
+		return new List<ITSecurityControl>() { new ITSecurityControl("one", "two")}.ToImmutableList();
+	}
+
+	public async Task<IImmutableList<Compliance>> GetCompliance(Guid recipeId, CancellationToken ct)
 	{
 		return await GetReviewsAsync();
 	}
@@ -132,6 +138,8 @@ public class TechniqueService(
 		var reviewData = new Compliance { TechniqueId = recipeId, Description = review };
 		return reviewData;
 	}
+
+
 
 	public IListState<Technique> FavoritedTechniques => ListState<Technique>.Async(this, GetFavorited);
 

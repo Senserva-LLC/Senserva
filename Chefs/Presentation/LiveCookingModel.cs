@@ -4,7 +4,7 @@ public partial record LiveCookingParameter(Technique Technique, IImmutableList<R
 
 public partial class LiveCookingModel
 {
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 
 	private readonly IImmutableList<RemediationStep> _steps;
 	private readonly INavigator _navigator;
@@ -18,7 +18,7 @@ public partial class LiveCookingModel
 	public LiveCookingModel(LiveCookingParameter parameter, ITechniqueService recipeService, INavigator navigator)
 	{
 		Technique = parameter.Technique;
-		_recipeService = recipeService;
+		_techniqueService = recipeService;
 		_navigator = navigator;
 		_steps = parameter.Steps;
 	}
@@ -35,7 +35,7 @@ public partial class LiveCookingModel
 
 	public async ValueTask Favorite(CancellationToken ct)
 	{
-		await _recipeService.Favorite(Technique, ct);
+		await _techniqueService.Favorite(Technique, ct);
 		await _navigator.NavigateViewModelAsync<HomeModel>(this, qualifier: Qualifiers.ClearBackStack, cancellation: ct);
 	}
 }

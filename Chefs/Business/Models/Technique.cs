@@ -2,6 +2,14 @@
 namespace Chefs.Business.Models;
 
 /// <summary>
+/// TODO build out
+/// An IT security control is a measure designed to protect information systems, data, and other assets from threats and vulnerabilities.
+/// </summary>
+/// <param name="Name"></param>
+/// <param name="Description"></param>
+public record ITSecurityControl(string Name, string Description);
+
+/// <summary>
 /// TODO rename this as Solution
 /// TODO add a Rules table that maps to this data, and include it in the UI
 /// </summary>
@@ -12,6 +20,7 @@ public partial record Technique : ISenservaEntity
 
 	public string? ImageUrl { get; init; }
 	public string? Name { get; init; }
+	public TechniqueType Type { get; init; } = TechniqueType.Remediation;
 
 	/// <summary>
 	/// TODO can we get this reliability?
@@ -37,8 +46,9 @@ public partial record Technique : ISenservaEntity
 	public List<string>? KeyDetails { get; set; }
 
 	public List<RemediationStep>? Steps { get; set; }
-	public List<Content>? Controls { get; set; }
+	public List<Content>? Content { get; set; }
 	public List<Compliance>? Compliance { get; set; }
+	public List<ITSecurityControl>? Controls { get; set; }
 
 	public Technique()
 	{
@@ -51,7 +61,7 @@ public partial record Technique : ISenservaEntity
 		Category = new Category();
 		Difficulty = Difficulty.Basic;
 		EstimateTime = TimeSpan.FromMinutes(30);
-		Controls = [new Content { Name = "bob" }];
+		Controls = [new ITSecurityControl("Bob", "syouruncle")];
 	}
 
 	/// <summary>

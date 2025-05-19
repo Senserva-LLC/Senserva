@@ -8,6 +8,7 @@ public record RemediationStep
 		Cookware = ImmutableList<string>.Empty;
 		Ingredients = ImmutableList<string>.Empty;
 		EstimatedTime = TimeSpan.Zero;
+		Name = "test";
 	}
 
 	public int Number { get; init; }

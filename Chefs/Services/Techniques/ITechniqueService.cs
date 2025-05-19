@@ -15,24 +15,6 @@ public interface ITechniqueService
 	public Task<IImmutableList<Technique>> GetAll(CancellationToken ct);
 
 	/// <summary>
-	/// Add current user dislike recipe review
-	/// </summary>
-	/// <param name="review">review to update</param>
-	/// <param name="ct"></param>
-	/// <returns>
-	/// </returns>
-	ValueTask DislikeReview(Compliance review, CancellationToken ct);
-
-	/// <summary>
-	/// Add current user like recipe review
-	/// </summary>
-	/// <param name="review">review to update</param>
-	/// <param name="ct"></param>
-	/// <returns>
-	/// </returns>
-	ValueTask LikeReview(Compliance review, CancellationToken ct);
-
-	/// <summary>
 	/// Techniques method
 	/// </summary>
 	/// <param name="ct"></param>
@@ -119,7 +101,7 @@ public interface ITechniqueService
 	/// <returns>
 	/// Technique's reviews
 	/// </returns>
-	public Task<IImmutableList<Compliance>> GetReviews(Guid recipeId, CancellationToken ct);
+	public Task<IImmutableList<Compliance>> GetCompliance(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
 	/// Save recipe
@@ -148,6 +130,8 @@ public interface ITechniqueService
 	/// Technique's steps
 	/// </returns>
 	public Task<IImmutableList<RemediationStep>> GetSteps(Guid recipeId, CancellationToken ct);
+
+	public Task<IImmutableList<ITSecurityControl>> GetControls(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
 	/// define the details structure as more is known

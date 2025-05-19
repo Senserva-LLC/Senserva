@@ -4,7 +4,7 @@ namespace Chefs.Presentation;
 public partial record TechniqueDetailsModel
 {
 	private readonly INavigator _navigator;
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
 
@@ -16,7 +16,7 @@ public partial record TechniqueDetailsModel
 		IMessenger messenger)
 	{
 		_navigator = navigator;
-		_recipeService = recipeService;
+		_techniqueService = recipeService;
 		_userService = userService;
 		_messenger = messenger;
 
@@ -34,26 +34,26 @@ public partial record TechniqueDetailsModel
 
 	public IFeed<SenservaUser> CurrentUser => Feed.Async(async ct => await _userService.GetCurrent(ct));
 
-	public IListFeed<RemediationStep> Steps => ListFeed.Async(async ct => await _recipeService.GetSteps(Technique.Id, ct));
+	public IListFeed<RemediationStep> Steps => ListFeed.Async(async ct => await _techniqueService.GetSteps(Technique.Id, ct));
 
-	public IListFeed<string> KeyDetails => ListFeed.Async(async ct => await _recipeService.GetDetails(Technique.Id, ct));
+	public IListFeed<string> KeyDetails => ListFeed.Async(async ct => await _techniqueService.GetDetails(Technique.Id, ct));
 
 	public IListState<Compliance> Compliance => ListState
-		.Async(this, async ct => await _recipeService.GetReviews(Technique.Id, ct))
+		.Async(this, async ct => await _techniqueService.GetCompliance(Technique.Id, ct))
 		.Observe(_messenger, r => r.Id);
 
 	public async ValueTask Like(Compliance review, CancellationToken ct) =>
-		await _recipeService.LikeReview(review, ct);
+		await _techniqueService.LikeReview(review, ct);
 
 	public async ValueTask Dislike(Compliance review, CancellationToken ct) =>
-		await _recipeService.DislikeReview(review, ct);
+		await _techniqueService.DislikeReview(review, ct);
 
 	public async ValueTask LiveCooking(IImmutableList<RemediationStep> steps) =>
 		await _navigator.NavigateRouteAsync(this, "LiveCooking", data: new LiveCookingParameter(Technique, steps));
 
 	public async ValueTask Favorite(CancellationToken ct)
 	{
-		await _recipeService.Favorite(Technique, ct);
+		await _techniqueService.Favorite(Technique, ct);
 		await IsFavorited.UpdateAsync(s => !s);
 	}
 

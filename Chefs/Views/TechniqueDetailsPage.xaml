@@ -49,7 +49,7 @@
     </Page.Resources>
 
     <utu:AutoLayout>
-        <utu:NavigationBar Content="{Binding Technique.Name}">
+        <utu:NavigationBar Content="Technique {Binding Technique.Name}">
             <utu:NavigationBar.PrimaryCommands>
                 <AppBarButton Command="{Binding Share}">
                     <AppBarButton.Icon>
@@ -67,20 +67,12 @@
         <ScrollViewer
             utu:AutoLayout.PrimaryAlignment="Stretch"
             HorizontalScrollMode="Disabled"
-            VerticalScrollBarVisibility="{utu:Responsive Normal=Visible,
-                                                         Wide=Hidden}"
-            VerticalScrollMode="{utu:Responsive Normal=Enabled,
-                                                Wide=Disabled}">
+            VerticalScrollBarVisibility="{utu:Responsive Normal=Visible, Wide=Hidden}"
+            VerticalScrollMode="{utu:Responsive Normal=Enabled, Wide=Disabled}">
             <utu:AutoLayout Padding="{utu:Responsive Normal='0,0,0,92', Wide=0}">
-                <utu:AutoLayout
-                    Padding="16"
-                    CounterAxisAlignment="Center"
-                    Orientation="Horizontal"
-                    Spacing="8">
-                    <PersonPicture
-                        Width="32"
-                        Height="32"
-                        ProfilePicture="{Binding User.UrlProfileImage}" />
+                <utu:AutoLayout  Padding="16"  CounterAxisAlignment="Center"
+                    Orientation="Horizontal"   Spacing="8">
+                    <PersonPicture Width="32" Height="32" ProfilePicture="{Binding User.UrlProfileImage}" />
                     <TextBlock
                         Foreground="{ThemeResource OnBackgroundMediumBrush}"
                         Style="{StaticResource BodySmall}"
@@ -89,10 +81,8 @@
                 <utu:AutoLayout
                     utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
                                                                      Wide=Stretch}"
-                    Justify="{utu:Responsive Normal=SpaceBetween,
-                                             Wide=Stack}"
-                    Orientation="{utu:Responsive Normal=Vertical,
-                                                 Wide=Horizontal}">
+                    Justify="{utu:Responsive Normal=SpaceBetween, Wide=Stack}"
+                    Orientation="{utu:Responsive Normal=Vertical, Wide=Horizontal}">
                     <utu:AutoLayout utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto, Wide=Stretch}" Spacing="{utu:Responsive Normal=8, Wide=0}">
                         <Image
                             HorizontalAlignment="Center"
@@ -112,19 +102,13 @@
                         <utu:AutoLayout
                             Margin="{utu:Responsive Normal='16,263,16,0',
                                                     Wide='14,14,0,0'}"
-                            HorizontalAlignment="{utu:Responsive Normal=Center,
-                                                                 Wide=Left}"
-                            VerticalAlignment="{utu:Responsive Normal=Center,
-                                                               Wide=Top}"
-                            utu:AutoLayout.IsIndependentLayout="True"
-                            CornerRadius="4">
+                            HorizontalAlignment="{utu:Responsive Normal=Center, Wide=Left}"
+                            VerticalAlignment="{utu:Responsive Normal=Center, Wide=Top}"
+                            utu:AutoLayout.IsIndependentLayout="True" CornerRadius="4">
                             <utu:AutoLayout
-                                Width="{utu:Responsive Normal=358,
-                                                       Wide=98}"
-                                Height="{utu:Responsive Normal=74,
-                                                        Wide=317}"
-                                Padding="{utu:Responsive Normal='0,4',
-                                                         Wide='0,40'}"
+                                Width="{utu:Responsive Normal=358, Wide=98}"
+                                Height="{utu:Responsive Normal=74, Wide=317}"
+                                Padding="{utu:Responsive Normal='0,4', Wide='0,40'}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Background="{ThemeResource SurfaceBrush}"
@@ -187,8 +171,8 @@
                             Background="{ThemeResource BackgroundBrush}"
                             Style="{StaticResource TopTabBarStyle}">
                             <utu:TabBarItem
-                                uen:Region.Name="RisksTab"
-                                Content="Risks"
+                                uen:Region.Name="RiskTab"
+                                Content="Risk"
                                 Foreground="{ThemeResource OnSurfaceMediumBrush}" />
                             <utu:TabBarItem
                                 uen:Region.Name="StepsTab"
@@ -209,11 +193,9 @@
                                 uen:Region.Attached="True"
                                 uen:Region.Navigator="Visibility">
                                 <utu:AutoLayout
-                                    Padding="{utu:Responsive Normal='16,24,16,16',
-                                                             Wide=40}"
-                                    uen:Region.Name="DetailsTab"
-                                    Spacing="{utu:Responsive Normal=8,
-                                                             Wide=16}">
+                                    Padding="{utu:Responsive Normal='16,24,16,16',  Wide=40}"
+                                    uen:Region.Name="ControlsTab"
+                                    Spacing="{utu:Responsive Normal=8, Wide=16}">
                                     <TextBlock
                                         Foreground="{ThemeResource OnSurfaceBrush}"
                                         Style="{StaticResource BodyLarge}"
@@ -262,11 +244,9 @@
                                 </utu:AutoLayout>
 
                                 <utu:AutoLayout
-                                    Padding="{utu:Responsive Normal='16,24',
-                                                             Wide=40}"
+                                    Padding="{utu:Responsive Normal='16,24', Wide=40}"
                                     uen:Region.Name="StepsTab"
-                                    Spacing="{utu:Responsive Normal=8,
-                                                             Wide=16}"
+                                    Spacing="{utu:Responsive Normal=8, Wide=16}"
                                     Visibility="Collapsed">
                                     <TextBlock
                                         Foreground="{ThemeResource OnSurfaceBrush}"
@@ -301,19 +281,17 @@
                                 </utu:AutoLayout>
 
                                 <utu:AutoLayout
-                                    Padding="{utu:Responsive Normal='16,24',
-                                                             Wide=40}"
-                                    uen:Region.Name="ReviewsTab"
-                                    Spacing="{utu:Responsive Normal=8,
-                                                             Wide=16}"
+                                    Padding="{utu:Responsive Normal='16,24', Wide=40}"
+                                    uen:Region.Name="ComplianceTab"
+                                    Spacing="{utu:Responsive Normal=8,  Wide=16}"
                                     Visibility="Collapsed">
                                     <TextBlock
                                         Foreground="{ThemeResource OnSurfaceBrush}"
                                         Style="{StaticResource BodyLarge}"
-                                        Text="{Binding Reviews.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} comments'}"
+                                        Text="{Binding Compliance.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} Compliance Items'}"
                                         TextWrapping="Wrap"
-                                        Visibility="{Binding Reviews.Count, Converter={StaticResource GreaterThanZeroToVisibleConverter}}" />
-                                    <muxc:ItemsRepeater ItemsSource="{Binding Reviews}">
+                                        Visibility="{Binding Compliance.Count, Converter={StaticResource GreaterThanZeroToVisibleConverter}}" />
+									<muxc:ItemsRepeater ItemsSource="{Binding Compliance}">
                                         <muxc:ItemsRepeater.Layout>
                                             <muxc:StackLayout Orientation="Vertical" Spacing="2" />
                                         </muxc:ItemsRepeater.Layout>
@@ -325,10 +303,6 @@
                                                     CornerRadius="4"
                                                     Orientation="Horizontal"
                                                     Spacing="16">
-                                                    <PersonPicture
-                                                        Width="60"
-                                                        Height="60"
-                                                        ProfilePicture="{Binding UrlAuthorImage}" />
                                                     <utu:AutoLayout
                                                         utu:AutoLayout.PrimaryAlignment="Stretch"
                                                         PrimaryAxisAlignment="Center"
@@ -341,81 +315,6 @@
                                                             Foreground="{ThemeResource OnSurfaceMediumBrush}"
                                                             Text="{Binding PublisherName}"
                                                             TextWrapping="Wrap" />
-                                                        <utu:AutoLayout
-                                                            Padding="{utu:Responsive Normal='0,16,0,16',
-                                                                                     Wide='0,16,0,0'}"
-                                                            CounterAxisAlignment="Center"
-                                                            Orientation="Horizontal"
-                                                            Spacing="{utu:Responsive Normal=8,
-                                                                                     Wide=24}">
-                                                            <ToggleButton
-                                                                HorizontalContentAlignment="Center"
-                                                                VerticalContentAlignment="Center"
-                                                                Command="{utu:AncestorBinding AncestorType=uer:FeedView,
-                                                                                              Path=DataContext.Like}"
-                                                                CommandParameter="{Binding}"
-                                                                IsChecked="{Binding UserLike, Converter={StaticResource UserLikeCheckedConverter}, Mode=TwoWay}">
-                                                                <ToggleButton.Content>
-                                                                    <utu:AutoLayout
-                                                                        CounterAxisAlignment="Center"
-                                                                        Orientation="Horizontal"
-                                                                        Spacing="{utu:Responsive Normal=5,
-                                                                                                 Wide=8}">
-                                                                        <PathIcon Data="{StaticResource Icon_Thumb_Up_Off}" Foreground="{ThemeResource PrimaryBrush}" />
-                                                                        <TextBlock
-                                                                            Foreground="{ThemeResource PrimaryBrush}"
-                                                                            Style="{StaticResource LabelLarge}"
-                                                                            Text="{Binding Likes.Count}" />
-                                                                    </utu:AutoLayout>
-                                                                </ToggleButton.Content>
-                                                                <ut:ControlExtensions.AlternateContent>
-                                                                    <utu:AutoLayout
-                                                                        CounterAxisAlignment="Center"
-                                                                        Orientation="Horizontal"
-                                                                        Spacing="{utu:Responsive Normal=5,
-                                                                                                 Wide=8}">
-                                                                        <PathIcon Data="{StaticResource Icon_Thumb_Up}" Foreground="{ThemeResource PrimaryBrush}" />
-                                                                        <TextBlock
-                                                                            Foreground="{ThemeResource PrimaryBrush}"
-                                                                            Style="{StaticResource LabelLarge}"
-                                                                            Text="{Binding Likes.Count}" />
-                                                                    </utu:AutoLayout>
-                                                                </ut:ControlExtensions.AlternateContent>
-                                                            </ToggleButton>
-                                                            <ToggleButton
-                                                                HorizontalContentAlignment="Center"
-                                                                VerticalContentAlignment="Center"
-                                                                Command="{utu:AncestorBinding AncestorType=uer:FeedView,
-                                                                                              Path=DataContext.Dislike}"
-                                                                CommandParameter="{Binding}"
-                                                                IsChecked="{Binding UserLike, Converter={StaticResource UserDislikeCheckedConverter}, Mode=TwoWay}">
-                                                                <ToggleButton.Content>
-                                                                    <utu:AutoLayout
-                                                                        CounterAxisAlignment="Center"
-                                                                        Orientation="Horizontal"
-                                                                        Spacing="{utu:Responsive Normal=5,
-                                                                                                 Wide=8}">
-                                                                        <PathIcon Data="{StaticResource Icon_Thumb_Down_Off}" Foreground="{ThemeResource PrimaryBrush}" />
-                                                                        <TextBlock
-                                                                            Foreground="{ThemeResource PrimaryBrush}"
-                                                                            Style="{StaticResource LabelLarge}"
-                                                                            Text="{Binding Dislikes.Count}" />
-                                                                    </utu:AutoLayout>
-                                                                </ToggleButton.Content>
-                                                                <ut:ControlExtensions.AlternateContent>
-                                                                    <utu:AutoLayout
-                                                                        CounterAxisAlignment="Center"
-                                                                        Orientation="Horizontal"
-                                                                        Spacing="8">
-                                                                        <PathIcon Data="{StaticResource Icon_Thumb_Down}" Foreground="{ThemeResource PrimaryBrush}" />
-                                                                        <TextBlock
-                                                                            Foreground="{ThemeResource PrimaryBrush}"
-                                                                            Style="{StaticResource LabelLarge}"
-                                                                            Text="{Binding Dislikes.Count}" />
-                                                                    </utu:AutoLayout>
-                                                                </ut:ControlExtensions.AlternateContent>
-                                                            </ToggleButton>
-                                                        </utu:AutoLayout>
                                                     </utu:AutoLayout>
                                                 </utu:AutoLayout>
                                             </DataTemplate>
@@ -423,16 +322,13 @@
                                     </muxc:ItemsRepeater>
                                 </utu:AutoLayout>
 
-                                <Grid uen:Region.Name="RisksTab" Visibility="Collapsed">
+                                <Grid uen:Region.Name="RiskTab" Visibility="Collapsed">
                                     <Grid
-                                        Margin="{utu:Responsive Normal=16,
-                                                                Wide=40}"
-                                        Padding="{utu:Responsive Normal=16,
-                                                                 Wide=24}"
+                                        Margin="{utu:Responsive Normal=16,  Wide=40}"
+                                        Padding="{utu:Responsive Normal=16, Wide=24}"
                                         Background="{ThemeResource SurfaceBrush}"
                                         CornerRadius="24"
-                                        RowSpacing="{utu:Responsive Normal=5,
-                                                                    Wide=24}">
+                                        RowSpacing="{utu:Responsive Normal=5,  Wide=24}">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="Auto" />
