@@ -164,7 +164,7 @@ public partial class App : Application
 			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
-			new ViewMap<LiveCookingPage, LiveCookingModel>(Data: new DataMap<LiveCookingParameter>()),
+			new ViewMap<LiveCookingPage, RemediateModel>(Data: new DataMap<RemediateParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
 			new ViewMap<CompletedDialog>(),
 			new ViewMap<GenericDialog, GenericDialogModel>(Data: new DataMap<DialogInfo>())
@@ -191,7 +191,7 @@ public partial class App : Application
 						new RouteMap("CreateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 
 						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueDetailsModel>()),
-						new RouteMap("LiveCooking", View: views.FindByViewModel<LiveCookingModel>()),
+						new RouteMap("Remediate", View: views.FindByViewModel<RemediateModel>()),
 					]),
 					new RouteMap("Notifications", View: views.FindByViewModel<NotificationsModel>()),
 					new RouteMap("Filter", View: views.FindByViewModel<FilterModel>()),

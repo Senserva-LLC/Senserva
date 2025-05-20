@@ -13,7 +13,6 @@ public partial record Cookbook : ISenservaEntity
 	public string? Name { get; init; }
 	public int PinsNumber => Techniques?.Count ?? 0;
 	public IImmutableList<Technique> Techniques { get; init; }
-	public CookbookImages? CookbookImages { get; init; }
 
 	internal static Cookbook CreateData(Guid userId, string name, IImmutableList<Technique> recipes)
 	{

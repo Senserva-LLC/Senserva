@@ -1,8 +1,8 @@
 namespace Chefs.Presentation;
 
-public partial record LiveCookingParameter(Technique Technique, IImmutableList<RemediationStep> Steps);
+public partial record RemediateParameter(Technique Technique, IImmutableList<RemediationStep> Steps);
 
-public partial class LiveCookingModel
+public partial class RemediateModel
 {
 	private readonly ITechniqueService _techniqueService;
 
@@ -15,7 +15,7 @@ public partial class LiveCookingModel
 
 	public IState<bool> Completed => State.Value(this, () => false);
 
-	public LiveCookingModel(LiveCookingParameter parameter, ITechniqueService recipeService, INavigator navigator)
+	public RemediateModel(RemediateParameter parameter, ITechniqueService recipeService, INavigator navigator)
 	{
 		Technique = parameter.Technique;
 		_techniqueService = recipeService;

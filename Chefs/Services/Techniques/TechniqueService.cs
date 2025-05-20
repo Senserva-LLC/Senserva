@@ -116,6 +116,9 @@ public class TechniqueService(
 		return new List<SecurityControl>() { new SecurityControl("one", "two")}.ToImmutableList();
 	}
 
+	public async Task<IImmutableList<Content>> GetContent(Guid recipeId, CancellationToken ct) => new List<Content>() { new("one", "two") }.ToImmutableList();
+
+
 	public async Task<IImmutableList<Compliance>> GetCompliance(Guid recipeId, CancellationToken ct)
 	{
 		return await GetReviewsAsync();

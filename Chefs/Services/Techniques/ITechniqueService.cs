@@ -133,6 +133,8 @@ public interface ITechniqueService
 
 	public Task<IImmutableList<SecurityControl>> GetControls(Guid recipeId, CancellationToken ct);
 
+	public Task<IImmutableList<Content>> GetContent(Guid recipeId, CancellationToken ct);
+
 	/// <summary>
 	/// define the details structure as more is known
 	/// </summary>
