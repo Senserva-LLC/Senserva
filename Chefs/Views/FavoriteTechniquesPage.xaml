@@ -176,7 +176,7 @@
                     TextWrapping="Wrap" />
                 <TextBlock
                     Foreground="{ThemeResource OnSurfaceBrush}"
-                    Text="You haven't added any recipes to your favorites. Start exploring and find delicious recipes to try and love! Once you've found a recipe you enjoy, click on the heart icon to add it to your favorites for easy access later."
+                    Text="You haven't added any Techniques to your favorites."
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
                 <Button

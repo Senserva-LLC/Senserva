@@ -238,6 +238,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\FavoriteTechniquesPage.xaml.cs">
+	    <DependentUpon>FavoriteTechniquesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\LiveDataPage.xaml.cs">
 	    <DependentUpon>LiveDataPage.xaml</DependentUpon>
 	  </Compile>
