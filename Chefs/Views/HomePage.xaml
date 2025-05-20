@@ -18,24 +18,22 @@
     <Page.Resources>
         <DataTemplate x:Key="HomeLargeItemTemplate">
             <utu:CardContentControl
-                Width="328"
+                Width="250"
                 Margin="0"
                 CornerRadius="4"
-                Style="{StaticResource FilledCardContentControlStyle}">
+                Style="{StaticResource ElevatedCardContentControlStyle }">
                 <utu:AutoLayout
                     HorizontalAlignment="Stretch"
                     Background="{ThemeResource SurfaceBrush}"
                     CornerRadius="4"
                     PrimaryAxisAlignment="Center">
                     <Grid
-                        Margin="{utu:Responsive Normal=16,
-                                                Wide=40}"
-                        Padding="{utu:Responsive Normal=16,
-                                                 Wide=24}"
+                        Margin="{utu:Responsive Normal=16, Wide=40}"
+                        Padding="{utu:Responsive Normal=16,Wide=24}"
                         Background="{ThemeResource SurfaceBrush}"
                         CornerRadius="24"
-                        RowSpacing="{utu:Responsive Normal=5,
-                                                    Wide=24}">
+						Height="256"
+                        RowSpacing="{utu:Responsive Normal=5, Wide=24}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -43,7 +41,7 @@
                         <TextBlock
                             Foreground="{ThemeResource OnBackgroundBrush}"
                             Style="{StaticResource TitleLarge}"
-                            Text="Intake per serving"
+                            Text="Intake"
                             TextAlignment="Center" />
                         <ctrl:ChartControl
                             Grid.Row="1"
@@ -186,11 +184,6 @@
                                             CornerRadius="4"
                                             Orientation="Horizontal"
                                             Spacing="8">
-                                            <Image
-                                                Width="60"
-                                                Height="60"
-                                                utu:AutoLayout.CounterAlignment="Center"
-                                                Source="{Binding Category.UrlIcon}" />
                                             <utu:AutoLayout
                                                 utu:AutoLayout.CounterAlignment="Center"
                                                 CounterAxisAlignment="Start"
@@ -250,10 +243,6 @@
                                                 HorizontalAlignment="Stretch"
                                                 CornerRadius="4"
                                                 PrimaryAxisAlignment="Center">
-                                                <Image
-                                                    Height="144"
-                                                    Source="{Binding ImageUrl}"
-                                                    Stretch="UniformToFill" />
                                                 <utu:AutoLayout
                                                     Padding="16"
                                                     PrimaryAxisAlignment="Center"
@@ -309,9 +298,8 @@
                                         <utu:CardContentControl Margin="0" Style="{StaticResource FilledCardContentControlStyle}">
                                             <utu:AutoLayout
                                                 utu:AutoLayout.CounterAlignment="Center"
-                                                CornerRadius="12"
-                                                Orientation="{utu:Responsive Normal=Vertical,
-                                                                             Wide=Horizontal}"
+                                                CornerRadius="4"
+                                                Orientation="{utu:Responsive Normal=Vertical,  Wide=Horizontal}"
                                                 PrimaryAxisAlignment="Center"
                                                 Spacing="8">
                                                 <utu:AutoLayout
@@ -323,8 +311,7 @@
                                                         Foreground="{ThemeResource OnSurfaceBrush}"
                                                         Style="{StaticResource TitleSmall}"
                                                         Text="{Binding Name}"
-                                                        TextAlignment="{utu:Responsive Normal=Center,
-                                                                                       Wide=Start}"
+                                                        TextAlignment="{utu:Responsive Normal=Center, Wide=Start}"
                                                         TextWrapping="Wrap" />
                                                 </utu:AutoLayout>
                                             </utu:AutoLayout>
