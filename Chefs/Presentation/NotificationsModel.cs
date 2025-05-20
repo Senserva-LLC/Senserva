@@ -1,4 +1,5 @@
 namespace Chefs.Presentation;
+
 public partial record NotificationsModel
 {
 	private readonly INavigator _navigator;
