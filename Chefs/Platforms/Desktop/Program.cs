@@ -1,6 +1,6 @@
 using Uno.UI.Hosting;
 
-namespace Chefs;
+namespace Simeserva;
 
 public class Program
 {

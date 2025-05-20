@@ -1,8 +1,8 @@
-using Chefs.Presentation.Messages;
-using Chefs.Services.Settings;
+using Simeserva.Presentation.Messages;
+using Simeserva.Services.Settings;
 using AppTheme = Uno.Extensions.Toolkit.AppTheme;
 
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record SettingsModel
 {

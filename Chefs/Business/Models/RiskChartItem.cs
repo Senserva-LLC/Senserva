@@ -1,6 +1,6 @@
 using LiveChartsCore.SkiaSharpView.Painting;
 
-namespace Chefs.Business.Models;
+namespace Simeserva.Business.Models;
 
 public partial record RiskChartItem
 {

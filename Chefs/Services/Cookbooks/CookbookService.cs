@@ -1,5 +1,5 @@
 
-namespace Chefs.Services.Cookbooks;
+namespace Simeserva.Services.Cookbooks;
 
 public class CookbookService(IMessenger messenger, IUserService userService)
 	: ICookbookService

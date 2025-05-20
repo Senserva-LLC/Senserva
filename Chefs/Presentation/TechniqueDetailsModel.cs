@@ -1,5 +1,5 @@
 
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record TechniqueDetailsModel
 {

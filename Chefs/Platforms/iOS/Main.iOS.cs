@@ -1,7 +1,7 @@
 using UIKit;
 using Uno.UI.Hosting;
 
-namespace Chefs.iOS;
+namespace Simeserva.iOS;
 
 public class EntryPoint
 {

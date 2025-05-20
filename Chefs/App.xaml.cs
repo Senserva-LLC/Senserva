@@ -1,11 +1,11 @@
-using Chefs.Services.Settings;
+using Simeserva.Services.Settings;
 
 #if __IOS__
 using Foundation;
 #endif
 using LiveChartsCore;
 
-namespace Chefs;
+namespace Simeserva;
 
 public partial class App : Application
 {

@@ -1,4 +1,4 @@
-namespace Chefs.Infrastructure;
+namespace Simeserva.Infrastructure;
 
 internal class DebugHttpHandler : DelegatingHandler
 {

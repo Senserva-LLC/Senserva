@@ -1,4 +1,4 @@
-﻿<Page x:Class="Chefs.Views.RegistrationPage"
+﻿<Page x:Class="Simeserva.Views.RegistrationPage"
 	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	  xmlns:android="http://uno.ui/android"

@@ -1,6 +1,6 @@
-using Chefs.Services.LiveData;
+using Simeserva.Services.LiveData;
 
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record HomeModel
 {

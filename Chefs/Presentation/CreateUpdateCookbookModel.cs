@@ -1,6 +1,6 @@
-using Chefs.Presentation.Extensions;
+using Simeserva.Presentation.Extensions;
 
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record CreateUpdateCookbookModel
 {

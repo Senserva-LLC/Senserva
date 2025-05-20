@@ -15,7 +15,7 @@ using Windows.Foundation.Collections;
 
 // The SenservaUser Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Chefs.Views.Controls;
+namespace Simeserva.Views.Controls;
 public sealed partial class WelcomeView : UserControl
 {
 	public WelcomeView()

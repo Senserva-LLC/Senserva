@@ -1,5 +1,5 @@
 
-namespace Chefs.Business.Models;
+namespace Simeserva.Business.Models;
 
 /// <summary>
 /// TODO build out

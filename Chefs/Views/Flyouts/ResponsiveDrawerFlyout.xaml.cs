@@ -1,6 +1,6 @@
-using Chefs.Presentation.Messages;
+using Simeserva.Presentation.Messages;
 
-namespace Chefs.Views.Flyouts;
+namespace Simeserva.Views.Flyouts;
 
 public partial class ResponsiveDrawerFlyout : Flyout, IRecipient<ThemeChangedMessage>
 {

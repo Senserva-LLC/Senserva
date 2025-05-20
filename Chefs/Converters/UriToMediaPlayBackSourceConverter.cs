@@ -1,7 +1,7 @@
 using Microsoft.UI.Xaml.Data;
 using Windows.Media.Core;
 
-namespace Chefs.Converters;
+namespace Simeserva.Converters;
 
 public class StringToMediaPlayBackSourceConverter : IValueConverter
 {

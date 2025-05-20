@@ -1,4 +1,4 @@
-namespace Chefs.Services.Settings;
+namespace Simeserva.Services.Settings;
 
 /// <summary>
 /// Implements user settings related methods

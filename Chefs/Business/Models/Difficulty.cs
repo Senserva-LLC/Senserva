@@ -1,4 +1,4 @@
-namespace Chefs.Business.Models;
+namespace Simeserva.Business.Models;
 
 public enum Difficulty
 {

@@ -1,4 +1,4 @@
-namespace Chefs.Business.Models;
+namespace Simeserva.Business.Models;
 
 // WORKAROUND
 // This is a workaround until the following issue is resolved: https://github.com/unoplatform/uno.extensions/issues/2383

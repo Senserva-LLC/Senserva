@@ -1,5 +1,5 @@
 
-namespace Chefs.Services.Techniques;
+namespace Simeserva.Services.Techniques;
 
 public class TechniqueService(
 	IUserService userService,

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.UI.Xaml.Data;
 
-namespace Chefs.Converters;
+namespace Simeserva.Converters;
 public class FromBoolToValueConverter : IValueConverter
 {
 	public object NullValue { get; set; }

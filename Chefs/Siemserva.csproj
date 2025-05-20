@@ -160,8 +160,8 @@
 				<EnablePackageSigning>true</EnablePackageSigning>
 				<EnableCodeSigning>true</EnableCodeSigning>
 
-				<_BaseCodesignProvision>Uno Chefs</_BaseCodesignProvision>
-				<_BaseCodesignProvision Condition="$(UseSkiaRendering)">Uno Chefs Skia</_BaseCodesignProvision>
+				<_BaseCodesignProvision>Siemserva</_BaseCodesignProvision>
+				<_BaseCodesignProvision Condition="$(UseSkiaRendering)">Siemserva Skia</_BaseCodesignProvision>
 				<CodesignProvision>$(_BaseCodesignProvision) (Catalyst)</CodesignProvision>
 				<CodesignProvision Condition="$(BUILD_SOURCEBRANCH.StartsWith('refs/heads/canaries'))">$(_BaseCodesignProvision) Canary (Catalyst)</CodesignProvision>
 			</PropertyGroup>

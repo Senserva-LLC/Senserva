@@ -1,5 +1,5 @@
 
-namespace Chefs.Services.Notifications;
+namespace Simeserva.Services.Notifications;
 
 public class NotificationService() : INotificationService
 {

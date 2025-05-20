@@ -1,4 +1,4 @@
-namespace Chefs.Services.Techniques;
+namespace Simeserva.Services.Techniques;
 
 /// <summary>
 /// Implements recipe related methods

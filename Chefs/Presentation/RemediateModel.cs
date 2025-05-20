@@ -1,4 +1,4 @@
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record RemediateParameter(Technique Technique, IImmutableList<RemediationStep> Steps);
 

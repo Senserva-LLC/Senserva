@@ -1,12 +1,12 @@
 ﻿<Page
-    x:Class="Chefs.Views.WelcomePage"
+    x:Class="Simeserva.Views.WelcomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:android="http://uno.ui/android#using:Uno.Toolkit.UI"
-    xmlns:ctrl="using:Chefs.Views.Controls"
+    xmlns:ctrl="using:Simeserva.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ios="http://uno.ui/ios#using:Uno.Toolkit.UI"
-    xmlns:local="using:Chefs.Views"
+    xmlns:local="using:Simeserva.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:uen="using:Uno.Extensions.Navigation.UI"
@@ -60,7 +60,7 @@
                     <ctrl:WelcomeView
                         Title="Personalize Your Technique Journey"
                         VerticalContentAlignment="Bottom"
-                        Description="Create your own recipe collections, cookbooks, follow other foodies, and share your creations with the Chefs community."
+                        Description="Create your own recipe collections, cookbooks, follow other foodies, and share your creations with the Simeserva community."
                         ImageUrl="ms-appx:///Assets/Welcome/third_splash_screen.jpg" />
                 </FlipView.Items>
             </FlipView>

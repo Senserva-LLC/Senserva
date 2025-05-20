@@ -1,4 +1,4 @@
-namespace Chefs.Business.Models;
+namespace Simeserva.Business.Models;
 
 /// <summary>
 /// content of item of interest, for events its event data,

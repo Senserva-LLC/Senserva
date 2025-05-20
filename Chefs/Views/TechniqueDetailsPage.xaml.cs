@@ -1,6 +1,6 @@
 using LiveChartsCore;
 
-namespace Chefs.Views;
+namespace Simeserva.Views;
 
 public sealed partial class TechniqueDetailsPage : Page
 {

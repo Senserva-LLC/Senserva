@@ -1,9 +1,9 @@
-using Chefs.Services.LiveData;
-using Chefs.Services.Settings;
-using Chefs.Views.Flyouts;
+using Simeserva.Services.LiveData;
+using Simeserva.Services.Settings;
+using Simeserva.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
 
-namespace Chefs;
+namespace Simeserva;
 
 /*
  * https://www.wallarm.com/what/what-is-json-rpc
@@ -107,8 +107,8 @@ public partial class App : Application
 							};
 					config.AddInMemoryCollection(appsettingsPrefix);
 				})
-				.UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes,
-					configure: navConfig => navConfig with { AddressBarUpdateEnabled = false },
+				.UseNavigation(Siemserva.ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes,
+					configure: navConfig => navConfig with { AddressBarUpdateEnabled = true },
 					configureServices: ConfigureNavServices));
 	}
 

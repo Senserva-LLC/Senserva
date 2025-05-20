@@ -1,5 +1,5 @@
 using Microsoft.UI.Xaml.Data;
-namespace Chefs.Converters;
+namespace Simeserva.Converters;
 
 #nullable disable
 public class StringReplacerConverter : IValueConverter

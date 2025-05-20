@@ -1,4 +1,4 @@
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record LoginModel(IDispatcher Dispatcher, INavigator Navigator, IAuthenticationService Authentication)
 {
