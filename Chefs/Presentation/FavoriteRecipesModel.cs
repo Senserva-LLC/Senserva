@@ -3,7 +3,7 @@ namespace Chefs.Presentation;
 public partial record FavoriteTechniquesModel
 {
 	private readonly INavigator _navigator;
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 	private readonly ICookbookService _cookbookService;
 	private readonly IMessenger _messenger;
 
@@ -15,7 +15,7 @@ public partial record FavoriteTechniquesModel
 		IMessenger messenger)
 	{
 		_navigator = navigator;
-		_recipeService = recipeService;
+		_techniqueService = recipeService;
 		_cookbookService = cookbookService;
 		_messenger = messenger;
 	}
@@ -24,5 +24,5 @@ public partial record FavoriteTechniquesModel
 		.Async(this, _cookbookService.GetSaved)
 		.Observe(_messenger, cb => cb.Id);
 
-	public IListState<Technique> FavoriteTechniques => _recipeService.FavoritedTechniques;
+	public IListState<Technique> FavoriteTechniques => _techniqueService.FavoritedTechniques;
 }

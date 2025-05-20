@@ -4,7 +4,7 @@ namespace Chefs.Presentation;
 public partial record PoliciesModel
 {
 	private readonly INavigator _navigator;
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 	private readonly ICookbookService _cookbookService;
 	private readonly IMessenger _messenger;
 
@@ -15,7 +15,7 @@ public partial record PoliciesModel
 		IMessenger messenger)
 	{
 		_navigator = navigator;
-		_recipeService = recipeService;
+		_techniqueService = recipeService;
 		_cookbookService = cookbookService;
 		_messenger = messenger;
 	}

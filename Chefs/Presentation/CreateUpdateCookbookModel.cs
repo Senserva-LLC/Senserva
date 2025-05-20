@@ -8,7 +8,7 @@ public partial record CreateUpdateCookbookModel
 	public IState<IImmutableList<Technique>> SelectedTechniques { get; }
 
 	private readonly INavigator _navigator;
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 	private readonly ICookbookService _cookbookService;
 	private readonly IMessenger _messenger;
 	private readonly Cookbook? _cookbook;
@@ -21,7 +21,7 @@ public partial record CreateUpdateCookbookModel
 		IMessenger messenger)
 	{
 		_navigator = navigator;
-		_recipeService = recipeService;
+		_techniqueService = recipeService;
 		_cookbookService = cookbookService;
 		_messenger = messenger;
 
@@ -58,7 +58,7 @@ public partial record CreateUpdateCookbookModel
 	public IListFeed<Technique> Techniques => ListFeed
 		.PaginatedAsync(
 			async (PageRequest pageRequest, CancellationToken ct) =>
-				await _recipeService.GetFavoritedWithPagination(pageRequest.DesiredSize ?? DefaultPageSize, pageRequest.CurrentCount, ct)
+				await _techniqueService.GetFavoritedWithPagination(pageRequest.DesiredSize ?? DefaultPageSize, pageRequest.CurrentCount, ct)
 		)
 		.Selection(SelectedTechniques);
 

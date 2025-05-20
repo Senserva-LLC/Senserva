@@ -2,7 +2,7 @@ namespace Chefs.Presentation;
 
 public partial record ProfileModel
 {
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 	private readonly INavigator _navigator;
 
 	public ProfileModel(
@@ -12,7 +12,7 @@ public partial record ProfileModel
 		SenservaUser? user)
 	{
 		_navigator = navigator;
-		_recipeService = recipeService;
+		_techniqueService = recipeService;
 
 		Profile = user != null ? State.Value(this, () => user) : userService.User;
 	}
@@ -20,6 +20,6 @@ public partial record ProfileModel
 	public IFeed<SenservaUser> Profile { get; }
 
 	public IListFeed<Technique> Techniques => Profile
-		.SelectAsync(async (user, ct) => await _recipeService.GetByUser(user.Id, ct))
+		.SelectAsync(async (user, ct) => await _techniqueService.GetByUser(user.Id, ct))
 		.AsListFeed();
 }

@@ -36,7 +36,7 @@
 							   Style="{StaticResource TitleLarge}" />
 					<TextBlock TextAlignment="Center"
 							   TextWrapping="Wrap"
-							   Text="You haven't created any recipes yet. Share your culinary creativity with the community! Click on 'Create Technique' to start sharing your own delicious dishes. Your recipe might be the next big hit!"
+							   Text="You haven't created any Techniques yet."
 							   Foreground="{ThemeResource OnSurfaceBrush}"
 							   Style="{StaticResource TitleMedium}" />
 					<Button HorizontalContentAlignment="Center"
@@ -107,32 +107,6 @@
 							<TextBlock TextAlignment="Center"
 									   TextWrapping="Wrap"
 									   Text="Techniques"
-									   Foreground="{ThemeResource OnSurfaceMediumBrush}"
-									   Style="{StaticResource BodySmall}" />
-						</utu:AutoLayout>
-						<utu:AutoLayout Spacing="4"
-										utu:AutoLayout.PrimaryAlignment="Stretch">
-							<TextBlock TextAlignment="Center"
-									   TextWrapping="Wrap"
-									   Text="{Binding Data.Followers}"
-									   Foreground="{ThemeResource OnSurfaceBrush}"
-									   Style="{StaticResource TitleMedium}" />
-							<TextBlock TextAlignment="Center"
-									   TextWrapping="Wrap"
-									   Text="Followers"
-									   Foreground="{ThemeResource OnSurfaceMediumBrush}"
-									   Style="{StaticResource BodySmall}" />
-						</utu:AutoLayout>
-						<utu:AutoLayout Spacing="4"
-										utu:AutoLayout.PrimaryAlignment="Stretch">
-							<TextBlock TextAlignment="Center"
-									   TextWrapping="Wrap"
-									   Text="{Binding Data.Following}"
-									   Foreground="{ThemeResource OnSurfaceBrush}"
-									   Style="{StaticResource TitleMedium}" />
-							<TextBlock TextAlignment="Center"
-									   TextWrapping="Wrap"
-									   Text="Following"
 									   Foreground="{ThemeResource OnSurfaceMediumBrush}"
 									   Style="{StaticResource BodySmall}" />
 						</utu:AutoLayout>
