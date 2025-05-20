@@ -25,7 +25,15 @@ public partial record TechniqueDetailsModel
 
 	public Technique Technique { get; }
 
-	public IImmutableList<Content> Controls => Technique.Controls?.ToImmutableList() ?? [];
+	// TODO put in name and type
+	public string Title => $"Technique {Technique.Name} - {Technique.Type} ";
+
+
+	/// <summary>
+	/// the big picture
+	/// </summary>
+	public IImmutableList<Content> Content
+		=> Technique.Content?.ToImmutableList() ?? [];
 
 	public IState<bool> IsFavorited => State.Value(this, () => Technique.IsFavorite);
 
@@ -36,17 +44,13 @@ public partial record TechniqueDetailsModel
 
 	public IListFeed<RemediationStep> Steps => ListFeed.Async(async ct => await _techniqueService.GetSteps(Technique.Id, ct));
 
+	public IListFeed<SecurityControl> Controls => ListFeed.Async(async ct => await _techniqueService.GetControls(Technique.Id, ct));
+
 	public IListFeed<string> KeyDetails => ListFeed.Async(async ct => await _techniqueService.GetDetails(Technique.Id, ct));
 
 	public IListState<Compliance> Compliance => ListState
 		.Async(this, async ct => await _techniqueService.GetCompliance(Technique.Id, ct))
 		.Observe(_messenger, r => r.Id);
-
-	public async ValueTask Like(Compliance review, CancellationToken ct) =>
-		await _techniqueService.LikeReview(review, ct);
-
-	public async ValueTask Dislike(Compliance review, CancellationToken ct) =>
-		await _techniqueService.DislikeReview(review, ct);
 
 	public async ValueTask LiveCooking(IImmutableList<RemediationStep> steps) =>
 		await _navigator.NavigateRouteAsync(this, "LiveCooking", data: new LiveCookingParameter(Technique, steps));

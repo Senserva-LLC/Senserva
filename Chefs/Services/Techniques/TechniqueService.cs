@@ -110,10 +110,10 @@ public class TechniqueService(
 	public IImmutableList<string> GetSearchHistory()
 		=> searchOptions.Value.Searches.Take(3).ToImmutableList();
 
-	///ITSecurityControl
-	public async Task<IImmutableList<ITSecurityControl>> GetControls(Guid recipeId, CancellationToken ct)
+	///SecurityControl
+	public async Task<IImmutableList<SecurityControl>> GetControls(Guid recipeId, CancellationToken ct)
 	{
-		return new List<ITSecurityControl>() { new ITSecurityControl("one", "two")}.ToImmutableList();
+		return new List<SecurityControl>() { new SecurityControl("one", "two")}.ToImmutableList();
 	}
 
 	public async Task<IImmutableList<Compliance>> GetCompliance(Guid recipeId, CancellationToken ct)

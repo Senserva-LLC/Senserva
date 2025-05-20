@@ -29,8 +29,7 @@
 
         <DataTemplate x:Key="EmptyTemplate">
             <utu:AutoLayout
-                Padding="{utu:Responsive Normal='16,24',
-                                         Wide='40'}"
+                Padding="{utu:Responsive Normal='16,24', Wide='40'}"
                 PrimaryAxisAlignment="Center"
                 Spacing="24">
                 <BitmapIcon
@@ -41,7 +40,7 @@
                 <TextBlock
                     Foreground="{ThemeResource OnSurfaceBrush}"
                     Style="{StaticResource TitleLarge}"
-                    Text="No Reviews Yet"
+                    Text="No Data Yet"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
             </utu:AutoLayout>
@@ -49,7 +48,7 @@
     </Page.Resources>
 
     <utu:AutoLayout>
-        <utu:NavigationBar Content="Technique {Binding Technique.Name}">
+        <utu:NavigationBar Content="Technique">
             <utu:NavigationBar.PrimaryCommands>
                 <AppBarButton Command="{Binding Share}">
                     <AppBarButton.Icon>
@@ -72,15 +71,13 @@
             <utu:AutoLayout Padding="{utu:Responsive Normal='0,0,0,92', Wide=0}">
                 <utu:AutoLayout  Padding="16"  CounterAxisAlignment="Center"
                     Orientation="Horizontal"   Spacing="8">
-                    <PersonPicture Width="32" Height="32" ProfilePicture="{Binding User.UrlProfileImage}" />
                     <TextBlock
                         Foreground="{ThemeResource OnBackgroundMediumBrush}"
                         Style="{StaticResource BodySmall}"
-                        Text="{Binding User.FullName, Converter={StaticResource StringFormatter}, ConverterParameter='By {0}'}" />
+                        Text="{Binding Title}" />
                 </utu:AutoLayout>
                 <utu:AutoLayout
-                    utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
-                                                                     Wide=Stretch}"
+                    utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto, Wide=Stretch}"
                     Justify="{utu:Responsive Normal=SpaceBetween, Wide=Stack}"
                     Orientation="{utu:Responsive Normal=Vertical, Wide=Horizontal}">
                     <utu:AutoLayout utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto, Wide=Stretch}" Spacing="{utu:Responsive Normal=8, Wide=0}">
@@ -90,8 +87,7 @@
                             utu:AutoLayout.PrimaryAlignment="Stretch"
                             Source="{Binding Technique.ImageUrl}"
                             Stretch="UniformToFill"
-                            Visibility="{utu:Responsive Normal=Collapsed,
-                                                        Wide=Visible}" />
+                            Visibility="{utu:Responsive Normal=Collapsed, Wide=Visible}" />
                         <Border Height="300" Visibility="{utu:Responsive Normal=Visible, Wide=Collapsed}">
                             <Image
                                 HorizontalAlignment="Center"
@@ -112,8 +108,7 @@
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
                                 Background="{ThemeResource SurfaceBrush}"
-                                Orientation="{utu:Responsive Normal=Horizontal,
-                                                             Wide=Vertical}"
+                                Orientation="{utu:Responsive Normal=Horizontal, Wide=Vertical}"
                                 PrimaryAxisAlignment="Stretch">
                                 <utu:AutoLayout
                                     utu:AutoLayout.PrimaryAlignment="Stretch"
@@ -163,8 +158,7 @@
                         utu:AutoLayout.PrimaryAlignment="Stretch"
                         Background="{ThemeResource BackgroundBrush}">
                         <utu:TabBar
-                            Margin="{utu:Responsive Normal=0,
-                                                    Wide='40,0'}"
+                            Margin="{utu:Responsive Normal=0, Wide='40,0'}"
                             uen:Region.Attached="True"
                             utu:AutoLayout.CounterAlignment="{utu:Responsive Normal=Start,
                                                                              Wide=Center}"
@@ -199,10 +193,10 @@
                                     <TextBlock
                                         Foreground="{ThemeResource OnSurfaceBrush}"
                                         Style="{StaticResource BodyLarge}"
-                                        Text="{Binding Details.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} items'}"
+                                        Text="{Binding Controls.Count, Converter={StaticResource StringFormatter}, ConverterParameter='{}{0} Controls'}"
                                         TextWrapping="Wrap" />
                                     <utu:AutoLayout Spacing="{utu:Responsive Normal=2, Wide=0}">
-                                        <muxc:ItemsRepeater utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Stretch, Wide=Auto}" ItemsSource="{Binding Details}">
+										<muxc:ItemsRepeater utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Stretch, Wide=Auto}" ItemsSource="{Binding Controls}">
                                             <muxc:ItemsRepeater.Layout>
                                                 <muxc:StackLayout Orientation="Vertical" Spacing="2" />
                                             </muxc:ItemsRepeater.Layout>
@@ -233,7 +227,7 @@
                                                             <TextBlock
                                                                 Foreground="{ThemeResource OnSecondaryContainerBrush}"
                                                                 Style="{StaticResource BodySmall}"
-                                                                Text="{Binding Quantity}"
+                                                                Text="{Binding Description}"
                                                                 TextAlignment="End" />
                                                         </Border>
                                                     </utu:AutoLayout>

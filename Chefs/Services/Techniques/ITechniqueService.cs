@@ -131,7 +131,7 @@ public interface ITechniqueService
 	/// </returns>
 	public Task<IImmutableList<RemediationStep>> GetSteps(Guid recipeId, CancellationToken ct);
 
-	public Task<IImmutableList<ITSecurityControl>> GetControls(Guid recipeId, CancellationToken ct);
+	public Task<IImmutableList<SecurityControl>> GetControls(Guid recipeId, CancellationToken ct);
 
 	/// <summary>
 	/// define the details structure as more is known

@@ -7,7 +7,7 @@ namespace Chefs.Business.Models;
 /// </summary>
 /// <param name="Name"></param>
 /// <param name="Description"></param>
-public record ITSecurityControl(string Name, string Description);
+public record SecurityControl(string Name, string Description);
 
 /// <summary>
 /// TODO rename this as Solution
@@ -48,7 +48,7 @@ public partial record Technique : ISenservaEntity
 	public List<RemediationStep>? Steps { get; set; }
 	public List<Content>? Content { get; set; }
 	public List<Compliance>? Compliance { get; set; }
-	public List<ITSecurityControl>? Controls { get; set; }
+	public List<SecurityControl>? Controls { get; set; }
 
 	public Technique()
 	{
@@ -61,7 +61,7 @@ public partial record Technique : ISenservaEntity
 		Category = new Category();
 		Difficulty = Difficulty.Basic;
 		EstimateTime = TimeSpan.FromMinutes(30);
-		Controls = [new ITSecurityControl("Bob", "syouruncle")];
+		Controls = [new SecurityControl("Bob", "syouruncle")];
 	}
 
 	/// <summary>
