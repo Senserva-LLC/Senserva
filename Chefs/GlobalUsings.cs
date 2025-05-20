@@ -10,7 +10,7 @@ global using Chefs.Business.Models;
 global using Chefs.Presentation;
 global using Chefs.Services.Cookbooks;
 global using Chefs.Services.Notifications;
-global using Chefs.Services.Recipes;
+global using Chefs.Services.Techniques;
 global using Chefs.Services.Users;
 global using Chefs.Views;
 global using CommunityToolkit.Mvvm.Messaging;

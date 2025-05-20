@@ -96,7 +96,7 @@
         <utu:NavigationBar
             x:Name="NavBar"
             utu:AutoLayout.PrimaryAlignment="Auto"
-            Content="{Binding Recipe.Name}"
+            Content="{Binding Technique.Name}"
             Style="{StaticResource ChefsNavigationBarStyle}" />
 
         <utu:AutoLayout
@@ -111,6 +111,7 @@
                 Background="{ThemeResource BrandBlackBrush}"
                 PrimaryAxisAlignment="{utu:Responsive Normal=Start,
                                                       Wide=Center}">
+				<!-- too slow to load but its a good concept
                 <MediaPlayerElement
                     AreTransportControlsEnabled="True"
                     AutoPlay="True"
@@ -119,6 +120,7 @@
                         <MediaTransportControls IsCompact="True" />
                     </MediaPlayerElement.TransportControls>
                 </MediaPlayerElement>
+				   -->
 
             </utu:AutoLayout>
 
@@ -188,7 +190,7 @@
             Visibility="{Binding Completed}">
             <Image
                 utu:AutoLayout.PrimaryAlignment="Stretch"
-                Source="{Binding Recipe.ImageUrl}"
+                Source="{Binding Technique.ImageUrl}"
                 Stretch="UniformToFill"
                 Visibility="{utu:Responsive Normal=Collapsed,
                                             Wide=Visible}" />
@@ -238,8 +240,7 @@
                     </StackPanel>
                 </utu:AutoLayout>
                 <utu:AutoLayout
-                    Margin="{utu:Responsive Normal=0,
-                                            Wide=48}"
+                    Margin="{utu:Responsive Normal=0,   Wide=48}"
                     utu:AutoLayout.PrimaryAlignment="Stretch"
                     CounterAxisAlignment="End"
                     Orientation="Horizontal"

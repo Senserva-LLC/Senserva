@@ -31,9 +31,9 @@
             MinRowSpacing="{utu:Responsive Normal=6,
                                            Wide=15}" />
 
-        <DataTemplate x:Key="CookbookRecipeTemplate" x:DataType="models:Recipe">
+        <DataTemplate x:Key="CookbookTechniqueTemplate" x:DataType="models:Technique">
             <ListViewItem
-                x:Name="RecipeTemplateCard"
+                x:Name="TechniqueTemplateCard"
                 Background="{ThemeResource SurfaceBrush}"
                 CornerRadius="4">
                 <ListViewItem.ContentTemplate>
@@ -75,13 +75,13 @@
                                         CounterAxisAlignment="Start"
                                         Orientation="Horizontal"
                                         PrimaryAxisAlignment="End">
-                                        <Border Visibility="{Binding Converter={StaticResource TrueToCollapsed}, ElementName=RecipeTemplateCard, Path=IsSelected}">
+                                        <Border Visibility="{Binding Converter={StaticResource TrueToCollapsed}, ElementName=TechniqueTemplateCard, Path=IsSelected}">
                                             <PathIcon
                                                 Data="{StaticResource Icon_Heart}"
                                                 DataContext="{utu:AncestorBinding AncestorType=uer:FeedView}"
                                                 Foreground="{ThemeResource OnSurfaceBrush}" />
                                         </Border>
-                                        <Border Visibility="{Binding ElementName=RecipeTemplateCard, Path=IsSelected}">
+                                        <Border Visibility="{Binding ElementName=TechniqueTemplateCard, Path=IsSelected}">
                                             <PathIcon
                                                 Data="{StaticResource Icon_Heart_Filled}"
                                                 DataContext="{utu:AncestorBinding AncestorType=uer:FeedView}"
@@ -118,14 +118,14 @@
                     <uer:FeedView
                         utu:AutoLayout.CounterAlignment="Stretch"
                         utu:AutoLayout.PrimaryAlignment="Stretch"
-                        Source="{Binding Recipes}">
+                        Source="{Binding Techniques}">
                         <DataTemplate>
                             <ScrollViewer>
                                 <muxc:ItemsRepeater
                                     Grid.Row="1"
                                     utu:ItemsRepeaterExtensions.SelectionMode="Multiple"
                                     utu:ItemsRepeaterExtensions.SupportsIncrementalLoading="True"
-                                    ItemTemplate="{StaticResource CookbookRecipeTemplate}"
+                                    ItemTemplate="{StaticResource CookbookTechniqueTemplate}"
                                     ItemsSource="{Binding Data}"
                                     Layout="{StaticResource ResponsiveGridLayout}" />
                             </ScrollViewer>

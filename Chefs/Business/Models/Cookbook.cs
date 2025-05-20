@@ -2,27 +2,27 @@ namespace Chefs.Business.Models;
 
 public partial record Cookbook : ISenservaEntity
 {
-	internal Cookbook() { Recipes = ImmutableList<Recipe>.Empty; }
-	public Cookbook(IImmutableList<Recipe> recipes)
+	internal Cookbook() { Techniques = ImmutableList<Technique>.Empty; }
+	public Cookbook(IImmutableList<Technique> recipes)
 	{
-		Recipes = recipes;
+		Techniques = recipes;
 	}
 
 	public Guid Id { get; init; }
 	public Guid UserId { get; init; }
 	public string? Name { get; init; }
-	public int PinsNumber => Recipes?.Count ?? 0;
-	public IImmutableList<Recipe> Recipes { get; init; }
+	public int PinsNumber => Techniques?.Count ?? 0;
+	public IImmutableList<Technique> Techniques { get; init; }
 	public CookbookImages? CookbookImages { get; init; }
 
-	internal static Cookbook CreateData(Guid userId, string name, IImmutableList<Recipe> recipes)
+	internal static Cookbook CreateData(Guid userId, string name, IImmutableList<Technique> recipes)
 	{
 		return new Cookbook
 		{
 			Id = Guid.NewGuid(),
 			Name = name,
 			UserId = userId,
-			Recipes = recipes
+			Techniques = recipes
 		};
 	}
 

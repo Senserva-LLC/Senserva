@@ -5,6 +5,48 @@ using Microsoft.Extensions.Configuration;
 
 namespace Chefs;
 
+/*
+ * https://www.wallarm.com/what/what-is-json-rpc
+ * note AOT https://github.com/microsoft/vs-streamjsonrpc/issues/746#issuecomment-1984713686  can we put in its own DLL, not AOT and then use it?
+ *
+ * AI:
+ * JSON-RPC and REST are two API protocols, but they differ in their approach and how they handle communication between a client and server. REST is a broader architectural style that focuses on resource manipulation using standard HTTP methods, while JSON-RPC is a more specific protocol for remote procedure calls using JSON. [1, 2]
+Here's a more detailed breakdown:
+REST (Representational State Transfer):
+
+• Resource-oriented: REST treats data as resources, and APIs operate on these resources using standard HTTP methods like GET, POST, PUT, DELETE, etc. [3, 4]
+• Stateless: Each request from a client should contain all the information needed to process it, and the server doesn't store any information about previous client interactions. [5]
+• Flexibility: REST allows for a wide variety of implementations and can be used with different data formats (JSON, XML, etc.). [1, 5]
+• Public APIs: REST is often preferred for public APIs, where scalability, caching, and a uniform interface are important. [3, 6]
+
+JSON-RPC:
+
+• Remote procedure call: JSON-RPC focuses on invoking procedures (functions) on a remote server. [2]
+• Specific format: JSON-RPC uses a specific JSON format for communication between client and server. [2]
+• Simpler for specific tasks: JSON-RPC can be simpler and easier to consume for straightforward use cases that fit its scope. [1, 7]
+• Internal microservices: JSON-RPC is often chosen for internal microservices communication where efficiency and speed are critical. [6]
+
+Key Differences:
+
+| Feature | REST | JSON-RPC  |
+| --- | --- | --- |
+| Focus | Resource manipulation | Remote procedure calls  |
+| Communication | Standard HTTP methods (GET, POST, etc.) | Specific JSON format  |
+| State | Stateless | Can be stateless or stateful  |
+| Flexibility | High | Lower  |
+| Use Cases | Public APIs, web services | Internal microservices, specific tasks  |
+
+When to choose which:
+
+• REST: When you need a flexible, scalable, and resource-oriented approach for public APIs or web services. [3, 6]
+• JSON-RPC: When you need a simpler, more direct way to call functions on a remote server, especially in internal microservices or for specific tasks. [1, 6]
+
+AI responses may include mistakes.
+
+[1] https://www.mertech.com/blog/know-your-api-protocols[2] https://www.wallarm.com/what/what-is-json-rpc[3] https://stackoverflow.com/questions/15056878/rest-vs-json-rpc[4] https://www.reddit.com/r/computerscience/comments/j4djbh/rpc_vs_rest/[5] https://aws.amazon.com/compare/the-difference-between-rpc-and-rest/[6] https://medium.com/@apurvaagrawal_95485/rest-vs-rpc-d59c5d13f380[7] https://medium.com/@michejin/what-is-json-rpc-761445136d7c[8] https://www.ankr.com/blog/rpc-vs-rest/[9] https://www.ankr.com/blog/what-is-json-rpc-and-what-is-used-for/[10] https://opsi.org/en/blog/opsi-cli-jsonrpc/[11] https://www.youtube.com/watch?v=DqFMhOTAEeA[12] https://www.youtube.com/watch?v=lOeSDdi8OmM[13] https://medium.com/nerd-for-tech/rest-versus-rpcs-fb1a7d2575bf[14] https://www.ottia.com/en/post/api-architectural-styles
+
+ */
+
 public partial class App : Application
 {
 	private void ConfigureAppBuilder(IApplicationBuilder builder)
@@ -50,7 +92,7 @@ public partial class App : Application
 						.AddSingleton<ICookbookService, CookbookService>()
 						.AddSingleton<IMessenger, WeakReferenceMessenger>()
 						.AddSingleton<INotificationService, NotificationService>()
-						.AddSingleton<IRecipeService, RecipeService>()
+						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<ISettingsService, SettingsService>()
 						.AddSingleton<IUserService, UserService>()
 						.AddSingleton<ILiveDataService, LiveDataService>();
@@ -116,8 +158,8 @@ public partial class App : Application
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationsModel>(),
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
-			new ViewMap<RecipeDetailsPage, RecipeDetailsModel>(Data: new DataMap<Recipe>()),
-			new ViewMap<FavoriteRecipesPage, FavoriteRecipesModel>(),
+			new ViewMap<TechniqueDetailsPage, TechniqueDetailsModel>(Data: new DataMap<Technique>()),
+			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
 			new ViewMap<PoliciesPage, PoliciesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
@@ -141,14 +183,14 @@ public partial class App : Application
 						new RouteMap("Home", View: views.FindByViewModel<HomeModel>(), IsDefault: true),
 						new RouteMap("Search", View: views.FindByViewModel<SearchModel>()),
 						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
-						new RouteMap("FavoriteRecipes", View: views.FindByViewModel<FavoriteRecipesModel>()),
+						new RouteMap("FavoriteTechniques", View: views.FindByViewModel<FavoriteTechniquesModel>()),
 						#endregion
 
 						new RouteMap("CookbookDetails", View: views.FindByViewModel<CookbookDetailModel>()),
 						new RouteMap("UpdateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 						new RouteMap("CreateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 
-						new RouteMap("RecipeDetails", View: views.FindByViewModel<RecipeDetailsModel>()),
+						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueDetailsModel>()),
 						new RouteMap("LiveCooking", View: views.FindByViewModel<LiveCookingModel>()),
 					]),
 					new RouteMap("Notifications", View: views.FindByViewModel<NotificationsModel>()),

@@ -19,7 +19,7 @@
 	  utu:StatusBar.Foreground="AutoInverse"
 	  utu:StatusBar.Background="{ThemeResource SurfaceInverseBrush}">
 	<Page.Resources>
-		<DataTemplate x:Key="RecipeEmptyTemplate">
+		<DataTemplate x:Key="TechniqueEmptyTemplate">
 			<ScrollViewer HorizontalScrollMode="Disabled">
 				<utu:AutoLayout Spacing="24"
 								PrimaryAxisAlignment="Center"
@@ -31,17 +31,17 @@
 								utu:AutoLayout.CounterAlignment="Center" />
 					<TextBlock TextAlignment="Center"
 							   TextWrapping="Wrap"
-							   Text="No Recipes Created"
+							   Text="No Techniques Created"
 							   Foreground="{ThemeResource OnSurfaceBrush}"
 							   Style="{StaticResource TitleLarge}" />
 					<TextBlock TextAlignment="Center"
 							   TextWrapping="Wrap"
-							   Text="You haven't created any recipes yet. Share your culinary creativity with the community! Click on 'Create Recipe' to start sharing your own delicious dishes. Your recipe might be the next big hit!"
+							   Text="You haven't created any recipes yet. Share your culinary creativity with the community! Click on 'Create Technique' to start sharing your own delicious dishes. Your recipe might be the next big hit!"
 							   Foreground="{ThemeResource OnSurfaceBrush}"
 							   Style="{StaticResource TitleMedium}" />
 					<Button HorizontalContentAlignment="Center"
 							VerticalContentAlignment="Center"
-							Content="Create Recipe"
+							Content="Create Technique"
 							Padding="12,10,16,10"
 							Foreground="{ThemeResource PrimaryBrush}"
 							CornerRadius="20"
@@ -101,12 +101,12 @@
 										utu:AutoLayout.PrimaryAlignment="Stretch">
 							<TextBlock TextAlignment="Center"
 									   TextWrapping="Wrap"
-									   Text="{Binding Data.Recipes}"
+									   Text="{Binding Data.Techniques}"
 									   Foreground="{ThemeResource OnSurfaceBrush}"
 									   Style="{StaticResource TitleMedium}" />
 							<TextBlock TextAlignment="Center"
 									   TextWrapping="Wrap"
-									   Text="Recipes"
+									   Text="Techniques"
 									   Foreground="{ThemeResource OnSurfaceMediumBrush}"
 									   Style="{StaticResource BodySmall}" />
 						</utu:AutoLayout>
@@ -141,7 +141,7 @@
 			</DataTemplate>
 		</uer:FeedView>
 
-		<TextBlock Text="My Recipes"
+		<TextBlock Text="My Techniques"
 				   Padding="16"
 				   utu:AutoLayout.CounterAlignment="Start"
 				   utu:AutoLayout.PrimaryAlignment="Auto"
@@ -149,17 +149,17 @@
 				   Style="{StaticResource BodyLarge}" />
 
 
-		<uer:FeedView Source="{Binding Recipes}"
+		<uer:FeedView Source="{Binding Techniques}"
 					  utu:AutoLayout.PrimaryAlignment="Stretch"
-					  NoneTemplate="{StaticResource RecipeEmptyTemplate}">
+					  NoneTemplate="{StaticResource TechniqueEmptyTemplate}">
 			<DataTemplate>
 				<!-- It is necessary to disable the HorizontalScrollMode because of this issue: https://github.com/unoplatform/uno/issues/12871 -->
 				<ScrollViewer utu:AutoLayout.PrimaryAlignment="Stretch"
 							  HorizontalScrollMode="Disabled"
 							  VerticalScrollBarVisibility="Hidden">
 					<muxc:ItemsRepeater ItemsSource="{Binding Data}"
-										ItemTemplate="{StaticResource RecipeTemplate}"
-										uen:Navigation.Request="RecipeDetails"
+										ItemTemplate="{StaticResource TechniqueTemplate}"
+										uen:Navigation.Request="TechniqueDetails"
 										Margin="16,0,16,16">
 						<muxc:ItemsRepeater.Layout>
 							<muxc:UniformGridLayout MaximumRowsOrColumns="2"

@@ -3,10 +3,10 @@ namespace Chefs.Presentation;
 public partial record SearchModel
 {
 	private readonly INavigator _navigator;
-	private readonly IRecipeService _recipeService;
+	private readonly ITechniqueService _recipeService;
 	private readonly IMessenger _messenger;
 
-	public SearchModel(SearchFilter? filter, INavigator navigator, IRecipeService recipeService, IMessenger messenger)
+	public SearchModel(SearchFilter? filter, INavigator navigator, ITechniqueService recipeService, IMessenger messenger)
 	{
 		_navigator = navigator;
 		_recipeService = recipeService;
@@ -20,7 +20,7 @@ public partial record SearchModel
 		.Observe(_messenger, t => t);
 
 	public IState<SearchFilter> Filter { get; }
-	public IListState<Recipe> Results => ListState.FromFeed(this, Feed
+	public IListState<Technique> Results => ListState.FromFeed(this, Feed
 		.Combine(Term, Filter)
 		.SelectAsync(Search)
 		.AsListFeed())
@@ -30,18 +30,18 @@ public partial record SearchModel
 
 	public IFeed<bool> HasFilter => Filter.Select(f => f.HasFilter);
 
-	public IListFeed<Recipe> Recommended => ListFeed.Async(async ct => await _recipeService.GetRecommended(ct));
+	public IListFeed<Technique> Recommended => ListFeed.Async(async ct => await _recipeService.GetRecommended(ct));
 
-	public IListFeed<Recipe> FromChefs => ListFeed.Async(async ct => await _recipeService.GetFromChefs(ct));
+	public IListFeed<Technique> FromChefs => ListFeed.Async(async ct => await _recipeService.GetFromChefs(ct));
 
 	public IListFeed<string> SearchHistory => ListFeed.Async(async ct => _recipeService.GetSearchHistory());
 
 	public async ValueTask ApplyHistory(string term) => await Term.SetAsync(term);
 
-	private async ValueTask<IImmutableList<Recipe>> Search((string term, SearchFilter filter) inputs, CancellationToken ct)
+	private async ValueTask<IImmutableList<Technique>> Search((string term, SearchFilter filter) inputs, CancellationToken ct)
 	{
-		var searchedRecipes = await _recipeService.Search(inputs.term, inputs.filter, ct);
-		return searchedRecipes.Where(inputs.filter.Match).ToImmutableList();
+		var searchedTechniques = await _recipeService.Search(inputs.term, inputs.filter, ct);
+		return searchedTechniques.Where(inputs.filter.Match).ToImmutableList();
 	}
 
 	private bool GetSearched((SearchFilter filter, string term) inputs) => inputs.filter.HasFilter || !inputs.term.IsNullOrEmpty();

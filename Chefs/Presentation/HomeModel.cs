@@ -5,12 +5,12 @@ namespace Chefs.Presentation;
 public partial record HomeModel
 {
 	private readonly INavigator _navigator;
-	private readonly IRecipeService _recipeService;
+	private readonly ITechniqueService _recipeService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
 	private readonly ILiveDataService _liveDataService;
 
-	public HomeModel(INavigator navigator, IRecipeService recipe, IUserService userService, IMessenger messenger, ILiveDataService liveData)
+	public HomeModel(INavigator navigator, ITechniqueService recipe, IUserService userService, IMessenger messenger, ILiveDataService liveData)
 	{
 		_navigator = navigator;
 		_recipeService = recipe;
@@ -19,13 +19,13 @@ public partial record HomeModel
 		_liveDataService = liveData;
 	}
 
-	public IListState<Recipe> TrendingNow => ListState
+	public IListState<Technique> TrendingNow => ListState
 		.Async(this, async ct => await _recipeService.GetTrending(ct))
 		.Observe(_messenger, r => r.Id);
 
 	public IListFeed<CategoryWithCount> Categories => ListFeed.Async(async ct => await _recipeService.GetCategoriesWithCount(ct));
 
-	public IListFeed<Recipe> RecentlyAdded => ListFeed.Async(async ct => await _recipeService.GetRecent(ct));
+	public IListFeed<Technique> RecentlyAdded => ListFeed.Async(async ct => await _recipeService.GetRecent(ct));
 
 	public IListFeed<LiveDataModel> LiveData => ListFeed.Async(async ct => await _liveDataService.GetAll(ct));
 
@@ -40,6 +40,6 @@ public partial record HomeModel
 	public async ValueTask CategorySearch(CategoryWithCount categoryWithCount, CancellationToken ct) =>
 		await _navigator.NavigateRouteAsync(this, route: "/Main/-/Search", data: new SearchFilter(Category: categoryWithCount.Category), cancellation: ct);
 
-	public async ValueTask FavoriteRecipe(Recipe recipe, CancellationToken ct) =>
+	public async ValueTask FavoriteTechnique(Technique recipe, CancellationToken ct) =>
 		await _recipeService.Favorite(recipe, ct);
 }

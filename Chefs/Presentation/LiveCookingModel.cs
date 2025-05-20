@@ -1,24 +1,24 @@
 namespace Chefs.Presentation;
 
-public partial record LiveCookingParameter(Recipe Recipe, IImmutableList<RemediationStep> Steps);
+public partial record LiveCookingParameter(Technique Technique, IImmutableList<RemediationStep> Steps);
 
 public partial class LiveCookingModel
 {
-	private readonly IRecipeService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 
 	private readonly IImmutableList<RemediationStep> _steps;
 	private readonly INavigator _navigator;
 
-	public Recipe Recipe { get; }
+	public Technique Technique { get; }
 
 	public IState<StepIterator> Steps => State.Value(this, () => new StepIterator(_steps));
 
 	public IState<bool> Completed => State.Value(this, () => false);
 
-	public LiveCookingModel(LiveCookingParameter parameter, IRecipeService recipeService, INavigator navigator)
+	public LiveCookingModel(LiveCookingParameter parameter, ITechniqueService recipeService, INavigator navigator)
 	{
-		Recipe = parameter.Recipe;
-		_recipeService = recipeService;
+		Technique = parameter.Technique;
+		_techniqueService = recipeService;
 		_navigator = navigator;
 		_steps = parameter.Steps;
 	}
@@ -35,7 +35,7 @@ public partial class LiveCookingModel
 
 	public async ValueTask Favorite(CancellationToken ct)
 	{
-		await _recipeService.Favorite(Recipe, ct);
+		await _techniqueService.Favorite(Technique, ct);
 		await _navigator.NavigateViewModelAsync<HomeModel>(this, qualifier: Qualifiers.ClearBackStack, cancellation: ct);
 	}
 }

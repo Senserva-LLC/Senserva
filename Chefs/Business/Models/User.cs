@@ -16,6 +16,6 @@ public partial record SenservaUser
 	public string? PhoneNumber { get; init; }
 	public long? Followers { get; init; }
 	public long? Following { get; init; }
-	public long? Recipes { get; init; }
+	public long? Techniques { get; init; }
 	public bool IsCurrent { get; init; }
 }

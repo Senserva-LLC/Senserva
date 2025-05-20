@@ -5,17 +5,17 @@ namespace Chefs.Presentation;
 public partial record CreateUpdateCookbookModel
 {
 	const uint DefaultPageSize = 20;
-	public IState<IImmutableList<Recipe>> SelectedRecipes { get; }
+	public IState<IImmutableList<Technique>> SelectedTechniques { get; }
 
 	private readonly INavigator _navigator;
-	private readonly IRecipeService _recipeService;
+	private readonly ITechniqueService _recipeService;
 	private readonly ICookbookService _cookbookService;
 	private readonly IMessenger _messenger;
 	private readonly Cookbook? _cookbook;
 
 	public CreateUpdateCookbookModel(
 		INavigator navigator,
-		IRecipeService recipeService,
+		ITechniqueService recipeService,
 		ICookbookService cookbookService,
 		Cookbook? cookbook,
 		IMessenger messenger)
@@ -40,7 +40,7 @@ public partial record CreateUpdateCookbookModel
 			SaveButtonContent = "Create cookbook";
 			IsCreate = true;
 		}
-		SelectedRecipes = State.Value(this, () => _cookbook?.Recipes ?? ImmutableList<Recipe>.Empty);
+		SelectedTechniques = State.Value(this, () => _cookbook?.Techniques ?? ImmutableList<Technique>.Empty);
 
 	}
 	public bool IsCreate { get; }
@@ -55,23 +55,23 @@ public partial record CreateUpdateCookbookModel
 		.Value(this, () => _cookbook ?? new Cookbook())
 		.Observe(_messenger, cb => cb.Id);
 
-	public IListFeed<Recipe> Recipes => ListFeed
+	public IListFeed<Technique> Techniques => ListFeed
 		.PaginatedAsync(
 			async (PageRequest pageRequest, CancellationToken ct) =>
 				await _recipeService.GetFavoritedWithPagination(pageRequest.DesiredSize ?? DefaultPageSize, pageRequest.CurrentCount, ct)
 		)
-		.Selection(SelectedRecipes);
+		.Selection(SelectedTechniques);
 
 	public async ValueTask Submit(CancellationToken ct)
 	{
-		var selectedRecipes = await SelectedRecipes;
+		var selectedTechniques = await SelectedTechniques;
 		var cookbook = await Cookbook;
 
-		if (selectedRecipes is { Count: > 0 } && cookbook is not null && cookbook.Name.HasValueTrimmed())
+		if (selectedTechniques is { Count: > 0 } && cookbook is not null && cookbook.Name.HasValueTrimmed())
 		{
 			var response = IsCreate
-				? await _cookbookService.Create(cookbook.Name!, selectedRecipes.ToImmutableList(), ct)
-				: await _cookbookService.Update(cookbook, selectedRecipes, ct);
+				? await _cookbookService.Create(cookbook.Name!, selectedTechniques.ToImmutableList(), ct)
+				: await _cookbookService.Update(cookbook, selectedTechniques, ct);
 
 			if (IsCreate)
 			{
