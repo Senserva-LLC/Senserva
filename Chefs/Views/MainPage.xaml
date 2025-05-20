@@ -13,7 +13,7 @@
     Background="{ThemeResource BackgroundBrush}"
     mc:Ignorable="d">
     <Page.Resources>
-        <x:Double x:Key="NavigationTabBarItemIconHeight">24</x:Double>
+        <x:Double x:Key="NavigationTabBarItemIconHeight">18</x:Double>
     </Page.Resources>
     <Grid uen:Region.Attached="True" utu:AutoLayout.PrimaryAlignment="Stretch">
 
@@ -81,10 +81,9 @@
 
         <utu:AutoLayout
             Grid.RowSpan="2"
-            Width="120"
+            Width="100"
             Background="{ThemeResource SurfaceBrush}"
-            Visibility="{utu:Responsive Normal=Collapsed,
-                                        Wide=Visible}">
+            Visibility="{utu:Responsive Normal=Collapsed, Wide=Visible}">
             <utu:TabBar
                 uen:Region.Attached="True"
                 utu:AutoLayout.PrimaryAlignment="Stretch"

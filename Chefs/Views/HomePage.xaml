@@ -89,12 +89,12 @@
     </Page.Resources>
 
     <utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
-        <utu:NavigationBar x:Name="NavBar" Style="{StaticResource ChefsNavigationBarStyle}">
+        <utu:NavigationBar Height="22" x:Name="NavBar" Style="{StaticResource ChefsNavigationBarStyle}">
             <utu:NavigationBar.Content>
                 <Grid>
                     <Image
                         Width="128"
-                        Height="40"
+                        Height="20"
                         HorizontalAlignment="Left"
                         Source="{ThemeResource ChefsAppSignature}" />
                 </Grid>
@@ -112,6 +112,7 @@
                 </AppBarButton>
             </utu:NavigationBar.PrimaryCommands>
         </utu:NavigationBar>
+
         <ScrollViewer utu:AutoLayout.PrimaryAlignment="Stretch">
             <utu:AutoLayout Padding="0,0,0,16">
 
