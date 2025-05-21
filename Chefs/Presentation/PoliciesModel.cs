@@ -6,13 +6,9 @@ namespace Simeserva.Presentation;
 public partial record PoliciesModel
 {
 	private readonly IPoliciesService _service;
-	public Policy Policy { get; }
 
-	public PoliciesModel(
-		Policy policy,
-		IPoliciesService service)
+	public PoliciesModel(IPoliciesService service)
 	{
-		 Policy = policy;
 		_service = service;
 	}
 

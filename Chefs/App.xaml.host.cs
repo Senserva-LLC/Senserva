@@ -96,6 +96,7 @@ public partial class App : Application
 						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<ISettingsService, SettingsService>()
 						.AddSingleton<IReportsService, ReportsService>()
+						.AddSingleton<IPoliciesService, PoliciesService>()
 						.AddSingleton<ICommandsService, CommandsService>()
 						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<IUserService, UserService>()
@@ -208,6 +209,7 @@ public partial class App : Application
 					new RouteMap("Filter", View: views.FindByViewModel<FilterModel>()),
 					new RouteMap("Reports", View: views.FindByViewModel<ReportingModel>()),
 					new RouteMap("Commands", View: views.FindByViewModel<SenservaCommandModel>()),
+					new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
 					new RouteMap("Profile", View: views.FindByViewModel<ProfileModel>()),
 					new RouteMap("Settings", View: views.FindByViewModel<SettingsModel>()),
 					new RouteMap("Completed", View: views.FindByView<CompletedDialog>()),

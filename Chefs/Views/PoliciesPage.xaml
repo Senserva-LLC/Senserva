@@ -16,11 +16,24 @@
     mc:Ignorable="d">
 
 	<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
-		<TextBlock
-             Padding="16,32,16,16"
-             utu:AutoLayout.CounterAlignment="Start"
-             Style="{StaticResource TitleMedium}"
-             Text="Policies" />
+
+		<utu:AutoLayout>
+			<utu:NavigationBar Height="22" Content="Policies">
+				<utu:NavigationBar.PrimaryCommands>
+					<AppBarButton Command="{Binding Share}">
+						<AppBarButton.Icon>
+							<PathIcon Data="{StaticResource Icon_Export}" Foreground="Lime" />
+						</AppBarButton.Icon>
+					</AppBarButton>
+					<AppBarButton Command="{Binding Favorite}">
+						<AppBarButton.Icon>
+							<PathIcon Data="{Binding IsFavorited, Converter={StaticResource BoolToHeartIconConverter}, FallbackValue={StaticResource Icon_Heart}, TargetNullValue={StaticResource Icon_Heart}}" />
+						</AppBarButton.Icon>
+					</AppBarButton>
+				</utu:NavigationBar.PrimaryCommands>
+			</utu:NavigationBar>
+		</utu:AutoLayout>
+
 		<uer:FeedView x:Name="PoliciesFeedView" Source="{Binding Policies}">
 			<DataTemplate>
 				<ScrollViewer
@@ -30,9 +43,7 @@
                      HorizontalScrollMode="Auto"
                      VerticalScrollBarVisibility="Disabled"
                      VerticalScrollMode="Disabled">
-					<muxc:ItemsRepeater
-						ItemsSource="{Binding Data}"
-						 uen:Navigation.Request="ReportPage">
+					<muxc:ItemsRepeater ItemsSource="{Binding Data}">
 						<muxc:ItemsRepeater.Layout>
 							<muxc:StackLayout Orientation="Horizontal" Spacing="8" />
 						</muxc:ItemsRepeater.Layout>
