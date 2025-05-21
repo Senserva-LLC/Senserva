@@ -29,14 +29,11 @@
                     PrimaryAxisAlignment="Center">
                     <Grid
                         Height="256"
-                        Margin="{utu:Responsive Normal=16,
-                                                Wide=40}"
-                        Padding="{utu:Responsive Normal=16,
-                                                 Wide=24}"
+                        Margin="{utu:Responsive Normal=16, Wide=40}"
+                        Padding="{utu:Responsive Normal=16, Wide=24}"
                         Background="{ThemeResource SurfaceBrush}"
                         CornerRadius="24"
-                        RowSpacing="{utu:Responsive Normal=5,
-                                                    Wide=24}">
+                        RowSpacing="{utu:Responsive Normal=5, Wide=24}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -141,7 +138,7 @@
                 <uer:FeedView
                     x:Name="TrendingNowFeed"
                     AutomationProperties.AutomationId="TrendingNowFeed"
-                    Source="{Binding TrendingNow}">
+                    Source="{Binding TrendingTechniques}">
                     <DataTemplate>
                         <ScrollViewer
                             Padding="16,0"

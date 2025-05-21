@@ -6,22 +6,25 @@ public partial record HomeModel
 {
 	private readonly INavigator _navigator;
 	private readonly ITechniqueService _techniqueService;
+	private readonly IReportsService _reportService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
 	private readonly ILiveDataService _liveDataService;
 
-	public HomeModel(INavigator navigator, ITechniqueService recipe, IUserService userService, IMessenger messenger, ILiveDataService liveData)
+	public HomeModel(INavigator navigator, IReportsService reports, ITechniqueService techniques, IUserService userService, IMessenger messenger, ILiveDataService liveData)
 	{
 		_navigator = navigator;
-		_techniqueService = recipe;
+		_reportService = reports;
+		_techniqueService = techniques;
 		_userService = userService;
 		_messenger = messenger;
 		_liveDataService = liveData;
 	}
 
-	public IListState<Technique> TrendingNow => ListState
+	public IListState<Technique> TrendingTechniques => ListState
 		.Async(this, async ct => await _techniqueService.GetTrending(ct))
 		.Observe(_messenger, r => r.Id);
+
 
 	public IListFeed<CategoryWithCount> Categories => ListFeed.Async(async ct => await _techniqueService.GetCategoriesWithCount(ct));
 

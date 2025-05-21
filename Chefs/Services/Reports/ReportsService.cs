@@ -9,7 +9,7 @@ public class ReportsService(
 {
 	private int _lastTextLength;
 
-	public async Task<IImmutableList<Report>> GetTechniquesAsync()
+	public async Task<IImmutableList<Report>> GetReportsAsync()
 	{
 		var list = new List<Report>();
 
@@ -41,18 +41,18 @@ public class ReportsService(
 
 	public async Task<IImmutableList<Report>> GetAll(CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 	}
 
 	public async ValueTask<int> GetCount(Guid userId, CancellationToken ct)
 	{
 		//var countData = await api.Api.Technique.Count.GetAsync(q => q.QueryParameters.UserId = userId, cancellationToken: ct);
-		return (await GetTechniquesAsync()).Count;
+		return (await GetReportsAsync()).Count;
 	}
 
 	public async Task<IImmutableList<Report>> GetByCategory(int categoryId, CancellationToken ct)
 	{
-		var recipesData = await GetTechniquesAsync();
+		var recipesData = await GetReportsAsync();
 		return recipesData.Where(r => r.Category?.Id == categoryId).Select(r => r).ToImmutableList() ?? [];
 	}
 
@@ -71,18 +71,18 @@ public class ReportsService(
 
 	public async Task<IImmutableList<Report>> GetRecent(CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 		//	return recipesData?.Select(r => new Technique(r)).OrderByDescending(x => x.Date).Take(7).ToImmutableList() ?? ImmutableList<Technique>.Empty;
 	}
 
 	public async Task<IImmutableList<Report>> GetTrending(CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 	}
 
 	public async Task<IImmutableList<Report>> GetPopular(CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 	}
 
 	public async Task<IImmutableList<Report>> Search(string term, SearchFilter filter, CancellationToken ct)
@@ -132,7 +132,7 @@ public class ReportsService(
 
 	public async Task<IImmutableList<Report>> GetByUser(Guid userId, CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 		//return recipesData?.Where(r => r.UserId == userId).Select(x => new Technique(x)).ToImmutableList() ?? ImmutableList<Technique>.Empty;
 	}
 
@@ -186,17 +186,17 @@ public class ReportsService(
 
 	public async Task<IImmutableList<Report>> GetRecommended(CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 	}
 
 	public async Task<IImmutableList<Report>> GetFromChefs(CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 	}
 
 	private async ValueTask<IImmutableList<Report>> GetFavorited(CancellationToken ct)
 	{
-		return await GetTechniquesAsync();
+		return await GetReportsAsync();
 	}
 
 	private async Task SaveSearchHistory(string text)

@@ -11,7 +11,7 @@ public interface ICommandsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync each recipe from api
+	/// GetReportsAsync each recipe from api
 	/// </returns>
 	public Task<IImmutableList<SenservaCommand>> GetAll(CancellationToken ct);
 }

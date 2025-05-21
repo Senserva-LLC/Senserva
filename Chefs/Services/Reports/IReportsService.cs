@@ -9,7 +9,7 @@ public interface IReportsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync each recipe from api
+	/// GetReportsAsync each recipe from api
 	/// </returns>
 	public Task<IImmutableList<Report>> GetAll(CancellationToken ct);
 
@@ -18,7 +18,7 @@ public interface IReportsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync recipes count by user
+	/// GetReportsAsync recipes count by user
 	/// </returns>
 	ValueTask<int> GetCount(Guid userId, CancellationToken ct);
 
@@ -33,7 +33,7 @@ public interface IReportsService
 	/// <param name="categoryId">The specific category to filter recipes</param>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync each recipe from api filter by a category
+	/// GetReportsAsync each recipe from api filter by a category
 	/// </returns>
 	public Task<IImmutableList<Report>> GetByCategory(int categoryId, CancellationToken ct);
 
@@ -42,7 +42,7 @@ public interface IReportsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync each category from api
+	/// GetReportsAsync each category from api
 	/// </returns>
 	public Task<IImmutableList<Category>> GetCategoriesAsync(CancellationToken ct);
 
@@ -51,7 +51,7 @@ public interface IReportsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync each category from api with their corresponding count
+	/// GetReportsAsync each category from api with their corresponding count
 	/// </returns>
 	public Task<IImmutableList<CategoryWithCount>> GetCategoriesWithCount(CancellationToken ct);
 
@@ -60,7 +60,7 @@ public interface IReportsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync recipes filter in trending now
+	/// GetReportsAsync recipes filter in trending now
 	/// </returns>
 	public Task<IImmutableList<Report>> GetTrending(CancellationToken ct);
 
@@ -69,7 +69,7 @@ public interface IReportsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync popular recipes filter
+	/// GetReportsAsync popular recipes filter
 	/// </returns>
 	public Task<IImmutableList<Report>> GetPopular(CancellationToken ct);
 
@@ -78,7 +78,7 @@ public interface IReportsService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync recent recipes or new recipes
+	/// GetReportsAsync recent recipes or new recipes
 	/// </returns>
 	public Task<IImmutableList<Report>> GetRecent(CancellationToken ct);
 
@@ -88,12 +88,12 @@ public interface IReportsService
 	/// <param name="term">The search term</param>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync recipes filter by different options selected by the user
+	/// GetReportsAsync recipes filter by different options selected by the user
 	/// </returns>
 	public Task<IImmutableList<Report>> Search(string term, SearchFilter filter, CancellationToken ct);
 
 	/// <summary>
-	/// GetTechniquesAsync recipe's reviews
+	/// GetReportsAsync recipe's reviews
 	/// </summary>
 	/// <param name="recipeId">id from the recipe</param>
 	/// <param name="ct"></param>
@@ -121,7 +121,7 @@ public interface IReportsService
 	ValueTask<Compliance> CreateReview(Guid recipeId, string review, CancellationToken ct);
 
 	/// <summary>
-	/// GetTechniquesAsync review's steps
+	/// GetReportsAsync review's steps
 	/// </summary>
 	/// <param name="recipeId">id from the recipe</param>
 	/// <param name="ct"></param>

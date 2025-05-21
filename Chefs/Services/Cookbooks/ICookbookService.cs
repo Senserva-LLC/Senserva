@@ -39,7 +39,7 @@ public interface ICookbookService
 	/// </summary>
 	/// <param name="ct"></param>
 	/// <returns>
-	/// GetTechniquesAsync each cookbook from api that was saved
+	/// GetReportsAsync each cookbook from api that was saved
 	/// </returns>
 	ValueTask<IImmutableList<Cookbook>> GetSaved(CancellationToken ct);
 

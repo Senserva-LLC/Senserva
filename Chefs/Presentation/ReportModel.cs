@@ -11,19 +11,24 @@ public partial record ReportModel
 	public ReportModel(
 		Report report,
 		INavigator navigator,
-		IReportsService recipeService,
+		IReportsService service,
 		IUserService userService,
 		IMessenger messenger)
 	{
 		_navigator = navigator;
-		_service = recipeService;
+		_service = service;
 		_userService = userService;
 		_messenger = messenger;
 
-		Report = report;
+		Report = report ?? new Report();
 	}
 
 	public Report Report { get; }
+
+	public IListState<Report> TrendingReports => ListState
+	.Async(this, async ct => await _service.GetTrending(ct))
+	.Observe(_messenger, r => r.Id);
+
 
 	// TODO put in name and type
 	public string Title => $"Report {Report.Name} - {Report.Type} ";
