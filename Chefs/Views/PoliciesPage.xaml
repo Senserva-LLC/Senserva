@@ -15,51 +15,51 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-		<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
-			<TextBlock
+	<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
+		<TextBlock
              Padding="16,32,16,16"
              utu:AutoLayout.CounterAlignment="Start"
              Style="{StaticResource TitleMedium}"
              Text="Policies" />
-			<uer:FeedView x:Name="PoliciesFeedView" Source="{Binding Policies}">
-				<DataTemplate>
-					<ScrollViewer
+		<uer:FeedView x:Name="PoliciesFeedView" Source="{Binding Policies}">
+			<DataTemplate>
+				<ScrollViewer
                      Padding="16,0"
                      utu:AutoLayout.PrimaryAlignment="Stretch"
                      HorizontalScrollBarVisibility="Auto"
                      HorizontalScrollMode="Auto"
                      VerticalScrollBarVisibility="Disabled"
                      VerticalScrollMode="Disabled">
-						<muxc:ItemsRepeater
+					<muxc:ItemsRepeater
 						ItemsSource="{Binding Data}"
 						 uen:Navigation.Request="ReportPage">
-							<muxc:ItemsRepeater.Layout>
-								<muxc:StackLayout Orientation="Horizontal" Spacing="8" />
-							</muxc:ItemsRepeater.Layout>
-							<muxc:ItemsRepeater.ItemTemplate>
-								<DataTemplate>
-									<utu:AutoLayout
+						<muxc:ItemsRepeater.Layout>
+							<muxc:StackLayout Orientation="Horizontal" Spacing="8" />
+						</muxc:ItemsRepeater.Layout>
+						<muxc:ItemsRepeater.ItemTemplate>
+							<DataTemplate>
+								<utu:AutoLayout
                                      Padding="8,0,16,0"
                                      Background="{ThemeResource SurfaceBrush}"
                                      CornerRadius="4"
                                      Orientation="Horizontal"
                                      Spacing="8">
-										<utu:AutoLayout
+									<utu:AutoLayout
                                          utu:AutoLayout.CounterAlignment="Center"
                                          CounterAxisAlignment="Start"
                                          PrimaryAxisAlignment="Center">
-											<TextBlock
+										<TextBlock
                                              Foreground="{ThemeResource OnSurfaceBrush}"
                                              Style="{StaticResource TitleMedium}"
                                              Text="{Binding Name}" />
-										</utu:AutoLayout>
 									</utu:AutoLayout>
-								</DataTemplate>
-							</muxc:ItemsRepeater.ItemTemplate>
-						</muxc:ItemsRepeater>
-					</ScrollViewer>
-				</DataTemplate>
-			</uer:FeedView>
-		</utu:AutoLayout>
+								</utu:AutoLayout>
+							</DataTemplate>
+						</muxc:ItemsRepeater.ItemTemplate>
+					</muxc:ItemsRepeater>
+				</ScrollViewer>
+			</DataTemplate>
+		</uer:FeedView>
+	</utu:AutoLayout>
 
 </Page>
