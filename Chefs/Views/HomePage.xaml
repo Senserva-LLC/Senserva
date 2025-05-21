@@ -21,19 +21,22 @@
                 Width="250"
                 Margin="0"
                 CornerRadius="4"
-                Style="{StaticResource ElevatedCardContentControlStyle }">
+                Style="{StaticResource ElevatedCardContentControlStyle}">
                 <utu:AutoLayout
                     HorizontalAlignment="Stretch"
                     Background="{ThemeResource SurfaceBrush}"
                     CornerRadius="4"
                     PrimaryAxisAlignment="Center">
                     <Grid
-                        Margin="{utu:Responsive Normal=16, Wide=40}"
-                        Padding="{utu:Responsive Normal=16,Wide=24}"
+                        Height="256"
+                        Margin="{utu:Responsive Normal=16,
+                                                Wide=40}"
+                        Padding="{utu:Responsive Normal=16,
+                                                 Wide=24}"
                         Background="{ThemeResource SurfaceBrush}"
                         CornerRadius="24"
-						Height="256"
-                        RowSpacing="{utu:Responsive Normal=5, Wide=24}">
+                        RowSpacing="{utu:Responsive Normal=5,
+                                                    Wide=24}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
@@ -89,7 +92,10 @@
     </Page.Resources>
 
     <utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
-        <utu:NavigationBar Height="22" x:Name="NavBar" Style="{StaticResource ChefsNavigationBarStyle}">
+        <utu:NavigationBar
+            x:Name="NavBar"
+            Height="22"
+            Style="{StaticResource ChefsNavigationBarStyle}">
             <utu:NavigationBar.Content>
                 <Grid>
                     <Image
@@ -300,7 +306,8 @@
                                             <utu:AutoLayout
                                                 utu:AutoLayout.CounterAlignment="Center"
                                                 CornerRadius="4"
-                                                Orientation="{utu:Responsive Normal=Vertical,  Wide=Horizontal}"
+                                                Orientation="{utu:Responsive Normal=Vertical,
+                                                                             Wide=Horizontal}"
                                                 PrimaryAxisAlignment="Center"
                                                 Spacing="8">
                                                 <utu:AutoLayout
@@ -312,7 +319,8 @@
                                                         Foreground="{ThemeResource OnSurfaceBrush}"
                                                         Style="{StaticResource TitleSmall}"
                                                         Text="{Binding Name}"
-                                                        TextAlignment="{utu:Responsive Normal=Center, Wide=Start}"
+                                                        TextAlignment="{utu:Responsive Normal=Center,
+                                                                                       Wide=Start}"
                                                         TextWrapping="Wrap" />
                                                 </utu:AutoLayout>
                                             </utu:AutoLayout>

@@ -60,6 +60,15 @@
             </utu:TabBarItem>
 
             <utu:TabBarItem
+                uen:Region.Name="Commands"
+                utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
+                Content="Commands">
+                <utu:TabBarItem.Icon>
+                    <PathIcon Data="{StaticResource Icon_Command}" />
+                </utu:TabBarItem.Icon>
+            </utu:TabBarItem>
+
+            <utu:TabBarItem
                 uen:Region.Name="Policies"
                 utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                 Content="Policies">
@@ -83,7 +92,8 @@
             Grid.RowSpan="2"
             Width="100"
             Background="{ThemeResource SurfaceBrush}"
-            Visibility="{utu:Responsive Normal=Collapsed, Wide=Visible}">
+            Visibility="{utu:Responsive Normal=Collapsed,
+                                        Wide=Visible}">
             <utu:TabBar
                 uen:Region.Attached="True"
                 utu:AutoLayout.PrimaryAlignment="Stretch"
@@ -109,17 +119,17 @@
                     </utu:TabBarItem.Icon>
                 </utu:TabBarItem>
 
-				<utu:TabBarItem
+                <utu:TabBarItem
                     uen:Region.Name="Reports"
                     utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                     utu:TabBarItemExtensions.OnClickBehaviorsTarget="{Binding ElementName=RootGrid}"
                     Content="Reports">
-					<utu:TabBarItem.Icon>
-						<PathIcon Data="{StaticResource Icon_Reports}" />
-					</utu:TabBarItem.Icon>
-				</utu:TabBarItem>
+                    <utu:TabBarItem.Icon>
+                        <PathIcon Data="{StaticResource Icon_Reports}" />
+                    </utu:TabBarItem.Icon>
+                </utu:TabBarItem>
 
-				<utu:TabBarItem
+                <utu:TabBarItem
                     uen:Region.Name="Policies"
                     utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                     utu:TabBarItemExtensions.OnClickBehaviorsTarget="{Binding ElementName=RootGrid}"

@@ -1,14 +1,14 @@
 
 namespace Simeserva.Presentation;
 
-public partial record TechniqueDetailsModel
+public partial record TechniqueModel
 {
 	private readonly INavigator _navigator;
 	private readonly ITechniqueService _techniqueService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
 
-	public TechniqueDetailsModel(
+	public TechniqueModel(
 		Technique recipe,
 		INavigator navigator,
 		ITechniqueService recipeService,

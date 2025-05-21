@@ -20,7 +20,7 @@
         x:Key="MaterialAppBarButtonStyle"
         BasedOn="{StaticResource AppBarButtonStyle}"
         TargetType="AppBarButton">
-		<Setter Property="Foreground" Value="{ThemeResource OnSurfaceBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource OnSurfaceBrush}" />
     </Style>
 
     <Style

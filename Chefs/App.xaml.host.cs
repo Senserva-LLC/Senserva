@@ -2,6 +2,7 @@ using Simeserva.Services.LiveData;
 using Simeserva.Services.Settings;
 using Simeserva.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
+using Siemserva.Views;
 
 namespace Simeserva;
 
@@ -94,6 +95,9 @@ public partial class App : Application
 						.AddSingleton<INotificationService, NotificationService>()
 						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<ISettingsService, SettingsService>()
+						.AddSingleton<IReportsService, ReportsService>()
+						.AddSingleton<ICommandsService, CommandsService>()
+						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<IUserService, UserService>()
 						.AddSingleton<ILiveDataService, LiveDataService>();
 				})
@@ -156,11 +160,13 @@ public partial class App : Application
 			new DataViewMap<CreateUpdateCookbookPage, CreateUpdateCookbookModel, Cookbook>(),
 			new ViewMap<LoginPage, LoginModel>(ResultData: typeof(Credentials)),
 			new ViewMap<RegistrationPage, RegistrationModel>(),
-			new ViewMap<NotificationsPage, NotificationsModel>(),
+			new ViewMap<NotificationsPage, NotificationModel>(),
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
-			new ViewMap<TechniqueDetailsPage, TechniqueDetailsModel>(Data: new DataMap<Technique>()),
+			new ViewMap<TechniquesPage, TechniqueModel>(Data: new DataMap<Technique>()),
+			new ViewMap<ReportingPage, ReportModel>(Data: new DataMap<Report>()),
+			new ViewMap<CommandsPage, CommandModel>(Data: new DataMap<SenservaCommand>()),
 			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
-			new ViewMap<PoliciesPage, PoliciesModel>(),
+			new ViewMap<PoliciesPage, PolicyModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
@@ -182,7 +188,9 @@ public partial class App : Application
 						#region Main Tabs
 						new RouteMap("Home", View: views.FindByViewModel<HomeModel>(), IsDefault: true),
 						new RouteMap("Search", View: views.FindByViewModel<SearchModel>()),
-						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
+						new RouteMap("Reports", View: views.FindByViewModel<ReportModel>()),
+						new RouteMap("Commands", View: views.FindByViewModel<CommandModel>()),
+						new RouteMap("Policies", View: views.FindByViewModel<PolicyModel>()),
 						new RouteMap("FavoriteTechniques", View: views.FindByViewModel<FavoriteTechniquesModel>()),
 						#endregion
 
@@ -190,11 +198,13 @@ public partial class App : Application
 						new RouteMap("UpdateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 						new RouteMap("CreateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 
-						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueDetailsModel>()),
+						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueModel>()),
 						new RouteMap("Remediate", View: views.FindByViewModel<RemediateModel>()),
 					]),
-					new RouteMap("Notifications", View: views.FindByViewModel<NotificationsModel>()),
+					new RouteMap("Notifications", View: views.FindByViewModel<NotificationModel>()),
 					new RouteMap("Filter", View: views.FindByViewModel<FilterModel>()),
+					new RouteMap("Reports", View: views.FindByViewModel<ReportModel>()),
+					new RouteMap("Commands", View: views.FindByViewModel<CommandModel>()),
 					new RouteMap("Profile", View: views.FindByViewModel<ProfileModel>()),
 					new RouteMap("Settings", View: views.FindByViewModel<SettingsModel>()),
 					new RouteMap("Completed", View: views.FindByView<CompletedDialog>()),

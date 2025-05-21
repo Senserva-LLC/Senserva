@@ -1,14 +1,14 @@
 ﻿
 namespace Simeserva.Presentation;
 
-public partial record PoliciesModel
+public partial record PolicyModel
 {
 	private readonly INavigator _navigator;
 	private readonly ITechniqueService _techniqueService;
 	private readonly ICookbookService _cookbookService;
 	private readonly IMessenger _messenger;
 
-	public PoliciesModel(
+	public PolicyModel(
 		INavigator navigator,
 		ITechniqueService recipeService,
 		ICookbookService cookbookService,

@@ -111,7 +111,7 @@
                 Background="{ThemeResource BrandBlackBrush}"
                 PrimaryAxisAlignment="{utu:Responsive Normal=Start,
                                                       Wide=Center}">
-				<!-- too slow to load but its a good concept
+                <!-- too slow to load but its a good concept
                 <MediaPlayerElement
                     AreTransportControlsEnabled="True"
                     AutoPlay="True"
@@ -120,7 +120,7 @@
                         <MediaTransportControls IsCompact="True" />
                     </MediaPlayerElement.TransportControls>
                 </MediaPlayerElement>
-				   -->
+				-->
 
             </utu:AutoLayout>
 
@@ -240,7 +240,8 @@
                     </StackPanel>
                 </utu:AutoLayout>
                 <utu:AutoLayout
-                    Margin="{utu:Responsive Normal=0,   Wide=48}"
+                    Margin="{utu:Responsive Normal=0,
+                                            Wide=48}"
                     utu:AutoLayout.PrimaryAlignment="Stretch"
                     CounterAxisAlignment="End"
                     Orientation="Horizontal"

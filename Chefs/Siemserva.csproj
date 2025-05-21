@@ -247,8 +247,8 @@
 	  <Compile Update="Views\PoliciesPage.xaml.cs">
 	    <DependentUpon>PoliciesPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\TechniqueDetailsPage.xaml.cs">
-	    <DependentUpon>TechniqueDetailsPage.xaml</DependentUpon>
+	  <Compile Update="Views\TechniquesPage.xaml.cs">
+	    <DependentUpon>TechniquesPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -260,6 +260,18 @@
 
 	<ItemGroup>
 	  <Page Update="Views\LiveDataPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\ReportingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\CommandsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>
