@@ -162,7 +162,7 @@ public partial class App : Application
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationModel>(),
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
-			new ViewMap<PoliciesPage, PolicyModel>(Data: new DataMap<Policy>()),
+			new ViewMap<PoliciesPage, PoliciesModel>(Data: new DataMap<Policy>()),
 			new ViewMap<TechniquePage, TechniqueModel>(Data: new DataMap<Technique>()),
 			new ViewMap<ReportingPage, ReportingModel>(Data: new DataMap<Report>()),
 			new ViewMap<ReportPage, ReportModel>(Data: new DataMap<Report>()),
@@ -191,7 +191,7 @@ public partial class App : Application
 						new RouteMap("Search", View: views.FindByViewModel<SearchModel>()),
 						new RouteMap("Reports", View: views.FindByViewModel<ReportingModel>()),
 						new RouteMap("Commands", View: views.FindByViewModel<SenservaCommandModel>()),
-						new RouteMap("Policies", View: views.FindByViewModel<PolicyModel>()),
+						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
 						new RouteMap("FavoriteTechniques", View: views.FindByViewModel<FavoriteTechniquesModel>()),
 						#endregion
 

@@ -13,8 +13,52 @@
 	xmlns:ut="using:Uno.Themes"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-	<Grid>
-		<TextBlock>Hello CommandsPage!</TextBlock>
-	</Grid>
+
+	<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
+		<TextBlock
+             Padding="16,32,16,16"
+             utu:AutoLayout.CounterAlignment="Start"
+             Style="{StaticResource TitleMedium}"
+             Text="Commands" />
+		<uer:FeedView x:Name="CommandsFeedView" Source="{Binding Commands}">
+			<DataTemplate>
+				<ScrollViewer
+                     Padding="16,0"
+                     utu:AutoLayout.PrimaryAlignment="Stretch"
+                     HorizontalScrollBarVisibility="Auto"
+                     HorizontalScrollMode="Auto"
+                     VerticalScrollBarVisibility="Disabled"
+                     VerticalScrollMode="Disabled">
+					<muxc:ItemsRepeater
+						ItemsSource="{Binding Data}"
+						 uen:Navigation.Request="ReportPage">
+						<muxc:ItemsRepeater.Layout>
+							<muxc:StackLayout Orientation="Horizontal" Spacing="8" />
+						</muxc:ItemsRepeater.Layout>
+						<muxc:ItemsRepeater.ItemTemplate>
+							<DataTemplate>
+								<utu:AutoLayout
+                                     Padding="8,0,16,0"
+                                     Background="{ThemeResource SurfaceBrush}"
+                                     CornerRadius="4"
+                                     Orientation="Horizontal"
+                                     Spacing="8">
+									<utu:AutoLayout
+                                         utu:AutoLayout.CounterAlignment="Center"
+                                         CounterAxisAlignment="Start"
+                                         PrimaryAxisAlignment="Center">
+										<TextBlock
+                                             Foreground="{ThemeResource OnSurfaceBrush}"
+                                             Style="{StaticResource TitleMedium}"
+                                             Text="{Binding Name}" />
+									</utu:AutoLayout>
+								</utu:AutoLayout>
+							</DataTemplate>
+						</muxc:ItemsRepeater.ItemTemplate>
+					</muxc:ItemsRepeater>
+				</ScrollViewer>
+			</DataTemplate>
+		</uer:FeedView>
+	</utu:AutoLayout>
 
 </Page>

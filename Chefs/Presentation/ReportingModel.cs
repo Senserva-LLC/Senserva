@@ -48,8 +48,6 @@ public partial record ReportingModel
 
 	public IFeed<SenservaUser> CurrentUser => Feed.Async(async ct => await _userService.GetCurrent(ct));
 
-	public IListFeed<Content> TechniqueContent => ListFeed.Async(async ct => await _service.GetContent(Report.Id, ct));
-
 	public IListFeed<string> KeyDetails => ListFeed.Async(async ct => await _service.GetDetails(Report.Id, ct));
 
 	public IListState<Compliance> Compliance => ListState

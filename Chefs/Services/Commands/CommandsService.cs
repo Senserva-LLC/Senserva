@@ -10,6 +10,6 @@ public class CommandsService(
 
 	public async Task<IImmutableList<SenservaCommand>> GetAll(CancellationToken ct)
 	{
-		return new List<SenservaCommand>().ToImmutableList();
+		return new List<SenservaCommand>() { new SenservaCommand(), new SenservaCommand() }.ToImmutableList();
 	}
 }

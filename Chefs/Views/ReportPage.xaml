@@ -28,6 +28,5 @@
 				</AppBarButton>
 			</utu:NavigationBar.PrimaryCommands>
 		</utu:NavigationBar>
-
 	</utu:AutoLayout>
 </Page>
