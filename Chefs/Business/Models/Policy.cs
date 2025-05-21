@@ -1,10 +1,11 @@
-﻿namespace Simeserva.Business.Models;
+﻿
+namespace Simeserva.Business.Models;
 
 /// <summary>
 /// TODO rename this as Solution
 /// TODO add a Rules table that maps to this data, and include it in the UI
 /// </summary>
-public partial record SenservaCommand : ISenservaEntity
+public partial record Policy : ISenservaEntity
 {
 	public Guid Id { get; init; }
 	public Guid UserId { get; init; }
@@ -39,7 +40,7 @@ public partial record SenservaCommand : ISenservaEntity
 	public List<Compliance>? Compliance { get; set; }
 	public List<SecurityControl>? Controls { get; set; }
 
-	public SenservaCommand()
+	public Policy()
 	{
 		Id = Guid.NewGuid();
 		UserId = Guid.NewGuid();
@@ -51,6 +52,21 @@ public partial record SenservaCommand : ISenservaEntity
 		Difficulty = Difficulty.Basic;
 		EstimateTime = TimeSpan.FromMinutes(30);
 		Controls = [new SecurityControl("Bob", "syouruncle")];
+	}
+
+	/// <summary>
+	/// TODO  use the better enum formatter
+	/// </summary>
+	public string RiskAmount => Risk.ToString();
+
+	public string TimeCal
+	{
+		get
+		{
+			return EstimateTime > TimeSpan.FromHours(1)
+				? $"{EstimateTime:%h} hour {EstimateTime:%m} mins • {Risk}"
+				: $"{EstimateTime:%m} mins • {Risk}";
+		}
 	}
 
 }

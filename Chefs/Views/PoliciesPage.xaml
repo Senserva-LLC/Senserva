@@ -9,6 +9,6 @@
     mc:Ignorable="d">
 
     <Grid>
-        <TextBlock>Hello World!</TextBlock>
+		<TextBlock>Hello PoliciesPage!</TextBlock>
     </Grid>
 </Page>

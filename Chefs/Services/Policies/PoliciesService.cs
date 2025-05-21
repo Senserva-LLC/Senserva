@@ -1,12 +1,10 @@
 ﻿namespace Simeserva.Services.LiveData;
 
-public class PoliciesService : ILiveDataService
+public class PoliciesService : IPoliciesService
 {
-	public async ValueTask<IImmutableList<LiveDataModel>> GetAll(CancellationToken ct)
+	public async Task<IImmutableList<Policy>> GetAll(CancellationToken ct)
 	{
-		return Get();
+		return new List<Policy>().ToImmutableList();
 	}
-
-	internal IImmutableList<LiveDataModel> Get() => new List<LiveDataModel>() { new LiveDataModel() }.ToImmutableList();
 
 }

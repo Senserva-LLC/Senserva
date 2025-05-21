@@ -50,7 +50,17 @@
                 </utu:TabBarItem.Icon>
             </utu:TabBarItem>
 
-            <utu:TabBarItem
+			<utu:TabBarItem
+                uen:Region.Name="Reports"
+                utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
+                Content="Reports">
+				<utu:TabBarItem.Icon>
+					<PathIcon Data="{StaticResource Icon_Reports}" />
+				</utu:TabBarItem.Icon>
+			</utu:TabBarItem>
+
+
+			<utu:TabBarItem
                 uen:Region.Name="-/Search"
                 utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                 Content="Search">
@@ -119,7 +129,17 @@
                     </utu:TabBarItem.Icon>
                 </utu:TabBarItem>
 
-                <utu:TabBarItem
+				<utu:TabBarItem
+					 uen:Region.Name="Commands"
+					 utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
+					 utu:TabBarItemExtensions.OnClickBehaviorsTarget="{Binding ElementName=RootGrid}"
+					 Content="Commands">
+					<utu:TabBarItem.Icon>
+						<PathIcon Data="{StaticResource Icon_Commands}" />
+					</utu:TabBarItem.Icon>
+				</utu:TabBarItem>
+
+				<utu:TabBarItem
                     uen:Region.Name="Reports"
                     utu:TabBarItemExtensions.OnClickBehaviors="BackNavigation"
                     utu:TabBarItemExtensions.OnClickBehaviorsTarget="{Binding ElementName=RootGrid}"
