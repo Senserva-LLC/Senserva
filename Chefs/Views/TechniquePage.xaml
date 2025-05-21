@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Simeserva.Views.TechniquesPage"
+    x:Class="Simeserva.Views.TechniquePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:converters="using:Simeserva.Converters"
@@ -198,8 +198,7 @@
                         utu:AutoLayout.PrimaryAlignment="Stretch"
                         Background="{ThemeResource BackgroundBrush}">
                         <utu:TabBar
-                            Margin="{utu:Responsive Normal=0,
-                                                    Wide='40,0'}"
+                            Margin="{utu:Responsive Normal=0, Wide='40,0'}"
                             uen:Region.Attached="True"
                             utu:AutoLayout.CounterAlignment="{utu:Responsive Normal=Start,
                                                                              Wide=Center}"

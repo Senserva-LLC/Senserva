@@ -13,6 +13,7 @@
 	xmlns:ut="using:Uno.Themes"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
 	<Page.Resources>
 		<DataTemplate x:Key="ReportingLargeItemTemplate">
 			<utu:CardContentControl
@@ -113,7 +114,7 @@
                             VerticalScrollMode="Disabled">
 							<muxc:ItemsRepeater
                                 uen:Navigation.Data="{Binding Data}"
-                                uen:Navigation.Request="Reports"
+                                uen:Navigation.Request="ReportPage"
                                 ItemTemplate="{StaticResource ReportingLargeItemTemplate}"
                                 ItemsSource="{Binding Data}">
 								<muxc:ItemsRepeater.Layout>
@@ -125,5 +126,115 @@
 				</uer:FeedView>
 			</utu:AutoLayout>
 		</ScrollViewer>
+
+		<TextBlock
+                 Padding="16,32,16,16"
+                 utu:AutoLayout.CounterAlignment="Start"
+                 Style="{StaticResource TitleMedium}"
+                 Text="Categories" />
+		<uer:FeedView x:Name="CategoriesFeedView" Source="{Binding Categories}">
+			<DataTemplate>
+				<ScrollViewer
+                         Padding="16,0"
+                         utu:AutoLayout.PrimaryAlignment="Stretch"
+                         HorizontalScrollBarVisibility="Auto"
+                         HorizontalScrollMode="Auto"
+                         VerticalScrollBarVisibility="Disabled"
+                         VerticalScrollMode="Disabled">
+					<muxc:ItemsRepeater utu:CommandExtensions.Command="{Binding Parent.CategorySearch}" ItemsSource="{Binding Data}">
+						<muxc:ItemsRepeater.Layout>
+							<muxc:StackLayout Orientation="Horizontal" Spacing="8" />
+						</muxc:ItemsRepeater.Layout>
+						<muxc:ItemsRepeater.ItemTemplate>
+							<DataTemplate>
+								<utu:AutoLayout
+                                         Padding="8,0,16,0"
+                                         Background="{ThemeResource SurfaceBrush}"
+                                         CornerRadius="4"
+                                         Orientation="Horizontal"
+                                         Spacing="8">
+									<utu:AutoLayout
+                                             utu:AutoLayout.CounterAlignment="Center"
+                                             CounterAxisAlignment="Start"
+                                             PrimaryAxisAlignment="Center">
+										<TextBlock
+                                                 Foreground="{ThemeResource OnSurfaceBrush}"
+                                                 Style="{StaticResource TitleMedium}"
+                                                 Text="{Binding Category.Name}" />
+									</utu:AutoLayout>
+								</utu:AutoLayout>
+							</DataTemplate>
+						</muxc:ItemsRepeater.ItemTemplate>
+					</muxc:ItemsRepeater>
+				</ScrollViewer>
+			</DataTemplate>
+		</uer:FeedView>
+
+		<utu:AutoLayout
+                    Padding="16,24,16,8"
+                    Justify="SpaceBetween"
+                    Orientation="Horizontal">
+			<TextBlock
+                        utu:AutoLayout.CounterAlignment="Center"
+                        Style="{StaticResource TitleMedium}"
+                        Text="Recently Added" />
+			<Button
+                        Command="{Binding ShowAllRecentlyAdded}"
+                        Content="View all"
+                        CornerRadius="20"
+                        Foreground="{ThemeResource PrimaryBrush}"
+                        Style="{StaticResource TextButtonStyle}" />
+		</utu:AutoLayout>
+		<uer:FeedView x:Name="RecentlyAddedFeedView" Source="{Binding RecentlyAdded}">
+			<DataTemplate>
+				<ScrollViewer
+                            Padding="16,0"
+                            utu:AutoLayout.PrimaryAlignment="Stretch"
+                            HorizontalScrollBarVisibility="Auto"
+                            HorizontalScrollMode="Auto"
+                            VerticalScrollBarVisibility="Disabled"
+                            VerticalScrollMode="Disabled">
+					<muxc:ItemsRepeater
+                                uen:Navigation.Data="{Binding Data}"
+                                uen:Navigation.Request="ReportPage"
+                                ItemsSource="{Binding Data}">
+						<muxc:ItemsRepeater.Layout>
+							<muxc:StackLayout Orientation="Horizontal" Spacing="8" />
+						</muxc:ItemsRepeater.Layout>
+						<muxc:ItemsRepeater.ItemTemplate>
+							<DataTemplate>
+								<utu:CardContentControl
+                                            Width="160"
+                                            Margin="0"
+                                            CornerRadius="4"
+                                            Style="{StaticResource FilledCardContentControlStyle}">
+									<utu:AutoLayout
+                                                HorizontalAlignment="Stretch"
+                                                CornerRadius="4"
+                                                PrimaryAxisAlignment="Center">
+										<utu:AutoLayout
+                                                    Padding="16"
+                                                    PrimaryAxisAlignment="Center"
+                                                    Spacing="4">
+											<TextBlock
+                                                        Foreground="{ThemeResource OnSurfaceBrush}"
+                                                        Style="{StaticResource TitleSmall}"
+                                                        Text="{Binding Name}"
+                                                        TextWrapping="NoWrap" />
+											<TextBlock
+                                                        Foreground="{ThemeResource OnSurfaceMediumBrush}"
+                                                        Style="{StaticResource CaptionMedium}"
+                                                        Text="{Binding Risk}"
+                                                        TextWrapping="Wrap" />
+										</utu:AutoLayout>
+									</utu:AutoLayout>
+								</utu:CardContentControl>
+							</DataTemplate>
+						</muxc:ItemsRepeater.ItemTemplate>
+					</muxc:ItemsRepeater>
+				</ScrollViewer>
+			</DataTemplate>
+		</uer:FeedView>
+
 	</utu:AutoLayout>
 </Page>

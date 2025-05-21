@@ -2,9 +2,9 @@ using LiveChartsCore;
 
 namespace Simeserva.Views;
 
-public sealed partial class TechniquesPage : Page
+public sealed partial class TechniquePage : Page
 {
-	public TechniquesPage()
+	public TechniquePage()
 	{
 		this.InitializeComponent();
 
