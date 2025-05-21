@@ -26,7 +26,7 @@ public partial record ReportModel
 	public Report Report { get; }
 
 	// TODO put in name and type
-	public string Title => $"Technique {Report.Name} - {Report.Type} ";
+	public string Title => $"Report {Report.Name} - {Report.Type} ";
 
 	public IState<bool> IsFavorited => State.Value(this, () => Report.IsFavorite);
 

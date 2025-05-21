@@ -7,13 +7,16 @@ public partial record SenservaCommandModel
 	private readonly ITechniqueService _techniqueService;
 	private readonly ICookbookService _cookbookService;
 	private readonly IMessenger _messenger;
+	public SenservaCommand Command { get; }
 
 	public SenservaCommandModel(
+		SenservaCommand command,
 		INavigator navigator,
 		ITechniqueService recipeService,
 		ICookbookService cookbookService,
 		IMessenger messenger)
 	{
+		Command = command;
 		_navigator = navigator;
 		_techniqueService = recipeService;
 		_cookbookService = cookbookService;

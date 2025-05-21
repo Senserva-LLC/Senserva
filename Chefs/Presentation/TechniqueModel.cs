@@ -9,7 +9,7 @@ public partial record TechniqueModel
 	private readonly IMessenger _messenger;
 
 	public TechniqueModel(
-		Technique recipe,
+		Technique technique,
 		INavigator navigator,
 		ITechniqueService recipeService,
 		IUserService userService,
@@ -20,7 +20,7 @@ public partial record TechniqueModel
 		_userService = userService;
 		_messenger = messenger;
 
-		Technique = recipe;
+		Technique = technique;
 	}
 
 	public Technique Technique { get; }
