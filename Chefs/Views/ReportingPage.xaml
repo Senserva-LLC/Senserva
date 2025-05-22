@@ -68,6 +68,11 @@
 				</Grid>
 			</utu:NavigationBar.Content>
 			<utu:NavigationBar.PrimaryCommands>
+				<AppBarButton uen:Navigation.Request="!Targets">
+					<AppBarButton.Icon>
+						<PathIcon Data="{StaticResource Icon_Network}" />
+					</AppBarButton.Icon>
+				</AppBarButton>
 				<AppBarButton uen:Navigation.Request="!Profile">
 					<AppBarButton.Icon>
 						<PathIcon Data="{StaticResource Icon_Person_Outline}" />
