@@ -1,18 +1,18 @@
 ﻿
 using Siemserva.Business.Models;
-using Siemserva.Services.Targets;
+using Siemserva.Services.Target;
 
 namespace Simeserva.Presentation;
 
-public partial record TargetModel
+public partial record TargetsModel
 {
 	private readonly ITargetService _service;
 
-	public TargetModel(ITargetService service)
+	public TargetsModel(ITargetService service)
 	{
 		_service = service;
 	}
 
-	public IListFeed<Target> Targets => ListFeed.Async(async ct => await _service.GetAll(ct));
+	public IListFeed<Targets> Targets => ListFeed.Async(async ct => await _service.GetAll(ct));
 }
 

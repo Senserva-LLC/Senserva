@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="Siemserva.Views.TargetPage"
+    x:Class="Siemserva.Views.TargetsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Siemserva.Views"

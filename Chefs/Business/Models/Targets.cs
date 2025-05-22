@@ -34,7 +34,7 @@ public partial record IPRange(IPAddressRange Range, SenservaCredentionals Creden
 /// TODO figure out creds when on desktop etc
 /// https://learn.microsoft.com/en-us/entra/fundamentals/entra-admin-center
 /// </summary>
-public partial record Target : ISenservaEntity
+public partial record Targets : ISenservaEntity
 {
 	public Guid Id { get; init; }
 	public string Name { get; init; }
@@ -45,7 +45,7 @@ public partial record Target : ISenservaEntity
 	public List<SenservaTenant> Tenants;
 	public List<Subscription> Subscriptions;
 
-	public Target()
+	public Targets()
 	{
 		Id = Guid.NewGuid();
 		Name = "test2";

@@ -1,15 +1,15 @@
 ﻿
 using Siemserva.Business.Models;
 
-namespace Siemserva.Services.Targets;
+namespace Siemserva.Services.Target;
 
 public class TargetService : ITargetService
 {
-	public async ValueTask<IImmutableList<Target>> GetAll(CancellationToken ct)
+	public async ValueTask<IImmutableList<Targets>> GetAll(CancellationToken ct)
 	{
-		var list = new List<Target>();
+		var list = new List<Targets>();
 
-		list.Add(new Target());
+		list.Add(new Business.Models.Targets());
 
 		return list.ToImmutableList();
 	}

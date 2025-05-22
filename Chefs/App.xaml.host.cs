@@ -6,7 +6,8 @@ using Siemserva.Views;
 using Simeserva.Services.Policies;
 using Simeserva.Services.Reports;
 using Simeserva.Services.Commands;
-using Siemserva.Services.Targets;
+using Siemserva.Services.Target;
+using Siemserva.Business.Models;
 
 namespace Simeserva;
 
@@ -162,8 +163,7 @@ public partial class App : Application
 			new ViewMap<MainPage, MainModel>(),
 			new ViewMap<WelcomePage, WelcomeModel>(),
 			new DataViewMap<FiltersPage, FilterModel, SearchFilter>(),
-			new ViewMap<HomePage, HomeModel>(),
-			new DataViewMap<CreateUpdateCookbookPage, CreateUpdateCookbookModel, Cookbook>(),
+			new ViewMap<HomePage, HomeModel>(), new DataViewMap<CreateUpdateCookbookPage, CreateUpdateCookbookModel, Cookbook>(),
 			new ViewMap<LoginPage, LoginModel>(ResultData: typeof(Credentials)),
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationModel>(),
@@ -175,7 +175,7 @@ public partial class App : Application
 			new ViewMap<CommandsPage, SenservaCommandModel>(Data: new DataMap<SenservaCommand>()),
 			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
-			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
+			new ViewMap<TargetsPage, TargetsModel>(new DataMap<Targets>()),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, RemediateModel>(Data: new DataMap<RemediateParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
@@ -211,6 +211,7 @@ public partial class App : Application
 						new RouteMap("Remediate", View: views.FindByViewModel<RemediateModel>()),
 					]),
 					new RouteMap("Notifications", View: views.FindByViewModel<NotificationModel>()),
+					new RouteMap("Targets", View: views.FindByViewModel<TargetsModel>()),
 					new RouteMap("Filter", View: views.FindByViewModel<FilterModel>()),
 					new RouteMap("Reports", View: views.FindByViewModel<ReportingModel>()),
 					new RouteMap("Commands", View: views.FindByViewModel<SenservaCommandModel>()),
