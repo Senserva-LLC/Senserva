@@ -238,6 +238,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="IPAddressRange" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Update="Views\FavoriteTechniquesPage.xaml.cs">
 	    <DependentUpon>FavoriteTechniquesPage.xaml</DependentUpon>
 	  </Compile>
@@ -246,6 +250,9 @@
 	  </Compile>
 	  <Compile Update="Views\PoliciesPage.xaml.cs">
 	    <DependentUpon>PoliciesPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TargetsPage.xaml.cs">
+	    <DependentUpon>TargetsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\TechniquePage.xaml.cs">
 	    <DependentUpon>TechniquePage.xaml</DependentUpon>
@@ -278,6 +285,18 @@
 
 	<ItemGroup>
 	  <Page Update="Views\ReportPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\TargetsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Presentation\Targets.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
 	</ItemGroup>

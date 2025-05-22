@@ -19,6 +19,7 @@
     utu:StatusBar.Foreground="AutoInverse"
     Background="{ThemeResource BackgroundBrush}"
     mc:Ignorable="d mobile">
+
     <Page.Resources>
         <DataTemplate x:Key="TechniqueEmptyTemplate">
             <ScrollViewer HorizontalScrollMode="Disabled">
@@ -135,7 +136,6 @@
             Foreground="{ThemeResource OnBackgroundBrush}"
             Style="{StaticResource BodyLarge}"
             Text="My Techniques" />
-
 
         <uer:FeedView
             utu:AutoLayout.PrimaryAlignment="Stretch"
