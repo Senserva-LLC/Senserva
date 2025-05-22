@@ -18,13 +18,17 @@ public class SenservaCredentionals(string Name);
 /// <param name="Id"></param>
 public partial record SenservaTenant(string Name, string Id, SenservaCredentionals Credentionals);
 
-public partial record Subscription(string Name, string Id, SenservaCredentionals Credentionals);
+public partial record AzureSubscription(string Name, string Id, SenservaCredentionals Credentionals);
 
 public partial record SenservaManagementGroup(string Name, string Id, SenservaCredentionals Credentionals);
 
 public partial record WindowsDirectory(string Name, string Id, SenservaCredentionals Credentionals);
 
 public partial record WindowsWorkgroup(string Name, SenservaCredentionals Credentionals);
+
+public partial record Mac(string Name, SenservaCredentionals Credentionals);
+
+public partial record Linux(string Name, SenservaCredentionals Credentionals);
 
 /// https://github.com/jsakamoto/ipaddressrange/
 public partial record IPRange(IPAddressRange Range, SenservaCredentionals Credentionals);
@@ -38,12 +42,15 @@ public partial record Targets : ISenservaEntity
 {
 	public Guid Id { get; init; }
 	public string Name { get; init; }
+	public string Description { get; init; }
 
 	public List<IPRange> IPRanges;
 	public List<WindowsDirectory> Domains;
 	public List<WindowsWorkgroup> WorkGroup;
-	public List<SenservaTenant> Tenants;
-	public List<Subscription> Subscriptions;
+	public List<SenservaTenant> Azure;
+	public List<AzureSubscription> AzureSubscriptions;
+	public List<Mac> Mac;
+	public List<Linux> Linux;
 
 	public Targets()
 	{

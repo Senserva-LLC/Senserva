@@ -30,7 +30,7 @@
 					<TextBlock
                         Foreground="{ThemeResource OnSurfaceBrush}"
                         Style="{StaticResource TitleSmall}"
-                        Text="{Binding Title}"
+                        Text="{Binding Name}"
                         TextWrapping="Wrap" />
 
 					<TextBlock
@@ -40,6 +40,7 @@
 				</utu:AutoLayout>
 			</utu:AutoLayout>
 		</DataTemplate>
+
 		<DataTemplate x:Key="EmptyTemplate">
 			<utu:AutoLayout
                 Padding="32,0"
@@ -78,6 +79,7 @@
 			</utu:AutoLayout>
 		</DataTemplate>
 	</Page.Resources>
+
 	<utu:AutoLayout PrimaryAxisAlignment="Stretch">
 		<utu:NavigationBar
             utu:AutoLayout.PrimaryAlignment="Auto"
@@ -103,6 +105,10 @@
 				<utu:TabBarItem
                     uen:Region.Name="WindowsTab"
                     Content="Windows"
+                    Foreground="{ThemeResource OnSurfaceMediumBrush}" />
+				<utu:TabBarItem
+                    uen:Region.Name="IPRangeTab"
+                    Content="IPRange"
                     Foreground="{ThemeResource OnSurfaceMediumBrush}" />
 				<utu:TabBarItem
                     uen:Region.Name="LinuxTab"
@@ -141,40 +147,6 @@
                                             Text="Today"
                                             TextWrapping="Wrap" />
 										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data.Today}">
-											<muxc:ItemsRepeater.Layout>
-												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-											</muxc:ItemsRepeater.Layout>
-										</muxc:ItemsRepeater>
-									</utu:AutoLayout>
-
-									<!--  Yesterday  -->
-									<utu:AutoLayout
-                                        Padding="0,16"
-                                        Spacing="16"
-                                        Visibility="{Binding Data.HasYesterdayNotifications}">
-										<TextBlock
-                                            Foreground="{ThemeResource OnSurfaceBrush}"
-                                            Style="{StaticResource LabelLarge}"
-                                            Text="Yesterday"
-                                            TextWrapping="Wrap" />
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data.Yesterday}">
-											<muxc:ItemsRepeater.Layout>
-												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-											</muxc:ItemsRepeater.Layout>
-										</muxc:ItemsRepeater>
-									</utu:AutoLayout>
-
-									<!--  Older  -->
-									<utu:AutoLayout
-                                        Padding="0,16"
-                                        Spacing="16"
-                                        Visibility="{Binding Data.HasOlderNotifications}">
-										<TextBlock
-                                            Foreground="{ThemeResource OnSurfaceBrush}"
-                                            Style="{StaticResource LabelLarge}"
-                                            Text="Older"
-                                            TextWrapping="Wrap" />
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data.Older}">
 											<muxc:ItemsRepeater.Layout>
 												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
 											</muxc:ItemsRepeater.Layout>
@@ -291,6 +263,38 @@
 							x:Name="MacFeed"
 							NoneTemplate="{StaticResource EmptyTemplate}"
 							Source="{Binding Mac}">
+							<DataTemplate>
+								<utu:AutoLayout>
+									<!--  Today  -->
+									<utu:AutoLayout
+										Padding="0,16"
+										Spacing="16"
+										Visibility="{Binding Data.HasTodayNotifications}">
+										<TextBlock
+											Foreground="{ThemeResource OnSurfaceBrush}"
+											Style="{StaticResource LabelLarge}"
+											Text="Today"
+											TextWrapping="Wrap" />
+										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data.Today}">
+											<muxc:ItemsRepeater.Layout>
+												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+											</muxc:ItemsRepeater.Layout>
+										</muxc:ItemsRepeater>
+									</utu:AutoLayout>
+								</utu:AutoLayout>
+							</DataTemplate>
+						</uer:FeedView>
+					</Grid>
+
+					<!--  IP Range  -->
+					<Grid
+						Padding="0,16"
+						uen:Region.Name="IPRangeTab"
+						Visibility="Collapsed">
+						<uer:FeedView
+							x:Name="IPRange"
+							NoneTemplate="{StaticResource EmptyTemplate}"
+							Source="{Binding IPRange}">
 							<DataTemplate>
 								<utu:AutoLayout>
 									<!--  Today  -->
