@@ -1,4 +1,6 @@
 ﻿
+using Simeserva.Services.Reports;
+
 namespace Simeserva.Presentation;
 
 public partial record ReportingModel

@@ -1,4 +1,6 @@
 ﻿
+using Simeserva.Services.Commands;
+
 namespace Simeserva.Presentation;
 
 public partial record SenservaCommandModel

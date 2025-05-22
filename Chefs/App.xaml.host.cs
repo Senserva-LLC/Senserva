@@ -3,6 +3,10 @@ using Simeserva.Services.Settings;
 using Simeserva.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
 using Siemserva.Views;
+using Simeserva.Services.Policies;
+using Simeserva.Services.Reports;
+using Simeserva.Services.Commands;
+using Siemserva.Services.Targets;
 
 namespace Simeserva;
 
@@ -96,6 +100,7 @@ public partial class App : Application
 						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<ISettingsService, SettingsService>()
 						.AddSingleton<IReportsService, ReportsService>()
+						.AddSingleton<ITargetService, TargetService>()
 						.AddSingleton<IPoliciesService, PoliciesService>()
 						.AddSingleton<ICommandsService, CommandsService>()
 						.AddSingleton<ITechniqueService, TechniqueService>()

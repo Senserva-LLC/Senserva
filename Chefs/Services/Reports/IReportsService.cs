@@ -1,4 +1,5 @@
-﻿
+﻿namespace Simeserva.Services.Reports;
+	
 /// <summary>
 /// Implements recipe related methods
 /// </summary>

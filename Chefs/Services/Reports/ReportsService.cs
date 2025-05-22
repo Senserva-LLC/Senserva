@@ -1,5 +1,5 @@
 ﻿
-namespace Simeserva.Services.Techniques;
+namespace Simeserva.Services.Reports;
 
 public class ReportsService(
 	IUserService userService,

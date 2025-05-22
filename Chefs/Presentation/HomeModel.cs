@@ -1,4 +1,5 @@
 using Simeserva.Services.LiveData;
+using Simeserva.Services.Reports;
 
 namespace Simeserva.Presentation;
 

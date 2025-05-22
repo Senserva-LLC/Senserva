@@ -1,4 +1,4 @@
-﻿namespace Simeserva.Services.LiveData;
+﻿namespace Simeserva.Services.Policies;
 
 public class PoliciesService : IPoliciesService
 {

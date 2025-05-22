@@ -1,5 +1,5 @@
 ﻿
-namespace Simeserva.Services.LiveData;
+namespace Simeserva.Services.Policies;
 
 public interface IPoliciesService
 {

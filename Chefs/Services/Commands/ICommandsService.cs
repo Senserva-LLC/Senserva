@@ -1,5 +1,5 @@
 ﻿
-namespace Simeserva.Services.Techniques;
+namespace Simeserva.Services.Commands;
 
 /// <summary>
 /// Implements recipe related methods
