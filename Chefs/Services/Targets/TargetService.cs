@@ -5,25 +5,45 @@ namespace Siemserva.Services.Target;
 
 public class TargetService : ITargetService
 {
-	private List<Targets> Get()
+	/// <summary>
+	/// this will become the json input
+	/// </summary>
+	/// <returns></returns>
+	private List<Targets> GetFakeData()
 	{
 		var list = new List<Targets>
 		{
-			new(){ Domains = [new WindowsDirectory("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ Domains = [new WindowsDirectory("a1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ Tenant = [new AzureTenant("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("w1", "my Windows AD", "id1", new SenservaCredentionals("bob")), new WindowsDirectory("w1a", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Tenants = [new AzureTenant("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
 			new(){ AzureSubscriptions = [new AzureSubscription("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
 			new(){ IPRanges = [new IPRange("100.100", "my Windows AD", new SenservaCredentionals("bob"))]},
 			new(){ AzureSubscriptions = [new AzureSubscription("a1", "use me if you have extra cash and time", "id1", new SenservaCredentionals("bob"))]},
-			new(){ Mac = [new Mac("a1", "Use me if you have extra cash", new SenservaCredentionals("bob"))]},
-			new(){ Linux = [new Linux("a1", "use me if you have extra time", new SenservaCredentionals("bob"))]}
+			new(){ Macs = [new Mac("a1", "Use me if you have extra cash", new SenservaCredentionals("bob"))]},
+			new(){ Linuxcies = [new Linux("a1", "use me if you have extra time", new SenservaCredentionals("bob"))]}
 		};
 		return list;
 	}
 
 	public async Task<IImmutableList<Targets>> GetAll(CancellationToken ct)
 	{
-		return Get().ToImmutableList();
+		return GetFakeData().ToImmutableList();
 	}
 
 	public async Task<IImmutableList<AzureTenant>> GetAzureTenants(CancellationToken ct)
@@ -32,11 +52,11 @@ public class TargetService : ITargetService
 		{
 		};
 
-		foreach (var target in Get())
+		foreach (var target in GetFakeData())
 		{
-			if (target.Tenant?.Count > 0)
+			if (target.Tenants?.Count > 0)
 			{
-				foreach (var azure in target.Tenant)
+				foreach (var azure in target.Tenants)
 				{
 					list.Add(azure);
 				}
@@ -51,7 +71,7 @@ public class TargetService : ITargetService
 		{
 		};
 
-		foreach (var target in Get())
+		foreach (var target in GetFakeData())
 		{
 			if (target.AzureSubscriptions?.Count > 0)
 			{
@@ -70,7 +90,7 @@ public class TargetService : ITargetService
 		var list = new List<WindowsDirectory>
 		{
 		};
-		foreach (var target in Get())
+		foreach (var target in GetFakeData())
 		{
 			if (target.Domains?.Count > 0)
 			{
@@ -87,11 +107,11 @@ public class TargetService : ITargetService
 		var list = new List<WindowsWorkgroup>
 		{
 		};
-		foreach (var target in Get())
+		foreach (var target in GetFakeData())
 		{
-			if (target.WorkGroup?.Count > 0)
+			if (target.WorkGroups?.Count > 0)
 			{
-				foreach (var workgroup in target.WorkGroup)
+				foreach (var workgroup in target.WorkGroups)
 				{
 					list.Add(workgroup);
 				}
@@ -105,11 +125,11 @@ public class TargetService : ITargetService
 		{
 		};
 
-		foreach (var target in Get())
+		foreach (var target in GetFakeData())
 		{
-			if (target.Linux?.Count > 0)
+			if (target.Linuxcies?.Count > 0)
 			{
-				foreach (var linux in target.Linux)
+				foreach (var linux in target.Linuxcies)
 				{
 					list.Add(linux);
 				}
@@ -125,11 +145,11 @@ public class TargetService : ITargetService
 		{
 		};
 
-		foreach (var target in Get())
+		foreach (var target in GetFakeData())
 		{
-			if (target.Mac?.Count > 0)
+			if (target.Macs?.Count > 0)
 			{
-				foreach (var mac in target.Mac)
+				foreach (var mac in target.Macs)
 				{
 					list.Add(mac);
 				}
@@ -145,7 +165,7 @@ public class TargetService : ITargetService
 		{
 		};
 
-		foreach (var target in Get())
+		foreach (var target in GetFakeData())
 		{
 			if (target.IPRanges?.Count > 0)
 			{

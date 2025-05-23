@@ -43,18 +43,18 @@ public partial record Targets : ISenservaEntity
 	public string Name { get; init; }
 	public string Description { get; init; }
 
-	public List<IPRange> IPRanges;
-	public List<WindowsDirectory> Domains;
-	public List<WindowsWorkgroup> WorkGroup;
-	public List<AzureTenant> Tenant;
-	public List<AzureSubscription> AzureSubscriptions;
-	public List<Mac> Mac;
-	public List<Linux> Linux;
+	public List<IPRange> IPRanges = [];
+	public List<WindowsDirectory> Domains = [];
+	public List<WindowsWorkgroup> WorkGroups = [];
+	public List<AzureTenant> Tenants = [];
+	public List<AzureSubscription> AzureSubscriptions = [];
+	public List<Mac> Macs = [];
+	public List<Linux> Linuxcies = [];
 
 	public Targets()
 	{
 		Id = Guid.NewGuid();
 		Name = "test2";
-		Description = "Best darn thing ever!";
+		Description = $"Tenants: {Tenants.Count}, Domains: {Domains.Count}, WorkGroups: {WorkGroups.Count}, AzureSubscriptions: {AzureSubscriptions.Count}, Macs: {Macs.Count}, Linuxcies: {Linuxcies.Count}, IPRanges: {IPRanges.Count}";
 	}
 }

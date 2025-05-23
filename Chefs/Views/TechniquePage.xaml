@@ -85,20 +85,18 @@
                         Text="{Binding Title}" />
 				</utu:AutoLayout>
 				<utu:AutoLayout
-                    utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
-                                                                     Wide=Stretch}"
+                    utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,  Wide=Stretch}"
                     Justify="{utu:Responsive Normal=SpaceBetween,   Wide=Stack}"
                     Orientation="{utu:Responsive Normal=Vertical,    Wide=Horizontal}">
 					<utu:AutoLayout
-                        utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
-                                                                         Wide=Stretch}"
+                        utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,   Wide=Stretch}"
                         Justify="{utu:Responsive Normal=SpaceBetween,    Wide=Stack}"
                         Spacing="{utu:Responsive Normal=8,       Wide=0}">
 						<StackPanel Orientation="Horizontal" Spacing="4">
 							<utu:AutoLayout
                                 Margin="{utu:Responsive Normal='16,263,16,0',      Wide='14,14,0,0'}"
                                 HorizontalAlignment="{utu:Responsive Normal=Center,  Wide=Left}"
-                                VerticalAlignment="{utu:Responsive Normal=Center,              Wide=Top}"
+                                VerticalAlignment="{utu:Responsive Normal=Center,  Wide=Top}"
                                 utu:AutoLayout.IsIndependentLayout="True"
                                 CornerRadius="4">
 								<utu:AutoLayout

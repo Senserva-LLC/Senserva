@@ -184,10 +184,10 @@
                         <uer:FeedView
                             x:Name="WindowsFeed"
                             NoneTemplate="{StaticResource EmptyTemplate}"
-                            Source="{Binding Windows}">
+                            Source="{Binding Domains}">
                             <DataTemplate>
                                 <utu:AutoLayout>
-                                    <!--  Windows  -->
+									<!--  Windows Domains -->
                                     <utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
@@ -195,7 +195,7 @@
                                         <TextBlock
                                             Foreground="{ThemeResource OnSurfaceBrush}"
                                             Style="{StaticResource LabelLarge}"
-                                            Text="Today"
+                                            Text="Windows Domains"
                                             TextWrapping="Wrap" />
                                         <muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
                                             <muxc:ItemsRepeater.Layout>
