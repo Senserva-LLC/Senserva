@@ -74,25 +74,6 @@
 		<DefineConstants Condition="'$(UseSkiaRendering)'=='true'">$(DefineConstants);HAS_SKIA_RENDERER</DefineConstants>
 	</PropertyGroup>
 
-	<Choose>
-		<When Condition="$(IsWinAppSdk)">
-			<ItemGroup>
-				<PackageReference Include="Mapsui.WinUI" />
-				<PackageReference Include="LiveChartsCore.SkiaSharpView.WinUI" />
-			</ItemGroup>
-		</When>
-		<Otherwise>
-			<ItemGroup>
-				<PackageReference Include="Mapsui.Uno.WinUI" />
-				<PackageReference Include="LiveChartsCore.SkiaSharpView.Uno.WinUI" />
-			</ItemGroup>
-		</Otherwise>
-	</Choose>
-
-	<PropertyGroup Condition="'$(UseMocks)'=='true'">
-		<DefineConstants>$(DefineConstants);USE_MOCKS</DefineConstants>
-	</PropertyGroup>
-
 	<ItemGroup>
 	  <EmbeddedResource Include="Assets\Maps\location_pin.svg" />
 	  <EmbeddedResource Include="Assets\Maps\location_circle.svg" />

@@ -1,5 +1,4 @@
-﻿using NetTools;
-
+﻿
 namespace Siemserva.Business.Models;
 
 /// <summary>
@@ -31,7 +30,7 @@ public partial record Mac(string Name, SenservaCredentionals Credentionals);
 public partial record Linux(string Name, SenservaCredentionals Credentionals);
 
 /// https://github.com/jsakamoto/ipaddressrange/
-public partial record IPRange(IPAddressRange Range, SenservaCredentionals Credentionals);
+public partial record IPRange(string Range, SenservaCredentionals Credentionals);
 
 /// <summary>
 /// domain, ip range, ip address, machine name
