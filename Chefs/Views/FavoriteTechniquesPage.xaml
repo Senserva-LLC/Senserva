@@ -75,7 +75,7 @@
                 VerticalAlignment="Stretch"
                 Background="{ThemeResource SurfaceBrush}"
                 CornerRadius="12"
-                Style="{StaticResource FilledCardContentControlStyle}">
+                Style="{StaticResource ElevatedCardContentControlStyle}">
                 <utu:CardContentControl.ContentTemplate>
                     <DataTemplate>
                         <utu:AutoLayout Margin="4">

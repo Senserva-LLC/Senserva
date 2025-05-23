@@ -21,7 +21,10 @@
                 Width="250"
                 Margin="0"
                 CornerRadius="4"
-                Style="{StaticResource ElevatedCardContentControlStyle}">
+                Style="{StaticResource ElevatedCardContentControlStyle}"
+			Elevation="15"
+
+				>
                 <utu:AutoLayout
                     HorizontalAlignment="Stretch"
                     Background="{ThemeResource SurfaceBrush}"
@@ -247,7 +250,7 @@
                                             Width="160"
                                             Margin="0"
                                             CornerRadius="4"
-                                            Style="{StaticResource FilledCardContentControlStyle}">
+                                            Style="{StaticResource ElevatedCardContentControlStyle}">
                                             <utu:AutoLayout
                                                 HorizontalAlignment="Stretch"
                                                 CornerRadius="4"
@@ -304,7 +307,9 @@
                                 </muxc:ItemsRepeater.Layout>
                                 <muxc:ItemsRepeater.ItemTemplate>
                                     <DataTemplate>
-                                        <utu:CardContentControl Margin="0" Style="{StaticResource FilledCardContentControlStyle}">
+										<utu:CardContentControl Margin="0" 
+																Style="{StaticResource ElevatedCardContentControlStyle}"
+>
                                             <utu:AutoLayout
                                                 utu:AutoLayout.CounterAlignment="Center"
                                                 CornerRadius="4"

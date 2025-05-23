@@ -212,7 +212,7 @@
                                             Width="160"
                                             Margin="0"
                                             CornerRadius="4"
-                                            Style="{StaticResource FilledCardContentControlStyle}">
+                                            Style="{StaticResource ElevatedCardContentControlStyle}">
 									<utu:AutoLayout
                                                 HorizontalAlignment="Stretch"
                                                 CornerRadius="4"
