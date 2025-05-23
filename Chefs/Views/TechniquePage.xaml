@@ -29,7 +29,8 @@
 
         <DataTemplate x:Key="EmptyTemplate">
             <utu:AutoLayout
-                Padding="{utu:Responsive Normal='16,24', Wide='40'}"
+                Padding="{utu:Responsive Normal='16,24',
+                                         Wide='40'}"
                 PrimaryAxisAlignment="Center"
                 Spacing="24">
                 <BitmapIcon
@@ -66,8 +67,10 @@
         <ScrollViewer
             utu:AutoLayout.PrimaryAlignment="Stretch"
             HorizontalScrollMode="Disabled"
-            VerticalScrollBarVisibility="{utu:Responsive Normal=Visible, Wide=Hidden}"
-            VerticalScrollMode="{utu:Responsive Normal=Enabled, Wide=Disabled}">
+            VerticalScrollBarVisibility="{utu:Responsive Normal=Visible,
+                                                         Wide=Hidden}"
+            VerticalScrollMode="{utu:Responsive Normal=Enabled,
+                                                Wide=Disabled}">
             <utu:AutoLayout Padding="{utu:Responsive Normal='0,0,0,92', Wide=0}">
                 <utu:AutoLayout
                     Padding="16"
@@ -82,28 +85,39 @@
                 <utu:AutoLayout
                     utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
                                                                      Wide=Stretch}"
-                    Justify="{utu:Responsive Normal=SpaceBetween,Wide=Stack}"
-                    Orientation="{utu:Responsive Normal=Vertical, Wide=Horizontal}">
+                    Justify="{utu:Responsive Normal=SpaceBetween,
+                                             Wide=Stack}"
+                    Orientation="{utu:Responsive Normal=Vertical,
+                                                 Wide=Horizontal}">
                     <utu:AutoLayout
-                        utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,  Wide=Stretch}"
-                        Justify="{utu:Responsive Normal=SpaceBetween,    Wide=Stack}"
-                        Spacing="{utu:Responsive Normal=8,   Wide=0}">
+                        utu:AutoLayout.PrimaryAlignment="{utu:Responsive Normal=Auto,
+                                                                         Wide=Stretch}"
+                        Justify="{utu:Responsive Normal=SpaceBetween,
+                                                 Wide=Stack}"
+                        Spacing="{utu:Responsive Normal=8,
+                                                 Wide=0}">
                         <StackPanel Orientation="Horizontal" Spacing="4">
                             <utu:AutoLayout
                                 Margin="{utu:Responsive Normal='16,263,16,0',
                                                         Wide='14,14,0,0'}"
-                                HorizontalAlignment="{utu:Responsive Normal=Center,   Wide=Left}"
-                                VerticalAlignment="{utu:Responsive Normal=Center,   Wide=Top}"
+                                HorizontalAlignment="{utu:Responsive Normal=Center,
+                                                                     Wide=Left}"
+                                VerticalAlignment="{utu:Responsive Normal=Center,
+                                                                   Wide=Top}"
                                 utu:AutoLayout.IsIndependentLayout="True"
                                 CornerRadius="4">
                                 <utu:AutoLayout
-                                    Width="{utu:Responsive Normal=358,  Wide=98}"
-                                    Height="{utu:Responsive Normal=74,      Wide=317}"
-                                    Padding="{utu:Responsive Normal='0,4',    Wide='0,40'}"
+                                    Width="{utu:Responsive Normal=358,
+                                                           Wide=98}"
+                                    Height="{utu:Responsive Normal=74,
+                                                            Wide=317}"
+                                    Padding="{utu:Responsive Normal='0,4',
+                                                             Wide='0,40'}"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch"
                                     Background="{ThemeResource SurfaceBrush}"
-                                    Orientation="{utu:Responsive Normal=Horizontal,  Wide=Vertical}"
+                                    Orientation="{utu:Responsive Normal=Horizontal,
+                                                                 Wide=Vertical}"
                                     PrimaryAxisAlignment="Stretch">
                                     <utu:AutoLayout
                                         utu:AutoLayout.PrimaryAlignment="Stretch"
@@ -184,9 +198,11 @@
                         utu:AutoLayout.PrimaryAlignment="Stretch"
                         Background="{ThemeResource BackgroundBrush}">
                         <utu:TabBar
-                            Margin="{utu:Responsive Normal=0, Wide='40,0'}"
+                            Margin="{utu:Responsive Normal=0,
+                                                    Wide='40,0'}"
                             uen:Region.Attached="True"
-                            utu:AutoLayout.CounterAlignment="{utu:Responsive Normal=Start,   Wide=Center}"
+                            utu:AutoLayout.CounterAlignment="{utu:Responsive Normal=Start,
+                                                                             Wide=Center}"
                             Background="{ThemeResource BackgroundBrush}"
                             Style="{StaticResource TopTabBarStyle}">
                             <utu:TabBarItem
@@ -210,9 +226,11 @@
                                 uen:Region.Attached="True"
                                 uen:Region.Navigator="Visibility">
                                 <utu:AutoLayout
-                                    Padding="{utu:Responsive Normal='16,24,16,16',   Wide=40}"
+                                    Padding="{utu:Responsive Normal='16,24,16,16',
+                                                             Wide=40}"
                                     uen:Region.Name="ControlsTab"
-                                    Spacing="{utu:Responsive Normal=8,   Wide=16}">
+                                    Spacing="{utu:Responsive Normal=8,
+                                                             Wide=16}">
                                     <TextBlock
                                         Foreground="{ThemeResource OnSurfaceBrush}"
                                         Style="{StaticResource BodyLarge}"
@@ -261,9 +279,11 @@
                                 </utu:AutoLayout>
 
                                 <utu:AutoLayout
-                                    Padding="{utu:Responsive Normal='16,24',   Wide=40}"
+                                    Padding="{utu:Responsive Normal='16,24',
+                                                             Wide=40}"
                                     uen:Region.Name="StepsTab"
-                                    Spacing="{utu:Responsive Normal=8,    Wide=16}"
+                                    Spacing="{utu:Responsive Normal=8,
+                                                             Wide=16}"
                                     Visibility="Collapsed">
                                     <TextBlock
                                         Foreground="{ThemeResource OnSurfaceBrush}"
@@ -298,9 +318,11 @@
                                 </utu:AutoLayout>
 
                                 <utu:AutoLayout
-                                    Padding="{utu:Responsive Normal='16,24', Wide=40}"
+                                    Padding="{utu:Responsive Normal='16,24',
+                                                             Wide=40}"
                                     uen:Region.Name="ComplianceTab"
-                                    Spacing="{utu:Responsive Normal=8,   Wide=16}"
+                                    Spacing="{utu:Responsive Normal=8,
+                                                             Wide=16}"
                                     Visibility="Collapsed">
                                     <TextBlock
                                         Foreground="{ThemeResource OnSurfaceBrush}"
@@ -341,11 +363,14 @@
 
                                 <Grid uen:Region.Name="RiskTab" Visibility="Collapsed">
                                     <Grid
-                                        Margin="{utu:Responsive Normal=16,   Wide=40}"
-                                        Padding="{utu:Responsive Normal=16,  Wide=24}"
+                                        Margin="{utu:Responsive Normal=16,
+                                                                Wide=40}"
+                                        Padding="{utu:Responsive Normal=16,
+                                                                 Wide=24}"
                                         Background="{ThemeResource SurfaceBrush}"
                                         CornerRadius="24"
-                                        RowSpacing="{utu:Responsive Normal=5,  Wide=24}">
+                                        RowSpacing="{utu:Responsive Normal=5,
+                                                                    Wide=24}">
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="Auto" />
                                             <RowDefinition Height="Auto" />

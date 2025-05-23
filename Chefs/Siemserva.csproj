@@ -7,6 +7,7 @@
 		<TargetFrameworks Condition="'$(TargetFrameworkOverride)'!=''">$(TargetFrameworkOverride)</TargetFrameworks>
 		<TargetFrameworks Condition="'$(TargetFrameworkOverride)'==''">
 			net9.0-ios;
+			net9.0-maccatalyst;
 			net9.0-windows10.0.19041;
 			net9.0-desktop;
 			net9.0-browserwasm;
@@ -61,10 +62,16 @@
 			Skia;
 			ThemeService;
 			Authentication;
-			SkiaRenderer
 		</UnoFeatures>
+		<UnoFeatures Condition="$(IsSkiaWasm)">$(UnoFeatures)SkiaRenderer;</UnoFeatures>
+		<UnoFeatures Condition="$(IsSkiaAndroid)">$(UnoFeatures)SkiaRenderer;</UnoFeatures>
+		<UnoFeatures Condition="$(IsSkiaUIKit)">$(UnoFeatures)SkiaRenderer;</UnoFeatures>
 
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<DefineConstants Condition="$(IsSkiaWasm)">$(DefineConstants);IS_WASM_SKIA</DefineConstants>
+		<DefineConstants Condition="$(IsSkiaAndroid)">$(DefineConstants);IS_ANDROID_SKIA</DefineConstants>
+		<DefineConstants Condition="$(IsSkiaUIKit)">$(DefineConstants);IS_UIKIT_SKIA</DefineConstants>
+		<DefineConstants Condition="'$(UseSkiaRendering)'=='true'">$(DefineConstants);HAS_SKIA_RENDERER</DefineConstants>
 	</PropertyGroup>
 
 	<Choose>
