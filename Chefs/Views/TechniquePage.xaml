@@ -321,15 +321,19 @@
 													  Padding="16"
 													  PrimaryAxisAlignment="Center"
 													  Spacing="8">
-														<TextBlock
-														  Foreground="{ThemeResource OnSurfaceBrush}"
-														  Style="{StaticResource TitleSmall}"
-														  Text="{Binding Name}"
-														  TextWrapping="Wrap" />
-														<TextBlock
-														  Foreground="{ThemeResource OnSurfaceMediumBrush}"
-														  Text="{Binding Description}"
-														  TextWrapping="Wrap" />
+														<Button uen:Navigation.Data="{Binding Targets}" uen:Navigation.Request="!Targets">
+															<StackPanel Orientation="Vertical">
+																<TextBlock
+																	  Foreground="{ThemeResource OnSurfaceBrush}"
+																	  Style="{StaticResource TitleSmall}"
+																	  Text="{Binding Name}"
+																	  TextWrapping="Wrap" />
+																<TextBlock
+																  Foreground="{ThemeResource OnSurfaceMediumBrush}"
+																  Text="{Binding Description}"
+																  TextWrapping="Wrap" />
+															</StackPanel>
+														</Button>
 													</utu:AutoLayout>
 												</Border>
 											</DataTemplate>
