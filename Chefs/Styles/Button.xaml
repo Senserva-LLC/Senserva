@@ -15,7 +15,8 @@
         <Setter Property="BorderBrush" Value="{ThemeResource PrimaryBrush}" />
     </Style>
 
-    <Style
+
+	<Style
         x:Key="ChefsSecondaryButtonStyle"
         BasedOn="{StaticResource TextButtonStyle}"
         TargetType="Button">

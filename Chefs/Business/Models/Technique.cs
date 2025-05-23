@@ -1,4 +1,6 @@
 
+using Siemserva.Business.Models;
+
 namespace Simeserva.Business.Models;
 
 /// <summary>
@@ -20,6 +22,7 @@ public partial record Technique : ISenservaEntity
 
 	public string? Name { get; init; }
 	public TechniqueType Type { get; init; } = TechniqueType.Remediation;
+	public Targets Targets { get; init; } = new Targets();
 
 	/// <summary>
 	/// TODO can we get this reliability?

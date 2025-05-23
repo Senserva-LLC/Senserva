@@ -30,9 +30,7 @@ public partial record TechniqueModel
 
 	public Technique Technique { get; }
 
-	public IListState<Targets> Targets => ListState
-	.Async(this, async ct => await _targetService.GetAll(ct))
-	.Observe(_messenger, r => r.Id);
+	public IState<Targets> Targets => State.Value(this, () => Technique.Targets);
 
 	// TODO put in name and type
 	public string Title => $"Technique {Technique.Name} - {Technique.Type} ";

@@ -95,4 +95,8 @@
 
     <Color x:Key="BrandBlackColor">#2E2C35</Color>
     <SolidColorBrush x:Key="BrandBlackBrush" Color="{StaticResource BrandBlackColor}" />
+	<SolidColorBrush x:Key="FilledButtonBackgroundPointerOver" Color="Blue" Opacity=".1"/>
+	<SolidColorBrush x:Key="FilledButtonBackgroundFocused" Color="GreenYellow" Opacity=".1"/>
+	<SolidColorBrush x:Key="FilledButtonBackgroundPointerFocused" Color="Red" Opacity=".1"/>
+
 </ResourceDictionary>
