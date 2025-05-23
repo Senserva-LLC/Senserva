@@ -45,7 +45,10 @@
             <Color x:Key="TertiaryContainerColor">#46C2CB</Color>
             <Color x:Key="OnTertiaryContainerColor">#FFFFFF</Color>
 
-            <Color x:Key="NutritionTrackBackgroundColor">#1C1B1F14</Color>
+			<SolidColorBrush x:Key="FilledButtonBackgroundPointerOver" Color="#46C2CB" />
+			<SolidColorBrush x:Key="FilledButtonBackgroundPointerFocused" Color="#FFFFFF"/>
+
+			<Color x:Key="NutritionTrackBackgroundColor">#1C1B1F14</Color>
             <Color x:Key="DataRiskValColor">#C12138</Color>
             <Color x:Key="UserRiskValColor">#EB7726</Color>
             <Color x:Key="DeviceRiskValColor">#E8C41E</Color>
@@ -85,7 +88,10 @@
             <Color x:Key="OnTertiaryContainerColor">#46C2CB</Color>
             <Color x:Key="StatusBarForegroundColor">#46C2CB</Color>
 
-            <Color x:Key="NutritionTrackBackgroundColor">#242629</Color>
+			<SolidColorBrush x:Key="FilledButtonBackgroundPointerOver" Color="#1B75BC" />
+			<SolidColorBrush x:Key="FilledButtonBackgroundPointerFocused" Color="#0F1012"/>
+
+			<Color x:Key="NutritionTrackBackgroundColor">#242629</Color>
             <Color x:Key="DataRiskValColor">#C12138</Color>
             <Color x:Key="UserRiskValColor">#EB7726</Color>
             <Color x:Key="DeviceRiskValColor">#E8C41E</Color>
@@ -95,8 +101,5 @@
 
     <Color x:Key="BrandBlackColor">#2E2C35</Color>
     <SolidColorBrush x:Key="BrandBlackBrush" Color="{StaticResource BrandBlackColor}" />
-	<SolidColorBrush x:Key="FilledButtonBackgroundPointerOver" Color="Blue" Opacity=".1"/>
-	<SolidColorBrush x:Key="FilledButtonBackgroundFocused" Color="GreenYellow" Opacity=".1"/>
-	<SolidColorBrush x:Key="FilledButtonBackgroundPointerFocused" Color="Red" Opacity=".1"/>
 
 </ResourceDictionary>
