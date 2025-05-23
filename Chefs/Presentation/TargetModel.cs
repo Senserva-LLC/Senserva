@@ -18,14 +18,14 @@ public partial record TargetsModel
 	/// </summary>
 	public IListFeed<Targets> Targets => ListFeed.Async(async ct => await _service.GetAll(ct));
 
-	public IListFeed<Targets> Azure => ListFeed.Async(async ct => await _service.GetAzure(ct));
+	public IListFeed<AzureTenant> Azure => ListFeed.Async(async ct => await _service.GetAzureTenants(ct));
 
-	public IListFeed<Targets> Windows => ListFeed.Async(async ct => await _service.GetWindows(ct));
+	public IListFeed<WindowsDirectory> Domains => ListFeed.Async(async ct => await _service.GetWindowsDirectories(ct));
 
-	public IListFeed<Targets> Mac => ListFeed.Async(async ct => await _service.GetMac(ct));
+	public IListFeed<Mac> Mac => ListFeed.Async(async ct => await _service.GetMac(ct));
 
-	public IListFeed<Targets> Linux => ListFeed.Async(async ct => await _service.GetLinux(ct));
+	public IListFeed<Linux> Linux => ListFeed.Async(async ct => await _service.GetLinux(ct));
 
-	public IListFeed<Targets> IPRange => ListFeed.Async(async ct => await _service.GetIpRange(ct));
+	public IListFeed<IPRange> IPRange => ListFeed.Async(async ct => await _service.GetIpRanges(ct));
 }
 

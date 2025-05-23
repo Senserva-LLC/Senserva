@@ -160,7 +160,6 @@
                             Source="{Binding Azure}">
                             <DataTemplate>
                                 <utu:AutoLayout>
-                                    <!--  Today  -->
                                     <utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
@@ -220,7 +219,7 @@
                             Source="{Binding Linux}">
                             <DataTemplate>
                                 <utu:AutoLayout>
-                                    <!--  Today  -->
+									<!--  LinuxFeed  -->
                                     <utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
@@ -292,7 +291,7 @@
                                         <TextBlock
                                             Foreground="{ThemeResource OnSurfaceBrush}"
                                             Style="{StaticResource LabelLarge}"
-                                            Text="Today"
+                                            Text="IPRange"
                                             TextWrapping="Wrap" />
                                         <muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
                                             <muxc:ItemsRepeater.Layout>

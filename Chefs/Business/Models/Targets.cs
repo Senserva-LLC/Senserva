@@ -15,7 +15,7 @@ public class SenservaCredentionals(string Name);
 /// </summary>
 /// <param name="Name"></param>
 /// <param name="Id"></param>
-public partial record SenservaTenant(string Name, string Description, string Id, SenservaCredentionals Credentionals);
+public partial record AzureTenant(string Name, string Description, string Id, SenservaCredentionals Credentionals);
 
 public partial record AzureSubscription(string Name, string Description, string Id, SenservaCredentionals Credentionals);
 
@@ -46,7 +46,7 @@ public partial record Targets : ISenservaEntity
 	public List<IPRange> IPRanges;
 	public List<WindowsDirectory> Domains;
 	public List<WindowsWorkgroup> WorkGroup;
-	public List<SenservaTenant> Azure;
+	public List<AzureTenant> Tenant;
 	public List<AzureSubscription> AzureSubscriptions;
 	public List<Mac> Mac;
 	public List<Linux> Linux;
