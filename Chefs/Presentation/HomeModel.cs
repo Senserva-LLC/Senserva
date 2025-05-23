@@ -1,3 +1,5 @@
+using Siemserva.Business.Models;
+using Siemserva.Services.Target;
 using Simeserva.Services.LiveData;
 using Simeserva.Services.Reports;
 
@@ -9,10 +11,11 @@ public partial record HomeModel
 	private readonly ITechniqueService _techniqueService;
 	private readonly IReportsService _reportService;
 	private readonly IUserService _userService;
+	private readonly ITargetService _targetService;
 	private readonly IMessenger _messenger;
 	private readonly ILiveDataService _liveDataService;
 
-	public HomeModel(INavigator navigator, IReportsService reports, ITechniqueService techniques, IUserService userService, IMessenger messenger, ILiveDataService liveData)
+	public HomeModel(INavigator navigator, IReportsService reports, ITechniqueService techniques, IUserService userService, IMessenger messenger, ILiveDataService liveData, ITargetService target)
 	{
 		_navigator = navigator;
 		_reportService = reports;
@@ -20,7 +23,10 @@ public partial record HomeModel
 		_userService = userService;
 		_messenger = messenger;
 		_liveDataService = liveData;
+		_targetService = target;
 	}
+
+
 
 	public IListState<Technique> TrendingTechniques => ListState
 		.Async(this, async ct => await _techniqueService.GetTrending(ct))

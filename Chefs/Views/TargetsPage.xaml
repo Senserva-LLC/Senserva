@@ -17,7 +17,6 @@
 		<DataTemplate x:Key="TargetsTemplate">
 			<utu:AutoLayout
                 Padding="16"
-                Background="{Binding Windows, Converter={StaticResource BoolToNotificationColor}}"
                 CornerRadius="4"
                 Orientation="Horizontal"
                 PrimaryAxisAlignment="Center"
@@ -27,6 +26,12 @@
                     utu:AutoLayout.PrimaryAlignment="Stretch"
                     PrimaryAxisAlignment="Center"
                     Spacing="8">
+					<TextBlock
+     Foreground="{ThemeResource OnSurfaceBrush}"
+     Style="{StaticResource LabelLarge}"
+     Text="Today"
+     TextWrapping="Wrap" />
+
 					<TextBlock
                         Foreground="{ThemeResource OnSurfaceBrush}"
                         Style="{StaticResource TitleSmall}"
@@ -60,7 +65,7 @@
 				<TextBlock
                     Foreground="{ThemeResource OnSurfaceBrush}"
                     Style="{StaticResource TitleMedium}"
-                    Text="Targets about your activity, updates, and community interactions will appear here. Stay tuned for recipe inspiration, comments, likes, and more as you engage with the community."
+                    Text="Targets will appear here."
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
 				<Button
@@ -140,13 +145,8 @@
 									<utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
-                                        Visibility="{Binding Data.HasTodayNotifications}">
-										<TextBlock
-                                            Foreground="{ThemeResource OnSurfaceBrush}"
-                                            Style="{StaticResource LabelLarge}"
-                                            Text="Today"
-                                            TextWrapping="Wrap" />
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data.Today}">
+                                        Visibility="Visible">
+										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding}">
 											<muxc:ItemsRepeater.Layout>
 												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
 											</muxc:ItemsRepeater.Layout>

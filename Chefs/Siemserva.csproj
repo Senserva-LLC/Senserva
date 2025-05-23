@@ -219,7 +219,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="IPAddressRange" />
+	  <PackageReference Include="LiveChartsCore.SkiaSharpView.Uno.WinUI" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,4 +1,7 @@
 
+using Siemserva.Business.Models;
+using Siemserva.Services.Target;
+
 namespace Simeserva.Presentation;
 
 public partial record TechniqueModel
@@ -7,23 +10,29 @@ public partial record TechniqueModel
 	private readonly ITechniqueService _techniqueService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
+	private readonly ITargetService _targetService;
 
 	public TechniqueModel(
 		Technique technique,
 		INavigator navigator,
 		ITechniqueService recipeService,
 		IUserService userService,
-		IMessenger messenger)
+		IMessenger messenger, ITargetService target)
 	{
 		_navigator = navigator;
 		_techniqueService = recipeService;
 		_userService = userService;
 		_messenger = messenger;
+		_targetService = target;
 
 		Technique = technique;
 	}
 
 	public Technique Technique { get; }
+
+	public IListState<Targets> Targets => ListState
+	.Async(this, async ct => await _targetService.GetAll(ct))
+	.Observe(_messenger, r => r.Id);
 
 	// TODO put in name and type
 	public string Title => $"Technique {Technique.Name} - {Technique.Type} ";

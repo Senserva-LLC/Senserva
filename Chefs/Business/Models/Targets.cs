@@ -55,5 +55,6 @@ public partial record Targets : ISenservaEntity
 	{
 		Id = Guid.NewGuid();
 		Name = "test2";
+		Description = "Best darn thing ever!";
 	}
 }
