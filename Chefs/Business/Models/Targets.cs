@@ -15,22 +15,22 @@ public class SenservaCredentionals(string Name);
 /// </summary>
 /// <param name="Name"></param>
 /// <param name="Id"></param>
-public partial record SenservaTenant(string Name, string Id, SenservaCredentionals Credentionals);
+public partial record SenservaTenant(string Name, string Description, string Id, SenservaCredentionals Credentionals);
 
-public partial record AzureSubscription(string Name, string Id, SenservaCredentionals Credentionals);
+public partial record AzureSubscription(string Name, string Description, string Id, SenservaCredentionals Credentionals);
 
-public partial record SenservaManagementGroup(string Name, string Id, SenservaCredentionals Credentionals);
+public partial record SenservaManagementGroup(string Name, string Description, string Id, SenservaCredentionals Credentionals);
 
-public partial record WindowsDirectory(string Name, string Id, SenservaCredentionals Credentionals);
+public partial record WindowsDirectory(string Name, string Description, string Id, SenservaCredentionals Credentionals);
 
-public partial record WindowsWorkgroup(string Name, SenservaCredentionals Credentionals);
+public partial record WindowsWorkgroup(string Name, string Description, SenservaCredentionals Credentionals);
 
-public partial record Mac(string Name, SenservaCredentionals Credentionals);
+public partial record Mac(string Name, string Description, SenservaCredentionals Credentionals);
 
-public partial record Linux(string Name, SenservaCredentionals Credentionals);
+public partial record Linux(string Name, string Description, SenservaCredentionals Credentionals);
 
 /// https://github.com/jsakamoto/ipaddressrange/
-public partial record IPRange(string Range, SenservaCredentionals Credentionals);
+public partial record IPRange(string Range, string Description, SenservaCredentionals Credentionals);
 
 /// <summary>
 /// domain, ip range, ip address, machine name

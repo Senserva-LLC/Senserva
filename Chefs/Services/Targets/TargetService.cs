@@ -9,12 +9,13 @@ public class TargetService : ITargetService
 	{
 		var list = new List<Targets>
 		{
-			new(){ Domains = []},
-			new(){ Domains = []},
-			new(){ Azure = []},
-			new(){ AzureSubscriptions = []},
-			new(){ Mac = []},
-			new(){ Linux = []}
+			new(){ Domains = [new WindowsDirectory("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Domains = [new WindowsDirectory("a1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Azure = [new SenservaTenant("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
+			new(){ IPRanges = [new IPRange("100.100", "my Windows AD", new SenservaCredentionals("bob"))]},
+			new(){ AzureSubscriptions = [new AzureSubscription("a1", "use me if you have extra cash and time", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Mac = [new Mac("a1", "Use me if you have extra cash", new SenservaCredentionals("bob"))]},
+			new(){ Linux = [new Linux("a1", "use me if you have extra time", new SenservaCredentionals("bob"))]}
 		};
 		return list;
 	}
