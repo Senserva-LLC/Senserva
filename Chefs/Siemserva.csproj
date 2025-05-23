@@ -214,8 +214,14 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Services\Serialization\**" />
+	  <Content Remove="Services\Serialization\**" />
+	  <EmbeddedResource Remove="Services\Serialization\**" />
+	  <None Remove="Services\Serialization\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Folder Include="Code\" />
-	  <Folder Include="Services\Serialization\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -280,6 +286,18 @@
 	  <Page Update="Presentation\Targets.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Services\Serialization\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Remove="Services\Serialization\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PRIResource Remove="Services\Serialization\**" />
 	</ItemGroup>
 
 </Project>

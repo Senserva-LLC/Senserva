@@ -7,7 +7,6 @@ namespace Simeserva.Presentation;
 public partial record TargetsModel
 {
 	private readonly ITargetService _service;
-
 	public TargetsModel(ITargetService service)
 	{
 		_service = service;
@@ -16,9 +15,11 @@ public partial record TargetsModel
 	/// <summary>
 	///  all targets
 	/// </summary>
-	public IListFeed<Targets> Targets => ListFeed.Async(async ct => await _service.GetAll(ct));
 
-	public IListFeed<AzureTenant> Azure => ListFeed.Async(async ct => await _service.GetAzureTenants(ct));
+	public IListFeed<string> Overviews => ListFeed.Async(async ct => await _service.GetOverview(ct));
+
+	public IListFeed<AzureTenant> AzureTenants => ListFeed.Async(async ct => await _service.GetAzureTenants(ct));
+	public IListFeed<AzureSubscription> AzureSubscriptions => ListFeed.Async(async ct => await _service.GetAzureSubscriptions(ct));
 
 	public IListFeed<WindowsDirectory> Domains => ListFeed.Async(async ct => await _service.GetWindowsDirectories(ct));
 

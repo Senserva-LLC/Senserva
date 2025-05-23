@@ -101,5 +101,6 @@
 
     <Color x:Key="BrandBlackColor">#2E2C35</Color>
     <SolidColorBrush x:Key="BrandBlackBrush" Color="{StaticResource BrandBlackColor}" />
-
+	<SolidColorBrush x:Key="ElevatedCardBorderBrush" Color="White" />
+	
 </ResourceDictionary>

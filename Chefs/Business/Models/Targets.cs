@@ -55,6 +55,7 @@ public partial record Targets : ISenservaEntity
 	{
 		Id = Guid.NewGuid();
 		Name = "test2";
-		Description = $"Tenants: {Tenants.Count}, Domains: {Domains.Count}, WorkGroups: {WorkGroups.Count}, AzureSubscriptions: {AzureSubscriptions.Count}, Macs: {Macs.Count}, Linuxcies: {Linuxcies.Count}, IPRanges: {IPRanges.Count}";
+		Description = "Bob's your uncle";
 	}
+
 }

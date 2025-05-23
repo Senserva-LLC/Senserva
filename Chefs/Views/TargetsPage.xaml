@@ -25,7 +25,6 @@
                     utu:AutoLayout.PrimaryAlignment="Stretch"
                     PrimaryAxisAlignment="Center"
                     Spacing="8">
-					
 
                     <TextBlock
                         Foreground="{ThemeResource OnSurfaceBrush}"
@@ -78,7 +77,30 @@
                 </Button>
             </utu:AutoLayout>
         </DataTemplate>
-    </Page.Resources>
+
+		<DataTemplate x:Key="OverviewTemplate">
+			<utu:AutoLayout
+         Padding="16"
+         CornerRadius="4"
+         Orientation="Horizontal"
+         PrimaryAxisAlignment="Center"
+         Spacing="16">
+				<utu:AutoLayout
+				 utu:AutoLayout.PrimaryAlignment="Stretch"
+				 PrimaryAxisAlignment="Center"
+				 Spacing="8">
+
+					<TextBlock
+					 Foreground="{ThemeResource OnSurfaceBrush}"
+					 Style="{StaticResource TitleSmall}"
+					 Text="{Binding}"
+					 TextWrapping="Wrap" />
+
+				</utu:AutoLayout>
+			</utu:AutoLayout>
+		</DataTemplate>
+
+	</Page.Resources>
 
     <utu:AutoLayout PrimaryAxisAlignment="Stretch">
         <utu:NavigationBar
@@ -99,10 +121,14 @@
                     Content="All"
                     IsSelected="True" />
                 <utu:TabBarItem
-                    uen:Region.Name="AzureTab"
-                    Content="Azure"
+                    uen:Region.Name="AzureSubscriptionsTab"
+                    Content="Subscriptions"
                     Foreground="{ThemeResource OnSurfaceMediumBrush}" />
-                <utu:TabBarItem
+				<utu:TabBarItem
+                    uen:Region.Name="AzureTenantsTab"
+                    Content="Tenants"
+                    Foreground="{ThemeResource OnSurfaceMediumBrush}" />
+				<utu:TabBarItem
                     uen:Region.Name="WindowsTab"
                     Content="Windows"
                     Foreground="{ThemeResource OnSurfaceMediumBrush}" />
@@ -132,34 +158,33 @@
                         <uer:FeedView
                             x:Name="AllFeed"
                             NoneTemplate="{StaticResource EmptyTemplate}"
-                            Source="{Binding Targets}">
-                            <DataTemplate>
-                                <utu:AutoLayout>
-                                    <!--  All Targets  -->
-                                    <utu:AutoLayout
-                                        Padding="0,16"
-                                        Spacing="16"
-                                        Visibility="Visible">
-                                        <muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
-                                            <muxc:ItemsRepeater.Layout>
-                                                <muxc:StackLayout Orientation="Vertical" Spacing="2" />
-                                            </muxc:ItemsRepeater.Layout>
-                                        </muxc:ItemsRepeater>
-                                    </utu:AutoLayout>
-                                </utu:AutoLayout>
-                            </DataTemplate>
-                        </uer:FeedView>
+                            Source="{Binding Overviews}">
+							<DataTemplate>
+								<utu:AutoLayout>
+									<utu:AutoLayout
+										  Padding="0,16"
+										  Spacing="16"
+										  Visibility="Visible">
+										<muxc:ItemsRepeater ItemTemplate="{StaticResource OverviewTemplate}" ItemsSource="{Binding Data}">
+											<muxc:ItemsRepeater.Layout>
+												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+											</muxc:ItemsRepeater.Layout>
+										</muxc:ItemsRepeater>
+									</utu:AutoLayout>
+								</utu:AutoLayout>
+							</DataTemplate>
+						</uer:FeedView>
                     </Grid>
 
-                    <!--  Azure  -->
+					<!--  Azure Subscriptions  -->
                     <Grid
                         Padding="0,16"
-                        uen:Region.Name="AzureTab"
+                        uen:Region.Name="AzureSubscriptionsTab"
                         Visibility="Collapsed">
                         <uer:FeedView
-                            x:Name="AzureFeed"
+                            x:Name="AzureSubscriptionsFeed"
                             NoneTemplate="{StaticResource EmptyTemplate}"
-                            Source="{Binding Azure}">
+                            Source="{Binding AzureSubscriptions}">
                             <DataTemplate>
                                 <utu:AutoLayout>
                                     <utu:AutoLayout
@@ -178,7 +203,34 @@
                         </uer:FeedView>
                     </Grid>
 
-                    <!--  Windows  -->
+					<!--  Azure Tenants -->
+					<Grid
+					 Padding="0,16"
+					 uen:Region.Name="AzureTenantsTab"
+					 Visibility="Collapsed">
+						<uer:FeedView
+						 x:Name="AzureTenantsFeed"
+						 NoneTemplate="{StaticResource EmptyTemplate}"
+						 Source="{Binding AzureTenants}">
+							<DataTemplate>
+								<utu:AutoLayout>
+									<utu:AutoLayout
+									 Padding="0,16"
+									 Spacing="16"
+									 Visibility="Visible">
+										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
+											<muxc:ItemsRepeater.Layout>
+												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+											</muxc:ItemsRepeater.Layout>
+										</muxc:ItemsRepeater>
+									</utu:AutoLayout>
+
+								</utu:AutoLayout>
+							</DataTemplate>
+						</uer:FeedView>
+					</Grid>
+
+					<!--  Windows  -->
                     <Grid
                         Padding="0,16"
                         uen:Region.Name="WindowsTab"

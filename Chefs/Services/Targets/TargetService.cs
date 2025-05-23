@@ -1,10 +1,95 @@
 ﻿
 using Siemserva.Business.Models;
+using Windows.Graphics.Display;
 
 namespace Siemserva.Services.Target;
 
 public class TargetService : ITargetService
 {
+	public async Task<IImmutableList<string>> GetOverview(CancellationToken ct)
+	{
+		var data = GetFakeData();
+		return GetOverviews(data).ToImmutableList();
+	}
+
+	/// <summary>
+	/// concise overview of the targets
+	/// TODO will need an ID to grab the right data
+	/// </summary>
+	/// <returns></returns>
+	public IEnumerable<string> GetOverviews(List<Targets> data)
+	{
+		List<string> overviews = [];
+		var tenants = 0;
+		var domains = 0;
+		var workGroups = 0;
+		var mac = 0;
+		var subscriptions = 0;
+		var linux = 0;
+		var ipRange = 0;
+
+		foreach (var item in data)
+		{
+			if (item.Tenants.Count > 0)
+			{
+				++tenants;
+			}
+			if (item.Domains.Count > 0)
+			{
+				++domains;
+			}
+			if (item.WorkGroups.Count > 0)
+			{
+				++workGroups;
+			}
+			if (item.AzureSubscriptions.Count > 0)
+			{
+				++subscriptions;
+			}
+			if (item.Macs.Count > 0)
+			{
+				++mac;
+			}
+			if (item.Linuxcies.Count > 0)
+			{
+				++linux;
+			}
+			if (item.IPRanges.Count > 0)
+			{
+				++ipRange;
+			}
+		}
+		if (tenants > 0)
+		{
+			overviews.Add($"Azure Tenants: {tenants}");
+		}
+		if (domains > 0)
+		{
+			overviews.Add($"Domains: {domains}");
+		}
+		if (workGroups > 0)
+		{
+			overviews.Add($"WorkGroups: {workGroups}");
+		}
+		if (subscriptions > 0)
+		{
+			overviews.Add($"Azure Subscriptions: {subscriptions}");
+		}
+		if (mac > 0)
+		{
+			overviews.Add($"Macs: {mac}");
+		}
+		if (linux > 0)
+		{
+			overviews.Add($"Linux: {linux}");
+		}
+		if (ipRange > 0)
+		{
+			overviews.Add($"IP Ranges: {ipRange}");
+		}
+		return overviews;
+	}
+
 	/// <summary>
 	/// this will become the json input
 	/// </summary>
@@ -39,11 +124,6 @@ public class TargetService : ITargetService
 			new(){ Linuxcies = [new Linux("a1", "use me if you have extra time", new SenservaCredentionals("bob"))]}
 		};
 		return list;
-	}
-
-	public async Task<IImmutableList<Targets>> GetAll(CancellationToken ct)
-	{
-		return GetFakeData().ToImmutableList();
 	}
 
 	public async Task<IImmutableList<AzureTenant>> GetAzureTenants(CancellationToken ct)

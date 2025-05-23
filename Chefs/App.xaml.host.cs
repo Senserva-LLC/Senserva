@@ -8,6 +8,7 @@ using Simeserva.Services.Reports;
 using Simeserva.Services.Commands;
 using Siemserva.Services.Target;
 using Siemserva.Business.Models;
+using Uno.Extensions.Navigation;
 
 namespace Simeserva;
 
@@ -176,7 +177,7 @@ public partial class App : Application
 			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
-			new ViewMap<TargetsPage, TargetsModel>(new DataMap<Targets>()),
+			new DataViewMap<TargetsPage, TargetsModel, Targets>(),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, RemediateModel>(Data: new DataMap<RemediateParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
@@ -208,7 +209,6 @@ public partial class App : Application
 
 						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueModel>()),
 						new RouteMap("ReportPage", View: views.FindByViewModel<ReportModel>()),
-
 						new RouteMap("Remediate", View: views.FindByViewModel<RemediateModel>()),
 					]),
 					new RouteMap("Notifications", View: views.FindByViewModel<NotificationModel>()),

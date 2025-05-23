@@ -50,7 +50,7 @@
     <utu:AutoLayout>
         <utu:NavigationBar Content="Technique">
             <utu:NavigationBar.PrimaryCommands>
-                <AppBarButton uen:Navigation.Data="{Binding Targets}" uen:Navigation.Request="!Targets">
+                <AppBarButton uen:Navigation.Data="{Binding Overview}" uen:Navigation.Request="!Targets">
                     <AppBarButton.Icon>
                         <PathIcon Data="{StaticResource Icon_Network}" />
                     </AppBarButton.Icon>
@@ -339,18 +339,28 @@
                                                 uen:Navigation.Data="{Binding}"
                                                 uen:Navigation.Request="!Targets"
                                                 Background="Transparent">
-												<StackPanel Orientation="Vertical">
-                                                    <TextBlock
-                                                        Foreground="{ThemeResource OnSurfaceBrush}"
-                                                        Style="{StaticResource TitleSmall}"
-                                                        Text="{Binding Targets.Name}"
-                                                        TextWrapping="Wrap" />
-                                                    <TextBlock
-                                                        Foreground="{ThemeResource OnSurfaceMediumBrush}"
-                                                        Text="{Binding Targets.Description}"
-                                                        TextWrapping="Wrap" />
-                                                </StackPanel>
-                                            </Button>
+												<muxc:ItemsRepeater ItemsSource="{Binding Overviews}">
+													<muxc:ItemsRepeater.Layout>
+														<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+													</muxc:ItemsRepeater.Layout>
+													<muxc:ItemsRepeater.ItemTemplate>
+														<DataTemplate>
+															<Border Background="{ThemeResource SurfaceBrush}" CornerRadius="4">
+																<utu:AutoLayout
+																	Padding="16"
+																	PrimaryAxisAlignment="Center"
+																	Spacing="8">
+																	<TextBlock
+																		Foreground="{ThemeResource OnSurfaceBrush}"
+																		Style="{StaticResource TitleSmall}"
+																		Text="{Binding}"
+																		TextWrapping="Wrap" />
+																</utu:AutoLayout>
+															</Border>
+														</DataTemplate>
+													</muxc:ItemsRepeater.ItemTemplate>
+												</muxc:ItemsRepeater>
+											</Button>
                                         </utu:AutoLayout>
                                     </Border>
                                 </utu:AutoLayout>
