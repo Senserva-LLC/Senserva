@@ -172,7 +172,7 @@ public partial class App : Application
 			new ViewMap<PoliciesPage, PoliciesModel>(Data: new DataMap<Technique>()),
 			new ViewMap<TechniquePage, TechniqueModel>(Data: new DataMap<Technique>()),
 			new ViewMap<ReportingPage, ReportingModel>(Data: new DataMap<Report>()),
-			new ViewMap<ReportPage, ReportModel>(Data: new DataMap<Report>()),
+			new ViewMap<ReportPage, ReportModel>(Data: new DataMap<Technique>()),
 			new ViewMap<CommandsPage, SenservaCommandModel>(Data: new DataMap<SenservaCommand>()),
 			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
