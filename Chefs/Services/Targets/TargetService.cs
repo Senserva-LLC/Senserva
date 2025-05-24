@@ -125,6 +125,7 @@ public class TargetService : ITargetService
 			new(){ IPRanges = [new IPRange("100.100", "my IPRanges", new SenservaCredentionals("bob"))]},
 			new(){ AzureSubscriptions = [new AzureSubscription("s2", "subscription", "id2", new SenservaCredentionals("bob"))]},
 			new(){ Macs = [new Mac("a1", "Use me if you have extra cash", new SenservaCredentionals("bob"))]},
+			new(){ PCs = [new PC("pc1", "I break sooner but cost less. Microsoft is evil.", new SenservaCredentionals("bob"))]},
 			new(){ Linuxcies = [new Linux("a1", "use me if you have extra time", new SenservaCredentionals("bob"))]}
 		};
 		return list;

@@ -57,7 +57,7 @@
                 </AppBarButton>
 				<AppBarButton uen:Navigation.Data="{Binding Technique}" uen:Navigation.Request="!Policies">
 					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Network}" />
+						<PathIcon Data="{StaticResource Icon_Policies}" />
 					</AppBarButton.Icon>
 				</AppBarButton>
 				<AppBarButton Command="{Binding Share}">
