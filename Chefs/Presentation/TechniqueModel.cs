@@ -30,7 +30,7 @@ public partial record TechniqueModel
 
 	public Technique Technique { get; }
 
-	public IListFeed<string> Overviews => ListFeed.Async(async ct => await _targetService.GetOverview(ct));
+	public IListFeed<string> Overviews => ListFeed.Async(async ct => await _targetService.GetOverview(Technique, ct));
 
 	// TODO put in name and type
 	public string Title => $"Technique {Technique.Name} - {Technique.Type} ";

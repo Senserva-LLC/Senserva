@@ -50,7 +50,7 @@
     <utu:AutoLayout>
         <utu:NavigationBar Content="Technique">
             <utu:NavigationBar.PrimaryCommands>
-                <AppBarButton uen:Navigation.Data="{Binding Overview}" uen:Navigation.Request="!Targets">
+				<AppBarButton uen:Navigation.Data="{Binding Technique}" uen:Navigation.Request="!Targets">
                     <AppBarButton.Icon>
                         <PathIcon Data="{StaticResource Icon_Network}" />
                     </AppBarButton.Icon>

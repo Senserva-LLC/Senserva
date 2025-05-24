@@ -18,6 +18,17 @@ public record SecurityControl(string Name, string Description);
 public partial record Technique : ISenservaEntity
 {
 	public Guid Id { get; init; }
+
+	/// <summary>
+	/// target used by specific technique
+	/// </summary>
+	public Guid IdTarget { get; init; }
+
+	/// <summary>
+	/// policy used by specific technique
+	/// </summary>
+	public Guid IdPolicy { get; init; }
+
 	public Guid UserId { get; init; }
 
 	public string? Name { get; init; }
@@ -55,6 +66,7 @@ public partial record Technique : ISenservaEntity
 	public Technique()
 	{
 		Id = Guid.NewGuid();
+		IdTarget = Guid.NewGuid();
 		UserId = Guid.NewGuid();
 		Name = "test";
 		Date = DateTimeOffset.UtcNow;

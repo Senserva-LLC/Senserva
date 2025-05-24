@@ -177,7 +177,7 @@ public partial class App : Application
 			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
-			new DataViewMap<TargetsPage, TargetsModel, Targets>(),
+			new ViewMap<TargetsPage, TargetsModel>(Data: new DataMap<Technique>()),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, RemediateModel>(Data: new DataMap<RemediateParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),

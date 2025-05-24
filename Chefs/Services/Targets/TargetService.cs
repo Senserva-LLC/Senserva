@@ -6,10 +6,10 @@ namespace Siemserva.Services.Target;
 
 public class TargetService : ITargetService
 {
-	public async Task<IImmutableList<string>> GetOverview(CancellationToken ct)
+	public async Task<IImmutableList<string>> GetOverview(Technique technique, CancellationToken ct)
 	{
 		var data = GetFakeData();
-		return GetOverviews(data).ToImmutableList();
+		return GetOverviews(technique, data).ToImmutableList();
 	}
 
 	/// <summary>
@@ -17,7 +17,7 @@ public class TargetService : ITargetService
 	/// TODO will need an ID to grab the right data
 	/// </summary>
 	/// <returns></returns>
-	public IEnumerable<string> GetOverviews(List<Targets> data)
+	public IEnumerable<string> GetOverviews(Technique technique, List<Targets> data)
 	{
 		List<string> overviews = [];
 		var tenants = 0;
@@ -126,7 +126,7 @@ public class TargetService : ITargetService
 		return list;
 	}
 
-	public async Task<IImmutableList<AzureTenant>> GetAzureTenants(CancellationToken ct)
+	public async Task<IImmutableList<AzureTenant>> GetAzureTenants(Technique technique, CancellationToken ct)
 	{
 		var list = new List<AzureTenant>
 		{
@@ -145,7 +145,7 @@ public class TargetService : ITargetService
 
 		return list.ToImmutableList();
 	}
-	public async Task<IImmutableList<AzureSubscription>> GetAzureSubscriptions(CancellationToken ct)
+	public async Task<IImmutableList<AzureSubscription>> GetAzureSubscriptions(Technique technique, CancellationToken ct)
 	{
 		var list = new List<AzureSubscription>
 		{
@@ -165,7 +165,7 @@ public class TargetService : ITargetService
 		return list.ToImmutableList();
 	}
 
-	public async Task<IImmutableList<WindowsDirectory>> GetWindowsDirectories(CancellationToken ct)
+	public async Task<IImmutableList<WindowsDirectory>> GetWindowsDirectories(Technique technique, CancellationToken ct)
 	{
 		var list = new List<WindowsDirectory>
 		{
@@ -182,7 +182,7 @@ public class TargetService : ITargetService
 		}
 		return list.ToImmutableList();
 	}
-	public async Task<IImmutableList<WindowsWorkgroup>> GetWindowsWorkgroups(CancellationToken ct)
+	public async Task<IImmutableList<WindowsWorkgroup>> GetWindowsWorkgroups(Technique technique, CancellationToken ct)
 	{
 		var list = new List<WindowsWorkgroup>
 		{
@@ -199,7 +199,7 @@ public class TargetService : ITargetService
 		}
 		return list.ToImmutableList();
 	}
-	public async Task<IImmutableList<Linux>> GetLinux(CancellationToken ct)
+	public async Task<IImmutableList<Linux>> GetLinux(Technique technique, CancellationToken ct)
 	{
 		var list = new List<Linux>
 		{
@@ -219,7 +219,7 @@ public class TargetService : ITargetService
 		return list.ToImmutableList();
 	}
 
-	public async Task<IImmutableList<Mac>> GetMac(CancellationToken ct)
+	public async Task<IImmutableList<Mac>> GetMac(Technique technique, CancellationToken ct)
 	{
 		var list = new List<Mac>
 		{
@@ -239,7 +239,7 @@ public class TargetService : ITargetService
 		return list.ToImmutableList();
 	}
 
-	public async Task<IImmutableList<IPRange>> GetIpRanges(CancellationToken ct)
+	public async Task<IImmutableList<IPRange>> GetIpRanges(Technique technique, CancellationToken ct)
 	{
 		var list = new List<IPRange>
 		{
