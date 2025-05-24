@@ -306,4 +306,10 @@
 	  </Page>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Page Update="Views\Controls\BasicNav.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
 </Project>

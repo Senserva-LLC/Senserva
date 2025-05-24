@@ -11,6 +11,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:utu="using:Uno.Toolkit.UI"
 	xmlns:ut="using:Uno.Themes"
+    xmlns:senserva="using:Siemserva.Views.Controls"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -57,35 +58,7 @@
 	</Page.Resources>
 
 	<utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
-		<utu:NavigationBar Height="22" x:Name="NavBar" Style="{StaticResource ChefsNavigationBarStyle}">
-			<utu:NavigationBar.Content>
-				<Grid>
-					<Image
-                        Width="128"
-                        Height="20"
-                        HorizontalAlignment="Left"
-                        Source="{ThemeResource ChefsAppSignature}" />
-				</Grid>
-			</utu:NavigationBar.Content>
-			<utu:NavigationBar.PrimaryCommands>
-				<AppBarButton uen:Navigation.Request="!Targets">
-					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Network}" />
-					</AppBarButton.Icon>
-				</AppBarButton>
-				<AppBarButton uen:Navigation.Request="!Notifications">
-					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Notification_Bell}" />
-					</AppBarButton.Icon>
-				</AppBarButton>
-				<AppBarButton uen:Navigation.Request="!Settings">
-					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Settings}" />
-					</AppBarButton.Icon>
-				</AppBarButton>
-			</utu:NavigationBar.PrimaryCommands>
-		</utu:NavigationBar>
-
+		<senserva:BasicNav></senserva:BasicNav>
 		<ScrollViewer utu:AutoLayout.PrimaryAlignment="Stretch">
 			<utu:AutoLayout Padding="0,0,0,16">
 

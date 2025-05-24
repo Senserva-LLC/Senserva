@@ -13,6 +13,7 @@
     xmlns:uer="using:Uno.Extensions.Reactive.UI"
     xmlns:ut="using:Uno.Themes"
     xmlns:utu="using:Uno.Toolkit.UI"
+    xmlns:senserva="using:Siemserva.Views.Controls"
     utu:StatusBar.Background="{ThemeResource SurfaceInverseBrush}"
     utu:StatusBar.Foreground="AutoInverse"
     Background="{ThemeResource BackgroundBrush}"
@@ -88,30 +89,7 @@
     </Page.Resources>
 
     <utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
-
-        <utu:NavigationBar>
-            <utu:NavigationBar.Content>
-                <Grid>
-                    <Image
-                        Width="128"
-                        Height="40"
-                        HorizontalAlignment="Left"
-                        Source="{ThemeResource ChefsAppSignature}" />
-                </Grid>
-            </utu:NavigationBar.Content>
-            <utu:NavigationBar.PrimaryCommands>
-                <AppBarButton uen:Navigation.Request="!Notifications">
-                    <AppBarButton.Icon>
-                        <PathIcon Data="{StaticResource Icon_Notification_Bell}" />
-                    </AppBarButton.Icon>
-                </AppBarButton>
-				<AppBarButton uen:Navigation.Request="!Settings">
-					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Settings}" />
-					</AppBarButton.Icon>
-				</AppBarButton>
-			</utu:NavigationBar.PrimaryCommands>
-        </utu:NavigationBar>
+		<senserva:BasicNav></senserva:BasicNav>
 
         <utu:AutoLayout
             Padding="{utu:Responsive Normal='16,24',
