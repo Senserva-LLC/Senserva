@@ -42,39 +42,19 @@
 
 		<DataTemplate x:Key="EmptyTemplate">
 			<utu:AutoLayout
-                Padding="32,0"
+                Padding="8,0"
                 CounterAxisAlignment="Center"
                 PrimaryAxisAlignment="Center"
-                Spacing="24">
+                Spacing="8">
 				<BitmapIcon
                     Width="72"
                     Height="70"
                     UriSource="{ThemeResource Empty_Notification}" />
 				<TextBlock
                     Foreground="{ThemeResource OnSurfaceBrush}"
-                    Style="{StaticResource TitleLarge}"
                     Text="No Targets Yet"
                     TextAlignment="Center"
                     TextWrapping="Wrap" />
-				<TextBlock
-                    Foreground="{ThemeResource OnSurfaceBrush}"
-                    Style="{StaticResource TitleMedium}"
-                    Text="Targets will appear here."
-                    TextAlignment="Center"
-                    TextWrapping="Wrap" />
-				<Button
-                    Padding="16,10,24,10"
-                    HorizontalContentAlignment="Center"
-                    VerticalContentAlignment="Center"
-                    uen:Navigation.Request="-"
-                    Content="Close"
-                    CornerRadius="4"
-                    Foreground="{ThemeResource OnSecondaryContainerBrush}"
-                    Style="{StaticResource FilledTonalButtonStyle}">
-					<ut:ControlExtensions.Icon>
-						<PathIcon Data="{StaticResource Icon_Close}" Foreground="{ThemeResource OnSecondaryContainerBrush}" />
-					</ut:ControlExtensions.Icon>
-				</Button>
 			</utu:AutoLayout>
 		</DataTemplate>
 
@@ -121,12 +101,8 @@
                     Content="All"
                     IsSelected="True" />
 				<utu:TabBarItem
-                    uen:Region.Name="AzureSubscriptionsTab"
-                    Content="Subscriptions"
-                    Foreground="{ThemeResource OnSurfaceMediumBrush}" />
-				<utu:TabBarItem
-                    uen:Region.Name="AzureTenantsTab"
-                    Content="Tenants"
+                    uen:Region.Name="CloudTab"
+                    Content="Cloud"
                     Foreground="{ThemeResource OnSurfaceMediumBrush}" />
 				<utu:TabBarItem
                     uen:Region.Name="WindowsTab"
@@ -182,7 +158,7 @@
                         Padding="0,16"
                         HorizontalAlignment="Center"
                         uen:Region.Name="CloudTab"
-                        ColumnDefinitions="250, 250"
+                        ColumnDefinitions="*, *"
                         RowDefinitions="Auto, *"
                         Visibility="Collapsed">
 						<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
@@ -241,7 +217,7 @@
 					<Grid
                         Padding="0,16"
                         uen:Region.Name="WindowsTab"
-                        ColumnDefinitions="250, 250, 250"
+                        ColumnDefinitions="*, *, *"
                         RowDefinitions="*, *, *"
                         Visibility="Collapsed">
 						<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
