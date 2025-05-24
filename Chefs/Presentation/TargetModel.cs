@@ -22,6 +22,8 @@ public partial record TargetsModel
 
 	public IListFeed<string> Overviews => ListFeed.Async(async ct => await _service.GetOverview(_technique, ct));
 
+	public IListFeed<Policy> Policies => ListFeed.Async(async ct => await _service.GetPolicies(_technique, ct));
+
 	//public IListFeed<AzureTenant> TEST => Profile
 	//	.SelectAsync(async (user, ct) => await _service.GetByUser(user.Id, ct))
 	//	.AsListFeed();

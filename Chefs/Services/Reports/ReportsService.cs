@@ -72,7 +72,7 @@ public class ReportsService(
 	public async Task<IImmutableList<Report>> GetRecent(CancellationToken ct)
 	{
 		return await GetReportsAsync();
-		//	return recipesData?.Select(r => new Technique(r)).OrderByDescending(x => x.Date).Take(7).ToImmutableList() ?? ImmutableList<Technique>.Empty;
+		//	return recipesData?.Select(r => new Technique(r)).OrderByDescending(x => x.Created).Take(7).ToImmutableList() ?? ImmutableList<Technique>.Empty;
 	}
 
 	public async Task<IImmutableList<Report>> GetTrending(CancellationToken ct)

@@ -169,7 +169,7 @@ public partial class App : Application
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationModel>(),
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
-			new ViewMap<PoliciesPage, PoliciesModel>(Data: new DataMap<Policy>()),
+			new ViewMap<PoliciesPage, PoliciesModel>(Data: new DataMap<Technique>()),
 			new ViewMap<TechniquePage, TechniqueModel>(Data: new DataMap<Technique>()),
 			new ViewMap<ReportingPage, ReportingModel>(Data: new DataMap<Report>()),
 			new ViewMap<ReportPage, ReportModel>(Data: new DataMap<Report>()),

@@ -1,11 +1,15 @@
-﻿
-using Siemserva.Business.Models;
-using Windows.Graphics.Display;
+﻿using Siemserva.Business.Models;
 
 namespace Siemserva.Services.Target;
 
 public class TargetService : ITargetService
 {
+
+	public async Task<IImmutableList<Policy>> GetPolicies(Technique technique, CancellationToken ct)
+	{
+		return new List<Policy>() { new Policy() }.ToImmutableList();
+	}
+
 	public async Task<IImmutableList<string>> GetOverview(Technique technique, CancellationToken ct)
 	{
 		var data = GetFakeData();
@@ -116,10 +120,10 @@ public class TargetService : ITargetService
 			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
 			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
 			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ Tenants = [new AzureTenant("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ AzureSubscriptions = [new AzureSubscription("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ IPRanges = [new IPRange("100.100", "my Windows AD", new SenservaCredentionals("bob"))]},
-			new(){ AzureSubscriptions = [new AzureSubscription("a1", "use me if you have extra cash and time", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Tenants = [new AzureTenant("t1", "my tenant", "id1", new SenservaCredentionals("bob"))]},
+			new(){ AzureSubscriptions = [new AzureSubscription("s1", "my subscription", "id1", new SenservaCredentionals("bob"))]},
+			new(){ IPRanges = [new IPRange("100.100", "my IPRanges", new SenservaCredentionals("bob"))]},
+			new(){ AzureSubscriptions = [new AzureSubscription("s2", "subscription", "id2", new SenservaCredentionals("bob"))]},
 			new(){ Macs = [new Mac("a1", "Use me if you have extra cash", new SenservaCredentionals("bob"))]},
 			new(){ Linuxcies = [new Linux("a1", "use me if you have extra time", new SenservaCredentionals("bob"))]}
 		};
