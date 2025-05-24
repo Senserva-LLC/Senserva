@@ -28,18 +28,27 @@ public partial class App : Application
 #if __IOS__ && !__MACCATALYST__ && USE_UITESTS
 		Xamarin.Calabash.Start();
 #endif
-
 		var builder = this.CreateBuilder(args);
+			//TODO.Configure(host => {
+			//TODO	host
+			//TODO.UseSerilog();
+			//TODO});
 		ConfigureAppBuilder(builder);
 		MainWindow = builder.Window;
 
 #if DEBUG
 		MainWindow.UseStudio();
 #endif
-
-		Host = await builder.NavigateAsync<ShellControl>();
-		Shell = MainWindow.Content as ShellControl;
-		await InitializeUserSettings();
+		try
+		{
+			Host = await builder.NavigateAsync<ShellControl>();
+			Shell = MainWindow.Content as ShellControl;
+			await InitializeUserSettings();
+		}
+		catch (Exception ex)
+		{
+			var test = ex;
+		}
 	}
 
 	private async Task InitializeUserSettings()
