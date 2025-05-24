@@ -10,6 +10,7 @@
     xmlns:uer="using:Uno.Extensions.Reactive.UI"
     xmlns:ut="using:Uno.Themes"
     xmlns:utu="using:Uno.Toolkit.UI"
+	xmlns:toolkit="using:Uno.UI.Toolkit"
     utu:StatusBar.Background="{ThemeResource SurfaceInverseBrush}"
     utu:StatusBar.Foreground="AutoInverse"
     Background="{ThemeResource BackgroundBrush}"
@@ -17,36 +18,39 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="HomeLargeItemTemplate">
-            <utu:CardContentControl
-                Width="250"
+			<utu:ShadowContainer Background="White" CornerRadius="4" >
+			<utu:ShadowContainer.Shadows>
+				<utu:ShadowCollection>
+					<utu:Shadow BlurRadius="10" OffsetX="5" OffsetY="5" Opacity="0.5" Color="LightGray" />
+				</utu:ShadowCollection>
+			</utu:ShadowContainer.Shadows>
+				<utu:CardContentControl
                 Margin="0"
                 CornerRadius="4"
                 Style="{StaticResource ElevatedCardContentControlStyle}"
-			Elevation="15"
-
 				>
-                <utu:AutoLayout
+					<utu:AutoLayout
                     HorizontalAlignment="Stretch"
                     Background="{ThemeResource SurfaceBrush}"
                     CornerRadius="4"
                     PrimaryAxisAlignment="Center">
-                    <Grid
+						<Grid
                         Height="256"
                         Margin="{utu:Responsive Normal=16, Wide=40}"
                         Padding="{utu:Responsive Normal=16, Wide=24}"
                         Background="{ThemeResource SurfaceBrush}"
                         CornerRadius="24"
                         RowSpacing="{utu:Responsive Normal=5, Wide=24}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <TextBlock
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<TextBlock
                             Foreground="{ThemeResource OnBackgroundBrush}"
                             Style="{StaticResource TitleLarge}"
                             Text="Intake"
                             TextAlignment="Center" />
-                        <ctrl:ChartControl
+							<ctrl:ChartControl
                             Grid.Row="1"
                             DataContext="{Binding}"
                             DataLabelBrush="{ThemeResource NutritionDataLabelBrush}"
@@ -54,41 +58,43 @@
                             DeviceRiskBrush="{ThemeResource DeviceRiskValBrush}"
                             TrackBackgroundBrush="{ThemeResource NutritionTrackBackgroundBrush}"
                             UserRiskBrush="{ThemeResource UserRiskValBrush}" />
-                    </Grid>
-                    <utu:AutoLayout
+						</Grid>
+						<utu:AutoLayout
                         Padding="16"
                         Justify="SpaceBetween"
                         Orientation="Horizontal"
                         Spacing="16">
-                        <utu:AutoLayout Spacing="4">
-                            <TextBlock
+							<utu:AutoLayout Spacing="4">
+								<TextBlock
                                 Foreground="{ThemeResource OnSurfaceBrush}"
                                 Style="{StaticResource TitleSmall}"
                                 Text="{Binding Name}"
                                 TextWrapping="Wrap" />
-                            <TextBlock
+								<TextBlock
                                 Foreground="{ThemeResource OnSurfaceMediumBrush}"
                                 Style="{StaticResource CaptionMedium}"
                                 Text="{Binding TimeCal}"
                                 TextWrapping="Wrap" />
-                        </utu:AutoLayout>
-                        <ToggleButton
+							</utu:AutoLayout>
+							<ToggleButton
                             Command="{utu:AncestorBinding AncestorType=uer:FeedView,
                                                           Path=DataContext.FavoriteTechnique}"
                             CommandParameter="{Binding}"
                             IsChecked="{Binding IsFavorite}"
                             Style="{StaticResource IconToggleButtonStyle}">
-                            <ToggleButton.Content>
-                                <PathIcon Data="{StaticResource Icon_Heart}" Foreground="{ThemeResource OnSurfaceBrush}" />
-                            </ToggleButton.Content>
-                            <ut:ControlExtensions.AlternateContent>
-                                <PathIcon Data="{StaticResource Icon_Heart_Filled}" Foreground="{ThemeResource PrimaryBrush}" />
-                            </ut:ControlExtensions.AlternateContent>
-                        </ToggleButton>
-                    </utu:AutoLayout>
-                </utu:AutoLayout>
-            </utu:CardContentControl>
-        </DataTemplate>
+								<ToggleButton.Content>
+									<PathIcon Data="{StaticResource Icon_Heart}" Foreground="{ThemeResource OnSurfaceBrush}" />
+								</ToggleButton.Content>
+								<ut:ControlExtensions.AlternateContent>
+									<PathIcon Data="{StaticResource Icon_Heart_Filled}" Foreground="{ThemeResource PrimaryBrush}" />
+								</ut:ControlExtensions.AlternateContent>
+							</ToggleButton>
+						</utu:AutoLayout>
+					</utu:AutoLayout>
+				</utu:CardContentControl>
+			</utu:ShadowContainer>
+
+		</DataTemplate>
     </Page.Resources>
 
     <utu:AutoLayout utu:AutoLayout.PrimaryAlignment="Stretch">
@@ -307,7 +313,7 @@
                                 </muxc:ItemsRepeater.Layout>
                                 <muxc:ItemsRepeater.ItemTemplate>
                                     <DataTemplate>
-										<utu:CardContentControl Margin="0" 
+										<utu:CardContentControl Margin="0"
 																Style="{StaticResource ElevatedCardContentControlStyle}"
 >
                                             <utu:AutoLayout

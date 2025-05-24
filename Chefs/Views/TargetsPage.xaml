@@ -81,7 +81,6 @@
 		</DataTemplate>
 
 	</Page.Resources>
-
 	<utu:AutoLayout PrimaryAxisAlignment="Stretch">
 		<utu:NavigationBar
             utu:AutoLayout.PrimaryAlignment="Auto"

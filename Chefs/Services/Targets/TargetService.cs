@@ -28,6 +28,7 @@ public class TargetService : ITargetService
 		var domains = 0;
 		var workGroups = 0;
 		var mac = 0;
+		var pc = 0;
 		var subscriptions = 0;
 		var linux = 0;
 		var ipRange = 0;
@@ -50,6 +51,10 @@ public class TargetService : ITargetService
 			{
 				++subscriptions;
 			}
+			if (item.PCs.Count > 0)
+			{
+				++pc;
+			}
 			if (item.Macs.Count > 0)
 			{
 				++mac;
@@ -67,21 +72,25 @@ public class TargetService : ITargetService
 		{
 			overviews.Add($"Azure Tenants: {tenants}");
 		}
-		if (domains > 0)
-		{
-			overviews.Add($"Domains: {domains}");
-		}
-		if (workGroups > 0)
-		{
-			overviews.Add($"WorkGroups: {workGroups}");
-		}
 		if (subscriptions > 0)
 		{
 			overviews.Add($"Azure Subscriptions: {subscriptions}");
 		}
+		if (domains > 0)
+		{
+			overviews.Add($"Windows Domains: {domains}");
+		}
+		if (workGroups > 0)
+		{
+			overviews.Add($"Windows WorkGroups: {workGroups}");
+		}
+		if (pc > 0)
+		{
+			overviews.Add($"PC(s): {pc}");
+		}
 		if (mac > 0)
 		{
-			overviews.Add($"Macs: {mac}");
+			overviews.Add($"Mac(s): {mac}");
 		}
 		if (linux > 0)
 		{
@@ -89,8 +98,9 @@ public class TargetService : ITargetService
 		}
 		if (ipRange > 0)
 		{
-			overviews.Add($"IP Ranges: {ipRange}");
+			overviews.Add($"IP Range(s): {ipRange}");
 		}
+
 		return overviews;
 	}
 
