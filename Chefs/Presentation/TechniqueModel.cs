@@ -1,4 +1,5 @@
 
+using LiveChartsCore;
 using Siemserva.Business.Models;
 using Siemserva.Services.Target;
 
@@ -29,6 +30,8 @@ public partial record TechniqueModel
 	}
 
 	public Technique Technique { get; }
+
+	public ISeries[] PieData => Technique.PieData;
 
 	public IListFeed<string> Overviews => ListFeed.Async(async ct => await _targetService.GetOverview(Technique, ct));
 

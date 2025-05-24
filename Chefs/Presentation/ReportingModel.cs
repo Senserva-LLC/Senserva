@@ -27,6 +27,7 @@ public partial record ReportingModel
 
 	public Report Report { get; }
 
+
 	public IListState<Report> TrendingReports => ListState
 	.Async(this, async ct => await _service.GetTrending(ct))
 	.Observe(_messenger, r => r.Id);

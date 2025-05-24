@@ -1,5 +1,9 @@
 
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore;
 using Siemserva.Business.Models;
+using LiveChartsCore.SkiaSharpView.Extensions;
 
 namespace Simeserva.Business.Models;
 
@@ -32,6 +36,7 @@ public partial record Technique : ISenservaEntity
 	public Guid UserId { get; init; }
 
 	public string? Name { get; init; }
+	public string? Fake { get; init; } = "Bob's your uncle";
 	public TechniqueType Type { get; init; } = TechniqueType.Remediation;
 	public Targets Targets { get; init; } = new Targets();
 
@@ -68,7 +73,7 @@ public partial record Technique : ISenservaEntity
 		Id = Guid.NewGuid();
 		IdTarget = Guid.NewGuid();
 		UserId = Guid.NewGuid();
-		Name = "test";
+		Name = "test Technique";
 		Date = DateTimeOffset.UtcNow;
 		Risk = OverallRisk.High;
 		Risks = new Risks();
@@ -92,5 +97,32 @@ public partial record Technique : ISenservaEntity
 				: $"{EstimateTime:%m} mins • {Risk}";
 		}
 	}
+	public IEnumerable<ISeries> Series { get; set; } =
+   new[] { 2, 4, 1, 4, 3 }.AsPieSeries();
+
+	public ISeries[] PieData =>
+	new ISeries[]
+	{
+			new PieSeries<int>
+			{
+				Values = new []{ 5 },
+				Fill = new SolidColorPaint(0xFF00FF00),
+				InnerRadius = 60,
+			},
+			new PieSeries<int>
+			{
+				Values = new []{ 5 },
+				Fill = new SolidColorPaint(0xFF0000FF),
+				InnerRadius = 60,
+			},
+			new PieSeries<int>
+			{
+				Values = new []{ 5 },
+				Fill = new SolidColorPaint(0xFFFF0000),
+				InnerRadius = 60,
+			}
+	};
+
+
 
 }

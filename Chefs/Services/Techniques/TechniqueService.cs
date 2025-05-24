@@ -1,4 +1,8 @@
 
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView;
+
 namespace Simeserva.Services.Techniques;
 
 public class TechniqueService(
@@ -8,6 +12,37 @@ public class TechniqueService(
 	: ITechniqueService
 {
 	private int _lastTextLength;
+
+	/// <summary>
+	/// TODO need to pass in an A Technique to get this data
+	/// </summary>
+	/// <param name="ct"></param>
+	/// <returns></returns>
+	public ISeries[] GetPieData(Technique technique, CancellationToken ct)
+	{
+		return
+			new ISeries[]
+			{
+			new PieSeries<int>
+			{
+				Values = new []{ 5 },
+				Fill = new SolidColorPaint(0xFF00FF00),
+				InnerRadius = 60,
+			},
+			new PieSeries<int>
+			{
+				Values = new []{ 5 },
+				Fill = new SolidColorPaint(0xFF0000FF),
+				InnerRadius = 60,
+			},
+			new PieSeries<int>
+			{
+				Values = new []{ 5 },
+				Fill = new SolidColorPaint(0xFFFF0000),
+				InnerRadius = 60,
+			}
+		};
+	}
 
 	public async Task<IImmutableList<Technique>> GetTechniquesAsync()
 	{

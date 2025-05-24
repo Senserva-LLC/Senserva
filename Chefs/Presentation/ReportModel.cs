@@ -18,4 +18,5 @@ public partial record ReportModel
 		_service = recipeService;
 		_messenger = messenger;
 	}
+
 }

@@ -1,3 +1,5 @@
+using LiveChartsCore;
+
 namespace Simeserva.Services.Techniques;
 
 /// <summary>
@@ -5,6 +7,8 @@ namespace Simeserva.Services.Techniques;
 /// </summary>
 public interface ITechniqueService
 {
+	public ISeries[] GetPieData(Technique technique, CancellationToken ct);
+
 	/// <summary>
 	/// Techniques method
 	/// </summary>
