@@ -22,7 +22,7 @@
 				<utu:NavigationBar.PrimaryCommands>
 					<AppBarButton Command="{Binding Share}">
 						<AppBarButton.Icon>
-							<PathIcon Data="{StaticResource Icon_Export}" Foreground="Lime" />
+							<PathIcon Data="{StaticResource Icon_Export}" Foreground="Orange" />
 						</AppBarButton.Icon>
 					</AppBarButton>
 					<AppBarButton Command="{Binding Favorite}">
@@ -63,6 +63,10 @@
                                              Foreground="{ThemeResource OnSurfaceBrush}"
                                              Style="{StaticResource TitleMedium}"
                                              Text="{Binding Name}" />
+										<TextBlock
+                                             Foreground="{ThemeResource OnSurfaceBrush}"
+                                             Style="{StaticResource TitleMedium}"
+                                             Text="{Binding Description}" />
 									</utu:AutoLayout>
 								</utu:AutoLayout>
 							</DataTemplate>

@@ -1,7 +1,10 @@
-using Siemserva.Business.Models;
-using Siemserva.Services.Target;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore;
 using Simeserva.Services.LiveData;
-using Simeserva.Services.Reports;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.SkiaSharpView.Extensions;
+using LiveChartsCore.SkiaSharpView.VisualElements;
+using SkiaSharp;
 
 namespace Simeserva.Presentation;
 
@@ -9,24 +12,22 @@ public partial record HomeModel
 {
 	private readonly INavigator _navigator;
 	private readonly ITechniqueService _techniqueService;
-	private readonly IReportsService _reportService;
 	private readonly IUserService _userService;
-	private readonly ITargetService _targetService;
 	private readonly IMessenger _messenger;
 	private readonly ILiveDataService _liveDataService;
 
-	public HomeModel(INavigator navigator, IReportsService reports, ITechniqueService techniques, IUserService userService, IMessenger messenger, ILiveDataService liveData, ITargetService target)
+	public HomeModel(INavigator navigator, ITechniqueService techniques, IUserService userService, IMessenger messenger, ILiveDataService liveData)
 	{
 		_navigator = navigator;
-		_reportService = reports;
 		_techniqueService = techniques;
 		_userService = userService;
 		_messenger = messenger;
 		_liveDataService = liveData;
-		_targetService = target;
+
 	}
 
-
+	public IEnumerable<ISeries> Series { get; set; } =
+	   new[] { 2, 4, 1, 4, 3 }.AsPieSeries();
 
 	public IListState<Technique> TrendingTechniques => ListState
 		.Async(this, async ct => await _techniqueService.GetTrending(ct))

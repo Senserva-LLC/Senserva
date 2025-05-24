@@ -22,6 +22,8 @@ public partial record TargetsModel
 
 	public IListFeed<string> Overviews => ListFeed.Async(async ct => await _service.GetOverview(_technique, ct));
 
+	public IListFeed<Policy> Policies => ListFeed.Async(async ct => await _service.GetPolicies(_technique, ct));
+
 	//public IListFeed<AzureTenant> TEST => Profile
 	//	.SelectAsync(async (user, ct) => await _service.GetByUser(user.Id, ct))
 	//	.AsListFeed();
@@ -31,6 +33,10 @@ public partial record TargetsModel
 	public IListFeed<AzureSubscription> AzureSubscriptions => ListFeed.Async(async ct => await _service.GetAzureSubscriptions(_technique, ct));
 
 	public IListFeed<WindowsDirectory> Domains => ListFeed.Async(async ct => await _service.GetWindowsDirectories(_technique, ct));
+
+	public IListFeed<WindowsWorkgroup> Workgroups => ListFeed.Async(async ct => await _service.GetWindowsWorkgroups(_technique, ct));
+
+	public IListFeed<PC> PCs => ListFeed.Async(async ct => await _service.GetPC(_technique, ct));
 
 	public IListFeed<Mac> Mac => ListFeed.Async(async ct => await _service.GetMac(_technique, ct));
 

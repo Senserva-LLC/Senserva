@@ -8,7 +8,6 @@ global using System.Threading.Tasks;
 global using System.Windows.Input;
 global using Simeserva.Business.Models;
 global using Simeserva.Presentation;
-global using Simeserva.Services.Cookbooks;
 global using Simeserva.Services.Notifications;
 global using Simeserva.Services.Techniques;
 global using Simeserva.Services.Users;

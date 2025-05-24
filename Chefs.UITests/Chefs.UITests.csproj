@@ -25,4 +25,8 @@
 		<PackageReference Include="NunitXml.TestLogger" VersionOverride="3.1.15" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Chefs\Siemserva.csproj" />
+	</ItemGroup>
+
 </Project>

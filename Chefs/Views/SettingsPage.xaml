@@ -29,45 +29,6 @@
                         utu:AutoLayout.CounterAlignment="Start"
                         Foreground="{ThemeResource OnBackgroundBrush}"
                         Style="{StaticResource BodyLarge}"
-                        Text="Personal Information" />
-                    <utu:AutoLayout
-                        Padding="16"
-                        Background="{ThemeResource SurfaceBrush}"
-                        CornerRadius="8"
-                        Spacing="16">
-                        <TextBox
-                            PlaceholderText="Name"
-                            Style="{StaticResource ChefsPrimaryTextBoxStyle}"
-                            Text="{Binding Profile.FullName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                            <ut:ControlExtensions.Icon>
-                                <PathIcon Data="{StaticResource Icon_Person_Outline}" Foreground="{ThemeResource PrimaryBrush}" />
-                            </ut:ControlExtensions.Icon>
-                        </TextBox>
-                        <TextBox
-                            PlaceholderText="Email"
-                            Style="{StaticResource ChefsPrimaryTextBoxStyle}"
-                            Text="{Binding Profile.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-                            <ut:ControlExtensions.Icon>
-                                <PathIcon Data="{StaticResource Icon_Mail_Outline}" Foreground="{ThemeResource PrimaryBrush}" />
-                            </ut:ControlExtensions.Icon>
-                        </TextBox>
-                        <TextBox
-                            PlaceholderText="Mobile Number"
-                            Style="{StaticResource ChefsPrimaryTextBoxStyle}"
-                            Text="{Binding Profile.PhoneNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                            TextChanging="TextBox_TextChanging">
-                            <ut:ControlExtensions.Icon>
-                                <PathIcon Data="{StaticResource Icon_Phone_Iphone}" Foreground="{ThemeResource PrimaryBrush}" />
-                            </ut:ControlExtensions.Icon>
-                        </TextBox>
-                    </utu:AutoLayout>
-                </utu:AutoLayout>
-                <utu:AutoLayout>
-                    <TextBlock
-                        Padding="8"
-                        utu:AutoLayout.CounterAlignment="Start"
-                        Foreground="{ThemeResource OnBackgroundBrush}"
-                        Style="{StaticResource BodyLarge}"
                         Text="Application settings " />
                     <utu:AutoLayout
                         Padding="16"

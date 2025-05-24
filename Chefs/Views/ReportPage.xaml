@@ -7,26 +7,47 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:uen="using:Uno.Extensions.Navigation.UI"
 	xmlns:utu="using:Uno.Toolkit.UI"
+	xmlns:toolkit="using:Uno.UI.Toolkit"
+    xmlns:uer="using:Uno.Extensions.Reactive.UI"
+    xmlns:ut="using:Uno.Themes"
+	xmlns:ctrl="using:Simeserva.Views.Controls"
+	xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+	xmlns:converters="using:Simeserva.Converters"
+	xmlns:senserva="using:Siemserva.Views.Controls"
 	NavigationCacheMode="Enabled"
 	HorizontalAlignment="Stretch"
 	VerticalAlignment="Stretch"
 	mc:Ignorable="d"
 	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-	<utu:AutoLayout>
-		<utu:NavigationBar Height="22" Content="Report">
-			<utu:NavigationBar.PrimaryCommands>
-				<AppBarButton Command="{Binding Share}">
-					<AppBarButton.Icon>
-						<PathIcon Data="{StaticResource Icon_Export}" Foreground="Lime" />
-					</AppBarButton.Icon>
-				</AppBarButton>
-				<AppBarButton Command="{Binding Favorite}">
-					<AppBarButton.Icon>
-						<PathIcon Data="{Binding IsFavorited, Converter={StaticResource BoolToHeartIconConverter}, FallbackValue={StaticResource Icon_Heart}, TargetNullValue={StaticResource Icon_Heart}}" />
-					</AppBarButton.Icon>
-				</AppBarButton>
-			</utu:NavigationBar.PrimaryCommands>
-		</utu:NavigationBar>
-	</utu:AutoLayout>
+	<Page.Resources>
+		<converters:BoolToObjectConverter
+          x:Key="BoolToHeartIconConverter"
+          FalseValue="{StaticResource Icon_Heart}"
+          TrueValue="{StaticResource Icon_Heart_Filled}" />
+
+		<DataTemplate x:Key="EmptyTemplate">
+			<utu:AutoLayout
+              Padding="{utu:Responsive Normal='16,24',  Wide='40'}"
+              PrimaryAxisAlignment="Center"
+              Spacing="24">
+				<BitmapIcon
+                  Width="72"
+                  Height="72"
+                  utu:AutoLayout.CounterAlignment="Center"
+                  UriSource="{ThemeResource Empty_Technique}" />
+				<TextBlock
+                  Foreground="{ThemeResource OnSurfaceBrush}"
+                  Style="{StaticResource TitleLarge}"
+                  Text="No Data Yet"
+                  TextAlignment="Center"
+                  TextWrapping="Wrap" />
+			</utu:AutoLayout>
+		</DataTemplate>
+	</Page.Resources>
+
+	<StackPanel Orientation="Vertical">
+		<senserva:TechniqueControl></senserva:TechniqueControl>
+	</StackPanel>
+
 </Page>

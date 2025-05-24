@@ -96,7 +96,6 @@ public partial class App : Application
 				.ConfigureServices((context, services) =>
 				{
 					services
-						.AddSingleton<ICookbookService, CookbookService>()
 						.AddSingleton<IMessenger, WeakReferenceMessenger>()
 						.AddSingleton<INotificationService, NotificationService>()
 						.AddSingleton<ITechniqueService, TechniqueService>()
@@ -163,16 +162,16 @@ public partial class App : Application
 			new ViewMap(ViewModel: typeof(ShellModel)),
 			new ViewMap<MainPage, MainModel>(),
 			new ViewMap<WelcomePage, WelcomeModel>(),
+			new ViewMap<HomePage, HomeModel>(), 
 			new DataViewMap<FiltersPage, FilterModel, SearchFilter>(),
-			new ViewMap<HomePage, HomeModel>(), new DataViewMap<CreateUpdateCookbookPage, CreateUpdateCookbookModel, Cookbook>(),
 			new ViewMap<LoginPage, LoginModel>(ResultData: typeof(Credentials)),
 			new ViewMap<RegistrationPage, RegistrationModel>(),
 			new ViewMap<NotificationsPage, NotificationModel>(),
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
-			new ViewMap<PoliciesPage, PoliciesModel>(Data: new DataMap<Policy>()),
+			new ViewMap<PoliciesPage, PoliciesModel>(Data: new DataMap<Technique>()),
 			new ViewMap<TechniquePage, TechniqueModel>(Data: new DataMap<Technique>()),
 			new ViewMap<ReportingPage, ReportingModel>(Data: new DataMap<Report>()),
-			new ViewMap<ReportPage, ReportModel>(Data: new DataMap<Report>()),
+			new ViewMap<ReportPage, ReportModel>(Data: new DataMap<Technique>()),
 			new ViewMap<CommandsPage, SenservaCommandModel>(Data: new DataMap<SenservaCommand>()),
 			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
@@ -180,7 +179,6 @@ public partial class App : Application
 			new ViewMap<TargetsPage, TargetsModel>(Data: new DataMap<Technique>()),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
 			new ViewMap<LiveCookingPage, RemediateModel>(Data: new DataMap<RemediateParameter>()),
-			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
 			new ViewMap<CompletedDialog>(),
 			new ViewMap<GenericDialog, GenericDialogModel>(Data: new DataMap<DialogInfo>())
 		);
@@ -202,10 +200,6 @@ public partial class App : Application
 						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
 						new RouteMap("FavoriteTechniques", View: views.FindByViewModel<FavoriteTechniquesModel>()),
 						#endregion
-
-						new RouteMap("CookbookDetails", View: views.FindByViewModel<CookbookDetailModel>()),
-						new RouteMap("UpdateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
-						new RouteMap("CreateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 
 						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueModel>()),
 						new RouteMap("ReportPage", View: views.FindByViewModel<ReportModel>()),

@@ -1,11 +1,15 @@
-﻿
-using Siemserva.Business.Models;
-using Windows.Graphics.Display;
+﻿using Siemserva.Business.Models;
 
 namespace Siemserva.Services.Target;
 
 public class TargetService : ITargetService
 {
+
+	public async Task<IImmutableList<Policy>> GetPolicies(Technique technique, CancellationToken ct)
+	{
+		return new List<Policy>() { new Policy() }.ToImmutableList();
+	}
+
 	public async Task<IImmutableList<string>> GetOverview(Technique technique, CancellationToken ct)
 	{
 		var data = GetFakeData();
@@ -24,6 +28,7 @@ public class TargetService : ITargetService
 		var domains = 0;
 		var workGroups = 0;
 		var mac = 0;
+		var pc = 0;
 		var subscriptions = 0;
 		var linux = 0;
 		var ipRange = 0;
@@ -46,6 +51,10 @@ public class TargetService : ITargetService
 			{
 				++subscriptions;
 			}
+			if (item.PCs.Count > 0)
+			{
+				++pc;
+			}
 			if (item.Macs.Count > 0)
 			{
 				++mac;
@@ -63,21 +72,25 @@ public class TargetService : ITargetService
 		{
 			overviews.Add($"Azure Tenants: {tenants}");
 		}
-		if (domains > 0)
-		{
-			overviews.Add($"Domains: {domains}");
-		}
-		if (workGroups > 0)
-		{
-			overviews.Add($"WorkGroups: {workGroups}");
-		}
 		if (subscriptions > 0)
 		{
 			overviews.Add($"Azure Subscriptions: {subscriptions}");
 		}
+		if (domains > 0)
+		{
+			overviews.Add($"Windows Domains: {domains}");
+		}
+		if (workGroups > 0)
+		{
+			overviews.Add($"Windows WorkGroups: {workGroups}");
+		}
+		if (pc > 0)
+		{
+			overviews.Add($"PC(s): {pc}");
+		}
 		if (mac > 0)
 		{
-			overviews.Add($"Macs: {mac}");
+			overviews.Add($"Mac(s): {mac}");
 		}
 		if (linux > 0)
 		{
@@ -85,8 +98,9 @@ public class TargetService : ITargetService
 		}
 		if (ipRange > 0)
 		{
-			overviews.Add($"IP Ranges: {ipRange}");
+			overviews.Add($"IP Range(s): {ipRange}");
 		}
+
 		return overviews;
 	}
 
@@ -116,11 +130,12 @@ public class TargetService : ITargetService
 			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
 			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
 			new(){ Domains = [new WindowsDirectory("d1", "your Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ Tenants = [new AzureTenant("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ AzureSubscriptions = [new AzureSubscription("a1", "my Windows AD", "id1", new SenservaCredentionals("bob"))]},
-			new(){ IPRanges = [new IPRange("100.100", "my Windows AD", new SenservaCredentionals("bob"))]},
-			new(){ AzureSubscriptions = [new AzureSubscription("a1", "use me if you have extra cash and time", "id1", new SenservaCredentionals("bob"))]},
+			new(){ Tenants = [new AzureTenant("t1", "my tenant", "id1", new SenservaCredentionals("bob"))]},
+			new(){ AzureSubscriptions = [new AzureSubscription("s1", "my subscription", "id1", new SenservaCredentionals("bob"))]},
+			new(){ IPRanges = [new IPRange("100.100", "my IPRanges", new SenservaCredentionals("bob"))]},
+			new(){ AzureSubscriptions = [new AzureSubscription("s2", "subscription", "id2", new SenservaCredentionals("bob"))]},
 			new(){ Macs = [new Mac("a1", "Use me if you have extra cash", new SenservaCredentionals("bob"))]},
+			new(){ PCs = [new PC("pc1", "I break sooner but cost less. Microsoft is evil.", new SenservaCredentionals("bob"))]},
 			new(){ Linuxcies = [new Linux("a1", "use me if you have extra time", new SenservaCredentionals("bob"))]}
 		};
 		return list;
@@ -216,6 +231,24 @@ public class TargetService : ITargetService
 			}
 		}
 
+		return list.ToImmutableList();
+	}
+
+	public async Task<IImmutableList<PC>> GetPC(Technique technique, CancellationToken ct)
+	{
+		var list = new List<PC>
+		{
+		};
+		foreach (var target in GetFakeData())
+		{
+			if (target.PCs?.Count > 0)
+			{
+				foreach (var pc in target.PCs)
+				{
+					list.Add(pc);
+				}
+			}
+		}
 		return list.ToImmutableList();
 	}
 

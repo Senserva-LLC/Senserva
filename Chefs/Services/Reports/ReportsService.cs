@@ -53,7 +53,7 @@ public class ReportsService(
 	public async Task<IImmutableList<Report>> GetByCategory(int categoryId, CancellationToken ct)
 	{
 		var recipesData = await GetReportsAsync();
-		return recipesData.Where(r => r.Category?.Id == categoryId).Select(r => r).ToImmutableList() ?? [];
+		return recipesData.Where(r => r.Technique.Category?.Id == categoryId).Select(r => r).ToImmutableList() ?? [];
 	}
 
 	public async Task<IImmutableList<CategoryWithCount>> GetCategoriesWithCount(CancellationToken ct)
@@ -72,7 +72,7 @@ public class ReportsService(
 	public async Task<IImmutableList<Report>> GetRecent(CancellationToken ct)
 	{
 		return await GetReportsAsync();
-		//	return recipesData?.Select(r => new Technique(r)).OrderByDescending(x => x.Date).Take(7).ToImmutableList() ?? ImmutableList<Technique>.Empty;
+		//	return recipesData?.Select(r => new Technique(r)).OrderByDescending(x => x.Created).Take(7).ToImmutableList() ?? ImmutableList<Technique>.Empty;
 	}
 
 	public async Task<IImmutableList<Report>> GetTrending(CancellationToken ct)
@@ -225,6 +225,6 @@ public class ReportsService(
 	private IImmutableList<Report> GetTechniquesByText(IEnumerable<Report> recipes, string text)
 		=> recipes
 			.Where(r => r.Name?.Contains(text, StringComparison.OrdinalIgnoreCase) == true
-						|| r.Category?.Name.ToString()?.Contains(text, StringComparison.OrdinalIgnoreCase) == true)
+						|| r.Technique.Category?.Name.ToString()?.Contains(text, StringComparison.OrdinalIgnoreCase) == true)
 			.ToImmutableList();
 }

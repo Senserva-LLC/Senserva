@@ -3,22 +3,20 @@
 public partial record ReportModel
 {
 	private readonly INavigator _navigator;
-	private readonly ITechniqueService _techniqueService;
-	private readonly ICookbookService _cookbookService;
+	private readonly ITechniqueService _service;
 	private readonly IMessenger _messenger;
-	public Report Report { get; }
+	public Technique Technique { get; }
 
 	public ReportModel(
-		Report report,
+		Technique technique,
 		INavigator navigator,
 		ITechniqueService recipeService,
-		ICookbookService cookbookService,
 		IMessenger messenger)
 	{
-		Report = report;
+		Technique = technique;
 		_navigator = navigator;
-		_techniqueService = recipeService;
-		_cookbookService = cookbookService;
+		_service = recipeService;
 		_messenger = messenger;
 	}
+
 }

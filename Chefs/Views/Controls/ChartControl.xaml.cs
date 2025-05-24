@@ -9,7 +9,7 @@ using SkiaSharp;
 namespace Simeserva.Views.Controls;
 public sealed partial class ChartControl : UserControl
 {
-	private Technique? _recipe;
+	private Technique? _technique;
 
 
 	public SolidColorBrush UserRiskBrush
@@ -65,7 +65,7 @@ public sealed partial class ChartControl : UserControl
 	{
 		if (dependencyObject is not ChartControl chartControl) return;
 
-		if (chartControl._recipe != null)
+		if (chartControl._technique != null)
 		{
 			chartControl.BuildColumnChart();
 			chartControl.BuildDoughnutChart();
@@ -76,8 +76,8 @@ public sealed partial class ChartControl : UserControl
 	{
 		this.InitializeComponent();
 
-		_recipe = DataContext as Technique;
-		if (_recipe != null)
+		_technique = DataContext as Technique;
+		if (_technique != null)
 		{
 			BuildColumnChart();
 			BuildDoughnutChart();
@@ -88,9 +88,9 @@ public sealed partial class ChartControl : UserControl
 
 	private void OnDataContextChanged(FrameworkElement sender, DataContextChangedEventArgs args)
 	{
-		_recipe = args.NewValue as Technique;
+		_technique = args.NewValue as Technique;
 
-		if (_recipe != null)
+		if (_technique != null)
 		{
 			BuildColumnChart();
 			BuildDoughnutChart();
@@ -102,9 +102,9 @@ public sealed partial class ChartControl : UserControl
 		//Build column chart
 		var _chartdata = new RiskChartItem[]
 		 {
-			new(nameof(Risks.DataRisk),_recipe?.Risks.DataRisk,_recipe?.Risks.DataRiskBase,GetNutritionColorPaint(nameof(Risks.DataRisk))),
-			new(nameof(Risks.UserRisk),_recipe?.Risks.UserRisk,_recipe?.Risks.UserRiskBase,GetNutritionColorPaint(nameof(Risks.UserRisk))),
-			new(nameof(Risks.DeviceRisk),_recipe?.Risks.DeviceRisk,_recipe?.Risks.DeviceRiskBase, GetNutritionColorPaint(nameof(Risks.DeviceRisk)))
+			new(nameof(Risks.DataRisk),_technique?.Risks.DataRisk,_technique?.Risks.DataRiskBase,GetColorPaint(nameof(Risks.DataRisk))),
+			new(nameof(Risks.UserRisk),_technique?.Risks.UserRisk,_technique?.Risks.UserRiskBase,GetColorPaint(nameof(Risks.UserRisk))),
+			new(nameof(Risks.DeviceRisk),_technique?.Risks.DeviceRisk,_technique?.Risks.DeviceRiskBase, GetColorPaint(nameof(Risks.DeviceRisk)))
 		 };
 
 		var rowSeries = new RowSeries<RiskChartItem>
@@ -156,19 +156,19 @@ public sealed partial class ChartControl : UserControl
 			new PieSeries<int>
 			{
 				Values = new []{ 5 },
-				Fill = GetNutritionColorPaint(nameof(Risks.DeviceRisk)),
+				Fill = GetColorPaint(nameof(Risks.DeviceRisk)),
 				InnerRadius = 60,
 			},
 			new PieSeries<int>
 			{
 				Values = new []{ 5 },
-				Fill = GetNutritionColorPaint(nameof(Risks.UserRisk)),
+				Fill = GetColorPaint(nameof(Risks.UserRisk)),
 				InnerRadius = 60,
 			},
 			new PieSeries<int>
 			{
 				Values = new []{ 5 },
-				Fill = GetNutritionColorPaint(nameof(Risks.DataRisk)),
+				Fill = GetColorPaint(nameof(Risks.DataRisk)),
 				InnerRadius = 60,
 			}
 		};
@@ -176,7 +176,7 @@ public sealed partial class ChartControl : UserControl
 		pieChart.Series = c;
 	}
 
-	private SolidColorPaint GetNutritionColorPaint(string name)
+	private SolidColorPaint GetColorPaint(string name)
 	{
 		return name switch
 		{

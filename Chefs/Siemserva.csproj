@@ -225,10 +225,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="LiveChartsCore.SkiaSharpView.Uno.WinUI" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Update="Views\FavoriteTechniquesPage.xaml.cs">
 	    <DependentUpon>FavoriteTechniquesPage.xaml</DependentUpon>
 	  </Compile>
@@ -298,6 +294,22 @@
 
 	<ItemGroup>
 	  <PRIResource Remove="Services\Serialization\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="LiveChartsCore.SkiaSharpView.Uno.WinUI" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\Controls\TechniqueControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\Controls\BasicNav.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 
 </Project>

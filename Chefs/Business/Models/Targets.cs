@@ -26,7 +26,7 @@ public partial record WindowsDirectory(string Name, string Description, string I
 public partial record WindowsWorkgroup(string Name, string Description, SenservaCredentionals Credentionals);
 
 public partial record Mac(string Name, string Description, SenservaCredentionals Credentionals);
-
+public partial record PC(string Name, string Description, SenservaCredentionals Credentionals);
 public partial record Linux(string Name, string Description, SenservaCredentionals Credentionals);
 
 /// https://github.com/jsakamoto/ipaddressrange/
@@ -48,6 +48,7 @@ public partial record Targets : ISenservaEntity
 	public List<WindowsWorkgroup> WorkGroups = [];
 	public List<AzureTenant> Tenants = [];
 	public List<AzureSubscription> AzureSubscriptions = [];
+	public List<PC> PCs = [];
 	public List<Mac> Macs = [];
 	public List<Linux> Linuxcies = [];
 
