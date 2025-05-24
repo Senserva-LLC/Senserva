@@ -11,6 +11,8 @@ public interface ITargetService
 	public Task<IImmutableList<WindowsDirectory>> GetWindowsDirectories(Technique technique, CancellationToken ct);
 	public Task<IImmutableList<WindowsWorkgroup>> GetWindowsWorkgroups(Technique technique, CancellationToken ct);
 	public Task<IImmutableList<Mac>> GetMac(Technique technique, CancellationToken ct);
+	public Task<IImmutableList<PC>> GetPC(Technique technique, CancellationToken ct);
+	
 	public Task<IImmutableList<Linux>> GetLinux(Technique technique, CancellationToken ct);
 	public Task<IImmutableList<IPRange>> GetIpRanges(Technique technique, CancellationToken ct);
 

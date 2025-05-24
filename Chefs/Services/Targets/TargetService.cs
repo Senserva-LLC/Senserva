@@ -224,6 +224,24 @@ public class TargetService : ITargetService
 		return list.ToImmutableList();
 	}
 
+	public async Task<IImmutableList<PC>> GetPC(Technique technique, CancellationToken ct)
+	{
+		var list = new List<PC>
+		{
+		};
+		foreach (var target in GetFakeData())
+		{
+			if (target.PCs?.Count > 0)
+			{
+				foreach (var pc in target.PCs)
+				{
+					list.Add(pc);
+				}
+			}
+		}
+		return list.ToImmutableList();
+	}
+
 	public async Task<IImmutableList<Mac>> GetMac(Technique technique, CancellationToken ct)
 	{
 		var list = new List<Mac>

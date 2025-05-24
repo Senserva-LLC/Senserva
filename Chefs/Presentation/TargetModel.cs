@@ -34,6 +34,10 @@ public partial record TargetsModel
 
 	public IListFeed<WindowsDirectory> Domains => ListFeed.Async(async ct => await _service.GetWindowsDirectories(_technique, ct));
 
+	public IListFeed<WindowsWorkgroup> Workgroups => ListFeed.Async(async ct => await _service.GetWindowsWorkgroups(_technique, ct));
+
+	public IListFeed<PC> PCs => ListFeed.Async(async ct => await _service.GetPC(_technique, ct));
+
 	public IListFeed<Mac> Mac => ListFeed.Async(async ct => await _service.GetMac(_technique, ct));
 
 	public IListFeed<Linux> Linux => ListFeed.Async(async ct => await _service.GetLinux(_technique, ct));
