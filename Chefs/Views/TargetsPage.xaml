@@ -112,7 +112,6 @@
             uen:Region.Attached="True"
             utu:AutoLayout.PrimaryAlignment="Stretch"
             Background="{ThemeResource BackgroundBrush}">
-
 			<utu:TabBar
                 uen:Region.Attached="True"
                 Background="{ThemeResource BackgroundBrush}"
@@ -120,8 +119,9 @@
 				<utu:TabBarItem
                     uen:Region.Name="CloudTab"
                     Content="Cloud"
+					IsSelected="True"
                     Foreground="{ThemeResource OnSurfaceMediumBrush}"
-                    IsSelected="True" />
+                    />
 				<utu:TabBarItem
                     uen:Region.Name="WindowsTab"
                     Content="Windows"
@@ -145,65 +145,69 @@
                 utu:AutoLayout.PrimaryAlignment="Stretch"
                 HorizontalScrollMode="Enabled">
 				<Grid uen:Region.Attached="True" uen:Region.Navigator="Visibility">
-
-					<!--  Cloud  -->
-					<Grid
+						<!--  Cloud  -->
+						<Grid
+							Grid.Row="0" Grid.Column="0"
                         Padding="0,16"
                         HorizontalAlignment="Center"
                         uen:Region.Name="CloudTab"
                         ColumnDefinitions="250, 250"
                         RowDefinitions="Auto, *"
                         Visibility="Collapsed">
-						<TextBlock Grid.Row="0" Grid.Column="0">Azure Subscriptions</TextBlock>
-						<uer:FeedView
-                            x:Name="AzureSubscriptionsFeed"
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            NoneTemplate="{StaticResource EmptyTemplate}"
-                            Source="{Binding AzureSubscriptions}">
-							<DataTemplate>
-								<utu:AutoLayout>
-									<utu:AutoLayout
+							<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical">
+								<TextBlock >Azure Subscriptions</TextBlock>
+								<uer:FeedView
+									x:Name="AzureSubscriptionsFeed"
+									Grid.Row="1"
+									Grid.Column="0"
+									NoneTemplate="{StaticResource EmptyTemplate}"
+									Source="{Binding AzureSubscriptions}">
+									<DataTemplate>
+										<utu:AutoLayout>
+											<utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
                                         Visibility="Visible">
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
-											<muxc:ItemsRepeater.Layout>
-												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-											</muxc:ItemsRepeater.Layout>
-										</muxc:ItemsRepeater>
-									</utu:AutoLayout>
-								</utu:AutoLayout>
-							</DataTemplate>
-						</uer:FeedView>
-						<TextBlock Grid.Row="0" Grid.Column="1">Azure Tenants</TextBlock>
+												<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
+													<muxc:ItemsRepeater.Layout>
+														<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+													</muxc:ItemsRepeater.Layout>
+												</muxc:ItemsRepeater>
+											</utu:AutoLayout>
+										</utu:AutoLayout>
+									</DataTemplate>
+								</uer:FeedView>
+							</StackPanel>
+							<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+								<TextBlock>Azure Tenants</TextBlock>
 
-						<uer:FeedView
-                            x:Name="AzureTenantsFeed"
-                            Grid.Row="1"
-                            Grid.Column="1"
-                            NoneTemplate="{StaticResource EmptyTemplate}"
-                            Source="{Binding AzureTenants}">
-							<DataTemplate>
-								<utu:AutoLayout>
-									<utu:AutoLayout
-                                        Padding="0,16"
-                                        Spacing="16"
-                                        Visibility="Visible">
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
-											<muxc:ItemsRepeater.Layout>
-												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-											</muxc:ItemsRepeater.Layout>
-										</muxc:ItemsRepeater>
-									</utu:AutoLayout>
+								<uer:FeedView
+									x:Name="AzureTenantsFeed"
+									Grid.Row="1"
+									Grid.Column="1"
+									NoneTemplate="{StaticResource EmptyTemplate}"
+									Source="{Binding AzureTenants}">
+									<DataTemplate>
+										<utu:AutoLayout>
+											<utu:AutoLayout
+												Padding="0,16"
+												Spacing="16"
+												Visibility="Visible">
+												<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
+													<muxc:ItemsRepeater.Layout>
+														<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+													</muxc:ItemsRepeater.Layout>
+												</muxc:ItemsRepeater>
+											</utu:AutoLayout>
 
-								</utu:AutoLayout>
-							</DataTemplate>
-						</uer:FeedView>
-					</Grid>
+										</utu:AutoLayout>
+									</DataTemplate>
+								</uer:FeedView>
+							</StackPanel>
+						</Grid>
 
-					<!--  Windows  -->
-					<Grid
+						<!--  Windows  -->
+						<Grid
                         Padding="0,16"
                         uen:Region.Name="WindowsTab"
                         ColumnDefinitions="250, 250, 250"
@@ -214,26 +218,26 @@
                                             Style="{StaticResource LabelLarge}"
                                             Text="Domains"
                                             TextWrapping="Wrap" />
-							<uer:FeedView
+								<uer:FeedView
 								x:Name="WindowsDomainsFeed"
 								NoneTemplate="{StaticResource EmptyTemplate}"
 								Source="{Binding Domains}">
-								<DataTemplate>
-									<utu:AutoLayout>
-										<!--  Windows Domains  -->
-										<utu:AutoLayout
+									<DataTemplate>
+										<utu:AutoLayout>
+											<!--  Windows Domains  -->
+											<utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
                                         Visibility="Visible">
-											<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
-												<muxc:ItemsRepeater.Layout>
-													<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-												</muxc:ItemsRepeater.Layout>
-											</muxc:ItemsRepeater>
+												<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
+													<muxc:ItemsRepeater.Layout>
+														<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+													</muxc:ItemsRepeater.Layout>
+												</muxc:ItemsRepeater>
+											</utu:AutoLayout>
 										</utu:AutoLayout>
-									</utu:AutoLayout>
-								</DataTemplate>
-							</uer:FeedView>
+									</DataTemplate>
+								</uer:FeedView>
 							</StackPanel>
 							<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical">
 								<TextBlock
@@ -272,7 +276,7 @@
 									Source="{Binding PCs}">
 									<DataTemplate>
 										<utu:AutoLayout>
-											<!--  Windows Domains  -->
+										<!--  Windows PCs  -->
 											<utu:AutoLayout
 												Padding="0,16"
 												Spacing="16"
@@ -287,105 +291,105 @@
 									</DataTemplate>
 								</uer:FeedView>
 							</StackPanel>
-					</Grid>
+						</Grid>
 
-					<!--  Linux  -->
-					<Grid
+						<!--  Linux  -->
+						<Grid
                         Padding="0,16"
                         uen:Region.Name="LinuxTab"
                         Visibility="Collapsed">
-						<uer:FeedView
+							<uer:FeedView
                             x:Name="LinuxFeed"
                             NoneTemplate="{StaticResource EmptyTemplate}"
                             Source="{Binding Linux}">
-							<DataTemplate>
-								<utu:AutoLayout>
-									<!--  LinuxFeed  -->
-									<utu:AutoLayout
+								<DataTemplate>
+									<utu:AutoLayout>
+										<!--  LinuxFeed  -->
+										<utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
                                         Visibility="Visible">
-										<TextBlock
+											<TextBlock
                                             Foreground="{ThemeResource OnSurfaceBrush}"
                                             Style="{StaticResource LabelLarge}"
-                                            Text="Today"
+                                            Text="Linux"
                                             TextWrapping="Wrap" />
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
-											<muxc:ItemsRepeater.Layout>
-												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-											</muxc:ItemsRepeater.Layout>
-										</muxc:ItemsRepeater>
+											<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
+												<muxc:ItemsRepeater.Layout>
+													<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+												</muxc:ItemsRepeater.Layout>
+											</muxc:ItemsRepeater>
+										</utu:AutoLayout>
 									</utu:AutoLayout>
-								</utu:AutoLayout>
-							</DataTemplate>
-						</uer:FeedView>
-					</Grid>
+								</DataTemplate>
+							</uer:FeedView>
+						</Grid>
 
-					<!--  Mac  -->
-					<Grid
+						<!--  Mac  -->
+						<Grid
                         Padding="0,16"
                         uen:Region.Name="MacTab"
                         Visibility="Collapsed">
-						<uer:FeedView
+							<uer:FeedView
                             x:Name="MacFeed"
                             NoneTemplate="{StaticResource EmptyTemplate}"
                             Source="{Binding Mac}">
-							<DataTemplate>
-								<utu:AutoLayout>
-									<!--  Mac  -->
-									<utu:AutoLayout
+								<DataTemplate>
+									<utu:AutoLayout>
+										<!--  Mac  -->
+										<utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
                                         Visibility="Visible">
-										<TextBlock
+											<TextBlock
                                             Foreground="{ThemeResource OnSurfaceBrush}"
                                             Style="{StaticResource LabelLarge}"
-                                            Text="Today"
+                                            Text="Mac"
                                             TextWrapping="Wrap" />
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
-											<muxc:ItemsRepeater.Layout>
-												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-											</muxc:ItemsRepeater.Layout>
-										</muxc:ItemsRepeater>
+											<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
+												<muxc:ItemsRepeater.Layout>
+													<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+												</muxc:ItemsRepeater.Layout>
+											</muxc:ItemsRepeater>
+										</utu:AutoLayout>
 									</utu:AutoLayout>
-								</utu:AutoLayout>
-							</DataTemplate>
-						</uer:FeedView>
-					</Grid>
+								</DataTemplate>
+							</uer:FeedView>
+						</Grid>
 
-					<!--  IP Range  -->
-					<Grid
+						<!--  IP Range  -->
+						<Grid
                         Padding="0,16"
                         uen:Region.Name="IPRangeTab"
                         Visibility="Collapsed">
-						<uer:FeedView
+							<uer:FeedView
                             x:Name="IPRange"
                             NoneTemplate="{StaticResource EmptyTemplate}"
                             Source="{Binding IPRange}">
-							<DataTemplate>
-								<utu:AutoLayout>
-									<!--  IPRange  -->
-									<utu:AutoLayout
+								<DataTemplate>
+									<utu:AutoLayout>
+										<!--  IPRange  -->
+										<utu:AutoLayout
                                         Padding="0,16"
                                         Spacing="16"
                                         Visibility="Visible">
-										<TextBlock
+											<TextBlock
                                             Foreground="{ThemeResource OnSurfaceBrush}"
                                             Style="{StaticResource LabelLarge}"
                                             Text="IPRange"
                                             TextWrapping="Wrap" />
-										<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
-											<muxc:ItemsRepeater.Layout>
-												<muxc:StackLayout Orientation="Vertical" Spacing="2" />
-											</muxc:ItemsRepeater.Layout>
-										</muxc:ItemsRepeater>
+											<muxc:ItemsRepeater ItemTemplate="{StaticResource TargetsTemplate}" ItemsSource="{Binding Data}">
+												<muxc:ItemsRepeater.Layout>
+													<muxc:StackLayout Orientation="Vertical" Spacing="2" />
+												</muxc:ItemsRepeater.Layout>
+											</muxc:ItemsRepeater>
+										</utu:AutoLayout>
 									</utu:AutoLayout>
-								</utu:AutoLayout>
-							</DataTemplate>
-						</uer:FeedView>
-					</Grid>
+								</DataTemplate>
+							</uer:FeedView>
+						</Grid>
 
-				</Grid>
+					</Grid>
 			</ScrollViewer>
 		</utu:AutoLayout>
 	</utu:AutoLayout>
