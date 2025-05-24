@@ -46,11 +46,6 @@
 								<RowDefinition Height="Auto" />
 								<RowDefinition Height="Auto" />
 							</Grid.RowDefinitions>
-							<TextBlock
-								  Grid.Row="0"
-								Foreground="{ThemeResource OnBackgroundBrush}"
-								Style="{StaticResource TitleLarge}"
-								Text="{Binding Name}"/>
 							<ctrl:ChartControl
 									DataContext="{Binding }"
 									DataLabelBrush="{ThemeResource NutritionDataLabelBrush}"

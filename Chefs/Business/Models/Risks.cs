@@ -25,4 +25,14 @@ public partial record Risks
 
 	public double? DeviceRisk { get; }
 	public double? DeviceRiskBase { get; }
+
+	public Risks()
+	{
+		DataRisk = 10;
+		DataRiskBase = 3;
+		UserRisk = 4;
+		UserRiskBase = 2;
+		DeviceRisk = 6;
+		DeviceRiskBase = 1;
+	}
 }
