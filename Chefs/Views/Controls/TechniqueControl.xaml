@@ -43,6 +43,11 @@
 						<PathIcon Data="{Binding IsFavorited, Converter={StaticResource BoolToHeartIconConverter}, FallbackValue={StaticResource Icon_Heart}, TargetNullValue={StaticResource Icon_Heart}}" />
 					</AppBarButton.Icon>
 				</AppBarButton>
+				<AppBarButton uen:Navigation.Data="{Binding Technique}" uen:Navigation.Request="!Settings">
+					<AppBarButton.Icon>
+						<PathIcon Data="{StaticResource Icon_Settings}" />
+					</AppBarButton.Icon>
+				</AppBarButton>
 			</utu:NavigationBar.PrimaryCommands>
 		</utu:NavigationBar>
 
