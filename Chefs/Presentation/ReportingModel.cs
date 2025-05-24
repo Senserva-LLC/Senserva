@@ -41,12 +41,9 @@ public partial record ReportingModel
 
 
 	// TODO put in name and type
-	public string Title => $"Report {Report.Name} - {Report.Type} ";
+	public string Title => $"Report {Report.Name} - {Report.Description} ";
 
 	public IState<bool> IsFavorited => State.Value(this, () => Report.IsFavorite);
-
-	public IState<SenservaUser> User => State.Async(this, async ct => await _userService.GetById(Report.UserId, ct))
-		.Observe(_messenger, u => u.Id);
 
 	public IFeed<SenservaUser> CurrentUser => Feed.Async(async ct => await _userService.GetCurrent(ct));
 

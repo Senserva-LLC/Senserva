@@ -300,4 +300,10 @@
 	  <PRIResource Remove="Services\Serialization\**" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Page Update="Views\Controls\TechniqueControl.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
 </Project>
