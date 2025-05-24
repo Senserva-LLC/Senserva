@@ -1,4 +1,4 @@
-namespace Chefs.Business.Models;
+namespace Simeserva.Business.Models;
 
 /// <summary>
 /// content of item of interest, for events its event data,
@@ -7,8 +7,12 @@ namespace Chefs.Business.Models;
 /// </summary>
 public record Content
 {
-	public string? UrlIcon { get; set; }
 	public string? Name { get; init; }
-	public string? Quantity { get; init; }
-	public string? NameQuantity => $"{Name} - {Quantity}";
+	public string? Value { get; init; }
+
+	public Content(string name, string value)
+	{
+		Name = name;
+		Value = value;
+	}
 }

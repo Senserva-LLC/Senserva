@@ -1,9 +1,16 @@
-using Chefs.Services.LiveData;
-using Chefs.Services.Settings;
-using Chefs.Views.Flyouts;
+using Simeserva.Services.LiveData;
+using Simeserva.Services.Settings;
+using Simeserva.Views.Flyouts;
 using Microsoft.Extensions.Configuration;
+using Siemserva.Views;
+using Simeserva.Services.Policies;
+using Simeserva.Services.Reports;
+using Simeserva.Services.Commands;
+using Siemserva.Services.Target;
+using Siemserva.Business.Models;
+using Uno.Extensions.Navigation;
 
-namespace Chefs;
+namespace Simeserva;
 
 /*
  * https://www.wallarm.com/what/what-is-json-rpc
@@ -94,6 +101,11 @@ public partial class App : Application
 						.AddSingleton<INotificationService, NotificationService>()
 						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<ISettingsService, SettingsService>()
+						.AddSingleton<IReportsService, ReportsService>()
+						.AddSingleton<ITargetService, TargetService>()
+						.AddSingleton<IPoliciesService, PoliciesService>()
+						.AddSingleton<ICommandsService, CommandsService>()
+						.AddSingleton<ITechniqueService, TechniqueService>()
 						.AddSingleton<IUserService, UserService>()
 						.AddSingleton<ILiveDataService, LiveDataService>();
 				})
@@ -107,8 +119,8 @@ public partial class App : Application
 							};
 					config.AddInMemoryCollection(appsettingsPrefix);
 				})
-				.UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes,
-					configure: navConfig => navConfig with { AddressBarUpdateEnabled = false },
+				.UseNavigation(Siemserva.ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes,
+					configure: navConfig => navConfig with { AddressBarUpdateEnabled = true },
 					configureServices: ConfigureNavServices));
 	}
 
@@ -152,19 +164,22 @@ public partial class App : Application
 			new ViewMap<MainPage, MainModel>(),
 			new ViewMap<WelcomePage, WelcomeModel>(),
 			new DataViewMap<FiltersPage, FilterModel, SearchFilter>(),
-			new ViewMap<HomePage, HomeModel>(),
-			new DataViewMap<CreateUpdateCookbookPage, CreateUpdateCookbookModel, Cookbook>(),
+			new ViewMap<HomePage, HomeModel>(), new DataViewMap<CreateUpdateCookbookPage, CreateUpdateCookbookModel, Cookbook>(),
 			new ViewMap<LoginPage, LoginModel>(ResultData: typeof(Credentials)),
 			new ViewMap<RegistrationPage, RegistrationModel>(),
-			new ViewMap<NotificationsPage, NotificationsModel>(),
+			new ViewMap<NotificationsPage, NotificationModel>(),
 			new ViewMap<ProfilePage, ProfileModel>(Data: new DataMap<SenservaUser>(), ResultData: typeof(ISenservaEntity)),
-			new ViewMap<TechniqueDetailsPage, TechniqueDetailsModel>(Data: new DataMap<Technique>()),
+			new ViewMap<PoliciesPage, PoliciesModel>(Data: new DataMap<Policy>()),
+			new ViewMap<TechniquePage, TechniqueModel>(Data: new DataMap<Technique>()),
+			new ViewMap<ReportingPage, ReportingModel>(Data: new DataMap<Report>()),
+			new ViewMap<ReportPage, ReportModel>(Data: new DataMap<Report>()),
+			new ViewMap<CommandsPage, SenservaCommandModel>(Data: new DataMap<SenservaCommand>()),
 			new ViewMap<FavoriteTechniquesPage, FavoriteTechniquesModel>(),
-			new ViewMap<PoliciesPage, PoliciesModel>(),
 			new ViewMap<LiveDataPage, LiveDataModel>(),
 			new DataViewMap<SearchPage, SearchModel, SearchFilter>(),
+			new ViewMap<TargetsPage, TargetsModel>(Data: new DataMap<Technique>()),
 			new ViewMap<SettingsPage, SettingsModel>(Data: new DataMap<SenservaUser>()),
-			new ViewMap<LiveCookingPage, LiveCookingModel>(Data: new DataMap<LiveCookingParameter>()),
+			new ViewMap<LiveCookingPage, RemediateModel>(Data: new DataMap<RemediateParameter>()),
 			new ViewMap<CookbookDetailPage, CookbookDetailModel>(Data: new DataMap<Cookbook>()),
 			new ViewMap<CompletedDialog>(),
 			new ViewMap<GenericDialog, GenericDialogModel>(Data: new DataMap<DialogInfo>())
@@ -182,6 +197,8 @@ public partial class App : Application
 						#region Main Tabs
 						new RouteMap("Home", View: views.FindByViewModel<HomeModel>(), IsDefault: true),
 						new RouteMap("Search", View: views.FindByViewModel<SearchModel>()),
+						new RouteMap("Reports", View: views.FindByViewModel<ReportingModel>()),
+						new RouteMap("Commands", View: views.FindByViewModel<SenservaCommandModel>()),
 						new RouteMap("Policies", View: views.FindByViewModel<PoliciesModel>()),
 						new RouteMap("FavoriteTechniques", View: views.FindByViewModel<FavoriteTechniquesModel>()),
 						#endregion
@@ -190,10 +207,12 @@ public partial class App : Application
 						new RouteMap("UpdateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 						new RouteMap("CreateCookbook", View: views.FindByViewModel<CreateUpdateCookbookModel>()),
 
-						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueDetailsModel>()),
-						new RouteMap("LiveCooking", View: views.FindByViewModel<LiveCookingModel>()),
+						new RouteMap("TechniqueDetails", View: views.FindByViewModel<TechniqueModel>()),
+						new RouteMap("ReportPage", View: views.FindByViewModel<ReportModel>()),
+						new RouteMap("Remediate", View: views.FindByViewModel<RemediateModel>()),
 					]),
-					new RouteMap("Notifications", View: views.FindByViewModel<NotificationsModel>()),
+					new RouteMap("Notifications", View: views.FindByViewModel<NotificationModel>()),
+					new RouteMap("Targets", View: views.FindByViewModel<TargetsModel>()),
 					new RouteMap("Filter", View: views.FindByViewModel<FilterModel>()),
 					new RouteMap("Profile", View: views.FindByViewModel<ProfileModel>()),
 					new RouteMap("Settings", View: views.FindByViewModel<SettingsModel>()),

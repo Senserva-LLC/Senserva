@@ -1,4 +1,4 @@
-namespace Chefs.Services.Notifications;
+namespace Simeserva.Services.Notifications;
 
 /// <summary>
 /// Implements notification related methods

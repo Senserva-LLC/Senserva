@@ -1,10 +1,11 @@
-namespace Chefs.Presentation;
-public partial record NotificationsModel
+namespace Simeserva.Presentation;
+
+public partial record NotificationModel
 {
 	private readonly INavigator _navigator;
 	private readonly INotificationService _notificationService;
 
-	public NotificationsModel(INavigator navigator, INotificationService notificationService)
+	public NotificationModel(INavigator navigator, INotificationService notificationService)
 	{
 		_notificationService = notificationService;
 		_navigator = navigator;

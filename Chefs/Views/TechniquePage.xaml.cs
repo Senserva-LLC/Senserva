@@ -1,10 +1,10 @@
 using LiveChartsCore;
 
-namespace Chefs.Views;
+namespace Simeserva.Views;
 
-public sealed partial class TechniqueDetailsPage : Page
+public sealed partial class TechniquePage : Page
 {
-	public TechniqueDetailsPage()
+	public TechniquePage()
 	{
 		this.InitializeComponent();
 

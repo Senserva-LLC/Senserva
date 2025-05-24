@@ -1,3 +1,3 @@
-namespace Chefs.Business.Models;
+namespace Simeserva.Business.Models;
 
 public interface ISenservaEntity { }

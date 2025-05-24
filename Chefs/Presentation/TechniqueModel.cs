@@ -1,39 +1,39 @@
 
-namespace Chefs.Presentation;
+using Siemserva.Business.Models;
+using Siemserva.Services.Target;
 
-public partial record TechniqueDetailsModel
+namespace Simeserva.Presentation;
+
+public partial record TechniqueModel
 {
 	private readonly INavigator _navigator;
 	private readonly ITechniqueService _techniqueService;
 	private readonly IUserService _userService;
 	private readonly IMessenger _messenger;
+	private readonly ITargetService _targetService;
 
-	public TechniqueDetailsModel(
-		Technique recipe,
+	public TechniqueModel(
+		Technique technique,
 		INavigator navigator,
 		ITechniqueService recipeService,
 		IUserService userService,
-		IMessenger messenger)
+		IMessenger messenger, ITargetService target)
 	{
 		_navigator = navigator;
 		_techniqueService = recipeService;
 		_userService = userService;
 		_messenger = messenger;
+		_targetService = target;
 
-		Technique = recipe;
+		Technique = technique;
 	}
 
 	public Technique Technique { get; }
 
+	public IListFeed<string> Overviews => ListFeed.Async(async ct => await _targetService.GetOverview(Technique, ct));
+
 	// TODO put in name and type
 	public string Title => $"Technique {Technique.Name} - {Technique.Type} ";
-
-
-	/// <summary>
-	/// the big picture
-	/// </summary>
-	public IImmutableList<Content> Content
-		=> Technique.Content?.ToImmutableList() ?? [];
 
 	public IState<bool> IsFavorited => State.Value(this, () => Technique.IsFavorite);
 
@@ -46,14 +46,16 @@ public partial record TechniqueDetailsModel
 
 	public IListFeed<SecurityControl> Controls => ListFeed.Async(async ct => await _techniqueService.GetControls(Technique.Id, ct));
 
+	public IListFeed<Content> TechniqueContent => ListFeed.Async(async ct => await _techniqueService.GetContent(Technique.Id, ct));
+
 	public IListFeed<string> KeyDetails => ListFeed.Async(async ct => await _techniqueService.GetDetails(Technique.Id, ct));
 
 	public IListState<Compliance> Compliance => ListState
 		.Async(this, async ct => await _techniqueService.GetCompliance(Technique.Id, ct))
 		.Observe(_messenger, r => r.Id);
 
-	public async ValueTask LiveCooking(IImmutableList<RemediationStep> steps) =>
-		await _navigator.NavigateRouteAsync(this, "LiveCooking", data: new LiveCookingParameter(Technique, steps));
+	public async ValueTask Remediate(IImmutableList<RemediationStep> steps) =>
+		await _navigator.NavigateRouteAsync(this, "Remediate", data: new RemediateParameter(Technique, steps));
 
 	public async ValueTask Favorite(CancellationToken ct)
 	{

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Chefs.Views.Flyouts;
+using Simeserva.Views.Flyouts;
 using Uno.Extensions.Navigation;
 
-namespace Chefs.Presentation.Extensions;
+namespace Simeserva.Presentation.Extensions;
 
 public static class INavigatorExtensions
 {

@@ -1,6 +1,6 @@
 using Uno.UI.Extensions;
 
-namespace Chefs.Views;
+namespace Simeserva.Views;
 
 public sealed partial class ShellControl : UserControl, IContentControlProvider
 {

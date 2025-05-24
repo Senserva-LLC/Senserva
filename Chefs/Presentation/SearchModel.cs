@@ -1,15 +1,15 @@
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record SearchModel
 {
 	private readonly INavigator _navigator;
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
 	private readonly IMessenger _messenger;
 
 	public SearchModel(SearchFilter? filter, INavigator navigator, ITechniqueService recipeService, IMessenger messenger)
 	{
 		_navigator = navigator;
-		_recipeService = recipeService;
+		_techniqueService = recipeService;
 		_messenger = messenger;
 
 		Filter = State.Value(this, () => filter ?? new SearchFilter())
@@ -30,17 +30,17 @@ public partial record SearchModel
 
 	public IFeed<bool> HasFilter => Filter.Select(f => f.HasFilter);
 
-	public IListFeed<Technique> Recommended => ListFeed.Async(async ct => await _recipeService.GetRecommended(ct));
+	public IListFeed<Technique> Recommended => ListFeed.Async(async ct => await _techniqueService.GetRecommended(ct));
 
-	public IListFeed<Technique> FromChefs => ListFeed.Async(async ct => await _recipeService.GetFromChefs(ct));
+	public IListFeed<Technique> FromChefs => ListFeed.Async(async ct => await _techniqueService.GetFromChefs(ct));
 
-	public IListFeed<string> SearchHistory => ListFeed.Async(async ct => _recipeService.GetSearchHistory());
+	public IListFeed<string> SearchHistory => ListFeed.Async(async ct => _techniqueService.GetSearchHistory());
 
 	public async ValueTask ApplyHistory(string term) => await Term.SetAsync(term);
 
 	private async ValueTask<IImmutableList<Technique>> Search((string term, SearchFilter filter) inputs, CancellationToken ct)
 	{
-		var searchedTechniques = await _recipeService.Search(inputs.term, inputs.filter, ct);
+		var searchedTechniques = await _techniqueService.Search(inputs.term, inputs.filter, ct);
 		return searchedTechniques.Where(inputs.filter.Match).ToImmutableList();
 	}
 

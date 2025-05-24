@@ -11,7 +11,7 @@ using Uno.UITests.Helpers;
 using Xamarin.UITest.Shared.Extensions;
 using Query = System.Func<Uno.UITest.IAppQuery, Uno.UITest.IAppQuery>;
 
-namespace Chefs.UITests;
+namespace Simeserva.UITests;
 
 [AutoRetry(5)]
 public class Given_WelcomePage : TestBase

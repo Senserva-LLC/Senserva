@@ -1,7 +1,7 @@
 using System.Globalization;
 using Microsoft.UI.Xaml.Data;
 
-namespace Chefs.Converters;
+namespace Simeserva.Converters;
 
 public class StringFormatter : IValueConverter
 {

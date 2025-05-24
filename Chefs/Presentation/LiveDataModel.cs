@@ -1,5 +1,5 @@
 ﻿
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 /// <summary>
 /// TODO define this more

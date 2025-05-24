@@ -3,7 +3,7 @@ using NUnit.Framework.Interfaces;
 using NUnit.Framework.Internal;
 using NUnit.Framework.Internal.Commands;
 
-namespace Chefs.UITests;
+namespace Simeserva.UITests;
 /// <summary>
 /// Specifies that a test method should be rerun on failure up to the specified 
 /// maximum number of times.

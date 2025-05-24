@@ -1,5 +1,7 @@
 
-namespace Chefs.Business.Models;
+using Siemserva.Business.Models;
+
+namespace Simeserva.Business.Models;
 
 /// <summary>
 /// TODO build out
@@ -16,11 +18,22 @@ public record SecurityControl(string Name, string Description);
 public partial record Technique : ISenservaEntity
 {
 	public Guid Id { get; init; }
+
+	/// <summary>
+	/// target used by specific technique
+	/// </summary>
+	public Guid IdTarget { get; init; }
+
+	/// <summary>
+	/// policy used by specific technique
+	/// </summary>
+	public Guid IdPolicy { get; init; }
+
 	public Guid UserId { get; init; }
 
-	public string? ImageUrl { get; init; }
 	public string? Name { get; init; }
 	public TechniqueType Type { get; init; } = TechniqueType.Remediation;
+	public Targets Targets { get; init; } = new Targets();
 
 	/// <summary>
 	/// TODO can we get this reliability?
@@ -53,6 +66,7 @@ public partial record Technique : ISenservaEntity
 	public Technique()
 	{
 		Id = Guid.NewGuid();
+		IdTarget = Guid.NewGuid();
 		UserId = Guid.NewGuid();
 		Name = "test";
 		Date = DateTimeOffset.UtcNow;

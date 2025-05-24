@@ -1,9 +1,9 @@
 {
   "background_color": "#ffffff",
-  "description": "Chefs",
+  "description": "Simeserva",
   "display": "standalone",
-  "name": "Chefs",
-  "short_name": "Chefs",
+  "name": "Simeserva",
+  "short_name": "Simeserva",
   "start_url": "/index.html",
   "theme_color": "#ffffff",
   "scope": "/"

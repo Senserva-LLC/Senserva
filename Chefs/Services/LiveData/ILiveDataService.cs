@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Chefs.Services.LiveData;
+namespace Simeserva.Services.LiveData;
 
 public interface ILiveDataService
 {

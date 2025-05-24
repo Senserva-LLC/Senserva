@@ -1,31 +1,41 @@
-using Chefs.Services.LiveData;
+using Siemserva.Business.Models;
+using Siemserva.Services.Target;
+using Simeserva.Services.LiveData;
+using Simeserva.Services.Reports;
 
-namespace Chefs.Presentation;
+namespace Simeserva.Presentation;
 
 public partial record HomeModel
 {
 	private readonly INavigator _navigator;
-	private readonly ITechniqueService _recipeService;
+	private readonly ITechniqueService _techniqueService;
+	private readonly IReportsService _reportService;
 	private readonly IUserService _userService;
+	private readonly ITargetService _targetService;
 	private readonly IMessenger _messenger;
 	private readonly ILiveDataService _liveDataService;
 
-	public HomeModel(INavigator navigator, ITechniqueService recipe, IUserService userService, IMessenger messenger, ILiveDataService liveData)
+	public HomeModel(INavigator navigator, IReportsService reports, ITechniqueService techniques, IUserService userService, IMessenger messenger, ILiveDataService liveData, ITargetService target)
 	{
 		_navigator = navigator;
-		_recipeService = recipe;
+		_reportService = reports;
+		_techniqueService = techniques;
 		_userService = userService;
 		_messenger = messenger;
 		_liveDataService = liveData;
+		_targetService = target;
 	}
 
-	public IListState<Technique> TrendingNow => ListState
-		.Async(this, async ct => await _recipeService.GetTrending(ct))
+
+
+	public IListState<Technique> TrendingTechniques => ListState
+		.Async(this, async ct => await _techniqueService.GetTrending(ct))
 		.Observe(_messenger, r => r.Id);
 
-	public IListFeed<CategoryWithCount> Categories => ListFeed.Async(async ct => await _recipeService.GetCategoriesWithCount(ct));
 
-	public IListFeed<Technique> RecentlyAdded => ListFeed.Async(async ct => await _recipeService.GetRecent(ct));
+	public IListFeed<CategoryWithCount> Categories => ListFeed.Async(async ct => await _techniqueService.GetCategoriesWithCount(ct));
+
+	public IListFeed<Technique> RecentlyAdded => ListFeed.Async(async ct => await _techniqueService.GetRecent(ct));
 
 	public IListFeed<LiveDataModel> LiveData => ListFeed.Async(async ct => await _liveDataService.GetAll(ct));
 
@@ -41,5 +51,5 @@ public partial record HomeModel
 		await _navigator.NavigateRouteAsync(this, route: "/Main/-/Search", data: new SearchFilter(Category: categoryWithCount.Category), cancellation: ct);
 
 	public async ValueTask FavoriteTechnique(Technique recipe, CancellationToken ct) =>
-		await _recipeService.Favorite(recipe, ct);
+		await _techniqueService.Favorite(recipe, ct);
 }

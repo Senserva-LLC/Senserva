@@ -15,7 +15,7 @@
 		<OutputType>Exe</OutputType>
 		<UnoSingleProject>true</UnoSingleProject>
 		<!-- Display name -->
-		<ApplicationTitle>Chefs</ApplicationTitle>
+		<ApplicationTitle>Siemserva</ApplicationTitle>
 
 		<!-- Comment to use native rendering -->
 		<UseSkiaRendering Condition="'$(UseSkiaRendering)'==''">true</UseSkiaRendering>
@@ -72,25 +72,6 @@
 		<DefineConstants Condition="$(IsSkiaAndroid)">$(DefineConstants);IS_ANDROID_SKIA</DefineConstants>
 		<DefineConstants Condition="$(IsSkiaUIKit)">$(DefineConstants);IS_UIKIT_SKIA</DefineConstants>
 		<DefineConstants Condition="'$(UseSkiaRendering)'=='true'">$(DefineConstants);HAS_SKIA_RENDERER</DefineConstants>
-	</PropertyGroup>
-
-	<Choose>
-		<When Condition="$(IsWinAppSdk)">
-			<ItemGroup>
-				<PackageReference Include="Mapsui.WinUI" />
-				<PackageReference Include="LiveChartsCore.SkiaSharpView.WinUI" />
-			</ItemGroup>
-		</When>
-		<Otherwise>
-			<ItemGroup>
-				<PackageReference Include="Mapsui.Uno.WinUI" />
-				<PackageReference Include="LiveChartsCore.SkiaSharpView.Uno.WinUI" />
-			</ItemGroup>
-		</Otherwise>
-	</Choose>
-
-	<PropertyGroup Condition="'$(UseMocks)'=='true'">
-		<DefineConstants>$(DefineConstants);USE_MOCKS</DefineConstants>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -160,8 +141,8 @@
 				<EnablePackageSigning>true</EnablePackageSigning>
 				<EnableCodeSigning>true</EnableCodeSigning>
 
-				<_BaseCodesignProvision>Uno Chefs</_BaseCodesignProvision>
-				<_BaseCodesignProvision Condition="$(UseSkiaRendering)">Uno Chefs Skia</_BaseCodesignProvision>
+				<_BaseCodesignProvision>Siemserva</_BaseCodesignProvision>
+				<_BaseCodesignProvision Condition="$(UseSkiaRendering)">Siemserva Skia</_BaseCodesignProvision>
 				<CodesignProvision>$(_BaseCodesignProvision) (Catalyst)</CodesignProvision>
 				<CodesignProvision Condition="$(BUILD_SOURCEBRANCH.StartsWith('refs/heads/canaries'))">$(_BaseCodesignProvision) Canary (Catalyst)</CodesignProvision>
 			</PropertyGroup>
@@ -233,19 +214,35 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Code\" />
-	  <Folder Include="Services\Serialization\" />
+	  <Compile Remove="Services\Serialization\**" />
+	  <Content Remove="Services\Serialization\**" />
+	  <EmbeddedResource Remove="Services\Serialization\**" />
+	  <None Remove="Services\Serialization\**" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Code\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="LiveChartsCore.SkiaSharpView.Uno.WinUI" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\FavoriteTechniquesPage.xaml.cs">
+	    <DependentUpon>FavoriteTechniquesPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\LiveDataPage.xaml.cs">
 	    <DependentUpon>LiveDataPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\PoliciesPage.xaml.cs">
 	    <DependentUpon>PoliciesPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\TechniqueDetailsPage.xaml.cs">
-	    <DependentUpon>TechniqueDetailsPage.xaml</DependentUpon>
+	  <Compile Update="Views\TargetsPage.xaml.cs">
+	    <DependentUpon>TargetsPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\TechniquePage.xaml.cs">
+	    <DependentUpon>TechniquePage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -259,6 +256,48 @@
 	  <Page Update="Views\LiveDataPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\ReportingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\CommandsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\ReportPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Views\TargetsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Update="Presentation\Targets.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Services\Serialization\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Page Remove="Services\Serialization\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PRIResource Remove="Services\Serialization\**" />
 	</ItemGroup>
 
 </Project>

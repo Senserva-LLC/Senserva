@@ -1,6 +1,6 @@
 using Microsoft.UI.Xaml.Data;
 
-namespace Chefs.Converters;
+namespace Simeserva.Converters;
 
 public class FromNullToVisibilityConverter : IValueConverter
 {

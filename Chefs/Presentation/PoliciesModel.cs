@@ -1,22 +1,17 @@
 ﻿
-namespace Chefs.Presentation;
+using Simeserva.Services.Policies;
+
+namespace Simeserva.Presentation;
 
 public partial record PoliciesModel
 {
-	private readonly INavigator _navigator;
-	private readonly ITechniqueService _recipeService;
-	private readonly ICookbookService _cookbookService;
-	private readonly IMessenger _messenger;
+	private readonly IPoliciesService _service;
 
-	public PoliciesModel(
-		INavigator navigator,
-		ITechniqueService recipeService,
-		ICookbookService cookbookService,
-		IMessenger messenger)
+	public PoliciesModel(IPoliciesService service)
 	{
-		_navigator = navigator;
-		_recipeService = recipeService;
-		_cookbookService = cookbookService;
-		_messenger = messenger;
+		_service = service;
 	}
+
+	public IListFeed<Policy> Policies => ListFeed.Async(async ct => await _service.GetAll(ct));
 }
+

@@ -7,13 +7,13 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="Chefs"
-    Publisher="O=Chefs"
+    Name="Simeserva"
+    Publisher="O=Simeserva"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>Chefs</DisplayName>
-    <PublisherDisplayName>Chefs</PublisherDisplayName>
+    <DisplayName>Simeserva</DisplayName>
+    <PublisherDisplayName>Simeserva</PublisherDisplayName>
   </Properties>
 
   <Dependencies>
@@ -30,8 +30,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Chefs"
-        Description="Chefs">
+        DisplayName="Simeserva"
+        Description="Simeserva">
         <uap:SplashScreen />
       </uap:VisualElements>
     </Application>

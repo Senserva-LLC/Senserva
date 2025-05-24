@@ -1,5 +1,5 @@
 ﻿
-namespace Chefs.Services.LiveData;
+namespace Simeserva.Services.LiveData;
 
 public class LiveDataService : ILiveDataService
 {

@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		xaml-styler.json = xaml-styler.json
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chefs", "Chefs\Chefs.csproj", "{DAD54CCD-25BF-437D-915B-77E8205C74A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Siemserva", "Chefs\Siemserva.csproj", "{DAD54CCD-25BF-437D-915B-77E8205C74A8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chefs.UITests", "Chefs.UITests\Chefs.UITests.csproj", "{4B78AF19-4DA3-4CB0-B502-6C33F54F5A2A}"
 EndProject

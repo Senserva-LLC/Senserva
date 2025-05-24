@@ -6,7 +6,7 @@ using Uno.UITest.Helpers;
 using Uno.UITest.Selenium;
 using Uno.UITests.Helpers;
 
-namespace Chefs.UITests;
+namespace Simeserva.UITests;
 
 public class TestBase
 {

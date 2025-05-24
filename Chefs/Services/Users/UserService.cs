@@ -1,5 +1,5 @@
 
-namespace Chefs.Services.Users;
+namespace Simeserva.Services.Users;
 
 public class UserService(
 	IWritableOptions<Credentials> credentialOptions)

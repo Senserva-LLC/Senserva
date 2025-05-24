@@ -1,7 +1,7 @@
 using Microsoft.UI.Xaml.Data;
 
 #nullable disable
-namespace Chefs.Converters;
+namespace Simeserva.Converters;
 
 public class BoolToObjectConverter : IValueConverter
 {

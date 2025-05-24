@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Uno.UITest.Helpers.Queries;
 
-namespace Chefs.UITests;
+namespace Simeserva.UITests;
 
 public class Constants
 {

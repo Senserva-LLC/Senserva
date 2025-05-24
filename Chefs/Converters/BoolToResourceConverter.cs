@@ -1,6 +1,6 @@
 using Microsoft.UI.Xaml.Data;
 
-namespace Chefs.Converters;
+namespace Simeserva.Converters;
 class BoolToResourceConverter : IValueConverter
 {
 	public string? TrueValue { get; set; } = null;

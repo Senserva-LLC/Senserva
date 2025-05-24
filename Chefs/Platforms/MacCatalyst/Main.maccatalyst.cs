@@ -1,7 +1,7 @@
 using UIKit;
 using Uno.UI.Hosting;
 
-namespace Chefs.MacCatalyst;
+namespace Simeserva.MacCatalyst;
 
 public class EntryPoint
 {

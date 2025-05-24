@@ -1,5 +1,5 @@
 
-namespace Chefs.Views;
+namespace Simeserva.Views;
 
 public sealed partial class MainPage : Page
 {

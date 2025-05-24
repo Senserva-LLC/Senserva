@@ -6,7 +6,7 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using Microsoft.UI;
 using SkiaSharp;
 
-namespace Chefs.Views.Controls;
+namespace Simeserva.Views.Controls;
 public sealed partial class ChartControl : UserControl
 {
 	private Technique? _recipe;

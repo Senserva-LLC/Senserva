@@ -11,8 +11,8 @@
         BasedOn="{StaticResource NavigationBarStyle}"
         TargetType="utu:NavigationBar">
         <Setter Property="MainCommandStyle" Value="{StaticResource ChefsMainCommandStyle}" />
-        <Setter Property="Background" Value="{ThemeResource SurfaceInverseBrush}" />
-        <Setter Property="Foreground" Value="{ThemeResource OnSurfaceInverseBrush}" />
+        <Setter Property="Background" Value="{ThemeResource SurfaceBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource OnSurfaceBrush}" />
         <Setter Property="FontSize" Value="24" />
     </Style>
 
@@ -20,7 +20,7 @@
         x:Key="MaterialAppBarButtonStyle"
         BasedOn="{StaticResource AppBarButtonStyle}"
         TargetType="AppBarButton">
-        <Setter Property="Foreground" Value="{ThemeResource OnSurfaceInverseBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource OnSurfaceBrush}" />
     </Style>
 
     <Style
